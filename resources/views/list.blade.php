@@ -11,9 +11,9 @@
       <div id="nav-content">
           <ul>
               <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
-<!--               <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li> -->
-<!--                 <li><a href="{{ url('search') }}"><h3>リスト検索へ</h3></a></li>
- --><!--               <li><a href="{{ url('store') }}"><h3>画像一覧</h3></a></li>
+<!--               <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
+ -->              <!-- <li><a href="{{ url('search') }}"><h3>リスト検索へ</h3></a></li> -->
+<!--               <li><a href="{{ url('store') }}"><h3>画像一覧</h3></a></li>
  -->              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
           </ul>
           <div class="logout_buttom">
