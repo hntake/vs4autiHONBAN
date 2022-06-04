@@ -17,11 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
 /*             $table->string('role');
- */            $table->string('email')->charset("utf8")->unique();
+ */         $table->string('email')->charset("utf8")->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            // $table->string('stripe_id')->nullable()->index();
+            // $table->string('pm_type')->nullable();
+            // $table->string('pm_last_four', 4)->nullable();
+            // $table->timestamp('trial_ends_at')->nullable();
         });
     }
 

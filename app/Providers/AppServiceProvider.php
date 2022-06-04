@@ -10,7 +10,7 @@ use App\Models\Cashier\User;
 
 class AppServiceProvider extends ServiceProvider
 {
-   /*  /**
+     /**
      * Register any application services.
      *
      * @return void
@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Cashier::ignoreMigrations();
     }
- */
+
     /**
      * Bootstrap any application services.
      *
@@ -33,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
 
-        Cashier::useCustomerModel(User::class);
-
+/*         Cashier::useCustomerModel(User::class);
+ */
 
     }
 }

@@ -1,3 +1,6 @@
+html{
+    font-family:  "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+}
 body{
     background-color: #e7e7eb ;
 }
@@ -11,7 +14,10 @@ body{
 }
 input{
     height: 40px;
-    width: 200px;
+    width: 300px;
+}
+input#schedule_name{
+    width:250px;
 }
 ul {
     list-style: none;
@@ -35,8 +41,8 @@ a#navbarDropdown{
 
 } */
 .logout_buttom input{
-    width: 80px;
-    height: 25px;
+    width:fit-content;
+    height: auto;
 }
 header {
     padding:10px;
@@ -106,8 +112,9 @@ header {
     transition: .3s ease-in-out;
     -webkit-transform: translateX(-105%);
     transform: translateX(-105%);
+    padding-top: 20px;
+    ;
   }
-
   /*チェックがついたら表示させる*/
   #nav-input:checked ~ #nav-close {
     display: block;
@@ -140,13 +147,14 @@ header {
     }
   .panel-body{
     background-color:lightgreen;
-    width:80%;
+    width: 80%;
     height:auto;
-    margin: 0 50px;
+    margin: 20 auto;
     border: solid green;
     padding-bottom: 30px;
 }
-.py-4{/* mainエリア */
+/* mainエリア */
+.py-4{
     height:auto;
     text-align:center;
     margin-left:5px;
@@ -218,11 +226,17 @@ svg {
     margin-right: auto;
     margin-left: auto;
 }
+/*作成画面*/
+input#image.form-control{
+    margin-top: 10px;
+}
+.create_scshedule{
+}
+.create-group{
+    margin: 0 30%;
+}
 /*リスト画面*/
-.list{
-/*     padding: 0 35%;
- */}
-.button a{
+.list_button{
     color: #1422d1;
     background-color: #2feb00;
     text-decoration: none;
@@ -230,7 +244,9 @@ svg {
     padding: 3px 10px;
     font-weight: 500;
     border: solid green;
-}
+    margin-left: 10px;
+ }
+
 .route{
     overflow: hidden;
 }
@@ -273,6 +289,12 @@ svg {
 table.result{
     margin: 0px auto;
 }
+tr{
+
+}
+.col-sm-6{
+    width:max-content
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     img{
@@ -280,6 +302,7 @@ table.result{
     }
     .panel-body{
         padding-bottom: 30px;
+        width: fit-content;
     }
    .store-list{
        margin:0;
@@ -308,6 +331,14 @@ table.result{
         width: 50%;
 
     }
+    .create-group{
+        margin: 0;
+    }
+
+    input#image.form-control{
+        width: fit-content;
+        margin: 10px;
+    }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
         .button a{
             display: block;
@@ -316,5 +347,20 @@ table.result{
             width: 50%;
 
         }
+        input#image.form-control{
+            margin: 10px;
+        }
+        .col-sm-6{
+            width:max-content
+        }
+        .panel-body{
+            width:100%;
+        }
+        body{
+            min-width:initial;
+          }
+          .create-group{
+        margin: 0;
+    }
     }
     }

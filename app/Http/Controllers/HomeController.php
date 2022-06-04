@@ -23,13 +23,13 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    /* public function index() {
+     public function index() {
 
         //scheduleより最新のデータを取得
         $schedule = Schedule::orderBy('created_at', 'desc')->first();
 
         return view('home',compact('schedule'));
-    } */
+    } 
     /* public function index()
     {
         $schedules = Schedule::where('created_at', 'asc')->first();

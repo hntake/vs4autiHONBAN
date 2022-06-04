@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Stripe;
+use App\Models\User;
+use Carbon\Carbon;
 
 class StripeController extends Controller
 {
@@ -37,30 +39,32 @@ class StripeController extends Controller
         $plan=config('services.stripe.basic_plan_id');
 
         // 上記のプランと支払方法で、サブスクを新規作成する
-        $user->newSubscription('default', $plan)
+        $user->newSubscription('basic_plan', $plan)
         ->create($paymentMethod);
 
         // 処理後に'ルート設定'にページ移行
-        return redirect()->route('ルート設定');
+        return redirect()->route('receipt',$user);
     }
 
-    /* /**
-     * success response method.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /* public function stripePost(Request $request)
-    {
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create ([
-                "amount" => 100 * 100,
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => "Test payment from tutsmake.com."
-        ]);
+    public function receipt(User $user){
+        return view('receipt',compact('user'));
+    }
 
-        Session::flash('success', 'Payment successful!');
+    public function cancelsubscription(User $user, Request $request){
+        $user->subscription('basic_plan')->cancelNow();
+        return view('cancel');
+     }
 
-        return back();
-    } */ 
+    public function cancel(Request $request){
+        return view('cancel');
+    }
+     public function portalsubscription(User $user, Request $request){
+        return $request->user()->redirectToBillingPortal();
+     }
+
+     public function account(Request $request){
+        $user = Auth::user();
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->format('Y-m-d');
+        return view('account',compact('user','date'));
+     }
 }

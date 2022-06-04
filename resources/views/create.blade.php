@@ -10,10 +10,8 @@
       <div id="nav-content">
           <ul>
               <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
-              <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
-<!--               <li><a href="{{ url('search') }}"><h3>リスト検索へ</h3></a></li>
- --><!--               <li><a href="{{ url('store') }}"><h3>画像一覧</h3></a></li>
- -->              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
+              <li><a href="{{ url('account') }}"><h3>請求情報</h3></a></li>
+              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
           </ul>
       </div>
       <script>
@@ -33,47 +31,38 @@
 
 
   <h1>新規スケジュール作成</h1>
+  <p>画像は最低でも2枚以上は選んでください</p>
      <form action="{{ url('create') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <div class='form-group'>
-                    <div class="schedule">
+                <div class='create-group'>
+                    <div class="create_schedule">
                         <input type="text" name="schedule_name" id="schedule_name" class="form-control" size="15" placeholder="スケジュール名を入力">
                     </div>
 
-                    <div class='form-group'>
-                        <div class="col-sm-6">
+                    <div class='create'>
                             <input type="file" name="image0" id="image" class="form-control">
-                        </div>
                     </div>
-                    <div class='form-group'>
-                        <div class="col-sm-6">
+                    <div class='create'>
                             <input type="file" name="image1" id="image" class="form-control">
-                        </div>
                     </div>
-                    <div class='form-group'>
-                        <div class="col-sm-6">
+                    <div class='create'>
                             <input type="file" name="image2" id="image" class="form-control">
-                        </div>
                     </div>
-                    <div class='form-group'>
-                        <div class="col-sm-6">
+                    <div class='create'>
                             <input type="file" name="image3" id="image" class="form-control">
-                        </div>
                     </div>
-                    <div class='form-group'>
-                        <div class="col-sm-6">
+                    <div class='create'>
                             <input type="file" name="image4" id="image" class="form-control">
-                        </div>
                     </div>
 
 
+                    <div class="create-button">
+                            <div class="button">
+                                <button type="submit" >
+                                    <i class="fa fa-plus"></i> 作成する
+                                </button>
+                            </div>
             </div>
-            <div class="form-group">
-                    <div class="button">
-                        <button type="submit" >
-                            <i class="fa fa-plus"></i> 作成する
-                        </button>
-                    </div>
                  <!--    @if ($errors->any())
 	    <div class="alert alert-danger">
 	        <ul>

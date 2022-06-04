@@ -1,19 +1,26 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+
 @section('content')
 
-<div class="container py-3">
+<div class="card_container py-3">
   <h3 class="mb-3">ご登録フォーム</h3>
-
+    <div class="explain">
+        <p>自分の作ったスケジュールを保存して、いつでも見れるようにするには<span>月額プランがおすすめ！</span></p><br>
+        <p>月額100円のプランなります。</p><br>
+        <p>支払いはクレジットカード、Appl Pay、Google Payのみとなります。</p>
+        <p>支払いシステムはStripeを使用しております。StripeはAmazonやGoogle、マイクロソフト、Salesforce、Spotifyのような誰もが知る大企業から中小企業、個人事業主まで、世界の120カ国以上の数百万社に導入されているオンライン決済システムです。</p>
+    </div>
 {{-- フォーム部分 --}}
 <form action="{{route('stripe.post')}}" method="post" id="payment-form">
   @csrf
 
     <label for="exampleInputEmail1">お名前</label>
-    <input type="test" class="form-control col-sm-5" id="card-holder-name" required>
+    <input type="test" class="form-control " id="card-holder-name" required>
 
-    <label for="exampleInputPassword1">カード番号</label>
-    <div class="form-group MyCardElement col-sm-5" id="card-element"></div>
+    <label for="exampleInputPassword1"></label>
+    <div class="form-group MyCardElement " id="card-element"></div>
 
     <div id="card-errors" role="alert" style='color:red'></div>
 

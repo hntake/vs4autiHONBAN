@@ -98,9 +98,9 @@ class ScheduleController extends Controller
             'schedule_name' => 'required|unique:schedules|max:25',
             'image0' => 'required|max:5000',
             'image1' => 'required|max:5000',
-            'image2' => 'required|max:5000',
+            /* 'image2' => 'required|max:5000',
             'image3' => 'required|max:5000',
-            'image4' => 'required|max:5000',
+            'image4' => 'required|max:5000', */
         ],
         [
             'schedule_name.unique' => '別のスケジュール名にしてください。',
@@ -113,37 +113,73 @@ class ScheduleController extends Controller
         $path3=$request->file('image3')->store('public');
         $path4=$request->file('image4')->store('public');
 
+        if (Auth::user()){
         //schedulesテーブルへの受け渡し
         $schedule = new Schedule;
         $schedule->schedule_name = $request->schedule_name;
         $schedule->image0 = str_replace('public/', '', $path0);
         $schedule->image1 = str_replace('public/', '', $path1);
+        if(isset($path2)){
         $schedule->image2 = str_replace('public/', '', $path2);
+        }
+        if(isset($path3)){
         $schedule->image3 = str_replace('public/', '', $path3);
+        }
+        if(isset($path4)){
         $schedule->image4 = str_replace('public/', '', $path4);
+        }
         $schedule->name = User::where('id','=',Auth::id())->value('name');
         $schedule->save();
 
 
-      /*  $schedules = Schedule::all();
+/*         $schedules = Schedule::all();
+ */         $schedules = Schedule::where('name','=', Auth::user()->name)->get();
 
-        return view('list', ['schedules'=>$schedules]);*//*ホーム画面へ遷移へ変更の為**/
-        $schedule = Schedule::orderBy('created_at', 'desc')->first();
+         return view('list', ['schedules'=>$schedules]);
+        /*ホーム画面へ遷移へ変更の為**/
+       /*  $schedule = Schedule::orderBy('created_at', 'desc')->first();
 
-        if(empty($schedule)) {
-            return view('create');
+            if(empty($schedule)) {
+                return view('create');
+            }
+            else{*/
+
+                //scheduleより最新のデータを取得
+
+/*                 return view('list',compact('schedule'));
+ */
+
         }
         else{
 
-            //scheduleより最新のデータを取得
-
-            return view('home',compact('schedule'));
+            //schedulesテーブルへの受け渡し
+        $schedule = new Schedule;
+        $schedule->schedule_name = $request->schedule_name;
+        $schedule->image0 = str_replace('public/', '', $path0);
+        $schedule->image1 = str_replace('public/', '', $path1);
+        if(isset($path2)){
+        $schedule->image2 = str_replace('public/', '', $path2);
         }
+        if(isset($path3)){
+        $schedule->image3 = str_replace('public/', '', $path3);
+        }
+        if(isset($path4)){
+        $schedule->image4 = str_replace('public/', '', $path4);
+        }
+        $schedule->name = 'guest';
+        $schedule->save();
 
-
-
-
+        $schedule = Schedule::orderBy('created_at', 'desc')->first();
+        return redirect()->route('sample',$schedule);
     }
+
+}
+
+/*サンプル表示*/
+public function sample(Schedule $schedule){
+        return view('sample',compact('schedule'));
+    }
+
      /**
      * リスト画面へ遷移
      *

@@ -47,14 +47,7 @@
 
                     </div>
 
-                    <div class="route">
-                        <div class="submit_button">
-                            <a href="{{ route('create') }}">新規作成</a>
-                        </div>
-                    <div class="route">
-                        <div class="submit_button">
-                            <a href="{{ route('dashboard') }}">マイリストへ</a>
-                        </div>
+
 
                        <!--要望出るまでコメントアウト
                             <div class="submit_button">

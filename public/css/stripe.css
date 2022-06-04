@@ -1,3 +1,11 @@
+
+body{
+    background-color:aliceblue;
+}
+#nav-open{
+    margin-left: 20px;
+    margin-top: 20px;
+}
 .MyCardElement {
 	height: 40px;
 	padding: 10px 12px;
@@ -23,3 +31,68 @@
   .MyCardElement--webkit-autofill {
 	background-color: #fefde5 !important;
   }
+  #card-element.form-group{
+
+  }
+
+/*請求情報*/
+.cancel{
+    margin: 20px auto;
+    background-color: beige;
+    padding: 20px 50px;
+    width:50%;
+}
+.portal, .lets_start{
+    margin: 20px auto;
+    background-color: beige;
+    padding: 20px 50px;
+    width:50%;
+
+}
+/* .lets_start{
+    margin: 10px auto;
+    width:50%;
+    background-color:aquamarine;
+} */
+.account{
+
+}
+
+ span{
+     font: bold;
+     color:#fa755a;
+ }
+ input {
+    margin-bottom: 20px;
+
+ }
+ .card_container{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    margin-top: 50px;
+    border: solid 2px lightgray;
+    background-color: floralwhite;
+    padding: 0 20%;
+ }
+ #card-button{
+    margin-top:20Px;
+ }
+/*レスポンシブ対応*/
+@media (max-width: 480px){
+    .MyCardElement{
+/*         width:90%;
+ */    }
+    .card_container{
+        width:fit-content;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+    p{
+        overflow-wrap: break-word;
+    }
+    .cancel, .portal, .lets_start{
+        width:90%;
+
+    }
+}

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('schedule_name')->index();
             $table->string('image0');
             $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->string('image4');
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
             $table->string('name');
             $table->timestamps();
         });

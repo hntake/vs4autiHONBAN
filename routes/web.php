@@ -39,9 +39,10 @@ Route::middleware([
 |
 */
 
-/* Route::get('/', function () {
+ Route::get('/', function () {
     return view('welcome');
 });
+/*
 Route::group(['middleware' => 'admin_auth'], function(){
 
     // この中は、全てミドルウェアが適用されます。
@@ -56,15 +57,30 @@ Auth::routes();
     return view('auth.login');
 });
 */
+Route::group(['middleware' => 'auth'], function() {
+    //支払い画面へ
+    Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed');
+    Route::get('/account', [App\Http\Controllers\StripeController::class, 'account']);
+
+    Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
+    //リストページへ遷移
+    Route::get('/list', [App\Http\Controllers\ScheduleController::class,'list'])->name('list');
+    Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class,'list'])->name('dashoboad');
+    //リスト削除
+    Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class,'delete_list'])->name('delete_list');
+
+});
 // この中は、全てミドルウェアが適用されます。
 /* Route::group(['middleware' => 'admin_auth'], function(){
  */
- Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
+
 
 //新規作成画面へ遷移
 Route::get('/create', [App\Http\Controllers\ScheduleController::class,'create'])->name('create');
 //新規スケジュールの保存
 Route::post('/create', [App\Http\Controllers\ScheduleController::class,'schedule'])->name('create');
+//サンプル画面表示
+Route::get('/sample/{schedule}', [App\Http\Controllers\ScheduleController::class,'sample'])->name('sample');
 
  //画像表示ページ
 /* Route::get('/selectpicture/{id}', [App\Http\Controllers\ScheduleController::class,'select_picture'])->name('select_picture');
@@ -76,11 +92,14 @@ Route::post('/create', [App\Http\Controllers\ScheduleController::class,'schedule
  *///画像保存
 /* Route::post('/store', [App\Http\Controllers\ScheduleController::class,'store'])->name('store');
  */
-//リストページへ遷移
-Route::get('/list', [App\Http\Controllers\ScheduleController::class,'list'])->name('list');
-Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class,'list'])->name('dashoboad');
-//リスト削除
-Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class,'delete_list'])->name('delete_list');
+//入力ページ
+Route::get('/contact', [App\Http\Controllers\ContactController::class,'contact'])->name('contact.index');
+
+//確認ページ
+Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'confirm'])->name('contact.confirm');
+
+//送信完了ページ
+Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
 
 //並び替え
 Route::get('/sort', [App\Http\Controllers\ExtraController::class,'sort'])->name('sort');
@@ -92,12 +111,21 @@ Route::get('/search', [App\Http\Controllers\ScheduleController::class,'search'])
 Route::get('/search', [App\Http\Controllers\ExtraController::class,'search'])->name('search');
 //スケジュール検索結果ページへ遷移
 Route::get('/result', [App\Http\Controllers\ExtraController::class,'search'])->name('search');
-Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe']);
+
+//Route::post('register',[App\Http\Controllers\Auth\RegisterController::class, 'register']);
 //ログアウト
-Route::get('logout',[App\Http\Controllers\LoginController::class, 'loggedOut']);
+Route::get('logout',[App\Http\Controllers\Auth\LoginController::class, 'loggedOut']);
+//支払いボタン
 Route::post('stripe', [App\Http\Controllers\StripeController::class, 'stripePost'])->name('stripe.post');
-
-
+//支払い完了画面
+Route::get('receipt/{user}', [App\Http\Controllers\StripeController::class, 'receipt'])->name('receipt');
+//支払いキャンセルボタン
+Route::post('/subscription/cancel/{user}',  [App\Http\Controllers\StripeController::class,'cancelsubscription'])->name('stripe.cancel');
+//STRIPEカスタマーポータル
+Route::get('/subscription/portal/{user}',  [App\Http\Controllers\StripeController::class,'portalsubscription'])->name('stripe.portalsubscription');
+//キャンセル後遷移
+/* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');
+ */
     Route::get('middleware_test', 'HomeController@middleware_test');
 
 /* });

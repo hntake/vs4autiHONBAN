@@ -1,0 +1,75 @@
+html{
+    font-family:  "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+}
+body{
+    background-color: #e7e7eb ;
+    text-align: center;
+}
+.status{
+    margin-top:20px;
+    margin-left: 30%;
+    display: flex;
+
+}
+button{
+    color: #1422d1;
+    background-color: #2feb00;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 3px 10px;
+    font-weight: 500;
+    border: solid green;
+    margin-left: 10px;
+}
+.register_button, .login_button, .contact{
+    background-color: #c6dcea ;
+    margin-left:30px;
+    padding:10px;
+}
+.content{
+    background-color: #c6dcea ;
+    margin: 20px 20%;
+    padding: 30px;
+}
+.explain{
+}
+h1{
+    color:#1422d1
+
+}
+h2{
+    text-align: left;
+
+}
+h3{
+    text-align: left;
+
+}
+ul.explain{
+
+}
+li.explain{
+
+}
+.vs4auti{
+
+}
+h3.vs4auti{
+
+}
+.sample{
+
+}
+p.sample{
+
+}
+img{
+
+}
+.rule{
+    margin-top: 100px;
+    margin-left: 30%;
+}
+h3.rule{
+
+}
