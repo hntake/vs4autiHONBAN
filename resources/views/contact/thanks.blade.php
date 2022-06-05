@@ -1,5 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 <h1>{{ __('送信完了') }}</h1>
-@endsection
+
+<a href="{{ url('/') }}"><h3>トップページに戻る</h3></a>

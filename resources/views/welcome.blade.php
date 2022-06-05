@@ -35,7 +35,8 @@
                 <div class="register_button">
                     @if (Route::has('register'))
                         <h3>
-                            マンスリープランで始める
+                            マンスリープラン<br>
+                            (月額100円)を始める
                         </h3>
                         <button class="button"><a href="{{ route('register') }}" >新規登録</a></button>
                     @endif
@@ -55,7 +56,8 @@
             <div class="explain">
             <h1>
                 自閉症支援ツール<br>
-                VS4Autiとは？
+                <img src="img/vs4auti.png" alt="ad">
+                とは？
             </h1>
             <h2>
             自閉症スペクトラムの人々は、聴覚入力ではなく視覚的サポートを利用よりよく理解できる傾向があります。<br>
@@ -98,10 +100,10 @@
                 <div class="sample">
                     <p>サンプル画像(クリックすると拡大した画像が見れます)</p>
                     <a href="img/sample3.png" target="_blank">
-                        <img src="img/sample3.png" alt="sample" style="width:20%;height: 500px;">
+                        <img src="img/sample3.png" alt="sample">
                     </a>
                     <a href="img/sample2.png" target="_blank">
-                        <img src="img/sample2.png" alt="sample2" style="width:20%;height:500px;">
+                        <img src="img/sample2.png" alt="sample2">
                     </a>
                 </div>
                 <p>※画像は暗号化して保存されるため、ログインできるユーザー以外は見ることが出来ないので安心してください。</p>
@@ -110,7 +112,7 @@
             <div class="rule">
 
                 <h3>
-                   登録せずに試すことも出来ます<br>
+                   登録せずに試すことが出来ます<br>
                    ここをクリックしてスケジュールを作ってみよう！
                    <button class="button"><a href="{{ url('create') }}" >スケジュール作成</a></button>
                 </h3>

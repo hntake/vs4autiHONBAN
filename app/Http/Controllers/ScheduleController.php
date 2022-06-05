@@ -95,7 +95,7 @@ class ScheduleController extends Controller
 
 
         $validate = $request -> validate([
-            'schedule_name' => 'required|unique:schedules|max:25',
+            'schedule_name' => 'required|max:25',
             'image0' => 'required|max:5000',
             'image1' => 'required|max:5000',
             /* 'image2' => 'required|max:5000',
@@ -109,10 +109,24 @@ class ScheduleController extends Controller
      ]);
         $path0=$request->file('image0')->store('public');
         $path1=$request->file('image1')->store('public');
+        if($request->has('image2')){
         $path2=$request->file('image2')->store('public');
+         }
+        /* else{
+            $path2=null;
+        } */
+        if(null !==$request->file('image3')){
         $path3=$request->file('image3')->store('public');
+        }
+        /* else{
+            $path3=null;
+        } */
+        if(null !==$request->file('image4')){
         $path4=$request->file('image4')->store('public');
-
+        }
+        /* else{
+            $path4=null;
+        } */
         if (Auth::user()){
         //schedulesテーブルへの受け渡し
         $schedule = new Schedule;

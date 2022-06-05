@@ -21,18 +21,18 @@
                             <td>{{ $schedule->id }}</td><br>
                             <td>{{ $schedule->schedule_name }}</td><br>
                             <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image" style="width: 80px; height: auto;"></td>
-                            <td><p><div class="arrow"></div></p></td>
+                            <td><p><div class="arrow">&#9660;</div></p></td>
                             <td><img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" style="width: 80px; height: auto;"></td>
                             @if(isset($schedule->image2))
-                            <td><p><div class="arrow"></div></p></td>
+                            <td><p><div class="arrow">&#9660;</div></p></td>
                             <td><img src="{{ asset('storage/' . $schedule->image2) }}" alt="image" style="width: 80px; height: auto;"></td>
                             @endif
                             @if(isset($schedule->image3))
-                            <td><p><div class="arrow"></div></p></td>
+                            <td><p><div class="arrow">&#9660;</div></p></td>
                             <td><img src="{{ asset('storage/' . $schedule->image3) }}" alt="image" style="width: 80px; height: auto;"></td>
                             @endif
                             @if(isset($schedule->image4))
-                            <td><p><div class="arrow"></div></p></td>
+                            <td><p><div class="arrow">&#9660;</div></p></td>
                             <td><img src="{{ asset('storage/' . $schedule->image4) }}" alt="image" style="width: 80px; height: auto;"></td>
                             @endif
                         </tr>
