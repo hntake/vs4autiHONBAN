@@ -20,7 +20,7 @@ class ScheduleController extends Controller
      */
     public function create(Request $request)
     {
-       /*  $images = Image:: all(); */
+
         return view('create');
     }
     /**

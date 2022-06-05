@@ -228,10 +228,10 @@ svg {
 .container{
     margin-right: auto;
     margin-left: auto;
-    position: relative;
+   /*  position: relative;
       padding-bottom: 60px;
       box-sizing: border-box;
-      min-height: 100vh;
+      min-height: 100vh; */
 
 }
 /*作成画面*/
