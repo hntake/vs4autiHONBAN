@@ -43,6 +43,14 @@
                     {{ __('ログインする') }}
                 </x-jet-button>
             </div>
+            <div class="flex items-center justify-end mt-4">
+                <p>月額プランで始めるなら</p>
+                <x-jet-button class="ml-4"><a href="{{ url('register') }}" >新規登録</a></x-jet-button>
+            </div>
+            <div class="flex items-center justify-end mt-4">
+                <p>とりあえず無料で試すなら</p>
+                <x-jet-button class="ml-4"><a href="{{ url('create') }}" >スケジュール作成</a></x-jet-button>
+            </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

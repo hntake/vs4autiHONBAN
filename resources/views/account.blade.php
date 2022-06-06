@@ -28,7 +28,7 @@
           <ul>
               <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
               <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
-              <li><a href="{{ url('account') }}"><h3>請求情報</h3></a></li>
+              <li><a href="{{ url('account') }}"><h3>ユーザー情報</h3></a></li>
              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
           </ul>
       </div>
@@ -43,8 +43,11 @@
   </div>
 <body>
     <div class="portal">
+        <form method="GET" action="{{route('profile_edit')}}">
                     <p>お客様利用開始日</p>
-                  <span>  {{ $date}} </span>
+                  <span>  {{ $date}} </span><br>
+                  <button class="btn btn-primary mb-3">登録メールアドレスの変更</button>
+        </form>
     </div>
     <div class="cancel">
         <form method="POST" action="{{route('stripe.cancel', $user) }}">
@@ -56,7 +59,7 @@
         </form>
     </div>
     <div class="portal">
-                <p>お客様の請求情報はこちらで確認できます</p>
+                <p>お客様の請求情報はこちらで確認できます。支払い変更の際の、登録情報の変更もこちらでお願いいたします。</p>
                 <form action="{{route('stripe.portalsubscription', $user) }}">
                 <button class="btn btn-primary mb-3">Stripeポータルサイト</button>
                 </form>

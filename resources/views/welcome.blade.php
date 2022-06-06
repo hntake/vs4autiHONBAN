@@ -17,6 +17,20 @@
 
     </head>
     <body class="antialiased">
+        <header id="header">
+            <div class="wrapper">
+                <div class="try">
+                    <h3>使ってみる</h3>
+                    <button class="button"><a href="{{ url('create') }}" >TRY it NOW!</a></button>
+                </div>
+                <div class="contact">
+                    <h3>
+                        お問い合わせ・ご質問はこちら迄
+                    </h3>
+                    <button class="button"><a href="{{ route('contact.index') }}" >Contact us</a></button>
+                </div>
+            </div>
+        </header>
         <div class="status">
             @if (Route::has('login'))
                 <div class="login_button">
@@ -44,13 +58,13 @@
                 </div>
             @endif
 
-            <div class="contact">
+            <!-- <div class="contact">
                 <h3>
                     お問い合わせ・ご質問はこちら迄
                 </h3>
                 <button class="button"><a href="{{ route('contact.index') }}" >Contact us</a></button>
 
-            </div>
+            </div> -->
         </div>
         <div class="content">
             <div class="explain">
@@ -117,6 +131,9 @@
                    <button class="button"><a href="{{ url('create') }}" >スケジュール作成</a></button>
                 </h3>
             </div>
-
+    <!-- footer -->
+  <footer>
+  	<p>© All rights reserved by llco</p>
+  </footer>
     </body>
 </html>

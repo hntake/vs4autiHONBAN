@@ -67,4 +67,18 @@ class StripeController extends Controller
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->format('Y-m-d');
         return view('account',compact('user','date'));
      }
+     public function profile_edit(Request $request){
+        $user = Auth::user();
+        return view('profile_edit', [
+            'user' => $user,
+        ]);
+     }
+     public function update_profile(Request $request){
+        $id = Auth::id();
+        $users = User::find($id);
+        $users->email = $request->input('email');
+        $users->save();
+
+        return redirect('account');
+     }
 }
