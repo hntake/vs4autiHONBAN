@@ -1,4 +1,20 @@
 
+#header {
+    width: 100%;
+    background-color: rgb(233, 233, 127);
+    height: fit-content;
+  }
+
+  #header .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+
+  }
+  #header .back{
+
+  }
 body{
     background-color:aliceblue;
 }
@@ -33,6 +49,13 @@ body{
   }
   #card-element.form-group{
 
+  }
+  .try{
+      background-color: rgb(233, 233, 127);
+      padding: 20px;
+  }
+  #card-button a{
+    color: white;
   }
 
 /*請求情報*/

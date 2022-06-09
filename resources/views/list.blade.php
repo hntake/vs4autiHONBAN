@@ -10,9 +10,10 @@
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
           <ul>
-              <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
-              <li><a href="{{ url('account') }}"><h3>請求情報</h3></a></li>
-              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
+          <li><a href="{{ url('/') }}"><h3>トップページに戻る</h3></a></li>
+              <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
+              <li><a href="{{ url('account') }}"><h3>ユーザー情報</h3></a></li>
+             <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
           </ul>
           <div class="logout_buttom">
                 <form action="{{ route('logout') }}" method="post">
@@ -40,7 +41,7 @@
 
                 <h1>スケジュールリスト</h1>
                 <div class="list">
-                    <!--sort button-->
+                   <!--  sort button
                     <form action="{{ route('sort') }}" method="GET">
                         @csrf
                         <select name="narabi">
@@ -50,11 +51,11 @@
                         <div class="form-group">
                             <div class="button">
                                 <input type="submit" value="並び替え">
-                               <!--  <i class="fa fa-plus">並び替え</i> -->
+                                <i class="fa fa-plus">並び替え</i> 
                             </input>
                         </div>
                     </div>
-                </form>
+                </form> -->
 
                 <table class="result">
                     <tbody id="tbl">
@@ -63,8 +64,7 @@
                                         <tr >
                                             <td >{{ $schedule->schedule_name }}</td>
                                             <td ><div  class="list_button"><a href="{{ route('schedule',['id'=>$schedule->id]) }}">表示</a></div></td>
-<!--                                             <td ><div  class="button"><a href="{{ route('delete_list',['id'=> $schedule->id]) }}" >削除</a></div></td>
- -->
+                                            <td ><div  class="list_button"><a href="{{ route('delete_list',['id'=> $schedule->id]) }}" >削除</a></div></td>
                                         </tr>
                                     @endforeach
                         </tbody>

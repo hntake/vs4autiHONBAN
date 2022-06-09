@@ -17,9 +17,9 @@ class Subscribed
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() and $request->user()->subscribed('basic_plan')) {
+        if ($request->user() and !$request->user()->subscribed('basic_plan')) {
 
-            return redirect('/dashboard');
+            return redirect()-> route('/');
         }
 
         return $next($request);

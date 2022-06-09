@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <title>{{ config('app.name', 'VS4auti') }}</title>
 
 
         <!-- Fonts -->
@@ -29,6 +30,8 @@
                     </h3>
                     <button class="button"><a href="{{ route('contact.index') }}" >Contact us</a></button>
                 </div>
+
+</div>
             </div>
         </header>
         <div class="status">
@@ -58,13 +61,7 @@
                 </div>
             @endif
 
-            <!-- <div class="contact">
-                <h3>
-                    お問い合わせ・ご質問はこちら迄
-                </h3>
-                <button class="button"><a href="{{ route('contact.index') }}" >Contact us</a></button>
 
-            </div> -->
         </div>
         <div class="content">
             <div class="explain">
@@ -126,14 +123,22 @@
             <div class="rule">
 
                 <h3>
-                   登録せずに試すことが出来ます<br>
-                   ここをクリックしてスケジュールを作ってみよう！
+                  <p> 登録せずに試すことが出来ます<br>
+                   ここをクリックしてスケジュールを作ってみよう！</p>
                    <button class="button"><a href="{{ url('create') }}" >スケジュール作成</a></button>
                 </h3>
             </div>
     <!-- footer -->
   <footer>
   	<p>© All rights reserved by llco</p>
+      <div class="left">
+                    <div class="policy" >
+                        <button class="button"><a href="{{ url('policy') }}" >プライバシーポリシー</a></button>
+                    </div>
+                    <div class="terms">
+                        <button class="button"><a href="{{ url('rule') }}" >利用規約</a></button>
+                    </div>
+    </div>
   </footer>
     </body>
 </html>

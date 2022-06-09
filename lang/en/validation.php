@@ -43,6 +43,10 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
+    'dns' => 'The :attribute must be a valid email address.',
+    'strict' => 'The :attribute must be a valid email address.',
+    'spoof' => 'The :attribute must be a valid email address.',
+
     'email' => 'The :attribute must be a valid email address.',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'enum' => 'The selected :attribute is invalid.',
@@ -130,6 +134,7 @@ return [
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
+
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',

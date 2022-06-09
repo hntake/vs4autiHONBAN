@@ -10,20 +10,33 @@ body{
 #header {
     width: 100%;
     background-color: darkturquoise;
+    position: relative;
+
   }
 
   #header .wrapper {
-    margin: 0 auto;
+/*     margin: 0 auto;*/
     width: 100%;
     max-width: 1000px;
     display: flex;
-
+    margin-left: 20%;
   }
  #header .contact{
     margin-left: 40%;
  }
- #header .try{
-
+ .left{
+    display:flex;
+    justify-content: center;
+ }
+ .policy{
+    /* position: absolute;
+    right: 5%;
+    margin-top:65px; */
+ }
+.terms{
+    /* position: absolute;
+    right: 5%;
+    margin-top:65px; */
  }
 .container{
     margin-right: auto;
@@ -111,7 +124,7 @@ footer {
     width: 100%;
     height: 50px;
     text-align: center;
-    padding: 50px 0;
+    padding: 0 0 100px 0;
     background-color:darkturquoise
   }
   .footer-text {
@@ -119,6 +132,9 @@ footer {
   }
 /*レスポンシブ対応*/
 @media (max-width: 480px){
+    body{
+        position: relative;
+    }
     #header .wrapper {
         margin: 0 auto;
         width: 100%;
@@ -128,20 +144,47 @@ footer {
     #header .contact{
         margin-left: 0;
      }
-    .status{
-        margin-top:20px;
+     .left{
         display:block;
-        width: max-content;
-        margin-left: 0;
+        justify-content: center;
+     }
+    .policy{
+        position: unset;
+        right: 5%;
+        margin-top: 0;
+    }
+    .terms{
+        position: unset;
+        right: 5%;
+        margin-top: 0;
+    }
+    h1{
+        font-size:large;
+    }
+    h3{
+        text-align:unset;
+
+    }
+    .status{
+        display:block;
+        position:absolute;
+        bottom:-13%;
+        width:100%;
+        margin-left:0;
+        margin-right:0;
     }
     .register_button, .login_button{
         background-color: #c6dcea ;
+        margin-left:0;
+        padding:0;
     }
+
     button{
         color: #1422d1;
         background-color: #2feb00;
         border: solid green;
-        width: 50%;
+        width: 80%;
+        height: 40px;
     }
     .content{
          margin: 20px 0;
@@ -154,14 +197,41 @@ footer {
         width: max-content;
         margin-bottom: 10px;
     }
+    .rule{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    footer{
+        position:absolute;
+        bottom:-20%;
+        width:100%;
+    }
 
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
+    #header .try{
+        margin-left: 10%;
+
+    }
+    #header .contact{
+        margin-left: 10%;
+     }
+
+    .policy{
+         position:unset;
+         right: 0%;
+     }
+    .terms{
+        position: unset;
+        right: 0%;
+     }
     .status{
+        display:block;
         margin-top:20px;
         width: max-content;
         margin-left: 0;
     }
+
     .content{
         margin: 20px 0;
     }
@@ -173,6 +243,13 @@ footer {
         width: max-content;
         margin-bottom: 10px;
     }
+    footer {
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        padding: 0 0 50px 0;
+        background-color:darkturquoise
+      }
     /*  */
             }
 

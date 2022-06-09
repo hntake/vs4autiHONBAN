@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'VS4auti') }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
           <ul>
-              <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
+              <li><a href="{{ url('/') }}"><h3>トップページに戻る</h3></a></li>
               <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
               <li><a href="{{ url('account') }}"><h3>ユーザー情報</h3></a></li>
              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>

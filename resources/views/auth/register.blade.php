@@ -17,6 +17,11 @@
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full h-10" type="email" name="email" :value="old('email')" required />
+                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
             </div>
 
             <div class="mt-4">

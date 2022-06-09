@@ -127,7 +127,7 @@ class ScheduleController extends Controller
         /* else{
             $path4=null;
         } */
-        if (Auth::user()){
+        if (Auth::user() ){
         //schedulesテーブルへの受け渡し
         $schedule = new Schedule;
         $schedule->schedule_name = $request->schedule_name;
@@ -145,25 +145,19 @@ class ScheduleController extends Controller
         $schedule->name = User::where('id','=',Auth::id())->value('name');
         $schedule->save();
 
+        $user = Auth::user();
+        if (isset($user['stripe_id'])){
 
-/*         $schedules = Schedule::all();
- */         $schedules = Schedule::where('name','=', Auth::user()->name)->get();
+                $schedules = Schedule::where('name','=', Auth::user()->name)->get();
 
-         return view('list', ['schedules'=>$schedules]);
-        /*ホーム画面へ遷移へ変更の為**/
-       /*  $schedule = Schedule::orderBy('created_at', 'desc')->first();
-
-            if(empty($schedule)) {
-                return view('create');
+                return view('list', ['schedules'=>$schedules]);
             }
-            else{*/
-
-                //scheduleより最新のデータを取得
-
-/*                 return view('list',compact('schedule'));
- */
-
+            else{
+                $schedule = Schedule::orderBy('created_at', 'desc')->first();
+            return redirect()->route('sample',$schedule);
+            }
         }
+
         else{
 
             //schedulesテーブルへの受け渡し

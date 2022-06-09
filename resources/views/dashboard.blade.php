@@ -10,9 +10,10 @@
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
           <ul>
-              <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
-              <li><a href="{{ url('account') }}"><h3>請求情報</h3></a></li>
-              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
+          <li><a href="{{ url('/') }}"><h3>トップページに戻る</h3></a></li>
+              <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
+              <li><a href="{{ url('account') }}"><h3>ユーザー情報</h3></a></li>
+             <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
           </ul>
           <div class="logout_buttom">
                 <form action="{{ route('logout') }}" method="post">
