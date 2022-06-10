@@ -19,7 +19,7 @@ class Subscribed
     {
         if ($request->user() and !$request->user()->subscribed('basic_plan')) {
 
-            return redirect()-> route('/');
+            return redirect()-> route('stripe');
         }
 
         return $next($request);

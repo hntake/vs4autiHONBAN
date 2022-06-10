@@ -12,6 +12,11 @@
             <div>
                 <x-jet-label for="name" value="{{ __('ユーザー名') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full h-10" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
             </div>
 
             <div class="mt-4">

@@ -66,9 +66,9 @@ Auth::routes();
 //支払い画面へ
 Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->name('stripe');
 //ホーム画面へ
-Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
 //サブスクに加入済みか判定し
 Route::middleware(['subscribed'])->group(function(){
+    Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
 /*     Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed'); */
     Route::get('/account', [App\Http\Controllers\StripeController::class, 'account']);
 

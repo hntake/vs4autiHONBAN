@@ -6,7 +6,7 @@
 <header id="header">
             <div class="wrapper">
              <div class="back">
-                <button class="btn btn-primary" id="card-button"><a href="{{ url('') }}">トップページに戻る</a></button>
+                <button class="button" ><a href="{{ url('') }}" >トップページに戻る</a></button>
              </div>
             </div>
         </header>
@@ -22,7 +22,7 @@
     <form action="{{route('stripe.post')}}" method="post" id="payment-form">
     @csrf
 
-        <label for="exampleInputEmail1">お名前</label>
+    <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
         <input type="test" class="form-control " id="card-holder-name" required>
 
         <label for="exampleInputPassword1"></label>

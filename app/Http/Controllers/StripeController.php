@@ -8,6 +8,8 @@ use Session;
 use Stripe;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail;
 
 class StripeController extends Controller
 {
@@ -41,6 +43,10 @@ class StripeController extends Controller
         // 上記のプランと支払方法で、サブスクを新規作成する
         $user->newSubscription('basic_plan', $plan)
         ->create($paymentMethod);
+        //サブスク申し込み完了メール送信
+        $name = $request['name'];
+
+        Mail::send(new RegisterMail($name));
 
         // 処理後に'ルート設定'にページ移行
         return redirect()->route('receipt',$user);
