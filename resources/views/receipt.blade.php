@@ -22,10 +22,8 @@
     </div>
     <div class="portal">
         <p>お客様の請求情報はこちらで確認できます</p>
-<!--         <form action="{{route('stripe.portalsubscription', $user) }}">
- -->            <button class="btn btn-primary mb-3"><a calss="text" href="https://dashboard.stripe.com/settings/billing/portal">Stripeポータルサイト</a></button>
-<!--         </form>
- -->    </div>
+               <a class="text" href="https://dashboard.stripe.com/settings/billing/portal" target="_blank" rel="noopener noreferrer">Stripeポータルサイトへ</a>
+    </div>
     <div class="cancel">
         <form method="POST" action="{{route('stripe.cancel', $user) }}">
             @csrf
