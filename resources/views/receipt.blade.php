@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/stripe.css') }}" rel="stylesheet">
+
 </head>
 <body>
 
@@ -21,10 +22,10 @@
     </div>
     <div class="portal">
         <p>お客様の請求情報はこちらで確認できます</p>
-        <form action="{{route('stripe.portalsubscription', $user) }}">
-            <button class="btn btn-primary mb-3">Stripeポータルサイト</button>
-        </form>
-    </div>
+<!--         <form action="{{route('stripe.portalsubscription', $user) }}">
+ -->            <button class="btn btn-primary mb-3"><a calss="text" href="https://dashboard.stripe.com/settings/billing/portal">Stripeポータルサイト</a></button>
+<!--         </form>
+ -->    </div>
     <div class="cancel">
         <form method="POST" action="{{route('stripe.cancel', $user) }}">
             @csrf

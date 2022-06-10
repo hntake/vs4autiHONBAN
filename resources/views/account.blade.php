@@ -15,6 +15,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/schedule.css') }}" rel="stylesheet">
     <link href="{{ asset('css/stripe.css') }}" rel="stylesheet">
+   
 </head>
 @section('content')
 
@@ -60,10 +61,10 @@
     </div>
     <div class="portal">
                 <p>お客様の請求情報はこちらで確認できます。支払い変更の際の、登録情報の変更もこちらでお願いいたします。</p>
-                <form action="{{route('stripe.portalsubscription', $user) }}">
-                <button class="btn btn-primary mb-3">Stripeポータルサイト</button>
-                </form>
-    </div>
+<!--                 <form action="{{route('stripe.portalsubscription', $user) }}">
+ -->                <button class="btn btn-primary mb-3"><a class="text" href="https://dashboard.stripe.com/settings/billing/portal">Stripeポータルサイト</a></button>
+<!--                 </form>
+ -->    </div>
     <div class="portal">
         <form action="{{ route('logout') }}" method="post">
         @csrf
