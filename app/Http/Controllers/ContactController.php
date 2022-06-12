@@ -54,6 +54,7 @@ class ContactController extends Controller
         } else {
             //入力されたメールアドレスにメールを送信
             \Mail::to($inputs['email'])->send(new ContactSendmail($inputs));
+            \Mail::to(config('mail.username'))->send(new ContactSendmail($inputs));
 
             //再送信を防ぐためにトークンを再発行
             $request->session()->regenerateToken();
