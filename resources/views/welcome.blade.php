@@ -118,6 +118,12 @@
                     </a>
                 </div>
                 <p>※画像は暗号化して保存されるため、ログインできるユーザー以外は見ることが出来ないので安心してください。</p>
+                <div class="video">
+                    <h3 style="text-align:center;">
+                        デモンストレーション動画です。
+                    </h3>
+                    <video controls width="600" height="auto" src="img/vs4auti3.mp4"></video>
+                </div>
             </div>
         </div>
             <div class="rule">
