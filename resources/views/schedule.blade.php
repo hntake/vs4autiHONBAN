@@ -18,7 +18,6 @@
             <div class="card">
                     <div class="card-header" style="display:flex; flex-direction: column;">
                         <tr>
-                            <td>{{ $schedule->id }}</td><br>
                             <td>{{ $schedule->schedule_name }}</td><br>
                             <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image" style="width: 80px; height: auto;"></td>
                             <td><p><div class="arrow">&#9660;</div></p></td>
