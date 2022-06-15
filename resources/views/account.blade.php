@@ -47,7 +47,7 @@
         <form method="GET" action="{{route('profile_edit')}}">
                     <p>お客様利用開始日</p>
                   <span>  {{ $date}} </span><br>
-                  <button class="btn btn-primary mb-3">登録メールアドレスの変更</button>
+                  <button class="btn btn-primary mb-3">登録情報の変更</button>
         </form>
     </div>
     <div class="cancel">

@@ -48,6 +48,9 @@ Route::get('/policy',function(){
 Route::get('/rule',function(){
     return view('rule');
 });
+Route::get('/login',function(){
+    return view('login');
+});
 /*
 Route::group(['middleware' => 'admin_auth'], function(){
 

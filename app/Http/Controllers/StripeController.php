@@ -82,6 +82,7 @@ class StripeController extends Controller
      public function update_profile(Request $request){
         $id = Auth::id();
         $users = User::find($id);
+        $users->name = $request->input('name');
         $users->email = $request->input('email');
         $users->save();
 
