@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
 /*             $table->string('role');
- */         $table->string('email')->charset("utf8")->unique();
+ */         $table->string('email')->charset("utf8");
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
