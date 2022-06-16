@@ -120,9 +120,14 @@
                 <p>※画像は暗号化して保存されるため、ログインできるユーザー以外は見ることが出来ないので安心してください。</p>
                 <div class="video">
                     <h3 style="text-align:center;">
-                        デモンストレーション動画です。
+                        デモンストレーション動画
                     </h3>
-                    <video controls width="600" height="auto" src="img/vs4auti3.mp4"></video>
+                    <a href="img/vs4auti3.mp4" target="_blank">
+                    <video controls src="img/vs4auti3.mp4"></video>
+                    </a>
+                </div>
+                <div class="sm-video">
+                <p>スマホの方はこちらからどうぞ</p><a href="https://youtu.be/YX4zRNKURE8">説明動画/a>
                 </div>
             </div>
         </div>
