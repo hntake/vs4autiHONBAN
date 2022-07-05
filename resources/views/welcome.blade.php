@@ -127,7 +127,7 @@
                     </a>
                 </div>
                 <div class="sm-video">
-                <p>スマホの方はこちらからどうぞ</p><a href="https://youtu.be/YX4zRNKURE8">説明動画/a>
+                <p>スマホの方はこちらからどうぞ</p><a href="https://youtu.be/YX4zRNKURE8">説明動画</a>
                 </div>
             </div>
         </div>
