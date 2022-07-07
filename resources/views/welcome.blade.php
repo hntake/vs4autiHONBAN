@@ -44,7 +44,7 @@
                         <button class="button"><a href="{{ url('/home') }}" >Home</a></button>
                     @else
                         <h3>
-                            ログインする
+                            登録済みの方はこちらからログインする
                         </h3>
                         <button class="button"><a href="{{ route('login') }}" >ログイン</a></button>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="register_button">
                     @if (Route::has('register'))
                         <h3>
-                            マンスリープラン<br>
+                            保存が出来るマンスリープラン<br>
                             (月額100円)を始める
                         </h3>
                         <button class="button"><a href="{{ route('register') }}" >新規登録</a></button>
@@ -117,6 +117,7 @@
                         <img src="img/sample2.png" alt="sample2">
                     </a>
                 </div>
+                <p>月額100円の有料プランなら、スケジュールをいくつでも保存できます。保存リストから選べるのでスムーズです。</p>
                 <p>※画像は暗号化して保存されるため、ログインできるユーザー以外は見ることが出来ないので安心してください。</p>
                 <div class="video">
                     <h3 style="text-align:center;">
@@ -149,6 +150,9 @@
                     <div class="terms">
                         <button class="button"><a href="{{ url('rule') }}" >利用規約</a></button>
                     </div>
+                    <div class="terms">
+                        <button class="button"> <a href="{{ url('aboutus') }}" class="button">About Us</a></button>
+                </div>
     </div>
   </footer>
     </body>

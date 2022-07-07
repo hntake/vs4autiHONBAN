@@ -38,6 +38,9 @@ Route::middleware([
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/aboutus',function(){
+    return view('aboutus');
+});
 
  Route::get('/', function () {
     return view('welcome');
