@@ -118,6 +118,13 @@ video{
 .sm-video{
     display:none;
     }
+.new a{
+    text-decoration: none;
+    font-weight:bold;
+    font-size: larger;
+    color:blue
+}
+
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     body{
