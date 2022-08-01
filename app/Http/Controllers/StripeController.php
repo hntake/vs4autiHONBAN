@@ -42,6 +42,7 @@ class StripeController extends Controller
 
         // 上記のプランと支払方法で、サブスクを新規作成する
         $user->newSubscription('basic_plan', $plan)
+        ->trialDays(30)
         ->create($paymentMethod);
         //サブスク申し込み完了メール送信
         $name = $request['name'];

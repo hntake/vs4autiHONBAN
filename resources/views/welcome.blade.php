@@ -21,7 +21,7 @@
         <header id="header">
             <div class="wrapper">
                 <div class="try">
-                    <h3>使ってみる</h3>
+                    <h3>登録せずに使ってみる</h3>
                     <button class="button"><a href="{{ url('create') }}" >TRY it NOW!</a></button>
                 </div>
                 <div class="contact">
@@ -52,8 +52,7 @@
                 <div class="register_button">
                     @if (Route::has('register'))
                         <h3>
-                            保存が出来るマンスリープラン<br>
-                            (月額100円)を始める
+                            30日間無料トライアルを試してみる
                         </h3>
                         <button class="button"><a href="{{ route('register') }}" >新規登録</a></button>
                     @endif
@@ -117,7 +116,7 @@
                         <img src="img/sample2.png" alt="sample2">
                     </a>
                 </div>
-                <h4>月額100円の有料プランなら、スケジュールをいくつでも保存できます。保存リストから選べるのでスムーズです。</h4>
+                <h4>月額100円の有料プランなら、スケジュールをいくつでも保存できます。保存リストから選べるので利用がスムーズです。</h4>
 
                 <h4><span style="color:red;">NEW!!</span>有料プランなら保存スケジュール利用時に、終わった画像をクリックすると画像が切り替わるようになりました。</h4>
                 <div class="new">
@@ -138,14 +137,22 @@
                 </div>
             </div>
         </div>
-            <div class="rule">
-
+        <div class="bottom">
+            <div class="rule1">
                 <h3>
                   <p> 登録せずに試すことが出来ます<br>
                    ここをクリックしてスケジュールを作ってみよう！</p>
                    <button class="button"><a href="{{ url('create') }}" >スケジュール作成</a></button>
                 </h3>
             </div>
+            <div class="rule2">
+                <h3>
+                  <p> 有料プランについては<br>
+                    こちらで説明しています</p>
+                   <button class="button"><a href="{{ url('payment') }}" >有料プランについて</a></button>
+                </h3>
+            </div>
+        </div>
     <!-- footer -->
   <footer>
   	<p>© All rights reserved by llco</p>
@@ -157,7 +164,7 @@
                         <button class="button"><a href="{{ url('rule') }}" >利用規約</a></button>
                     </div>
                     <div class="terms">
-                        <button class="button"> <a href="{{ url('aboutus') }}" class="button">About Us</a></button>
+                        <button class="button"> <a href="{{ url('aboutus') }}" class="button">制作者より</a></button>
                 </div>
     </div>
   </footer>
