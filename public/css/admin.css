@@ -14,12 +14,16 @@ button.btn {
     margin: 100 auto;
     width: 50%;
 }
+.payment{
+    margin: 100 auto;
+    width: 50%;
+}
 .button a{
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: normal;
     text-decoration: none;
-    color:aliceblue
+    color:darkblue;
 }
 .button{
     border: none;
@@ -30,5 +34,11 @@ button.btn {
     top:0;
     left:0;
     position:absolute;
-
 }
+.caution{
+    border: solid 1px lightseagreen;
+    padding: 10px;
+}
+
+
+

@@ -131,7 +131,9 @@ video{
     font-size: larger;
     color:blue
 }
-
+li{
+    text-align: justify;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     body{

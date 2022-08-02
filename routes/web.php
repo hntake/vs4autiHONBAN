@@ -54,6 +54,16 @@ Route::get('/rule',function(){
 Route::get('/login',function(){
     return view('login');
 });
+Route::get('/payment',function(){
+    return view('payment');
+});
+//入力ページ
+Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');
+//確認ページ
+Route::post('/admin_confirm', [App\Http\Controllers\ContactController::class,'admin_confirm'])->name('admin_confirm');
+
+//送信完了ページ
+Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'admin_send'])->name('admin_send');
 /*
 Route::group(['middleware' => 'admin_auth'], function(){
 
