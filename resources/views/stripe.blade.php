@@ -24,7 +24,6 @@
 
     <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
         <input type="test" class="form-control " id="card-holder-name" required>
-
         <label for="exampleInputPassword1"></label>
         <div class="form-group MyCardElement " id="card-element"></div>
 
