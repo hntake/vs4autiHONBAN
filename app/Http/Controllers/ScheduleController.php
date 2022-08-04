@@ -50,6 +50,21 @@ class ScheduleController extends Controller
 
         return view('schedule',compact('schedule'));
     }
+    /**
+     * 歯科IDを選んだスケジュール表示
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function dentist_index(Request $request)
+    {
+
+        $schedule = Schedule::where('id', $request->id)->first();
+
+/* dd($schedule->imageOne);
+ */
+        return view('dentist/schedule',compact('schedule'));
+    }
 
     /**
      * 画像保存ページへ遷移
@@ -182,6 +197,52 @@ class ScheduleController extends Controller
     }
 
 }
+/**
+     * 歯科スケジュールを作成保存
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function dentist_schedule(Request $request){
+
+        $validate = $request -> validate([
+            'schedule_name' => 'required|unique:schedules|max:25',
+            'image0' => 'required|max:25',
+            'image1' => 'required|max:25',
+          /*   'image2' => 'required|max:25',
+            'image3' => 'required|max:25',
+            'image4' => 'required|max:25', */
+        ],
+        [
+            'schedule_name.unique' => '別のスケジュール名にしてください。',
+
+     ]);
+
+
+        //schedulesテーブルへの受け渡し
+        $schedule = new Schedule;
+        $schedule->schedule_name = $request->schedule_name;
+        $schedule->image0 = $request->image0;
+        $schedule->image1 = $request->image1;
+        if(isset($request->image2)){
+            $schedule->image2 = $request->image2;
+        }
+        if(isset($request->image3)){
+        $schedule->image3 = $request->image3;
+        }
+        if(isset($request->image4)){
+        $schedule->image4 = $request->image4;
+        }
+        $schedule->name = User::where('id','=',Auth::id())->value('name');
+
+        $schedule->save();
+        
+        $schedules = Schedule::orderBy('created_at', 'desc')->get();
+
+            //scheduleより最新のデータを取得
+
+            return view('dentist/list',compact('schedules'));
+        }
 
 /*サンプル表示*/
 public function sample(Schedule $schedule){
@@ -200,6 +261,19 @@ public function sample(Schedule $schedule){
          $schedules = Schedule::where('name','=', Auth::user()->name)->get();
 
         return view('list', ['schedules'=>$schedules]);
+    }
+     /**
+     * 歯科リスト画面へ遷移
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function dentist_list(Request $request)
+    {
+
+         $schedules = Schedule::where('name','=', 'dentist')->get();
+
+        return view('dentist/list', ['schedules'=>$schedules]);
     }
      /**
      * 選択したリストを削除

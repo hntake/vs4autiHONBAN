@@ -83,13 +83,15 @@ Auth::routes();
 Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->name('stripe');
 //ホーム画面へ
 //サブスクに加入済みか判定し
-Route::middleware(['subscribed'])->group(function(){
+Route::middleware(['auth'])->group(function(){
     Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
 /*     Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed'); */
     Route::get('/account', [App\Http\Controllers\StripeController::class, 'account']);
 
     //リストページへ遷移
     Route::get('/list', [App\Http\Controllers\ScheduleController::class,'list'])->name('list');
+    //歯科リストページへ遷移
+    Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class,'dentist_list'])->name('dentist_list');
     Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class,'list'])->name('dashoboad');
     //リスト削除
     Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class,'delete_list'])->name('delete_list');
@@ -102,6 +104,12 @@ Route::middleware(['subscribed'])->group(function(){
 /* Route::group(['middleware' => 'admin_auth'], function(){
  */
 
+//歯科新規作成画面へ遷移
+Route::get('/dentist/create',function(){
+    return view('dentist/create');
+});
+//新規スケジュールの保存
+Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class,'dentist_schedule'])->name('dentist_create');
 
 //新規作成画面へ遷移
 Route::get('/create', [App\Http\Controllers\ScheduleController::class,'create'])->name('create');
@@ -133,6 +141,8 @@ Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'s
 Route::get('/sort', [App\Http\Controllers\ExtraController::class,'sort'])->name('sort');
 //スケジュール表示画面
 Route::get('/schedule/{id}', [App\Http\Controllers\ScheduleController::class,'index'])->name('schedule');
+//歯科スケジュール表示画面
+Route::get('dentist/schedule/{id}', [App\Http\Controllers\ScheduleController::class,'dentist_index'])->name('dentist_schedule');
 //スケジュール検索画面表示
 Route::get('/search', [App\Http\Controllers\ScheduleController::class,'search'])->name('search');
 //スケジュール検索
