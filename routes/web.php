@@ -117,6 +117,8 @@ Route::get('/create', [App\Http\Controllers\ScheduleController::class,'create'])
 Route::post('/create', [App\Http\Controllers\ScheduleController::class,'schedule'])->name('create');
 //サンプル画面表示
 Route::get('/sample/{schedule}', [App\Http\Controllers\ScheduleController::class,'sample'])->name('sample');
+//歯科サンプル画面表示
+Route::get('/dentist/sample/{schedule}', [App\Http\Controllers\ScheduleController::class,'dentist_sample'])->name('dentist_sample');
 
  //画像表示ページ
 /* Route::get('/selectpicture/{id}', [App\Http\Controllers\ScheduleController::class,'select_picture'])->name('select_picture');

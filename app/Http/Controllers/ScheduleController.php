@@ -218,7 +218,7 @@ class ScheduleController extends Controller
 
      ]);
 
-
+     if (Auth::user() ){
         //schedulesテーブルへの受け渡し
         $schedule = new Schedule;
         $schedule->schedule_name = $request->schedule_name;
@@ -234,19 +234,53 @@ class ScheduleController extends Controller
         $schedule->image4 = $request->image4;
         }
         $schedule->name = User::where('id','=',Auth::id())->value('name');
-
         $schedule->save();
-        
-        $schedules = Schedule::orderBy('created_at', 'desc')->get();
 
-            //scheduleより最新のデータを取得
+        $user = Auth::user();
+        if (isset($user['stripe_id'])){
 
-            return view('dentist/list',compact('schedules'));
+                $schedules = Schedule::where('name','=', Auth::user()->name)->get();
+
+                return view('dentist/list', ['schedules'=>$schedules]);
+            }
+            else{
+                $schedule = Schedule::orderBy('created_at', 'desc')->first();
+            return redirect()->route('dentist_sample',$schedule);
+            }
+        }
+
+        else{
+
+            //schedulesテーブルへの受け渡し
+            $schedule = new Schedule;
+            $schedule->schedule_name = $request->schedule_name;
+            $schedule->image0 = $request->image0;
+            $schedule->image1 = $request->image1;
+            if(isset($request->image2)){
+                $schedule->image2 = $request->image2;
+            }
+            if(isset($request->image3)){
+            $schedule->image3 = $request->image3;
+            }
+            if(isset($request->image4)){
+            $schedule->image4 = $request->image4;
+            }
+            $schedule->name = 'guest';
+            $schedule->save();
+
+        $schedule = Schedule::orderBy('created_at', 'desc')->first();
+        return redirect()->route('dentist_sample',$schedule);
+    }
+
         }
 
 /*サンプル表示*/
 public function sample(Schedule $schedule){
         return view('sample',compact('schedule'));
+    }
+/*歯科サンプル表示*/
+public function dentist_sample(Schedule $schedule){
+        return view('dentist/sample',compact('schedule'));
     }
 
      /**
