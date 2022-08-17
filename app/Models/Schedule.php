@@ -16,7 +16,7 @@ class Schedule extends Model
 
     protected $fillable = [
 
-       'id', 'schedule_name','image0','image1','image2','image3','image4','name'
+       'id', 'schedule_name','image0','image1','image2','image3','image4','name','list'
 
         ];
 

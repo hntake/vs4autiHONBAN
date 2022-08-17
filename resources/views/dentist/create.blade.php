@@ -1,6 +1,6 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- schedule.cssと連携 -->
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">
   <div id="nav-drawer">
@@ -10,10 +10,11 @@
       <div id="nav-content">
           <ul>
           <li><a href="{{ url('/') }}"><h3>トップページに戻る</h3></a></li>
-              <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
+              <li><a href="{{ url('list') }}"><h3>保存リスト</h3></a></li>
+              <li><a href="{{ url('dentist/list') }}"><h3>保存リスト（歯科）</h3></a></li>
               <li><a href="{{ url('account') }}"><h3>ユーザー情報</h3></a></li>
              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
-          </ul>
+             <li><a href="{{ url('dentist/create') }}"><h3>新規作成（歯科）</h3></a></li>
           </ul>
       </div>
       <script>
@@ -78,110 +79,370 @@
             <table>
                 <tbody >
                 <tr class="cell">
-                    <td >1</td>
-                    <td >エプロン<img src="{{ asset('img/dentist/d_apron.jpg') }}" alt="apron" ></td>
-                    <td >2</td>
-                    <td >麻酔<img src="{{ asset('img/dentist/d_anes.jpg') }}" alt="anes" ></td>
-                    <td >3</td>
-                    <td >噛み合わせ１<img src="{{ asset('img/dentist/d_bite.jpg') }}" alt="bite" ></td>
-                    <td >4</td>
-                    <td >噛み合わせ２<img src="{{ asset('img/dentist/d_bite2.jpg') }}" alt="bite2" ></td>
-                    <td >5</td>
-                    <td >セメント<img src="{{ asset('img/dentist/d_cement.jpg') }}" alt="cement" ></td>
-                    <td >6</td>
-                    <td >圧排<img src="{{ asset('img/dentist/d_compress.jpg') }}" alt="ccompress" ></td>
-                    <td >7</td>
-                    <td >綿詰め<img src="{{ asset('img/dentist/d_cotton.jpg') }}" alt="cotton" ></td>
-                    <td >8</td>
-                    <td >染色<img src="{{ asset('img/dentist/d_dy.jpg') }}" alt="dy" ></td>
-                    <td >9</td>
-                    <td >EE作業<img src="{{ asset('img/dentist/d_ee.jpg') }}" alt="ee" ></td>
-                    <td >10</td>
-                    <td >EMR作業<img src="{{ asset('img/dentist/d_emr.jpg') }}" alt="emr" ></td>
-                    <td >11</td>
-                    <td >エンジン<img src="{{ asset('img/dentist/d_engine.jpg') }}" alt="engine" ></td>
-                    <td >12</td>
-                    <td >ガッタ<img src="{{ asset('img/dentist/d_gutta.jpg') }}" alt="gutta" ></td>
-                    <td >13</td>
-                    <td >印象<img src="{{ asset('img/dentist/d_impress.jpg') }}" alt="impress" ></td>
-                    <td >14</td>
-                    <td >印象２<img src="{{ asset('img/dentist/d_impress2.jpg') }}" alt="impress2" ></td>
-                    <td >15</td>
-                    <td >寝る<img src="{{ asset('img/dentist/d_liedownjpg.jpg') }}" alt="liedown" ></td>
-                    <td >16</td>
-                    <td >光照射<img src="{{ asset('img/dentist/d_light.jpg') }}" alt="light" ></td>
-                    <td >17</td>
-                    <td >光照射２<img src="{{ asset('img/dentist/d_light2.jpg') }}" alt="light2" ></td>
-                    <td >18</td>
-                    <td >合着<img src="{{ asset('img/dentist/d_metal.jpg') }}" alt="metal" ></td>
-                    <td >19</td>
-                    <td >ミラー<img src="{{ asset('img/dentist/d_mirror.jpg') }}" alt="mirror" ></td>
-                    <td >20</td>
-                    <td >抜歯<img src="{{ asset('img/dentist/d_off.jpg') }}" alt="off" ></td>
-                    <td >21</td>
-                    <td >口を開ける<img src="{{ asset('img/dentist/d_openmouth.jpg') }}" alt="open" ></td>
-                    <td >22</td>
-                    <td >開口器<img src="{{ asset('img/dentist/d_opentool.jpg') }}" alt="opentool" ></td>
-                    <td >23</td>
-                    <td >プラガー<img src="{{ asset('img/dentist/d_plug.jpg') }}" alt="plug" ></td>
-                    <td >24</td>
-                    <td >PMTC作業<img src="{{ asset('img/dentist/d_pmtc.jpg') }}" alt="pmtc" ></td>
-                    <td >25</td>
-                    <td >研摩<img src="{{ asset('img/dentist/d_polish.jpg') }}" alt="polish" ></td>
-                    <td >26</td>
-                    <td >研摩２<img src="{{ asset('img/dentist/d_polish2.jpg') }}" alt="polish2" ></td>
-                    <td >27</td>
-                    <td >探針<img src="{{ asset('img/dentist/d_probe.jpg') }}" alt="probe" ></td>
-                    <td >28</td>
-                    <td >リーマー<img src="{{ asset('img/dentist/d_reamer.jpg') }}" alt="reamer" ></td>
-                    <td >29</td>
-                    <td >染色はみがき<img src="{{ asset('img/dentist/d_redbrush.jpg') }}" alt="d_redbrush" ></td>
-                    <td >30</td>
-                    <td >噛合紙<img src="{{ asset('img/dentist/d_redpaper.jpg') }}" alt="d_redpaper" ></td>
-                    <td >31</td>
-                    <td >噛合紙２<img src="{{ asset('img/dentist/d_redpaper2.jpg') }}" alt="d_redpaper2" ></td>
-                    <td >32</td>
-                    <td >レジン<img src="{{ asset('img/dentist/d_resin.jpg') }}" alt="d_resin" ></td>
-                    <td >33</td>
-                    <td >根管洗浄<img src="{{ asset('img/dentist/d_root_clean.jpg') }}" alt="d_root_clean" ></td>
-                    <td >34</td>
-                    <td >スプレッド―<img src="{{ asset('img/dentist/d_root_spread.jpg') }}" alt="d_root_spread" ></td>
-                    <td >35</td>
-                    <td >ラバーダム<img src="{{ asset('img/dentist/d_rubberdum.jpg') }}" alt="d_rubberdum" ></td>
-                    <td >36</td>
-                    <td >フロス<img src="{{ asset('img/dentist/floth.jpg') }}" alt="floth" ></td>
-                    <td >37</td>
-                    <td >スケーリング<img src="{{ asset('img/dentist/d_scaling.jpg') }}" alt="d_scaling" ></td>
-                    <td >38</td>
-                    <td >座る<img src="{{ asset('img/dentist/d_sit.jpg') }}" alt="d_sit" ></td>
-                    <td >39</td>
-                    <td >フッ素（綿）<img src="{{ asset('img/dentist/d_spread.jpg') }}" alt="d_spread" ></td>
-                    <td >40</td>
-                    <td >表面麻酔<img src="{{ asset('img/dentist/d_spread_anes.jpg') }}" alt="d_spread_anes" ></td>
-                    <td >41</td>
-                    <td >タービン<img src="{{ asset('img/dentist/d_tarbin.jpg') }}" alt="d_tarbin" ></td>
-                    <td >42</td>
-                    <td >TEK作業<img src="{{ asset('img/dentist/d_tek.jpg') }}" alt="d_tek" ></td>
-                    <td >43</td>
-                    <td >TEK作業2<img src="{{ asset('img/dentist/d_tek2.jpg') }}" alt="d_tek2" ></td>
-                    <td >44</td>
-                    <td >トッフル<img src="{{ asset('img/dentist/d_toffle.jpg') }}" alt="d_toffle" ></td>
-                    <td >45</td>
-                    <td >バキューム<img src="{{ asset('img/dentist/d_vacume.jpg') }}" alt="d_vacume" ></td>
-                    <td >46</td>
-                    <td >バキューム+水<img src="{{ asset('img/dentist/d_vacume_water.jpg') }}" alt="d_vacume_water" ></td>
-                    <td >47</td>
-                    <td >ワッテ<img src="{{ asset('img/dentist/d_watte.jpg') }}" alt="d_watte" ></td>
-                    <td >48</td>
-                    <td >Ｘ線<img src="{{ asset('img/dentist/d_xray1.jpg') }}" alt="d_xray1" ></td>
-                    <td >49</td>
-                    <td >Ｘ線２<img src="{{ asset('img/dentist/d_xray2.jpg') }}" alt="d_xray2" ></td>
-                    <td >50</td>
-                    <td >ヨード<img src="{{ asset('img/dentist/d_yodo.jpg') }}" alt="d_yodo" ></td>
-                    <td >51</td>
-                    <td >フッ素歯ブラシ<img src="{{ asset('img/dentist/flouride.jpg') }}" alt="flouride" ></td>
-                    <td >52</td>
-                    <td >うがい<img src="{{ asset('img/dentist/poo.jpg') }}" alt="poo" ></td>
+                    <div class="img">
+                        <ul>
+                           <li>1</li>
+                           <li>エプロン</li>
+                            <li><img src="{{ asset('img/dentist/d_apron.jpg') }}" alt="apron" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>2</li>
+                           <li>麻酔</li>
+                            <li><img src="{{ asset('img/dentist/d_anes.jpg') }}" alt="d_anes" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>3</li>
+                           <li>噛み合わせA</li>
+                            <li><img src="{{ asset('img/dentist/d_bite.jpg') }}" alt="d_bite" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>4</li>
+                           <li>噛み合わせB</li>
+                            <li><img src="{{ asset('img/dentist/d_bite2.jpg') }}" alt="d_bite2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>5</li>
+                           <li>セメント</li>
+                            <li><img src="{{ asset('img/dentist/d_cement.jpg') }}" alt="d_cement" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>6</li>
+                           <li>圧排</li>
+                            <li><img src="{{ asset('img/dentist/d_compress.jpg') }}" alt="d_compress" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>7</li>
+                           <li>綿詰め</li>
+                            <li><img src="{{ asset('img/dentist/d_cotton.jpg') }}" alt="d_cotton" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>8</li>
+                           <li>染色</li>
+                            <li><img src="{{ asset('img/dentist/d_dy.jpg') }}" alt="d_dy" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>9</li>
+                           <li>EE作業</li>
+                            <li><img src="{{ asset('img/dentist/d_ee.jpg') }}" alt="d_ee" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>10</li>
+                           <li>EMR作業</li>
+                            <li><img src="{{ asset('img/dentist/d_emr.jpg') }}" alt="d_emr" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>11</li>
+                           <li>エンジン</li>
+                            <li><img src="{{ asset('img/dentist/d_engine.jpg') }}" alt="d_engine" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>12</li>
+                           <li>ガッタ</li>
+                            <li><img src="{{ asset('img/dentist/d_gutta.jpg') }}" alt="d_gutta" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>13</li>
+                           <li>印象</li>
+                            <li><img src="{{ asset('img/dentist/d_impress.jpg') }}" alt="d_impress" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>14</li>
+                           <li>印象２</li>
+                            <li><img src="{{ asset('img/dentist/d_impress2.jpg') }}" alt="d_impress2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>15</li>
+                           <li>横になる</li>
+                            <li><img src="{{ asset('img/dentist/d_liedownjpg.jpg') }}" alt="d_liedownjpg" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>16</li>
+                           <li>光照射</li>
+                            <li><img src="{{ asset('img/dentist/d_light.jpg') }}" alt="d_light" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>17</li>
+                           <li>光照射B</li>
+                            <li><img src="{{ asset('img/dentist/d_light2.jpg') }}" alt="d_light2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>18</li>
+                           <li>合着</li>
+                            <li><img src="{{ asset('img/dentist/d_metal.jpg') }}" alt="d_metal" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>19</li>
+                           <li>ミラー</li>
+                            <li><img src="{{ asset('img/dentist/d_mirror.jpg') }}" alt="d_mirror" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>20</li>
+                           <li>抜歯</li>
+                            <li><img src="{{ asset('img/dentist/d_off.jpg') }}" alt="d_off" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>21</li>
+                           <li>口を開ける</li>
+                            <li><img src="{{ asset('img/dentist/d_openmouth.jpg') }}" alt="d_openmouth" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>22</li>
+                           <li>開口器</li>
+                            <li><img src="{{ asset('img/dentist/d_opentool.jpg') }}" alt="d_opentool" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>23</li>
+                           <li>プラガー</li>
+                            <li><img src="{{ asset('img/dentist/d_plug.jpg') }}" alt="d_plug" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>24</li>
+                           <li>PMTC作業</li>
+                            <li><img src="{{ asset('img/dentist/d_pmtc.jpg') }}" alt="d_pmtc" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>25</li>
+                           <li>研摩</li>
+                            <li><img src="{{ asset('img/dentist/d_polish.jpg') }}" alt="d_polish" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>26</li>
+                           <li>研摩B</li>
+                            <li><img src="{{ asset('img/dentist/d_polish2.jpg') }}" alt="d_polish2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>27</li>
+                           <li>探針</li>
+                            <li><img src="{{ asset('img/dentist/d_probe.jpg') }}" alt="d_probe" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>28</li>
+                           <li>リーマー</li>
+                            <li><img src="{{ asset('img/dentist/d_reamer.jpg') }}" alt="d_reamer" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>29</li>
+                           <li>染色はみがき</li>
+                            <li><img src="{{ asset('img/dentist/d_redbrush.jpg') }}" alt="d_redbrush" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>30</li>
+                           <li>噛合紙</li>
+                            <li><img src="{{ asset('img/dentist/d_redpaper.jpg') }}" alt="d_redpaper" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>31</li>
+                           <li>噛合紙B</li>
+                            <li><img src="{{ asset('img/dentist/d_redpaper2.jpg') }}" alt="d_redpaper2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>32</li>
+                           <li>レジン</li>
+                            <li><img src="{{ asset('img/dentist/d_resin.jpg') }}" alt="d_resin" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>33</li>
+                           <li>根管洗浄</li>
+                            <li><img src="{{ asset('img/dentist/d_root_clean.jpg') }}" alt="d_root_clean" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>34</li>
+                           <li>スプレッド―</li>
+                            <li><img src="{{ asset('img/dentist/d_root_spread.jpg') }}" alt="d_root_spread" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>35</li>
+                           <li>ラバーダム</li>
+                            <li><img src="{{ asset('img/dentist/d_rubberdum.jpg') }}" alt="d_rubberdum" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>36</li>
+                           <li>フロス</li>
+                            <li><img src="{{ asset('img/dentist/floth.jpg') }}" alt="floth" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>37</li>
+                           <li>スケーリング</li>
+                            <li><img src="{{ asset('img/dentist/d_scaling.jpg') }}" alt="d_scaling" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>38</li>
+                           <li>座る</li>
+                            <li><img src="{{ asset('img/dentist/d_sit.jpg') }}" alt="d_sit" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>39</li>
+                           <li>フッ素（綿）</li>
+                            <li><img src="{{ asset('img/dentist/d_spread.jpg') }}" alt="d_spread" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>40</li>
+                           <li>表面麻酔</li>
+                            <li><img src="{{ asset('img/dentist/d_spread_anes.jpg') }}" alt="d_spread_anes" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>41</li>
+                           <li>タービン</li>
+                            <li><img src="{{ asset('img/dentist/d_tarbin.jpg') }}" alt="d_tarbin" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>42</li>
+                           <li>TEK作業</li>
+                            <li><img src="{{ asset('img/dentist/d_tek.jpg') }}" alt="d_tek" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>43</li>
+                           <li>TEK作業B</li>
+                            <li><img src="{{ asset('img/dentist/d_tek2.jpg') }}" alt="d_tek2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>44</li>
+                           <li>トッフル</li>
+                            <li><img src="{{ asset('img/dentist/d_toffle.jpg') }}" alt="d_toffle" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>45</li>
+                           <li>バキューム</li>
+                            <li><img src="{{ asset('img/dentist/d_vacume.jpg') }}" alt="d_vacume" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>46</li>
+                           <li>バキューム+水</li>
+                            <li><img src="{{ asset('img/dentist/d_vacume_water.jpg') }}" alt="d_vacume_water" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>47</li>
+                           <li>ワッテ</li>
+                            <li><img src="{{ asset('img/dentist/d_watte.jpg') }}" alt="d_watte" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>48</li>
+                           <li>Ｘ線</li>
+                            <li><img src="{{ asset('img/dentist/d_xray1.jpg') }}" alt="d_xray1" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>49</li>
+                           <li>Ｘ線B</li>
+                            <li><img src="{{ asset('img/dentist/d_xray2.jpg') }}" alt="d_xray2" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>50</li>
+                           <li>ヨード</li>
+                            <li><img src="{{ asset('img/dentist/d_yodo.jpg') }}" alt="d_yodo" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>51</li>
+                           <li>フッ素歯ブラシ</li>
+                            <li><img src="{{ asset('img/dentist/flouride.jpg') }}" alt="flouride" ></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <ul>
+                           <li>52</li>
+                           <li>うがい</li>
+                            <li><img src="{{ asset('img/dentist/poo.jpg') }}" alt="poo" ></li>
+                        </ul>
+                    </div>
                 </tr>
                 </tbody>
             </table>

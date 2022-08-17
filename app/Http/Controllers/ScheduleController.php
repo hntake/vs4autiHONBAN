@@ -234,6 +234,7 @@ class ScheduleController extends Controller
         $schedule->image4 = $request->image4;
         }
         $schedule->name = User::where('id','=',Auth::id())->value('name');
+        $schedule->list = 1;
         $schedule->save();
 
         $user = Auth::user();
@@ -292,7 +293,7 @@ public function dentist_sample(Schedule $schedule){
     public function list(Request $request)
     {
 
-         $schedules = Schedule::where('name','=', Auth::user()->name)->get();
+         $schedules = Schedule::where('name','=', Auth::user()->name)->where('list','=','0')->get();
 
         return view('list', ['schedules'=>$schedules]);
     }
@@ -305,7 +306,7 @@ public function dentist_sample(Schedule $schedule){
     public function dentist_list(Request $request)
     {
 
-         $schedules = Schedule::where('name','=', 'dentist')->get();
+         $schedules = Schedule::where('name','=', Auth::user()->name)->where('list','=','1')->get();
 
         return view('dentist/list', ['schedules'=>$schedules]);
     }
@@ -319,6 +320,18 @@ public function dentist_sample(Schedule $schedule){
     {
         $schedule = Schedule::where('id', $request->id)->delete();
         return redirect('list');
+
+    }
+     /**
+     * 選択した歯科リストを削除
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function dentist_delete_list(Request $request)
+    {
+        $schedule = Schedule::where('id', $request->id)->delete();
+        return redirect('dentist/list');
 
     }
     /**

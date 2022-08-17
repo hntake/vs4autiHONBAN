@@ -95,6 +95,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class,'list'])->name('dashoboad');
     //リスト削除
     Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class,'delete_list'])->name('delete_list');
+    //歯科リスト削除
+    Route::get('dentaist/list/{id}', [App\Http\Controllers\ScheduleController::class,'dentist_delete_list'])->name('dentist_delete_list');
     //プロフィール編集画面へ
     Route::get('/profile_edit', [App\Http\Controllers\StripeController::class,'profile_edit'])->name('profile_edit');
     Route::patch('/update_profile', [App\Http\Controllers\StripeController::class,'update_profile'])->name('update_profile');

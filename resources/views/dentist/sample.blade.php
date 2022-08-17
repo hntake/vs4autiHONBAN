@@ -34,25 +34,25 @@
                         <tr>
                         <!-- <td>{{ $schedule->id }}</td><br>
                                 <td>{{ $schedule->schedule_name }}</td><br> -->
-                                <td><a href="{{ asset(''.$schedule->imageOne->image) }}" target="_blank"></a>
-                                <img src="{{ asset(''.$schedule->imageOne->image) }}" alt="image" style="width: 160px; height: auto;"></td>
+                                <td><a href="{{ asset('img/dentist/'.$schedule->imageOne->pic_name) }}" target="_blank"></a>
+                                <img src="{{ asset('img/dentist/'.$schedule->imageOne->pic_name) }}" alt="image" style="width: 160px; height: auto;"></td>
                                 <td><p><div class="arrow">&#9660;</div></p></td>
-                                <td><a href="{{ asset(''.$schedule->imageTwo->image) }}" target="_blank"></a>
-                                <img src="{{ asset(''.$schedule->imageTwo->image) }}" alt="image" style="width: 160px; height: auto;"></td>
+                                <td><a href="{{ asset('img/dentist/'.$schedule->imageTwo->pic_name) }}" target="_blank"></a>
+                                <img src="{{ asset('img/dentist/'.$schedule->imageTwo->pic_name) }}" alt="image" style="width: 160px; height: auto;"></td>
                                 @if(isset($schedule->image2))
                                 <td><p><div class="arrow">&#9660;</div></p></td>
-                                <td><a href="{{ asset(''.$schedule->imageThree->image) }}" target="_blank"></a>
-                                <img src="{{ asset(''.$schedule->imageThree->image) }}" alt="image" style="width: 160px; height: auto;"></td>
+                                <td><a href="{{ asset('img/dentist/'.$schedule->imageThree->pic_name) }}" target="_blank"></a>
+                                <img src="{{ asset('img/dentist/'.$schedule->imageThree->pic_name) }}" alt="image" style="width: 160px; height: auto;"></td>
                                 @endif
                                 @if(isset($schedule->image3))
                                 <td><p><div class="arrow">&#9660;</div></p></td>
-                                <td><a href="{{ asset(''.$schedule->imageFour->image) }}" target="_blank"></a>
-                                <img src="{{asset(''.$schedule->imageFour->image) }}" alt="image" style="width: 160px; height: auto;"></td>
+                                <td><a href="{{ asset('img/dentist/'.$schedule->imageFour->pic_name) }}" target="_blank"></a>
+                                <img src="{{asset('img/dentist/'.$schedule->imageFour->pic_name) }}" alt="image" style="width: 160px; height: auto;"></td>
                                 @endif
                                 @if(isset($schedule->image4))
                                 <td><p><div class="arrow">&#9660;</div></p></td>
-                                <td><a href="{{ asset(''.$schedule->imageFive->image) }}" target="_blank"></a>
-                                <img src="{{ asset(''.$schedule->imageFive->image) }}" alt="image" style="width: 160px; height: auto;"></td>
+                                <td><a href="{{ asset('img/dentist/'.$schedule->imageFive->pic_name) }}" target="_blank"></a>
+                                <img src="{{ asset('img/dentist/'.$schedule->imageFive->pic_name) }}" alt="image" style="width: 160px; height: auto;"></td>
                                 @endif
                         </tr>
 

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('image3')->nullable();
             $table->string('image4')->nullable();
             $table->string('name');
+            $table->string('list')->default(0);
             $table->timestamps();
         });
     }

@@ -178,7 +178,7 @@ header {
       width: calc(100% - 80px);
       /* テーブル(本文内)を横スクロールするための設定 */
       white-space: nowrap;
-      overflow-x: scroll;
+      /* overflow-x: scroll; */
       margin-left: auto;
       margin-right: auto;
 
@@ -194,14 +194,21 @@ svg {
 
 
 .image-list{
-    display: table;
-    width: 100%;
+    display: flex;
+/*     display: table;
+ */    width: 100%;
     min-width: 600px;
     border-collapse: collapse;
+    /* はみ出たもの折り返し*/
+    flex-wrap: wrap;
 }
 .cell{
     display:table-cell;
     border: 1px solid;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    display:flex
 }
 .arrow{
 /*     width: 0px;
@@ -242,6 +249,10 @@ input#image.form-control{
 }
 .create-group{
     margin: 0 30%;
+}
+.img{
+    border: solid 1px black;
+    width: 20%;
 }
 /*スケジュール画面*/
 .card img{
@@ -372,6 +383,10 @@ tr{
     .card img{
         width: 80px;
         height: auto;
+    }
+    .cell{
+            display:table-cell;
+            border: 1px solid;
     }
     @media only screen and  (min-device-width: 768px)
     and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {

@@ -19,20 +19,20 @@
                     <div class="card-header" style="display:flex; flex-direction: column;">
                         <tr>
                             <td>{{ $schedule->schedule_name }}</td><br>
-                            <td><img src="{{asset(''.$schedule->imageOne->image)}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                            <td><img src="{{asset('img/dentist/'.$schedule->imageOne->pic_name)}}" alt="image" onclick="this.src='/img/check.png'"></td>
                             <td><p><div class="arrow">&#9660;</div></p></td>
-                            <td><img src="{{asset(''.$schedule->imageTwo->image)}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                            <td><img src="{{asset('img/dentist/'.$schedule->imageTwo->pic_name)}}" alt="image" onclick="this.src='/img/check.png'"></td>
                             @if(isset($schedule->image2))
                             <td><p><div class="arrow">&#9660;</div></p></td>
-                            <td><img src="{{asset(''.$schedule->imageThree->image)}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                            <td><img src="{{asset('img/dentist/'.$schedule->imageThree->pic_name)}}" alt="image" onclick="this.src='/img/check.png'"></td>
                             @endif
                             @if(isset($schedule->image3))
                             <td><p><div class="arrow">&#9660;</div></p></td>
-                            <td><img src="{{asset(''.$schedule->imageFour->image)}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                            <td><img src="{{asset('img/dentist/'.$schedule->imageFour->pic_name)}}" alt="image" onclick="this.src='/img/check.png'"></td>
                             @endif
                             @if(isset($schedule->image4))
                             <td><p><div class="arrow">&#9660;</div></p></td>
-                            <td><img src="{{asset(''.$schedule->imageFive->image)}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                            <td><img src="{{asset('img/dentist/'.$schedule->imageFive->pic_name)}}" alt="image" onclick="this.src='/img/check.png'"></td>
                             @endif
                         </tr>
                     </div>

@@ -9,11 +9,13 @@
       <label id="nav-open" for="nav-input"><span></span></label>
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
-          <ul>
+      <ul>
           <li><a href="{{ url('/') }}"><h3>トップページに戻る</h3></a></li>
-              <li><a href="{{ url('list') }}"><h3>保存リストへ</h3></a></li>
+              <li><a href="{{ url('list') }}"><h3>保存リスト</h3></a></li>
+              <li><a href="{{ url('dentist/list') }}"><h3>保存リスト（歯科）</h3></a></li>
               <li><a href="{{ url('account') }}"><h3>ユーザー情報</h3></a></li>
              <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
+             <li><a href="{{ url('dentist/create') }}"><h3>新規作成（歯科）</h3></a></li>
           </ul>
           <div class="logout_buttom">
                 <form action="{{ route('logout') }}" method="post">
@@ -39,7 +41,7 @@
 
         <div class="list-area">
 
-                <h1>スケジュールリスト</h1>
+                <h1>スケジュールリスト(歯科)</h1>
                 <div class="list">
                    <!--  sort button
                     <form action="{{ route('sort') }}" method="GET">
@@ -64,7 +66,7 @@
                                         <tr >
                                             <td >{{ $schedule->schedule_name }}</td>
                                             <td ><div  class="list_button"><a href="{{ route('dentist_schedule',['id'=>$schedule->id]) }}">表示</a></div></td>
-                                            <td ><div  class="list_button"><a href="{{ route('delete_list',['id'=> $schedule->id]) }}" >削除</a></div></td>
+                                            <td ><div  class="list_button"><a href="{{ route('dentist_delete_list',['id'=> $schedule->id]) }}" >削除</a></div></td>
                                         </tr>
                                     @endforeach
                         </tbody>
