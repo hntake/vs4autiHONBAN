@@ -105,6 +105,9 @@ Route::middleware(['auth'])->group(function(){
 // この中は、全てミドルウェアが適用されます。
 /* Route::group(['middleware' => 'admin_auth'], function(){
  */
+/*QRログイン*/
+Route::get('auth/qr_login', [App\Http\Controllers\Auth\QrLoginController::class,'showQrReader']);   // ログインフォーム
+Route::post('auth/qr_login', [App\Http\Controllers\Auth\QrLoginController::class,'login']);   //Ajax通信
 
 //歯科新規作成画面へ遷移
 Route::get('/dentist/create',function(){
