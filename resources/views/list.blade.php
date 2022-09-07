@@ -40,7 +40,6 @@
     <!-- バリデーションエラーの表示 -->
     @include('common.errors')
 
-
         <div class="list-area">
 
                 <h1>スケジュールリスト</h1>
