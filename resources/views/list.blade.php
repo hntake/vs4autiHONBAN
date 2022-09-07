@@ -41,7 +41,6 @@
     @include('common.errors')
 
         <div class="list-area">
-
                 <h1>スケジュールリスト</h1>
                 <div class="list">
                    <!--  sort button
