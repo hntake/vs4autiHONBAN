@@ -1,6 +1,8 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<title>支払い申込画面 自閉症支援ツール VS4Auti”</title>
+
 
 @section('content')
 <header id="header">

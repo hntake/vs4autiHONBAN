@@ -308,7 +308,27 @@ public function dentist_sample(Schedule $schedule){
 
          $schedules = Schedule::where('name','=', Auth::user()->name)->where('list','=','1')->get();
 
-        return view('dentist/list', ['schedules'=>$schedules]);
+        return view('dentist/list', [
+            'schedules'=>$schedules,
+        ]);
+    }
+     /**
+     * 患者用歯科リスト画面へ遷移
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function dentist_list_for(Request $request,$id)
+    {
+        /*uuidから歯科データを取得*/
+         $dentist = User::where('uuid','=',$request->id)->get()->pluck('name');
+        /*作成者名が$dentist一致し、かつlistカラムが1(歯科スケジュール）であるスケジュールを取得する*/
+         $schedules = Schedule::where('name','=', $dentist)->where('list','=','1')->get();
+
+        return view('dentist/patient', [
+            'schedules'=>$schedules,
+            'id' =>$id,
+        ]);
     }
      /**
      * 選択したリストを削除

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}">
+<title>プロフィール編集画面 自閉症支援ツール VS4Auti”</title>
+
 @section('content')
 
 

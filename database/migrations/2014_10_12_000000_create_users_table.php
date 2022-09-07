@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email')->charset("utf8");
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->uuid('uuid')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
             // $table->string('stripe_id')->nullable()->index();

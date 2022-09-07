@@ -16,7 +16,7 @@
         <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ホーム画面</title>
+        <title>サンプル画面</title>
     </head>
 
     <div class="container">

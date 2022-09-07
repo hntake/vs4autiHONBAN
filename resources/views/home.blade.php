@@ -8,7 +8,7 @@
     <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ホーム画面</title>
+    <title>ホーム画面 自閉症支援ツール VS4Auti”</title>
 </head>
 @section('content')
 

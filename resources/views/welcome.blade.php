@@ -165,7 +165,10 @@
                     </div>
                     <div class="terms">
                         <button class="button"> <a href="{{ url('aboutus') }}" class="button">制作者より</a></button>
-                </div>
+                    </div>
+                    <div class="terms">
+                        <button class="button"> <a href="{{ url('consumer') }}" class="button">特定商取引</a></button>
+                    </div>
     </div>
   </footer>
     </body>
