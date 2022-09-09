@@ -98,10 +98,9 @@ Route::middleware(['subscribed'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class, 'list'])->name('dashoboad');
     //リスト削除
     Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
-    //歯科新規作成画面へ遷移
-    Route::get('/dentist/create', function () {
-    return view('dentist/create');
-    });
+
+     //歯科リストページへ遷移
+    Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
     //歯科新規スケジュールの保存
     Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
     //歯科リスト削除
@@ -110,13 +109,16 @@ Route::middleware(['subscribed'])->group(function () {
     Route::get('/profile_edit', [App\Http\Controllers\StripeController::class, 'profile_edit'])->name('profile_edit');
     Route::patch('/update_profile', [App\Http\Controllers\StripeController::class, 'update_profile'])->name('update_profile');
 });
+   //歯科新規作成画面へ遷移
+   Route::get('/dentist/create', function () {
+    return view('dentist/create');
+    });
 
 /*QRログイン*/
 Route::get('auth/qr_login', [App\Http\Controllers\Auth\QrLoginController::class, 'showQrReader']);   // ログインフォーム
 Route::post('auth/qr_login', [App\Http\Controllers\Auth\QrLoginController::class, 'login']);   //Ajax通信
 
- //歯科リストページへ遷移
- Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
+
  //患者用歯科リストページへ遷移
  Route::get('dentist/patient/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_list_for'])->name('dentist_list_for');
 
@@ -163,7 +165,9 @@ Route::get('/search', [App\Http\Controllers\ExtraController::class, 'search'])->
 Route::get('/result', [App\Http\Controllers\ExtraController::class, 'search'])->name('search');
 
 //Route::post('register',[App\Http\Controllers\Auth\RegisterController::class, 'register']);
-//ログアウト
+//ログイン
+/* Route::post('log', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('log');
+ *///ログアウト
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'loggedOut']);
 //支払いボタン
 Route::post('stripe', [App\Http\Controllers\StripeController::class, 'stripePost'])->name('stripe.post');
@@ -176,8 +180,8 @@ Route::get('/subscription/portal/{user}',  [App\Http\Controllers\StripeControlle
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');
  */
-Route::get('middleware_test', 'HomeController@middleware_test');
-
+/* Route::get('middleware_test', 'HomeController@middleware_test');
+ */
 /* });
  */
 /* Auth::routes();

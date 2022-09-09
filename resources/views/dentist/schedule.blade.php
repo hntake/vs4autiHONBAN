@@ -42,7 +42,7 @@
                             <a href="{{ route('create') }}">新規作成</a>
                         </div>
                         <div class="submit_button">
-                            <a href="{{ route('home') }}">保存リストへ</a>
+                        <button onclick="history.back()">戻る</button>
                         </div>
                     </div>
                 </div>

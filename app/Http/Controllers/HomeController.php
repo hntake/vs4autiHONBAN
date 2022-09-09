@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -29,7 +29,7 @@ class HomeController extends Controller
         $schedule = Schedule::orderBy('created_at', 'desc')->first();
 
         return view('home',compact('schedule'));
-    } 
+    }
     /* public function index()
     {
         $schedules = Schedule::where('created_at', 'asc')->first();
