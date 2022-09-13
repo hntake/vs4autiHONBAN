@@ -1,70 +1,91 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-<!--             <x-jet-authentication-card-logo />
- -->        </x-slot>
+@extends('layouts.app')
+<title>新規登録画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
-        <x-jet-validation-errors class="mb-4" />
+@section('content')
+<div class="top">
+<a href="{{ url('/') }}"><h3>トップページに戻る</h3></a>
+         </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card-header">{{ __('仮登録画面') }}</div>
+            <div class="card">
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register.pre_check') }}" enctype="multipart/form-data">
+                        @csrf
 
-            <div>
-                <x-jet-label for="name" value="{{ __('ユーザー名') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full h-10" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                @error('name')
+                   <!--      <div >
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前 ※必須') }}</label>
+
+                            <div >
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                @enderror
-            </div>
+                                @enderror
+                            </div>
+                        </div> -->
 
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full h-10" type="email" name="email" :value="old('email')" required />
-                @error('email')
+
+
+
+
+
+                        <div class="r-box">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>
+
+                            <div >
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                @enderror
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full h-10" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full h-10" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
-
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
+                                @enderror
                             </div>
                         </div>
-                    </x-jet-label>
+
+                        <div class="r-box">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password ※必須 8桁以上') }}</label>
+
+                            <div >
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="r-box">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password ※必須') }}</label>
+
+                            <div >
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('登録する') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('既に登録済ならここをクリック') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('登録⇒支払い画面に遷移します') }}
-                </x-jet-button>
             </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+        </div>
+    </div>
+</div>
+@endsection
+<div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://eng50cha.com/register" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="英単語強化サイト・エーゴメ登録無料！" data-show-count="false">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

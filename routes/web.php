@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +21,7 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-}); */
+
 
 
 /*
@@ -76,19 +72,32 @@ Route::group(['middleware' => 'admin_auth'], function(){
 
 
 });*/
+/**仮登録から認証本登録 */
+Route::post('register/pre_check', [App\Http\Controllers\Auth\RegisterController::class,'pre_check'])->name('register.pre_check');
+Route::get('register/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class,'showForm']);
+Route::post('register/main_check', [App\Http\Controllers\Auth\RegisterController::class,'mainCheck'])->name('register.main.check');
+Route::post('register/main_register', [App\Http\Controllers\Auth\RegisterController::class,'mainRegister'])->name('register.main.registered');
 
 Auth::routes();
 //ホーム画面表示
  Route::get('/home',function(){
     return view('auth.login');
 });
+//登録後メール
+Auth::routes(['verify' => true]);
+//メール認証//
+ Route::get('/mail/register_mail', [App\Http\Controllers\Auth\RegisterController::class,'verify'])->middleware('auth')->name('verification.notice');
 
+
+
+/* Route::get('/auth/verifyemail/{token}', [App\Http\Controllers\Auth\RegisterController::class,'verify']);
+ */
 //支払い画面へ
 Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->name('stripe');
 //ホーム画面へ
 //サブスクに加入済みか判定し
+Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
 Route::middleware(['subscribed'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
     /*     Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed'); */
     Route::get('/account', [App\Http\Controllers\StripeController::class, 'account']);
 
@@ -113,11 +122,6 @@ Route::middleware(['subscribed'])->group(function () {
    Route::get('/dentist/create', function () {
     return view('dentist/create');
     });
-
-/*QRログイン*/
-Route::get('auth/qr_login', [App\Http\Controllers\Auth\QrLoginController::class, 'showQrReader']);   // ログインフォーム
-Route::post('auth/qr_login', [App\Http\Controllers\Auth\QrLoginController::class, 'login']);   //Ajax通信
-
 
  //患者用歯科リストページへ遷移
  Route::get('dentist/patient/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_list_for'])->name('dentist_list_for');
@@ -166,8 +170,8 @@ Route::get('/result', [App\Http\Controllers\ExtraController::class, 'search'])->
 
 //Route::post('register',[App\Http\Controllers\Auth\RegisterController::class, 'register']);
 //ログイン
-/* Route::post('log', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('log');
- *///ログアウト
+Route::post('log', [App\Http\Controllers\Auth\LoginController::class, 'log'])->name('log');
+//ログアウト
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'loggedOut']);
 //支払いボタン
 Route::post('stripe', [App\Http\Controllers\StripeController::class, 'stripePost'])->name('stripe.post');

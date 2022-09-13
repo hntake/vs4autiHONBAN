@@ -1,56 +1,81 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <!-- <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot> -->
+@extends('layouts.app')
+<title>ログイン画面 </title>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="font:bold; color:darkgray;">{{ __('ログインする') }}</div>
 
-        <x-jet-validation-errors class="mb-4" />
+                <div class="card-body">
+                    <form method="POST" action="{{ route('log') }}">
+                        @csrf
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('メールアドレス') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <div class="error">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <div class="error">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div >
+                                <div class="form-check" style="margin-left:150px";>
+                                    <input class="form-check-input" style="margin-left: -180px;" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('←ログイン状態を維持する') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('ログインする') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('パスワードを忘れましたか?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
-        @endif
+            <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
+                <p>登録して全ての機能を使おう！（月額100円）</p>
+            <a href="{{ route('register') }}" class="button">新規登録</a>
+        </div>
+        </div>
+    </div>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full h-10	" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="mt-6">
-                <x-jet-label for="password" value="{{ __('パスワード') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full h-10	" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-6">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('ログイン状態を維持する') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-6">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('パスワードを忘れましたか?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('ログインする') }}
-                </x-jet-button>
-            </div>
-            <div class="flex items-center justify-end mt-6">
-                <p>月額プランで始めるなら</p>
-                <x-jet-button class="ml-4"><a href="{{ url('register') }}" >新規登録</a></x-jet-button>
-            </div>
-            <div class="flex items-center justify-end mt-6">
-                <p>とりあえず無料で試すなら</p>
-                <x-jet-button class="ml-4"><a href="{{ url('create') }}" >スケジュール作成</a></x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+</div>
+@endsection
