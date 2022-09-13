@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -43,6 +45,14 @@ class LoginController extends Controller
       public function login()
       {
           return view('auth.login');
+      }
+      public function log(Request $request)
+      {
+        $user = User::where('email', $request->email)->first();
+        Auth::login($user);
+
+        return view('create');
+
       }
     protected function loggedOut(Request $request)
     {

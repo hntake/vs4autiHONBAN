@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Cashier\Billable;
 
@@ -30,7 +31,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'stripe_id',
         'pm_type',
         'pm_last_four',
-        'trial_ends_at'
+        'trial_ends_at',
+        'email_verified',
+        'email_verify_token',
     ];
 
     /**
@@ -51,4 +54,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmail);
+    }
 }
