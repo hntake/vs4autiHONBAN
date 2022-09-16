@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'VS4auti') }}</title>
+        <title>{{ config('app.name', 'VS4auti') }} 自閉症支援ツール トップページ</title>
+        <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
 
         <!-- Fonts -->

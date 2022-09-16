@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 <title>ログイン画面 </title>
 @section('content')
 <div class="container">

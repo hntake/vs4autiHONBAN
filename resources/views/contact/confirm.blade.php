@@ -23,7 +23,7 @@
             @csrf
             <ul>
                 <li>
-                    <label>メールアドレス</label><br>
+                    <label style="font-weight:bold;">メールアドレス</label><br>
                     {{ $inputs['email'] }}
                     <input
                         name="email"
@@ -31,7 +31,7 @@
                         type="hidden">
                 </li>
                 <li>
-                    <label>タイトル</label><br>
+                    <label style="font-weight:bold;">タイトル</label><br>
                     {{ $inputs['title'] }}
                     <input
                         name="title"
@@ -39,7 +39,7 @@
                         type="hidden">
                 </li>
                 <li>
-                    <label>お問い合わせ内容</label><br>
+                    <label style="font-weight:bold;">お問い合わせ内容</label><br>
                     {!! nl2br(e($inputs['body'])) !!}
                     <input
                         name="body"

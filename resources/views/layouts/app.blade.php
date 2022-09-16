@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/schedule.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+
 </head>
 <body>
     <div id="app">

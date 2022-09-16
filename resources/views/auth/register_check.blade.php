@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

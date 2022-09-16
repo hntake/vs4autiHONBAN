@@ -11,7 +11,7 @@
                 <button class="button" ><a href="{{ url('') }}" >トップページに戻る</a></button>
              </div>
             </div>
-        </header>
+</header>
 <div class="card_container py-3">
   <h3 class="mb-3">ご登録フォーム</h3>
     <div class="explain">

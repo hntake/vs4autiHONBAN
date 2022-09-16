@@ -10,9 +10,6 @@
         <body>
             <div class="pt-4 bg-gray-100">
                 <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
-                    <div>
-                        <x-jet-authentication-card-logo />
-                    </div>
 
                     <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
                         <p>この利用規約（以下，「本規約」といいます。）は，{{'llco'}}（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。</p>
