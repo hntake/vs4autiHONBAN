@@ -45,9 +45,9 @@ class StripeController extends Controller
         ->trialDays(30)
         ->create($paymentMethod);
         //サブスク申し込み完了メール送信
-        $name = $request['name'];
+        $email = $request['email'];
 
-        Mail::send(new RegisterMail($name));
+        Mail::send(new RegisterMail($email));
 
         // 処理後に'ルート設定'にページ移行
         return redirect()->route('receipt',$user);
@@ -83,7 +83,7 @@ class StripeController extends Controller
      public function update_profile(Request $request){
         $id = Auth::id();
         $users = User::find($id);
-        $users->name = $request->input('name');
+        /* $users->name = $request->input('name'); */
         $users->email = $request->input('email');
         $users->save();
 

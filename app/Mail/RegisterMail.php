@@ -17,9 +17,9 @@ class RegisterMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($email)
     {
-        $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -33,6 +33,6 @@ class RegisterMail extends Mailable
         return $this->to($user->email)  // 送信先アドレス
         ->subject('vs4auti登録完了しました。')          // 件名
         ->view('register_mail')   // 本文
-        ->with(['name' => $user->name]);    // 本文に送る値    }
+        ->with(['email' => $user->email]);    // 本文に送る値    }
 }
 }

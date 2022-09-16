@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <p class="text-center mt-5">{{ $user->name }}様 決済が完了しました！</p>
+  <!--   <p class="text-center mt-5">{{ $user->name }}様 決済が完了しました！</p> -->
 
     <div class="lets_start">
         <p>

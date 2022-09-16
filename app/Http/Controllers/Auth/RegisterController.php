@@ -87,8 +87,8 @@ class RegisterController extends Controller
             'email_verify_token' => base64_encode($data['email']),
         ]);
 
-        $email = new EmailVerification($user);
-        \Mail::to($user->email)->send($email);
+       /*  $email = new EmailVerification($user);
+        \Mail::to($user->email)->send($email); *///二通になるのでコメントアウト
 
         return $user;
 
