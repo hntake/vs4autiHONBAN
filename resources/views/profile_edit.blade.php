@@ -34,12 +34,12 @@
     <table class="table-hover">
         <thead>
             <tr>
-                <th style="width:20%">ユーザー名</th>
+                <!-- <th style="width:20%">ユーザー名</th> -->
                 <th style="width:20%">メールアドレス</th>
             </tr>
         </thead>
              <tbody id="tbl">
-                            <td><input type="text" name="name" value="{{ $user->name}}" class="form-control"></td>
+                           <!--  <td><input type="text" name="name" value="{{ $user->name}}" class="form-control"></td> -->
                             <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
                 </tbody>
     </table>

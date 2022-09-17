@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use Stripe;
 use App\Models\User;
+use App\Models\Subscription;
 use Carbon\Carbon;
 use App\Mail\RegisterMail;
+use Doctrine\Inflector\Rules\Substitution;
 use Illuminate\Support\Facades\Mail;
 
 class StripeController extends Controller
@@ -72,7 +74,10 @@ class StripeController extends Controller
      public function account(Request $request){
         $user = Auth::user();
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->format('Y-m-d');
-        return view('account',compact('user','date'));
+        $subscription = Subscription::where('user_id',$user->id)->first();
+        $trial = Carbon::createFromFormat('Y-m-d H:i:s', $subscription->trial_ends_at)->format('Y-m-d');
+        $now=Carbon::now();
+        return view('account',compact('user','date','trial','now'));
      }
      public function profile_edit(Request $request){
         $user = Auth::user();

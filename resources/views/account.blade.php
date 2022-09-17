@@ -45,9 +45,19 @@
 <body>
     <div class="portal">
         <form method="GET" action="{{route('profile_edit')}}">
-                    <p>お客様利用開始日</p>
-                  <span>  {{ $date}} </span><br>
+
+            @if($trial < $now)
+            <div>
+                <p>お客様利用開始日</p>
+                <span>  {{ $date}} </span><br>
+            </div>
+            @else
+            <div>
+                <p>無料トライアル終了日</p>
+                <span>  {{ $trial}} </span><br>
+            </div>
                   <button class="btn btn-primary mb-3">登録情報の変更</button>
+            @endif
         </form>
     </div>
     <div class="cancel">
