@@ -157,13 +157,13 @@ class ScheduleController extends Controller
         if(isset($path4)){
         $schedule->image4 = str_replace('public/', '', $path4);
         }
-        $schedule->name = User::where('id','=',Auth::id())->value('name');
+        $schedule->user_id = User::where('id','=',Auth::id())->value('id');
         $schedule->save();
 
         $user = Auth::user();
         if (isset($user['stripe_id'])){
 
-                $schedules = Schedule::where('name','=', Auth::user()->name)->get();
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('list', ['schedules'=>$schedules]);
             }
@@ -189,7 +189,7 @@ class ScheduleController extends Controller
         if(isset($path4)){
         $schedule->image4 = str_replace('public/', '', $path4);
         }
-        $schedule->name = 'guest';
+        $schedule->user_id = '0';
         $schedule->save();
 
         $schedule = Schedule::orderBy('created_at', 'desc')->first();
@@ -233,14 +233,14 @@ class ScheduleController extends Controller
         if(isset($request->image4)){
         $schedule->image4 = $request->image4;
         }
-        $schedule->name = User::where('id','=',Auth::id())->value('name');
+        $schedule->user_id = User::where('id','=',Auth::id())->value('id');
         $schedule->list = 1;
         $schedule->save();
 
         $user = Auth::user();
         if (isset($user['stripe_id'])){
 
-                $schedules = Schedule::where('name','=', Auth::user()->name)->get();
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('dentist/list', ['schedules'=>$schedules]);
             }
@@ -266,7 +266,7 @@ class ScheduleController extends Controller
             if(isset($request->image4)){
             $schedule->image4 = $request->image4;
             }
-            $schedule->name = 'guest';
+            $schedule->user_id = '0';
             $schedule->save();
 
         $schedule = Schedule::orderBy('created_at', 'desc')->first();
@@ -293,7 +293,7 @@ public function dentist_sample(Schedule $schedule){
     public function list(Request $request)
     {
 
-         $schedules = Schedule::where('name','=', Auth::user()->name)->where('list','=','0')->get();
+         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','0')->get();
 
         return view('list', ['schedules'=>$schedules]);
     }
@@ -306,7 +306,7 @@ public function dentist_sample(Schedule $schedule){
     public function dentist_list(Request $request)
     {
 
-         $schedules = Schedule::where('name','=', Auth::user()->name)->where('list','=','1')->get();
+         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','1')->get();
 
         return view('dentist/list', [
             'schedules'=>$schedules,
@@ -321,9 +321,9 @@ public function dentist_sample(Schedule $schedule){
     public function dentist_list_for(Request $request,$id)
     {
         /*uuidから歯科データを取得*/
-         $dentist = User::where('uuid','=',$request->id)->get()->pluck('name');
+         $dentist = User::where('uuid','=',$request->id)->get()->pluck('id');
         /*作成者名が$dentist一致し、かつlistカラムが1(歯科スケジュール）であるスケジュールを取得する*/
-         $schedules = Schedule::where('name','=', $dentist)->where('list','=','1')->get();
+         $schedules = Schedule::where('user_id','=', $dentist)->where('list','=','1')->get();
 
         return view('dentist/patient', [
             'schedules'=>$schedules,

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
+<title>歯科保存リスト画面  VS4Auti</title>
+
 @section('content')
 
 
