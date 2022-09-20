@@ -17,7 +17,7 @@ class ImageSeeder extends Seeder
     public function run()
     {
         $images =[
-            ['pic_name' => 'd_apron.jpg'],
+            ['pic_name' => 'd_apron2.jpg'],
             ['pic_name' => 'd_anes.jpg'],
             ['pic_name' => 'd_bite.jpg'],
             ['pic_name' => 'd_bite2.jpg'],

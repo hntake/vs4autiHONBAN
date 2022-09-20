@@ -5,19 +5,38 @@
         <div class="payment">
                 <h2>有料プランについて</h2>
                     <img src="img/compare.png" alt="compare" style="width:50%;">
-                    <h2 style="font-family: 'Noto Sans JP', sans-serif;">料金プラン</h3>
+                <h2 style="font-family: 'Noto Sans JP', sans-serif;">料金プラン</h3>
                   <ul>
-                    <li>月額プラン:100円（申込はこちらから↓）<br>
+                    <li style="border:1px solid black; margin-bottom:10px; list-style: none;  background-color: aqua; font-weight: 800; padding-left:10px; ">月額プラン:<span style="color:red;">100円</span>（申込はこちらから↓）<br>
                         <div  class="button" ><a href="{{ route('register') }}" style="background-color:none;">新規登録画面へ移動する</a></div></li>
-                    <li>年額プラン:<span style="color:red;">500円</span></li>
-                  </ul>
-                    <div class="caution">
-                    <h4>保証期間：登録から一年間</h4>
-                    <h4>※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span></h4>
+                    <li style="border:1px solid black; list-style: none; background-color: aqua; font-weight: 800; padding-left:10px; ">年額プラン:<span style="color:red;">500円</span>
+                    <div >
+                        <h4>保証期間：登録から一年間</h4>
+                        <h4>※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span></h4>
                     </div>
-                  <div class="llco" style="background-color:unset;">
-                    <div  class="button" ><a href="{{ route('admin_form') }}" style="background-color:none;">年額プラン申込ページへ移動する</a></div>
-                </div>
+                    <div class="llco" style="background-color:unset;">
+                        <div  class="button" ><a href="{{ route('admin_form') }}" style="background-color:none;">年額プラン申込ページへ移動する</a></div>
+                    </div>
+                    </li>
+                </ul>
+
+                <h2 style="font-family: 'Noto Sans JP', sans-serif;">登録の流れ</h3>
+                    <div>
+                        <ul>
+                            <li style="list-style: none;">
+                                ①メールアドレスとパスワードを入力して仮登録します
+                            </li>
+                            <li style="list-style: none;">
+                               ②入力されたメールアドレスに認証メールが送信されます。メールボックスに移動して認証します。
+                            </li>
+                            <li style="list-style: none;">
+                                ③月額登録フォームでクレジットカード情報を入力＆送信します。<span style="color:red;">（年額プランの方は申し込みが異なります!）</span>
+                            </li>
+                            <li style="list-style: none;">
+                                ④登録完了です！
+                            </li>
+                        </ul>
+                    </div>
 
             </div>
                 <p>お問い合わせは、下記の窓口までお願い致します。</p>

@@ -50,6 +50,13 @@ body{
   #card-element.form-group{
 
   }
+  .month{
+    border-color: lightgreen;
+    padding: 10px;
+    border-width: 5px;
+    margin-bottom: 10px;
+    border-style: double;
+  }
   .try{
       background-color: rgb(233, 233, 127);
       padding: 20px;

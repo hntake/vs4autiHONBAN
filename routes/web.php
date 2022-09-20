@@ -57,6 +57,9 @@ Route::get('/payment', function () {
 Route::get('/consumer', function () {
     return view('consumer');
 });
+Route::get('/myprofile', function () {
+    return view('myprofile');
+});
 //入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class, 'admin_form'])->name('admin_form');
 //確認ページ
@@ -125,6 +128,8 @@ Route::middleware(['subscribed'])->group(function () {
 
  //患者用歯科リストページへ遷移
  Route::get('dentist/patient/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_list_for'])->name('dentist_list_for');
+ //学校用リストページへ遷移
+ Route::get('school/{id}', [App\Http\Controllers\ScheduleController::class, 'list_for'])->name('list_for');
 
 
 //新規作成画面へ遷移

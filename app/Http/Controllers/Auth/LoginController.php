@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -50,8 +51,16 @@ class LoginController extends Controller
       {
         $user = User::where('email', $request->email)->first();
         Auth::login($user);
+        $schedules = Schedule::where('id', $request->id)->orderBy('created_at','desc')->get();
+        if (isset($user['stripe_id'])){
+            return view('list',compact('schedules'));
+        }
+        else{
 
-        return view('create');
+            return view('stripe',[
+                'intent' => $user->createSetupIntent()
+            ]);
+        }
 
       }
     protected function loggedOut(Request $request)

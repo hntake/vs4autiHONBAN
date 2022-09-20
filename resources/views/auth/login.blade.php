@@ -72,8 +72,15 @@
                 </div>
             </div>
             <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
-                <p>登録して全ての機能を使おう！（月額100円）</p>
-            <a href="{{ route('register') }}" class="button">新規登録</a>
+                <p>登録して全ての機能を使おう！</p>
+                <ul>
+                    <li style="list-style: none;">
+                        <a href="{{ route('register') }}" class="button">月額プラン100円を新規登録</a>
+                    </li>
+                    <li style="list-style: none;">
+                        <a href="{{ route('admin_form') }}" class="button">年額プラン500円を申し込む</a>
+                    </li>
+                </ul>
         </div>
         </div>
     </div>

@@ -83,7 +83,7 @@
                         <ul>
                            <li>1</li>
                            <li>エプロン</li>
-                            <li><img src="{{ asset('img/dentist/d_apron.jpg') }}" alt="apron" ></li>
+                            <li><img src="{{ asset('img/dentist/d_apron2.jpg') }}" alt="apron" ></li>
                         </ul>
                     </div>
                     <div class="img">

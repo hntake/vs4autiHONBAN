@@ -148,9 +148,9 @@
             </div>
             <div class="rule2">
                 <h3>
-                  <p> 有料プランについては<br>
+                  <p> 有料プランや登録の流れについては<br>
                     こちらで説明しています</p>
-                   <button class="button"><a href="{{ url('payment') }}" >有料プランについて</a></button>
+                   <button class="button"><a href="{{ url('payment') }}" >有料プラン・登録の流れ</a></button>
                 </h3>
             </div>
         </div>

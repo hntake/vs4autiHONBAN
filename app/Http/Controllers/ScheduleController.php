@@ -297,6 +297,23 @@ public function dentist_sample(Schedule $schedule){
 
         return view('list', ['schedules'=>$schedules]);
     }
+    /**学校用リスト画面へ遷移
+    * @param Request $request
+    * @return Response
+    */
+   public function list_for(Request $request,$id)
+   {
+       /*uuidからデータを取得*/
+        $school= User::where('uuid','=',$request->id)->get()->pluck('id');
+       /*作成者IDが$schoolと一致し、かつlistカラムが1(通常スケジュール）であるスケジュールを取得する*/
+        $schedules = Schedule::where('user_id','=', $school)->where('list','=','0')->get();
+
+       return view('school', [
+           'schedules'=>$schedules,
+           'id' =>$id,
+       ]);
+   }
+
      /**
      * 歯科リスト画面へ遷移
      *
