@@ -55,6 +55,9 @@ class LoginController extends Controller
         if (isset($user['stripe_id'])){
             return view('list',compact('schedules'));
         }
+        elseif(null !==$user->role){
+            return view('dentist/list',compact('schedules'));
+        }
         else{
 
             return view('stripe',[

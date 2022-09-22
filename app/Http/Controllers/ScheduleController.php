@@ -167,6 +167,12 @@ class ScheduleController extends Controller
 
                 return view('list', ['schedules'=>$schedules]);
             }
+
+            elseif(null !==$user->role){
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+
+                return view('list', ['schedules'=>$schedules]);
+            }
             else{
                 $schedule = Schedule::orderBy('created_at', 'desc')->first();
             return redirect()->route('sample',$schedule);
@@ -240,6 +246,11 @@ class ScheduleController extends Controller
         $user = Auth::user();
         if (isset($user['stripe_id'])){
 
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+
+                return view('dentist/list', ['schedules'=>$schedules]);
+            }
+            elseif(null !==$user->role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('dentist/list', ['schedules'=>$schedules]);

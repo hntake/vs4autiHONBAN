@@ -98,25 +98,24 @@ Auth::routes(['verify' => true]);
 //支払い画面へ
 Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->name('stripe');
 //ホーム画面へ
-//サブスクに加入済みか判定し
 Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
+//リストページへ遷移
+Route::get('/list', [App\Http\Controllers\ScheduleController::class, 'list'])->name('list');
+//リスト削除
+Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
+//歯科リストページへ遷移
+Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
+//歯科新規スケジュールの保存
+Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
+//歯科リスト削除
+Route::get('dentaist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_delete_list'])->name('dentist_delete_list');
+//サブスクに加入済みか判定し
 Route::middleware(['subscribed'])->group(function () {
     /*     Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed'); */
     Route::get('/account', [App\Http\Controllers\StripeController::class, 'account']);
 
-    //リストページへ遷移
-    Route::get('/list', [App\Http\Controllers\ScheduleController::class, 'list'])->name('list');
-
     Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class, 'list'])->name('dashoboad');
-    //リスト削除
-    Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
 
-     //歯科リストページへ遷移
-    Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
-    //歯科新規スケジュールの保存
-    Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
-    //歯科リスト削除
-    Route::get('dentaist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_delete_list'])->name('dentist_delete_list');
     //プロフィール編集画面へ
     Route::get('/profile_edit', [App\Http\Controllers\StripeController::class, 'profile_edit'])->name('profile_edit');
     Route::patch('/update_profile', [App\Http\Controllers\StripeController::class, 'update_profile'])->name('update_profile');
