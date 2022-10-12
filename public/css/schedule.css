@@ -336,6 +336,9 @@ tr{
 .col-sm-6{
     width:max-content
 }
+.contact li{
+    margin: 10px auto;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     img{
@@ -369,8 +372,8 @@ tr{
         display: block;
         margin: 10px auto;
         text-align: center;
-        width: 50%;
-
+        /* width: 50%;
+ */
     }
     .create-group{
         margin: 0;

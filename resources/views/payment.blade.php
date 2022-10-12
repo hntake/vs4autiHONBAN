@@ -14,11 +14,11 @@
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
     </head>
-<body style="background-image: url(../img/grad.jpg); position: relative;">
+<body>
     <div class="detail">
         <div class="payment">
                 <h2>有料プランについて</h2>
-                    <img src="img/compare.png" alt="compare" style="width:50%;">
+                    <img src="img/compare.png" alt="compare" >
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">料金プラン</h3>
                   <ul>
                     <li style="border:1px solid black; margin-bottom:10px; list-style: none;  background-color: aqua; font-weight: 800; padding-left:10px; ">月額プラン:<span style="color:red;">100円</span>（申込はこちらから↓）<br>

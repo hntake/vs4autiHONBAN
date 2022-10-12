@@ -14,8 +14,11 @@ button.btn {
     margin: 100 auto;
     width: 50%;
 }
+.aboutus h3{
+    text-align: center;
+}
 .payment{
-    margin: 100 auto;
+    margin: 0 auto;
     width: 50%;
 }
 .button a{
@@ -31,7 +34,7 @@ button.btn {
     margin-top:10px;
 }
 .top{
-    top:0;
+    top:100;
     left:0;
     position:absolute;
 }
@@ -39,6 +42,22 @@ button.btn {
     border: solid 1px lightseagreen;
     padding: 10px;
 }
+.detail{
+    margin:50px;
+}
+.payment img{
+    width:100%;
+}
+/*レスポンシブ対応*/
+@media (max-width: 480px){
+.payment{
+    width:100%;
+}
+.aboutus{
+    width:100%;
+}
+}
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
 
-
+}
