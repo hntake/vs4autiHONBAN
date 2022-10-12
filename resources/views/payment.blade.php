@@ -1,5 +1,19 @@
-<link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-<title>有料プランについて</title>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ config('app.name', 'VS4auti') }}有料プランについて 自閉症支援ツール </title>
+        <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/schedule.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+
+    </head>
 <body style="background-image: url(../img/grad.jpg); position: relative;">
     <div class="detail">
         <div class="payment">
