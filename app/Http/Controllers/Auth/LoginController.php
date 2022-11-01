@@ -42,30 +42,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-      /**ログイン画面への遷移 */
-      public function login()
-      {
-          return view('auth.login');
-      }
-      public function log(Request $request)
-      {
-        $user = User::where('email', $request->email)->first();
-        Auth::login($user);
-        $schedules = Schedule::where('id', $request->id)->orderBy('created_at','desc')->get();
-        if (isset($user['stripe_id'])){
-            return view('list',compact('schedules'));
-        }
-        elseif(null !==$user->role){
-            return view('dentist/list',compact('schedules'));
-        }
-        else{
+   
 
-            return view('stripe',[
-                'intent' => $user->createSetupIntent()
-            ]);
-        }
 
-      }
     protected function loggedOut(Request $request)
     {
         return redirect(route('login'));

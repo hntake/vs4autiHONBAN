@@ -161,14 +161,16 @@ class ScheduleController extends Controller
         $schedule->save();
 
         $user = Auth::user();
-        if (isset($user['stripe_id'])){
+        $stripe = $user->stripe_id;
+        $role =$user->role;
+        if (isset($stripe)){
 
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('list', ['schedules'=>$schedules]);
             }
 
-            elseif(null !==$user->role){
+            elseif(1==$role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('list', ['schedules'=>$schedules]);
@@ -244,23 +246,20 @@ class ScheduleController extends Controller
         $schedule->save();
 
         $user = Auth::user();
-        if (isset($user['stripe_id'])){
-
+        $stripe = $user->stripe_id;
+        $role =$user->role;
+        if (isset($stripe)){
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+                return view('dentist/list', ['schedules'=>$schedules]);
+            }elseif(1==$role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('dentist/list', ['schedules'=>$schedules]);
-            }
-            elseif(null !==$user->role){
-                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-
-                return view('dentist/list', ['schedules'=>$schedules]);
-            }
-            else{
+            }else{
                 $schedule = Schedule::orderBy('created_at', 'desc')->first();
             return redirect()->route('dentist_sample',$schedule);
             }
         }
-
         else{
 
             //schedulesテーブルへの受け渡し

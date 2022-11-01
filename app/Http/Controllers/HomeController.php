@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -29,6 +31,22 @@ class HomeController extends Controller
         $schedule = Schedule::orderBy('created_at', 'desc')->first();
 
         return view('home',compact('schedule'));
+    }
+
+         /**
+     * 歯科リスト画面へ遷移
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function dentist_list(Request $request)
+    {
+
+         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','1')->get();
+
+        return view('dentist/list', [
+            'schedules'=>$schedules,
+        ]);
     }
     /* public function index()
     {

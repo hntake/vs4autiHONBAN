@@ -60,6 +60,17 @@ Route::get('/consumer', function () {
 Route::get('/myprofile', function () {
     return view('myprofile');
 });
+Route::get('/feature',function(){
+    return view('feature');
+});
+Route::get('/plan',function(){
+    return view('plan');
+});
+Route::get('/case',function(){
+    return view('case');
+});
+
+
 //入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class, 'admin_form'])->name('admin_form');
 //確認ページ
@@ -104,7 +115,7 @@ Route::get('/list', [App\Http\Controllers\ScheduleController::class, 'list'])->n
 //リスト削除
 Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
 //歯科リストページへ遷移
-Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
+Route::get('dentist/list', [App\Http\Controllers\HomeController::class, 'dentist_list'])->name('dentist_list');
 //歯科新規スケジュールの保存
 Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
 //歯科リスト削除
@@ -185,6 +196,14 @@ Route::get('receipt/{user}', [App\Http\Controllers\StripeController::class, 'rec
 Route::post('/subscription/cancel/{user}',  [App\Http\Controllers\StripeController::class, 'cancelsubscription'])->name('stripe.cancel');
 //STRIPEカスタマーポータル
 Route::get('/subscription/portal/{user}',  [App\Http\Controllers\StripeController::class, 'portalsubscription'])->name('stripe.portalsubscription');
+
+/*NEws書き込み権限*/
+Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->middleware('auth:admin')->name('news.form');
+Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_news'])->middleware('auth:admin');
+/**news表示 */
+Route::get('/news/index', [\App\Http\Controllers\FormController::class, 'news_index'])->name('news.index');
+Route::get('/news/page{id}', [\App\Http\Controllers\FormController::class, 'news_page'])->name('news.page');
+
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');
  */
