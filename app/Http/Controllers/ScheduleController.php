@@ -118,8 +118,9 @@ class ScheduleController extends Controller
             'image4' => 'required|max:5000', */
         ],
         [
-            'schedule_name.unique' => '別のスケジュール名にしてください。',
-            'image0' => '画像を選んでください',
+            /**unique取り消し */
+/*             'schedule_name.unique' => '別のスケジュール名にしてください。',
+ */            'image0' => '画像を選んでください',
 
      ]);
         $path0=$request->file('image0')->store('public');
@@ -170,11 +171,11 @@ class ScheduleController extends Controller
                 return view('list', ['schedules'=>$schedules]);
             }
 
-            elseif(1==$role){
+          /*   elseif(1==$role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('list', ['schedules'=>$schedules]);
-            }
+            } */
             else{
                 $schedule = Schedule::orderBy('created_at', 'desc')->first();
             return redirect()->route('sample',$schedule);
@@ -214,7 +215,7 @@ class ScheduleController extends Controller
     public function dentist_schedule(Request $request){
 
         $validate = $request -> validate([
-            'schedule_name' => 'required|unique:schedules|max:25',
+            'schedule_name' => 'required|max:25',
             'image0' => 'required|max:25',
             'image1' => 'required|max:25',
           /*   'image2' => 'required|max:25',
@@ -222,8 +223,9 @@ class ScheduleController extends Controller
             'image4' => 'required|max:25', */
         ],
         [
-            'schedule_name.unique' => '別のスケジュール名にしてください。',
-
+            /*unique取り消し*/
+/*             'schedule_name.unique' => '別のスケジュール名にしてください。',
+ */
      ]);
 
      if (Auth::user() ){
@@ -246,19 +248,20 @@ class ScheduleController extends Controller
         $schedule->save();
 
         $user = Auth::user();
-        $stripe = $user->stripe_id;
-        $role =$user->role;
-        if (isset($stripe)){
-                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+        /*歯科スケジュールは無料会員も保存できるように変更*/
+       /*  $stripe = $user->stripe_id;
+        $role =$user->role; */
+/*         if (isset($stripe)){
+ */                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
                 return view('dentist/list', ['schedules'=>$schedules]);
-            }elseif(1==$role){
+          /*   }elseif(1==$role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('dentist/list', ['schedules'=>$schedules]);
             }else{
                 $schedule = Schedule::orderBy('created_at', 'desc')->first();
             return redirect()->route('dentist_sample',$schedule);
-            }
+            } */
         }
         else{
 
@@ -302,11 +305,27 @@ public function dentist_sample(Schedule $schedule){
      */
     public function list(Request $request)
     {
-
+        $user = Auth::user();
+        $stripe = $user->stripe_id;
+        $verify= $user->email_verified_at;
+        if (isset($stripe)){
          $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','0')->get();
 
         return view('list', ['schedules'=>$schedules]);
+        }
+        elseif(isset($verify)){
+            $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+
+            return view('dentist/list', ['schedules'=>$schedules]);
+        }
+        else{
+            $user=Auth::user();
+            return view('stripe',[
+                'intent' => $user->createSetupIntent()
+            ]);
+
     }
+}
     /**学校用リスト画面へ遷移
     * @param Request $request
     * @return Response

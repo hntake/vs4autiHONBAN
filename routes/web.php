@@ -115,7 +115,7 @@ Route::get('/list', [App\Http\Controllers\ScheduleController::class, 'list'])->n
 //リスト削除
 Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
 //歯科リストページへ遷移
-Route::get('dentist/list', [App\Http\Controllers\HomeController::class, 'dentist_list'])->name('dentist_list');
+Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
 //歯科新規スケジュールの保存
 Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
 //歯科リスト削除

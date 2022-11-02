@@ -33,21 +33,7 @@ class HomeController extends Controller
         return view('home',compact('schedule'));
     }
 
-         /**
-     * 歯科リスト画面へ遷移
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function dentist_list(Request $request)
-    {
-
-         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','1')->get();
-
-        return view('dentist/list', [
-            'schedules'=>$schedules,
-        ]);
-    }
+     
     /* public function index()
     {
         $schedules = Schedule::where('created_at', 'asc')->first();
