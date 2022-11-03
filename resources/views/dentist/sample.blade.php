@@ -66,9 +66,8 @@
             </div>
             <div class="footer">
                 <p>スケジュール保存が必要なら
-                    マンスリープラン！<br>
-                    <span style="font:bold;">(月額100円)</span>で可能になります。<br>
-                    ※保存したスケジュールは登録したユーザーのみ閲覧・利用できます（個人情報保護）<br>
+                    会員登録しましょう！<br>
+                    歯科スケジュールだけなら無料で保存できます。<br>
                     申し込みはこちらから！<button class="submit_button" style="float:unset;"><a href="{{ route('register') }}" >新規登録</a></button>
                 </p>
             </div>
