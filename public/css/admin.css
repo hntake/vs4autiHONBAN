@@ -1,3 +1,6 @@
+body{
+    margin:10px;
+}
 .admincard{
     border:solid green;
     background-color: #c1f6b3;
@@ -47,6 +50,9 @@ button.btn {
 }
 .payment img{
     width:100%;
+}
+li .year{
+
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){

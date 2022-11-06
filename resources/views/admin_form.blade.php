@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/schedule.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
 
 
@@ -22,7 +22,7 @@
             <form method="POST" action="{{ route('admin_confirm') }}">
                 @csrf
                 <ul>
-                    <li>
+                    <li class="year">
                         <label>メールアドレス</label>
                         <input
                         name="email"
@@ -32,7 +32,7 @@
                         <p class="error-message">{{ $errors->first('email') }}</p>
                         @endif
                     </li>
-                    <li>
+                    <li class="year">
                         <label>お名前</label>
                         <input
                         name="name"
@@ -42,7 +42,7 @@
                         <p class="error-message">{{ $errors->first('name') }}</p>
                         @endif
                     </li>
-                    <li>
+                    <li class="year">
                         <label>電話番号</label>
                         <input
                         name="phone"
@@ -52,7 +52,7 @@
                         <p class="error-message">{{ $errors->first('phone') }}</p>
                         @endif
                     </li>
-                    <li >
+                    <li class="year">
                         <label>ご質問等あれば</label><br>
                         <textarea name="body" style="height: 200px; width:80%;">{{ old('body') }}</textarea>
                     </li>
@@ -64,8 +64,8 @@
             </ul>
             <p>申込後24時間以内に支払い案内メールが送られます。</p>
         </div>
-        <div class="top">
+        <div class="button">
 
-        <a href="{{ url('/') }}"><h3>vs4autiトップページに戻る</h3></a>         </div>
+        <a href="{{ url('/') }}">vs4autiトップページに戻る</a>         </div>
 </html>
 
