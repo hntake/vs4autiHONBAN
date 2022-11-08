@@ -200,11 +200,11 @@
                             <img class="hero__lead" src="img/vs4_top.png" alt="" loading="lazy">
                         </picture>
                     </div>
-                    <div class="youtube">
+                <!--     <div class="youtube">
                         <div class="elementor-image">
                             <a href="https://youtube.com/embed/yB4qq_0xH9A" class="video-open"><img src="img/movie_button.png"></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="vs4">
                     <div class="vs4nest">
