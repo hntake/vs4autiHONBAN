@@ -69,6 +69,15 @@ Route::get('/plan',function(){
 Route::get('/case',function(){
     return view('case');
 });
+Route::get('/admin',function(){
+    return view('admin');
+});
+Route::get('/faq',function(){
+    return view('faq');
+});
+Route::get('/partner',function(){
+    return view('partner');
+});
 
 
 //入力ページ
@@ -197,12 +206,7 @@ Route::post('/subscription/cancel/{user}',  [App\Http\Controllers\StripeControll
 //STRIPEカスタマーポータル
 Route::get('/subscription/portal/{user}',  [App\Http\Controllers\StripeController::class, 'portalsubscription'])->name('stripe.portalsubscription');
 
-/*NEws書き込み権限*/
-Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->middleware('auth:admin')->name('news.form');
-Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_news'])->middleware('auth:admin');
-/**news表示 */
-Route::get('/news/index', [\App\Http\Controllers\FormController::class, 'news_index'])->name('news.index');
-Route::get('/news/page{id}', [\App\Http\Controllers\FormController::class, 'news_page'])->name('news.page');
+
 
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');

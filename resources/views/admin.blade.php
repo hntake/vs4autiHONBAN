@@ -41,10 +41,10 @@
 
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
-                                <div class="form-check" style="width:fit-content; background-color:#d4dcd6">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <div class="" style="width:fit-content; background-color:#d4dcd6">
+                                    <input  type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label  for="remember">
                                         {{ __('ログインを保持する') }}
                                     </label>
                                 </div>

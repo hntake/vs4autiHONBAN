@@ -1,176 +1,315 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'VS4auti') }} 自閉症支援ツール トップページ</title>
-        <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ config('app.name', 'VS4auti') }} 自閉症支援ツール トップページ</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/welcome2.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+    <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://eng50cha.com" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <header id="header" class="header is-open">
+
+                <div class="header_inner">
+                    <nav id="menu" class="header_nav">
 
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/schedule.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+                        @if (Route::has('login'))
+                        <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
+                        <ul class="header_nav_list">
 
+                            <li class="header_nav_itm">
+                                <a href="{{ url('create') }}" class="header_nav_itm_link">スケジュール作成</a>
+                                <div class="description1">スケジュールを作ってみる</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
+                                <div class="description1">歯科スケジュールを作ってみる</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
+                                <div class="description1">VS4Autiの使い方</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="{{ url('plan') }}" class="header_nav_itm_link">有料サービス</a>
+                                <div class="description1">保存するなら</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                @auth
+                                <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
+                                <div class="description1">Myホーム画面へ移動する </div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科</a>
+                                <div class="description1">歯科リストへ移動する</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                @else
+                                <div class="login-button">
+                                    <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
+                                    <div class="description1">ログイン画面へ移動する </div>
+                                </div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <div class="register-button">
+                                    @if (Route::has('register'))
+                                    <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
+                                    <div class="description1">30日間無料トライアルを試してみる </div>
 
+                                </div>
+                            </li>
+                            @endif
+                            @endauth
+                            @endif
+                            <li class="header_nav_itm">
+                                <div class="register-button">
+                                    <a href="https://youtube.com/embed/yB4qq_0xH9A" class="header_nav_itm_link">説明動画</a>
+                                    <div class="description1">マニュアル動画ページへ</div>
+                                </div>
+                            </li>
+                        </ul>
 
-
-
-    </head>
-    <body class="antialiased">
-        <header id="header">
-            <div class="wrapper">
-                <div class="try">
-                    <h3>登録せずに使ってみる</h3>
-                    <button class="button"><a href="{{ url('create') }}" >TRY it NOW!</a></button>
+                    </nav>
                 </div>
-                <div class="contact">
-                    <h3>
-                        お問い合わせ・ご質問はこちら迄
-                    </h3>
-                    <button class="button"><a href="{{ route('contact.index') }}" >Contact us</a></button>
+                <div class="mobile-login">
+                    <ul>
+                        <li class="header_nav_itm">
+                            @if (Route::has('login'))
+                            @auth
+                            <div class="home-button">
+                                <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
+                                <div class="description1">Myホーム画面へ移動する </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="home-button">
+                                <a href="{{ url('/dental/list') }}" class=" header_nav_itm_link">歯科</a>
+                                <div class="description1">歯科リストへ移動する</div>
+                            </div>
+                        </li>
+                        <li class="header_nav_itm">
+                            @else
+                            <div class="login-button">
+                                <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
+                                <div class="description1">ログイン画面へ移動する </div>
+                            </div>
+                        </li>
+                        <li class="header_nav_itm">
+                            <div class="register-button">
+                                @if (Route::has('register'))
+                                <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
+                                <div class="description1">30日間無料トライアルを試してみる</div>
+
+                            </div>
+                        </li>
+
+                        @endif
+                        @endauth
+                        @endif
+                    </ul>
+                </div>
+                <!--  ハンバーガーメニュー -->
+                <div class="mobile-menu">
+                    <div id="nav-drawer">
+                        <input id="nav-input" type="checkbox" class="nav-unshown">
+                        <label id="nav-open" for="nav-input"><span></span></label>
+                        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+                        <div id="nav-content">
+                            <ul class="header_nav_list">
+                                <li>
+                                    <a href="{{ url('create') }}" class="header_nav_itm_link">
+                                        スケジュール作成
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('feature') }}" class="header_nav_itm_link">
+                                        使い方
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="register-button">
+                                        <a href="https://youtube.com/embed/yB4qq_0xH9A" class="header_nav_itm_link">説明動画</a>
+                                        <div class="description1">マニュアル動画ページへ</div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <script>
+                            $(function() {
+                                $('#nav-content li a').on('click', function(event) {
+                                    $('#nav-input').prop('checked', false);
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+            </header>
+            <div class="main-column">
+                <div class="hero">
+                    <div class="hero__pad">
+                        <div class="pin-spacer">
+                            <div class="kv">
+                                <div class="catch-copy">
+                                    <picture>
+                                        <source media="(max-width:800px)" srcset="img/VS_white.png">
+                                        <img class="title" src="img/VS_white.png" alt="">
+                                    </picture>
+
+                                </div>
+                                <div class="hero__cover"></div>
+                            </div>
+                            <div class="video">
+                                <video class="pc" src="img/nagi.mp4" autoplay loop muted playsinlin></video>
+                                <video class="sp" src="img/nagi_sp.mp4" autoplay loop muted playsinlin></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__lead-container">
+                        <picture>
+                            <source media="(max-width:800px)" srcset="img/vs4_top.png">
+                            <img class="hero__lead" src="img/vs4_top.png" alt="" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                            <a href="https://youtube.com/embed/yB4qq_0xH9A" class="video-open"><img src="img/movie_button.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="vs4">
+                    <div class="vs4nest">
+                        <div class="vs4left">
+                            <div class="vs4Up">
+                                <p>VS4Autiはスケジュール作成に特化した<br>アプリケーションです</p>
+                            </div>
+                        </div>
+                        <div class="vs4right">
+                            <div class="vs4Down">
+                                <p>
+                                    使い方は簡単！<br>
+                                    ご自分のスマホやPCに保存された画像をアップロードするだけで、<br>
+                                    自分だけのスケジュールが作成できます！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-</div>
+
+                <div class="bottom">
+
+                    <div class="bottom-container">
+                        <div class="bottom-element">
+                            <div class="bottom-element-top">
+                                <h2 class="bottom-element-top">
+                                    今すぐはじめてみよう！
+                                </h2>
+                            </div>
+                            <div class="bottom-inner">
+                                <div class="bottom-left">
+                                    <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
+                                        <span class="elementor-button">スケジュールを作る</span>
+                                    </a>
+                                </div>
+                                <div class="bottom-right">
+                                    <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
+                                        <span class="elementor-button">30日間無料トライアル</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-        <div class="status">
-            @if (Route::has('login'))
-                <div class="login_button">
-                    @auth
-                        <h3>
-                            保存リストを見る
-                        </h3>
-                        <button class="button"><a href="{{ url('/home') }}" >Home</a></button>
-                    @else
-                        <h3>
-                            登録済みの方はこちらからログインする
-                        </h3>
-                        <button class="button"><a href="{{ route('login') }}" >ログイン</a></button>
-                </div>
-
-                <div class="register_button">
-                    @if (Route::has('register'))
-                        <h3>
-                            30日間無料トライアルを試してみる
-                        </h3>
-                        <button class="button"><a href="{{ route('register') }}" >新規登録</a></button>
-                    @endif
-                    @endauth
-                </div>
-            @endif
-
-
         </div>
-        <div class="content">
-            <div class="explain">
-            <h1>
-                自閉症支援ツール<br>
-                <img src="img/vs4auti.png" alt="ad">
-                とは？
-            </h1>
-            <h2>
-            自閉症スペクトラムの人々は、聴覚入力よりも視覚的サポートを利用することで、よりよく理解できる傾向があります。<br>
-            視覚的なサポート（以下、ビジュアルサポート）は、自閉症の人に役立つコミュニケーションツールの一つと言われています。<br>
-            </h2>
-            <h3 style="background-color:darkturquoise">
-            ビジュアルサポートを使用すると、次のことができます。
-            <ul>
-                <li>
-                   1. 時間の視覚的なブロックを使用して、毎日/毎週のスケジュールを作成します
-                </li>
-                <li>
-                   2. 就寝時のルーチンや着替えなどのタスクの連続したステップを表示する
-                </li>
-                <li>
-                    3.時間の単位を示す
-                </li>
-                <li>
-                    4.「やること」リストを作成する
-                </li>
-                <li>
-                    5.非言語的または非言語的である人々のためのコミュニケーションを支援する
-                </li>
-                <li>
-                   6.選択肢を提供する
-                </li>
-            </ul>
-            </h3>
-            </div>
-            <div class="vs4auti">
-                <h3>
-                    <span style="color:mediumblue">VS4Auti</span>はスケジュール作成に特化したアプリケーションです<br>
-                </h3>
-                <h3>
-                    <p>使い方は簡単！<br>
-                    ご自分のスマホやPCに保存された画像をアップロードするだけで、<br>
-                    自分だけのスケジュールが作成できます！<br>
-                    <p>
-                </h3>
-                <div class="sample">
-                    <p>サンプル画像(クリックすると拡大した画像が見れます)</p>
-                    <a href="img/sample3.png" target="_blank">
-                        <img src="img/sample3.png" alt="sample">
-                    </a>
-                    <a href="img/sample2.png" target="_blank">
-                        <img src="img/sample2.png" alt="sample2">
-                    </a>
+        <footer class="site-footer">
+            <div class="bc-sitemap-wrapper">
+                <div class="sitemap clearfix">
+                    <div id="nav_menu2" class="widget_nav_menu">
+                        <h2 class="widget-title">製品紹介</h2>
+                        <div class="menu-site-map-1-container">
+                            <ul id="menu-site-map-1" class="menu">
+                                <li><a href="{{ url('feature') }}">機能</a></li>
+                                <li><a href="{{ url('plan') }}">利用料金</a></li>
+                                <li><a href="{{ url('case') }}">導入事例</a></li>
+                                <li><a href="{{ url('admin')}}">管理者画面</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="nav_menu2" class="widget_nav_menu">
+                        <h2 class="widget-title">関連情報</h2>
+                        <div class="menu-site-map-1-container">
+                            <ul id="menu-site-map-1" class="menu">
+                                <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
+                                <l><a href="https://eng50cha.com/news/index">お知らせ</a></li>
+                                    <li><a href="{{ url('partner')}}">パートナー</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="nav_menu2" class="widget_nav_menu">
+                        <h2 class="widget-title">サポート</h2>
+                        <div class="menu-site-map-1-container">
+                            <ul id="menu-site-map-1" class="menu">
+                                <li><a href="{{ route('contact.index')}}">お問い合わせ</a></li>
+                                <li><a href="{{ url('faq')}}">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="nav_menu2" class="widget_nav_menu">
+                        <h2 class="widget-title">会社情報</h2>
+                        <div class="menu-site-map-1-container">
+                            <ul id="menu-site-map-1" class="menu">
+                                <li><a href="{{ url('policy')}}">プライバシー</a></li>
+                                <li><a href="{{ url('rule')}}">利用規約</a></li>
+                                <li><a href="{{ url('aboutus')}}">About Us</a></li>
+                                <li><a href="{{ url('consumer')}}">特定商取引</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="site-info">
+                        <div class="widget">
+                            <div class="copy-right">
+                                <span class="copu-right-text">© All rights reserved by llco</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h4>月額100円の有料プランなら、スケジュールをいくつでも保存できます。保存リストから選べるので利用がスムーズです。</h4>
+            </div>
+            <p></p>
 
-                <h4><span style="color:red;">NEW!!</span>有料プランなら保存スケジュール利用時に、終わった画像をクリックすると画像が切り替わるようになりました。</h4>
-                <div class="new">
-                <a href="img/check-mark.mp4" target="_blank">詳しくは参考動画をどうぞ（クリックすると新しい画面で動画が流れます）
-                </a>
-                </div>
-                <h4>※画像は暗号化して保存されるため、ログインできるユーザー以外は見ることが出来ないので安心して利用してください。</h4>
-                <div class="video">
-                    <h3 style="text-align:center;">
-                        デモンストレーション動画
-                    </h3>
-                    <a href="img/vs4auti3.mp4" target="_blank">
-                    <video controls src="img/vs4auti3.mp4"></video>
-                    </a>
-                </div>
-                <div class="sm-video">
-                <p>スマホの方はこちらからどうぞ</p><a href="https://youtu.be/YX4zRNKURE8">説明動画</a>
-                </div>
-            </div>
-        </div>
-        <div class="bottom">
-            <div class="rule1">
-                <h3>
-                  <p> 登録せずに試すことが出来ます<br>
-                   ここをクリックしてスケジュールを作ってみよう！</p>
-                   <button class="button"><a href="{{ url('create') }}" >スケジュール作成</a></button>
-                </h3>
-            </div>
-            <div class="rule2">
-                <h3>
-                  <p> 有料プランや登録の流れについては<br>
-                    こちらで説明しています</p>
-                   <button class="button"><a href="{{ url('payment') }}" >有料プラン・登録の流れ</a></button>
-                </h3>
-            </div>
-        </div>
-    <!-- footer -->
-  <footer>
-  	<p>© All rights reserved by llco</p>
-      <div class="left">
-                    <div class="policy" >
-                        <button class="button"><a href="{{ url('policy') }}" >プライバシーポリシー</a></button>
-                    </div>
-                    <div class="terms">
-                        <button class="button"><a href="{{ url('rule') }}" >利用規約</a></button>
-                    </div>
-                    <div class="terms">
-                        <button class="button"> <a href="{{ url('aboutus') }}" class="button">制作者より</a></button>
-                    </div>
-                    <div class="terms">
-                        <button class="button"> <a href="{{ url('consumer') }}" class="button">特定商取引</a></button>
-                    </div>
-    </div>
-  </footer>
-    </body>
+            <a href="#" class="gotop">トップへ</a>
+        </footer>
+</body>
+
 </html>

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
-<title>新規作成画面 自閉症支援ツール VS4Auti”</title>
+<title>新規作成画面 自閉症支援ツール "VS4Auti”</title>
 @section('content')
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">

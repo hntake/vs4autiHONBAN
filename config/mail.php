@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'mx.zoho.jp'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_FROM_ADDRESS'),
-            'password' => env('MAIL_PASSWORD'),
+            'username' => env('MAIL_USERNAME','info@itcha50.com'),
+            'password' => env('MAIL_PASSWORD','EtCejcGhe0bX'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
