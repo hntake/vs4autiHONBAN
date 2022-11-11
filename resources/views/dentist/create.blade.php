@@ -46,6 +46,9 @@
 
 
     <h1>新規スケジュール作成</h1>
+    <div class="register-button">
+    <a href="https://youtube.com/embed/pnJWbZraq10" class="header_nav_itm_link">歯科スケジュール作成説明動画を見る</a>
+    </div>
     <form action="{{ url('dentist/create') }}" method="post">
         {{ csrf_field() }}
         <div class='create-group'>

@@ -2,6 +2,19 @@
     border: solid 1px black;
     width: 20%;
 }
+.register-button{
+    margin-bottom: 20px;
+}
+.register-button a{
+    box-sizing: border-box;
+    height: 0.46rem;
+    padding: 0 0.4rem;
+    border-radius: 0.05rem;
+    color: #fff;
+    background-color: #f1d26e;
+    vertical-align: middle;
+    border-radius:5px;
+}
 
 @media (max-width: 480px){
     .img{
