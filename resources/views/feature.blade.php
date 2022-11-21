@@ -66,19 +66,19 @@
                                 <a href="{{url('/')}}" class=""><img src="img/vs4auti.png" style="width:60%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('create') }}" class="header_nav_itm_link">スケジュール作成</a>
+                                <a href="#use" class="header_nav_itm_link">スケジュール作成</a>
                                 <div class="description1">スケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
+                                <a href="#use" class="header_nav_itm_link">歯科スケジュール作成</a>
                                 <div class="description1">歯科スケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
-                                <div class="description1">VS4Autiの使い方</div>
+                                <a href="#monitor-apply" class="header_nav_itm_link">申込み方法</a>
+                                <div class="description1">VS4Autiの申込み方法</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('plan') }}" class="header_nav_itm_link">有料サービス</a>
+                                <a href="#useful" class="header_nav_itm_link">有料サービス</a>
                                 <div class="description1">保存するなら</div>
                             </li>
                             <!--    <li class="header_nav_itm">
@@ -170,16 +170,16 @@
                                     <a href="{{url('/')}}" class=""><img src="img/vs4auti.png" style="width:30%; height:auto;"></a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('create') }}" class="header_nav_itm_link">
+                                    <a href="#use" class="header_nav_itm_link">
                                         スケジュール作成
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
+                                    <a href="#use" class="header_nav_itm_link">歯科スケジュール作成</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('feature') }}" class="header_nav_itm_link">
-                                        使い方
+                                    <a href="#monitor-apply" class="header_nav_itm_link">
+                                        申込み方法
                                     </a>
                                 </li>
                                 <li>
@@ -265,7 +265,7 @@
             <div class="youtube_kv">
                 <div class="movie_cap">
                     <div class="elementor-widget">
-                        <a name="monitor">
+                        <a name="monitor-apply">
                             <img src="img/register1.png">
                         </a>
                     </div>
@@ -278,10 +278,10 @@
                 </div>
             </div>
             <section>
+                <a name="use" class="use">
                 <div class="element">
                     <div class="use">
                         <!-- リンク内移動-->
-                        <a name="use" class="use">
                             <br>vs4Autiで
                             <br>絵スケジュールを作ろう</a>
                     </div>
@@ -324,7 +324,7 @@
                                         <br>
                                         ※詳細は画像をクリックして拡大してみてください
                                         <div class="llco" style="background-color:unset;">
-                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -382,10 +382,10 @@
                         </div>
                     </div>
                 </div>
+                <a name="useful" class="use">
                 <div class="element">
                     <div class="use">
                         <!-- リンク内移動-->
-                        <a name="useful" class="use">
                             <br>有料プランで使える
                             <br>便利な機能</a>
                     </div>

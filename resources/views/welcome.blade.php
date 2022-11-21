@@ -153,7 +153,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('feature') }}" class="header_nav_itm_link">
-                                        使い方
+                                        使い方 申込み方法
                                     </a>
                                 </li>
                                 <li>
