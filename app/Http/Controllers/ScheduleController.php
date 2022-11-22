@@ -111,11 +111,11 @@ class ScheduleController extends Controller
 
         $validate = $request -> validate([
             'schedule_name' => 'required|max:25',
-            'image0' => 'required|max:5000',
-            'image1' => 'required|max:5000',
-            /* 'image2' => 'required|max:5000',
-            'image3' => 'required|max:5000',
-            'image4' => 'required|max:5000', */
+            'image0' => 'required|file|image:jpeg,png,jpg|max:5000',
+            'image1' => 'required|file|image:jpeg,png,jpg|max:5000',
+            'image2' =>  'file|image:jpeg,png,jpg|max:5000',
+            'image3' =>  'file|image:jpeg,png,jpg|max:5000',
+            'image4' =>  'file|image:jpeg,png,jpg|max:5000',
         ],
         [
             /**unique取り消し */
