@@ -61,6 +61,7 @@ class StripeController extends Controller
 
     public function cancelsubscription(User $user, Request $request){
         $user->subscription('basic_plan')->cancelNow();
+        $user->delete();
         return view('cancel');
      }
 

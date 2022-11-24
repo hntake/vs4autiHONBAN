@@ -18,14 +18,20 @@
                 <li><a href="{{ url('dentist/list') }}">
                         <h3>保存リスト（歯科）</h3>
                     </a></li>
-                <li><a href="{{ url('account') }}">
-                        <h3>支払い情報</h3>
+                <li><a href="{{ url('list_sort') }}">
+                        <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
                     </a></li>
                 <li><a href="{{ url('create') }}">
                         <h3>新規作成</h3>
                     </a></li>
                 <li><a href="{{ url('dentist/create') }}">
                         <h3>新規作成（歯科）</h3>
+                    </a></li>
+                <li><a href="{{ url('create_sort') }}">
+                        <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                <li><a href="{{ url('account') }}">
+                        <h3>支払い情報</h3>
                     </a></li>
             </ul>
         </div>
@@ -47,7 +53,7 @@
 
     <h1>新規スケジュール作成</h1>
     <div class="register-button">
-    <a href="https://youtube.com/embed/pnJWbZraq10" class="header_nav_itm_link">歯科スケジュール作成説明動画を見る</a>
+        <a href="https://youtube.com/embed/pnJWbZraq10" class="header_nav_itm_link">歯科スケジュール作成説明動画を見る</a>
     </div>
     <form action="{{ url('dentist/create') }}" method="post">
         {{ csrf_field() }}

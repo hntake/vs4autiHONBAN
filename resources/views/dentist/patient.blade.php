@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
-<title>歯科保存リスト画面  VS4Auti</title>
+<title>歯科保存リスト画面 VS4</title>
 
 @section('content')
 
@@ -11,11 +11,11 @@
     @include('common.errors')
 
 
-        <div class="list-area">
+    <div class="list-area">
 
-                <h1>スケジュールリスト(歯科)</h1>
-                <div class="list">
-                   <!--  sort button
+        <h1>スケジュールリスト(歯科)</h1>
+        <div class="list">
+            <!--  sort button
                     <form action="{{ route('sort') }}" method="GET">
                         @csrf
                         <select name="narabi">
@@ -31,18 +31,20 @@
                     </div>
                 </form> -->
 
-                <table class="result">
-                    <tbody id="tbl">
-                            <!--スケジュール一覧 -->
-                                    @foreach ($schedules as $schedule)
-                                        <tr >
-                                            <td >{{ $schedule->schedule_name }}</td>
-                                            <td ><div  class="list_button"><a href="{{ route('dentist_schedule',['id'=>$schedule->id]) }}">表示</a></div></td>
-                                        </tr>
-                                    @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </tbody>
+            <table class="result">
+                <tbody id="tbl">
+                    <!--スケジュール一覧 -->
+                    @foreach ($schedules as $schedule)
+                    <tr>
+                        <td>{{ $schedule->schedule_name }}</td>
+                        <td>
+                            <div class="list_button"><a href="{{ route('dentist_schedule',['id'=>$schedule->id]) }}">表示</a></div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-@endsection
+        </tbody>
+    </div>
+    @endsection

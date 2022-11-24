@@ -9,6 +9,10 @@
 </head>
 <body>
     <p class="text-center mt-5">キャンセルしました！</p>
+    <div class="top"style="text-align: center;
+}">
+            <button class="button" id="card-button"><a style="font-size: 1.0rem;" href="{{ url('/') }}">トップページに<br>戻る</a></button>
+    </div>
 
 
 </body>

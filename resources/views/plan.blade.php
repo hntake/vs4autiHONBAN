@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>vs4Autiとは？ 視覚支援ツールvs4Auti </title>
+    <title>VS4とは？ 視覚支援ツールVS4 </title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -56,7 +56,7 @@
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
                             <li class="title_image">
-                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/vs4auti.png" style="width:60%; height:auto;"></a>
+                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/VS4.png" style="width:60%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#paid" class="header_nav_itm_link">有償プラン</a>
@@ -101,7 +101,7 @@
                 <div class="mobile">
                     <ul>
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/vs4auti.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/')}}" class=""><img src="img/VS4.png" style="width:30%; height:auto;"></a>
                         </li>
                         <li class="header_nav_itm">
                             <div class="register-button">
@@ -130,7 +130,7 @@
                                 </li>
                                 <li class="header_nav_itm">
                                     <div class="register-button">
-                                    <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>

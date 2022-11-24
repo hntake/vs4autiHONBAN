@@ -125,10 +125,16 @@ Route::get('/list', [App\Http\Controllers\ScheduleController::class, 'list'])->n
 Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
 //歯科リストページへ遷移
 Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
+//イラストリストページへ遷移
+Route::get('list_sort', [App\Http\Controllers\ScheduleController::class, 'list_sort'])->name('list_sort');
 //歯科新規スケジュールの保存
 Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
+//イラスト新規スケジュールの保存
+Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'schedule_sort'])->name('schedule_sort');
 //歯科リスト削除
 Route::get('dentaist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_delete_list'])->name('dentist_delete_list');
+//イラストリスト削除
+Route::get('list_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_delete_list'])->name('sort_delete_list');
 //サブスクに加入済みか判定し
 Route::middleware(['subscribed'])->group(function () {
     /*     Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed'); */
@@ -143,6 +149,10 @@ Route::middleware(['subscribed'])->group(function () {
    //歯科新規作成画面へ遷移
    Route::get('/dentist/create', function () {
     return view('dentist/create');
+    });
+   //並び替え新規作成画面へ遷移
+   Route::get('/create_sort', function () {
+    return view('create_sort');
     });
 
  //患者用歯科リストページへ遷移
@@ -159,6 +169,8 @@ Route::post('/create', [App\Http\Controllers\ScheduleController::class, 'schedul
 Route::get('/sample/{schedule}', [App\Http\Controllers\ScheduleController::class, 'sample'])->name('sample');
 //歯科サンプル画面表示
 Route::get('/dentist/sample/{schedule}', [App\Http\Controllers\ScheduleController::class, 'dentist_sample'])->name('dentist_sample');
+//イラストサンプル画面表示
+Route::get('/sample_sort/{schedule}', [App\Http\Controllers\ScheduleController::class, 'sample_sort'])->name('sample_sort');
 
 //画像表示ページ
 /* Route::get('/selectpicture/{id}', [App\Http\Controllers\ScheduleController::class,'select_picture'])->name('select_picture');
@@ -185,6 +197,8 @@ Route::get('/sort', [App\Http\Controllers\ExtraController::class, 'sort'])->name
 Route::get('/schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule');
 //歯科スケジュール表示画面
 Route::get('dentist/schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_index'])->name('dentist_schedule');
+//イラストスケジュール表示画面
+Route::get('schedul_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_index'])->name('schedule_sort');
 //スケジュール検索画面表示
 Route::get('/search', [App\Http\Controllers\ScheduleController::class, 'search'])->name('search');
 //スケジュール検索

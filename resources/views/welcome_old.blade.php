@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'VS4auti') }} 自閉症支援ツール トップページ</title>
+    <title>{{ config('app.name', 'VS4') }} トップページ</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
 
@@ -69,7 +69,7 @@
         <div class="explain">
             <h1>
                 自閉症支援ツール<br>
-                <img src="img/vs4auti.png" alt="ad">
+                <img src="img/VS4.png" alt="ad">
                 とは？
             </h1>
             <h2>
@@ -100,9 +100,9 @@
                 </ul>
             </h3>
         </div>
-        <div class="vs4auti">
+        <div class="VS4">
             <h3>
-                <span style="color:mediumblue">VS4Auti</span>はスケジュール作成に特化したアプリケーションです<br>
+                <span style="color:mediumblue">VS4</span>はスケジュール作成に特化したアプリケーションです<br>
             </h3>
             <h3>
                 <p>使い方は簡単！<br>
@@ -131,8 +131,8 @@
                 <h3 style="text-align:center;">
                     デモンストレーション動画
                 </h3>
-                <a href="img/vs4auti3.mp4" target="_blank">
-                    <video controls src="img/vs4auti3.mp4"></video>
+                <a href="img/VS43.mp4" target="_blank">
+                    <video controls src="img/VS43.mp4"></video>
                 </a>
             </div>
             <div class="sm-video">

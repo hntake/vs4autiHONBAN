@@ -35,13 +35,14 @@ class ContactSendmail extends Mailable
     public function build()
     {
         return $this
-        ->from('info@itcha50.com')
-        ->to('hntake@gmail.com')
-        ->subject('VS4Autiより自動送信メールです')
-        ->view('contact.mail')
-        ->with([
-            'email' => $this->email,
-            'title' => $this->title,
-            'body'  => $this->body,
-        ]);    }
+            ->from('info@itcha50.com')
+            ->to('hntake@gmail.com')
+            ->subject('VS4より自動送信メールです')
+            ->view('contact.mail')
+            ->with([
+                'email' => $this->email,
+                'title' => $this->title,
+                'body'  => $this->body,
+            ]);
+    }
 }

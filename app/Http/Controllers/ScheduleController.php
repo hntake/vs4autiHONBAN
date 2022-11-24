@@ -61,9 +61,22 @@ class ScheduleController extends Controller
 
         $schedule = Schedule::where('id', $request->id)->first();
 
-/* dd($schedule->imageOne);
- */
+
         return view('dentist/schedule',compact('schedule'));
+    }
+    /**
+     * イラストIDを選んだスケジュール表示
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function sort_index(Request $request)
+    {
+
+        $schedule = Schedule::where('id', $request->id)->first();
+
+
+        return view('schedule_sort',compact('schedule'));
     }
 
     /**
@@ -287,6 +300,87 @@ class ScheduleController extends Controller
     }
 
         }
+/**
+     * イラストスケジュールを作成保存
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function schedule_sort(Request $request){
+
+        $validate = $request -> validate([
+            'schedule_name' => 'required|max:25',
+            'image0' => 'required',
+            'image1' => 'required',
+          /*   'image2' => 'required|max:25',
+            'image3' => 'required|max:25',
+            'image4' => 'required|max:25', */
+        ],
+        [
+            /*unique取り消し*/
+/*             'schedule_name.unique' => '別のスケジュール名にしてください。',
+ */
+     ]);
+
+     if (Auth::user() ){
+        //schedulesテーブルへの受け渡し
+        $schedule = new Schedule;
+        $schedule->schedule_name = $request->schedule_name;
+        $schedule->image0 = $request->image0;
+        $schedule->image1 = $request->image1;
+        if(isset($request->image2)){
+            $schedule->image2 = $request->image2;
+        }
+        if(isset($request->image3)){
+        $schedule->image3 = $request->image3;
+        }
+        if(isset($request->image4)){
+        $schedule->image4 = $request->image4;
+        }
+        $schedule->user_id = User::where('id','=',Auth::id())->value('id');
+        $schedule->list = 2;
+        $schedule->save();
+
+        $user = Auth::user();
+        /*歯科スケジュールは無料会員も保存できるように変更*/
+       /*  $stripe = $user->stripe_id;
+        $role =$user->role; */
+/*         if (isset($stripe)){
+ */                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+                return view('list_sort', ['schedules'=>$schedules]);
+          /*   }elseif(1==$role){
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+
+                return view('dentist/list', ['schedules'=>$schedules]);
+            }else{
+                $schedule = Schedule::orderBy('created_at', 'desc')->first();
+            return redirect()->route('dentist_sample',$schedule);
+            } */
+        }
+        else{
+
+            //schedulesテーブルへの受け渡し
+            $schedule = new Schedule;
+            $schedule->schedule_name = $request->schedule_name;
+            $schedule->image0 = $request->image0;
+            $schedule->image1 = $request->image1;
+            if(isset($request->image2)){
+                $schedule->image2 = $request->image2;
+            }
+            if(isset($request->image3)){
+            $schedule->image3 = $request->image3;
+            }
+            if(isset($request->image4)){
+            $schedule->image4 = $request->image4;
+            }
+            $schedule->user_id = '0';
+            $schedule->save();
+
+        $schedule = Schedule::orderBy('created_at', 'desc')->first();
+        return redirect()->route('sample_sort',$schedule);
+    }
+
+        }
 
 /*サンプル表示*/
 public function sample(Schedule $schedule){
@@ -295,6 +389,10 @@ public function sample(Schedule $schedule){
 /*歯科サンプル表示*/
 public function dentist_sample(Schedule $schedule){
         return view('dentist/sample',compact('schedule'));
+    }
+/*イラストサンプル表示*/
+public function sample_sort(Schedule $schedule){
+        return view('sample_sort',compact('schedule'));
     }
 
      /**
@@ -312,11 +410,6 @@ public function dentist_sample(Schedule $schedule){
          $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','0')->get();
 
         return view('list', ['schedules'=>$schedules]);
-        }
-        elseif(isset($verify)){
-            $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-
-            return view('dentist/list', ['schedules'=>$schedules]);
         }
         else{
             $user=Auth::user();
@@ -355,6 +448,21 @@ public function dentist_sample(Schedule $schedule){
          $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','1')->get();
 
         return view('dentist/list', [
+            'schedules'=>$schedules,
+        ]);
+    }
+     /**
+     * イラストスケリスト画面へ遷移
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function list_sort(Request $request)
+    {
+
+         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','2')->get();
+
+        return view('list_sort', [
             'schedules'=>$schedules,
         ]);
     }
@@ -398,6 +506,18 @@ public function dentist_sample(Schedule $schedule){
     {
         $schedule = Schedule::where('id', $request->id)->delete();
         return redirect('dentist/list');
+
+    }
+     /**
+     * 選択したイラストリストを削除
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function sort_delete_list(Request $request)
+    {
+        $schedule = Schedule::where('id', $request->id)->delete();
+        return redirect('list_sort');
 
     }
     /**

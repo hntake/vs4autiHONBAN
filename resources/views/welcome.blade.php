@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'VS4auti') }} 自閉症支援ツール トップページ</title>
+    <title>{{ config('app.name', 'VS4') }} スマホで作る絵スケジュールサイトVS4 トップページ</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -54,7 +54,7 @@
                             </li>
                             <li class="header_nav_itm">
                                 <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
-                                <div class="description1">VS4Autiの使い方</div>
+                                <div class="description1">VS4の使い方</div>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="{{ url('plan') }}" class="header_nav_itm_link">有料サービス</a>
@@ -89,7 +89,7 @@
                             @endif
                             <li class="header_nav_itm">
                                 <div class="register-button">
-                                <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                    <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
 
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
@@ -99,7 +99,7 @@
                     </nav>
                 </div>
                 <div class="mobile-login">
-                    <ul>
+                    <ul style="list-style: none;">
                         <li class="header_nav_itm">
                             @if (Route::has('login'))
                             @auth
@@ -108,12 +108,7 @@
                                 <div class="description1">Myホーム画面へ移動する </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="home-button">
-                                <a href="{{ url('/dental/list') }}" class=" header_nav_itm_link">歯科</a>
-                                <div class="description1">歯科リストへ移動する</div>
-                            </div>
-                        </li>
+
                         <li class="header_nav_itm">
                             @else
                             <div class="login-button">
@@ -144,6 +139,24 @@
                         <div id="nav-content">
                             <ul class="header_nav_list">
                                 <li>
+                                <div class="home-button">
+                                    <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">保存リスト</a>
+                                    <div class="description1">保存リストへ移動する</div>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="home-button">
+                                    <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科リスト</a>
+                                    <div class="description1">歯科リストへ移動する</div>
+                                </div>
+                                </li>
+                                <li>
+                                    <div class="home-button">
+                                        <a href="{{ url('list_sort') }}" class=" header_nav_itm_link">イラストリスト</a>
+                                        <div class="description1">イラストを使った保存リストへ移動する</div>
+                                    </div>
+                                </li>
+                                <li>
                                     <a href="{{ url('create') }}" class="header_nav_itm_link">
                                         スケジュール作成
                                     </a>
@@ -158,7 +171,7 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                    <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
@@ -182,8 +195,8 @@
                             <div class="kv">
                                 <div class="catch-copy">
                                     <picture>
-                                        <source media="(max-width:800px)" srcset="img/VS_white.png">
-                                        <img class="title" src="img/VS_white.png" alt="">
+                                        <source media="(max-width:800px)" srcset="img/VS_white2.png">
+                                        <img class="title" src="img/VS_white2.png" alt="">
                                     </picture>
 
                                 </div>
@@ -197,11 +210,11 @@
                     </div>
                     <div class="hero__lead-container">
                         <picture>
-                            <source media="(max-width:800px)" srcset="img/vs4_top.png">
-                            <img class="hero__lead" src="img/vs4_top.png" alt="" loading="lazy">
+                            <source media="(max-width:800px)" srcset="img/vs4_top2.png">
+                            <img class="hero__lead" src="img/vs4_top2.png" alt="" loading="lazy">
                         </picture>
                     </div>
-                <!--     <div class="youtube">
+                    <!--     <div class="youtube">
                         <div class="elementor-image">
                             <a href="https://youtube.com/embed/yB4qq_0xH9A" class="video-open"><img src="img/movie_button.png"></a>
                         </div>
@@ -211,7 +224,7 @@
                     <div class="vs4nest">
                         <div class="vs4left">
                             <div class="vs4Up">
-                                <p>VS4Autiはスケジュール作成に特化した<br>アプリケーションです</p>
+                                <p>VS4はスケジュール作成に特化した<br>サイトです</p>
                             </div>
                         </div>
                         <div class="vs4right">
@@ -239,7 +252,7 @@
                             <div class="bottom-inner">
                                 <div class="bottom-left">
                                     <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
-                                        <span class="elementor-button">スケジュールを作る</span>
+                                        <span class="elementor-button">無料でスケジュールを作る</span>
                                     </a>
                                 </div>
                                 <div class="bottom-right">

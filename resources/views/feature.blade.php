@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>vs4Autiとは？ 視覚支援ツールvs4Auti </title>
+    <title>VS4とは？ 視覚支援ツールVS4 </title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#monitor-apply" class="header_nav_itm_link">申込み方法</a>
-                                <div class="description1">VS4Autiの申込み方法</div>
+                                <div class="description1">VS4の申込み方法</div>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#useful" class="header_nav_itm_link">有料サービス</a>
@@ -184,7 +184,7 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                    <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
@@ -279,212 +279,214 @@
             </div>
             <section>
                 <a name="use" class="use">
-                <div class="element">
-                    <div class="use">
-                        <!-- リンク内移動-->
-                            <br>vs4Autiで
-                            <br>絵スケジュールを作ろう</a>
-                    </div>
-                    <div class="tab_wrap">
-                        <input id="tab1" type="radio" name="tab_btn" checked>
-                        <input id="tab2" type="radio" name="tab_btn">
-                        <input id="tab3" type="radio" name="tab_btn">
-                        <div class="nav-wrap">
-                            <div class="scroll-nav">
-                                <div class="tab_area">
-                                    <label class="tab1_label" for="tab1">スケジュール作成</label>
-                                    <label class="tab2_label" for="tab2">歯科スケジュール</label>
-                                    <label class="tab3_label" for="tab3">プランの違い</label>
-                                </div>
-                            </div>
-                            <div class="next-btn">＞</div>
-                        </div>
-                        <div class="panel_area">
-                            <div id="panel1" class="tab_panel">
-                                <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:30%;"></a>
-                                <div class="sright">
-                                    <div class="slide-head">自分だけの絵スケジュールを作る</div>
-                                    <div class="slide-description">
-                                        <b>簡単作成</b>
-                                        画像を順番にアップロードすれば完成<br>
-                                        <br>
-                                        ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="panel2" class="tab_panel">
-                                <a href="img/dentist.png" data-lightbox="group"> <img src="img/dentist.png" alt="dentist" style="width:30%;"></a>
-                                <div class="sright">
-                                    <div class="slide-head">歯科スケジュールを作る</div>
-                                    <div class="slide-description">
-                                        <b>簡単作成</b>
-                                        ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                        <div class="llco" style="background-color:unset;">
-                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="panel3" class="tab_panel">
-                                <table class="design09">
-                                    <tr>
-                                        <th>機能</th>
-                                        <th>有料会員</th>
-                                        <th>無料会員</th>
-                                        <th>非登録</th>
-                                    </tr>
-                                    <tr>
-                                        <td>スケジュール作成</td>
-                                        <td>〇</td>
-                                        <td>〇</td>
-                                        <td>〇</td>
-                                    </tr>
-                                    <tr>
-                                        <td>オリジナルスケジュール保存</td>
-                                        <td>〇</td>
-                                        <td>✕</td>
-                                        <td>✕</td>
-                                    </tr>
-                                    <tr>
-                                        <td>歯科スケジュールの保存</td>
-                                        <td>〇</td>
-                                        <td>〇</td>
-                                        <td>✕</td>
-                                    </tr>
-                                    </tr>
-                                    <tr>
-                                        <td>チェックマークの表示</td>
-                                        <td>〇</td>
-                                        <td>✕</td>
-                                        <td>✕</td>
-                                    </tr>
-                                    <div class="sright">
-                                        <div class="slide-head"></div>
-                                        <div class="slide-description">
-                                            <b>簡単登録</b>
-                                            登録をしなくてもスケジュールは作成できますが、<br>
-                                            それ以外の機能は一切利用できません<br>
-                                            <br>
-                                            <div class="llco" style="background-color:unset;">
-                                                <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </table>
-                            </div>
-
-
-                        </div>
+                    <div class="element">
+                        <div class="use">
+                            <!-- リンク内移動-->
+                            <br>VS4で
+                            <br>絵スケジュールを作ろう
+                </a>
+        </div>
+        <div class="tab_wrap">
+            <input id="tab1" type="radio" name="tab_btn" checked>
+            <input id="tab2" type="radio" name="tab_btn">
+            <input id="tab3" type="radio" name="tab_btn">
+            <div class="nav-wrap">
+                <div class="scroll-nav">
+                    <div class="tab_area">
+                        <label class="tab1_label" for="tab1">スケジュール作成</label>
+                        <label class="tab2_label" for="tab2">歯科スケジュール</label>
+                        <label class="tab3_label" for="tab3">プランの違い</label>
                     </div>
                 </div>
-                <a name="useful" class="use">
-                <div class="element">
-                    <div class="use">
-                        <!-- リンク内移動-->
-                            <br>有料プランで使える
-                            <br>便利な機能</a>
-                    </div>
-                    <div class="tab_wrap">
-                        <input id="tab4" type="radio" name="tab_btn2" checked>
-                        <input id="tab5" type="radio" name="tab_btn2">
-                        <input id="tab6" type="radio" name="tab_btn2">
-                        <input id="tab7" type="radio" name="tab_btn2">
-                        <div class="nav-wrap">
-                            <div class="scroll-nav">
-                                <div class="tab_area">
-                                    <label class="tab4_label" for="tab4">リスト保存</label>
-                                    <label class="tab5_label" for="tab5">チェックマークの表示</label>
-                                    <label class="tab7_label" for="tab7">デバイスフリー</label>
-                                </div>
-                            </div>
-                            <div class="next-btn">＞</div>
+                <div class="next-btn">＞</div>
+            </div>
+            <div class="panel_area">
+                <div id="panel1" class="tab_panel">
+                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">自分だけの絵スケジュールを作る</div>
+                        <div class="slide-description">
+                            <b>簡単作成</b>
+                            画像を順番にアップロードすれば完成<br>
+                            <br>
+                            ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
+                            ※詳細は画像をクリックして拡大してみてください
                         </div>
-                        <div class="panel_area">
-                            <div id="panel4" class="tab_panel">
-                                <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
-                                <div class="sright">
-                                    <div class="slide-head">リスト保存で</div>
-                                    <div class="slide-description">
-                                        <b>簡単にスケジュール表示</b>
-                                        絵スケジュールを作成すると<br>
-                                        保存されるので、次回からワンクリックで<br>表示されます
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="panel5" class="tab_panel">
-                                <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
-                                <div class="sright">
-                                    <div class="slide-head">チェックマーク表示で</div>
-                                    <div class="slide-description">
-                                        <b>より支援に役立つ</b>
-                                        絵スケジュールを<br>
-                                        完了するごとにクリックすることで<br>
-                                        チェックマークが表示されます。<br>
-                                        スケジュールがより伝わります。
-                                        <br>
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                    </div>
-                                </div>
+                    </div>
 
-                            </div>
-
-                            <div id="panel7" class="tab_panel">
-                                <img src="img/smafo.png" alt="phone" style="width:30%;">
-                                <div class="sright">
-                                    <div class="slide-head">自分にあった使い方</div>
-                                    <div class="slide-description">
-                                        <b>PC、スマホ、タブレット</b>
-                                        いずれのデバイスでも<br>
-                                        利用できます<br>
-                                        <br>
-                                        ダウンロードもなくアクセスすれば
-                                        <br>
-                                        どこでも使えます。
-                                        <br>
-                                        移動のお手伝いにぜひご利用ください
-                                        <br>
-                                    </div>
-                                </div>
-
+                </div>
+                <div id="panel2" class="tab_panel">
+                    <a href="img/dentist.png" data-lightbox="group"> <img src="img/dentist.png" alt="dentist" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">歯科スケジュールを作る</div>
+                        <div class="slide-description">
+                            <b>簡単作成</b>
+                            ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                            <div class="llco" style="background-color:unset;">
+                                <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </section>
-            <div class="bottom">
-                <div class="bottom-container">
-                    <div class="bottom-element">
-                        <div class="bottom-element-top">
-                            <h2 class="bottom-element-top">
-                                今すぐはじめてみよう！
-                            </h2>
-                        </div>
-                        <div class="bottom-inner">
-                            <div class="bottom-left">
-                                <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
-                                    <span class="elementor-button">スケジュールを作る</span>
-                                </a>
+                <div id="panel3" class="tab_panel">
+                    <table class="design09">
+                        <tr>
+                            <th>機能</th>
+                            <th>有料会員</th>
+                            <th>無料会員</th>
+                            <th>非登録</th>
+                        </tr>
+                        <tr>
+                            <td>スケジュール作成</td>
+                            <td>〇</td>
+                            <td>〇</td>
+                            <td>〇</td>
+                        </tr>
+                        <tr>
+                            <td>オリジナルスケジュール保存</td>
+                            <td>〇</td>
+                            <td>✕</td>
+                            <td>✕</td>
+                        </tr>
+                        <tr>
+                            <td>歯科スケジュールの保存</td>
+                            <td>〇</td>
+                            <td>〇</td>
+                            <td>✕</td>
+                        </tr>
+                        </tr>
+                        <tr>
+                            <td>チェックマークの表示</td>
+                            <td>〇</td>
+                            <td>✕</td>
+                            <td>✕</td>
+                        </tr>
+                        <div class="sright">
+                            <div class="slide-head"></div>
+                            <div class="slide-description">
+                                <b>簡単登録</b>
+                                登録をしなくてもスケジュールは作成できますが、<br>
+                                それ以外の機能は一切利用できません<br>
+                                <br>
+                                <div class="llco" style="background-color:unset;">
+                                    <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bottom-right">
-                                <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                                    <span class="elementor-button">30日間無料トライアル</span>
-                                </a>
-                            </div>
                         </div>
+                    </table>
+                </div>
 
+
+            </div>
+        </div>
+    </div>
+    <a name="useful" class="use">
+        <div class="element">
+            <div class="use">
+                <!-- リンク内移動-->
+                <br>有料プランで使える
+                <br>便利な機能
+    </a>
+    </div>
+    <div class="tab_wrap">
+        <input id="tab4" type="radio" name="tab_btn2" checked>
+        <input id="tab5" type="radio" name="tab_btn2">
+        <input id="tab6" type="radio" name="tab_btn2">
+        <input id="tab7" type="radio" name="tab_btn2">
+        <div class="nav-wrap">
+            <div class="scroll-nav">
+                <div class="tab_area">
+                    <label class="tab4_label" for="tab4">リスト保存</label>
+                    <label class="tab5_label" for="tab5">チェックマークの表示</label>
+                    <label class="tab7_label" for="tab7">デバイスフリー</label>
+                </div>
+            </div>
+            <div class="next-btn">＞</div>
+        </div>
+        <div class="panel_area">
+            <div id="panel4" class="tab_panel">
+                <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                <div class="sright">
+                    <div class="slide-head">リスト保存で</div>
+                    <div class="slide-description">
+                        <b>簡単にスケジュール表示</b>
+                        絵スケジュールを作成すると<br>
+                        保存されるので、次回からワンクリックで<br>表示されます
+                        <br>
+                        ※詳細は画像をクリックして拡大してみてください
                     </div>
                 </div>
             </div>
+            <div id="panel5" class="tab_panel">
+                <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
+                <div class="sright">
+                    <div class="slide-head">チェックマーク表示で</div>
+                    <div class="slide-description">
+                        <b>より支援に役立つ</b>
+                        絵スケジュールを<br>
+                        完了するごとにクリックすることで<br>
+                        チェックマークが表示されます。<br>
+                        スケジュールがより伝わります。
+                        <br>
+                        <br>
+                        ※詳細は画像をクリックして拡大してみてください
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="panel7" class="tab_panel">
+                <img src="img/smafo.png" alt="phone" style="width:30%;">
+                <div class="sright">
+                    <div class="slide-head">自分にあった使い方</div>
+                    <div class="slide-description">
+                        <b>PC、スマホ、タブレット</b>
+                        いずれのデバイスでも<br>
+                        利用できます<br>
+                        <br>
+                        ダウンロードもなくアクセスすれば
+                        <br>
+                        どこでも使えます。
+                        <br>
+                        移動のお手伝いにぜひご利用ください
+                        <br>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </div>
+    </div>
+
+    </section>
+    <div class="bottom">
+        <div class="bottom-container">
+            <div class="bottom-element">
+                <div class="bottom-element-top">
+                    <h2 class="bottom-element-top">
+                        今すぐはじめてみよう！
+                    </h2>
+                </div>
+                <div class="bottom-inner">
+                    <div class="bottom-left">
+                        <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
+                            <span class="elementor-button">スケジュールを作る</span>
+                        </a>
+                    </div>
+                    <div class="bottom-right">
+                        <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
+                            <span class="elementor-button">30日間無料トライアル</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
     <footer class="site-footer">
         <div class="bc-sitemap-wrapper">

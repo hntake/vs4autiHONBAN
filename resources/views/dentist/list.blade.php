@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
-<title>歯科保存リスト画面 VS4Auti</title>
+<title>歯科保存リスト画面 VS4</title>
 
 @section('content')
 
@@ -21,14 +21,20 @@
                 <li><a href="{{ url('dentist/list') }}">
                         <h3>保存リスト（歯科）</h3>
                     </a></li>
-                <li><a href="{{ url('account') }}">
-                        <h3>支払い情報</h3>
+                <li><a href="{{ url('list_sort') }}">
+                        <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
                     </a></li>
                 <li><a href="{{ url('create') }}">
                         <h3>新規作成</h3>
                     </a></li>
                 <li><a href="{{ url('dentist/create') }}">
                         <h3>新規作成（歯科）</h3>
+                    </a></li>
+                <li><a href="{{ url('create_sort') }}">
+                        <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                <li><a href="{{ url('account') }}">
+                        <h3>支払い情報</h3>
                     </a></li>
             </ul>
             <div class="logout_buttom">

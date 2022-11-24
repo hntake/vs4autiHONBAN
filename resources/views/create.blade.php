@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
-<title>新規作成画面 自閉症支援ツール "VS4Auti”</title>
+<title>新規作成画面 "VS4”</title>
 @section('content')
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">
@@ -21,14 +21,20 @@
                 <li><a href="{{ url('dentist/list') }}">
                         <h3>保存リスト（歯科）</h3>
                     </a></li>
-                <li><a href="{{ url('account') }}">
-                        <h3>支払い情報</h3>
+                <li><a href="{{ url('list_sort') }}">
+                        <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
                     </a></li>
                 <li><a href="{{ url('create') }}">
                         <h3>新規作成</h3>
                     </a></li>
                 <li><a href="{{ url('dentist/create') }}">
                         <h3>新規作成（歯科）</h3>
+                    </a></li>
+                <li><a href="{{ url('create_sort') }}">
+                        <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                <li><a href="{{ url('account') }}">
+                        <h3>支払い情報</h3>
                     </a></li>
             </ul>
         </div>
@@ -50,6 +56,8 @@
 
     <h1>新規スケジュール作成</h1>
     <p>画像は最低でも2枚以上は選んでください</p>
+    <p>画像のサイズは1000kB以下でお願い致します。</p>
+    <h6>※画像は暗号化されて保存されるので、ログインしたユーザーのみしか写真を見ることはできません</h6>
     <form action="{{ url('create') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class='create-group'>
