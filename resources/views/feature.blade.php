@@ -63,11 +63,15 @@
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
                             <li class="title_image">
-                                <a href="{{url('/')}}" class=""><img src="img/vs4auti.png" style="width:60%; height:auto;"></a>
+                                <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:60%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#use" class="header_nav_itm_link">スケジュール作成</a>
-                                <div class="description1">スケジュールを作ってみる</div>
+                                <div class="description1">手持ちの写真を使ってスケジュールを作ってみる</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="#use" class="header_nav_itm_link">スケジュール作成（イラスト）</a>
+                                <div class="description1">イラストを使ってスケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#use" class="header_nav_itm_link">歯科スケジュール作成</a>
@@ -122,7 +126,7 @@
                 <div class="mobile">
                     <ul>
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/vs4auti.png" style="width:80%;"></a>
+                            <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:80%;"></a>
                         </li>
                         <!--  @if (Route::has('login'))
                             <li class="header_nav_itm">
@@ -167,11 +171,16 @@
                         <div id="nav-content">
                             <ul class="header_nav_list">
                                 <li class="title_image">
-                                    <a href="{{url('/')}}" class=""><img src="img/vs4auti.png" style="width:30%; height:auto;"></a>
+                                    <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
                                 </li>
                                 <li>
                                     <a href="#use" class="header_nav_itm_link">
                                         スケジュール作成
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#use" class="header_nav_itm_link">
+                                        イラストスケジュール作成
                                     </a>
                                 </li>
                                 <li>
@@ -206,7 +215,7 @@
                 <div class="movie_cap">
                     <div class="elementor-widget">
                         <a name="feature">
-                            <img src="img/VS4Auti_1.png">
+                            <img src="img/VS4Auti_2.png">
                         </a>
                     </div>
                     <div class="youtube">
@@ -321,7 +330,7 @@
                         <div class="slide-head">歯科スケジュールを作る</div>
                         <div class="slide-description">
                             <b>簡単作成</b>
-                            ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
+                            保存されている画像のスケジュール順に番号を入力するだけ
                             <br>
                             ※詳細は画像をクリックして拡大してみてください
                             <div class="llco" style="background-color:unset;">
@@ -348,6 +357,12 @@
                             <td>オリジナルスケジュール保存</td>
                             <td>〇</td>
                             <td>✕</td>
+                            <td>✕</td>
+                        </tr>
+                        <tr>
+                            <td>イラストスケジュールの保存</td>
+                            <td>〇</td>
+                            <td>〇</td>
                             <td>✕</td>
                         </tr>
                         <tr>
