@@ -49,6 +49,10 @@
                                 <div class="description1">スケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
+                                <a href="{{ url('create_sort') }}" class="header_nav_itm_link">イラストケジュール作成</a>
+                                <div class="description1">イラストスケジュールを作ってみる</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
                                 <div class="description1">歯科スケジュールを作ってみる</div>
                             </li>
@@ -159,6 +163,11 @@
                                 <li>
                                     <a href="{{ url('create') }}" class="header_nav_itm_link">
                                         スケジュール作成
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('create_sort') }}" class="header_nav_itm_link">
+                                        イラストスケジュール作成
                                     </a>
                                 </li>
                                 <li>

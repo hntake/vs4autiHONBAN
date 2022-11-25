@@ -293,6 +293,13 @@
                                 <li><img src="{{ asset('img/sort/sleep_bed_woman.png') }}" alt="d_mirror"></li>
                             </ul>
                         </div>
+                        <div class="img">
+                            <ul>
+                                <li>27</li>
+                                <li>トイレ</li>
+                                <li><img src="{{ asset('img/sort/toilet_benki.png') }}" alt="d_mirror"></li>
+                            </ul>
+                        </div>
                     </tr>
                 </tbody>
             </table>
@@ -305,14 +312,14 @@
                     </tr>
                     <div class="img">
                         <ul>
-                            <li>27</li>
+                            <li>28</li>
                             <li>学校</li>
                             <li><img src="{{ asset('img/sort/bg_school.jpg') }}" alt="d_bite"></li>
                         </ul>
                     </div>
                     <div class="img">
                         <ul>
-                            <li>28</li>
+                            <li>29</li>
                             <li>幼稚園</li>
                             <li><img src="{{ asset('img/sort/youchien_tatemono.png') }}" alt="d_redpaper"></li>
                         </ul>
@@ -320,14 +327,14 @@
 
                     <div class="img">
                         <ul>
-                            <li>29</li>
+                            <li>30</li>
                             <li>バス</li>
                             <li><img src="{{ asset('img/sort/bus_red_white.png') }}" alt="d_cement"></li>
                         </ul>
                     </div>
                     <div class="img">
                         <ul>
-                            <li>30</li>
+                            <li>31</li>
                             <li>車</li>
                             <li><img src="{{ asset('img/sort/car_green.png') }}" alt="d_compress"></li>
                         </ul>
@@ -336,21 +343,21 @@
 
                     <div class="img">
                         <ul>
-                            <li>31</li>
+                            <li>32</li>
                             <li>散歩</li>
                             <li><img src="{{ asset('img/sort/yagai_kyoushitsu_casual_walk.png') }}" alt="d_redbrush"></li>
                         </ul>
                     </div>
                     <div class="img">
                         <ul>
-                            <li>32</li>
+                            <li>33</li>
                             <li>歯医者</li>
                             <li><img src="{{ asset('img/sort/haisya.png') }}" alt="d_redbrush"></li>
                         </ul>
                     </div>
                     <div class="img">
                         <ul>
-                            <li>33</li>
+                            <li>34</li>
                             <li>病院</li>
                             <li><img src="{{ asset('img/sort/tatemono_byouin2.png') }}" alt="d_redbrush"></li>
                         </ul>
