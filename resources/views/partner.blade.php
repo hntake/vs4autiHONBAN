@@ -157,7 +157,7 @@
                     <h2>VS4<br>
                         パートナープログラム</h2>
                     <div class="partner_image">
-                        <img src="img/partner.png" alt="partner" style="width:100%; height:auto;">
+                        <img src="img/partner2.png" alt="partner" style="width:100%; height:auto;">
                     </div>
                     <div class="sales_discription">
                         VS4パートナープログラムは、福祉や医療機関にVS4を普及していただくパートナーを対象とした「ディストリビューターパートナープログラム」と、広告を掲載をしたいパートナーを対象とした『サポートプログラム』の２つのプログラムで構成されます。<br>
@@ -171,8 +171,8 @@
                         </div>
                         <div class="sales">
                             <div class="sales_image">
-                                <a href="img/partner_price.png" data-lightbox="group">
-                                    <img src="img/partner_price.png" alt="price"></a>
+                                <a href="img/partner_price2.png" data-lightbox="group">
+                                    <img src="img/partner_price2.png" alt="price"></a>
                             </div>
                             <div class="sales_discription">
                                 VS4の作成による利用自体は完全無料ですが、ご自身の画像を保存する有償プランがあります。この有償プランの普及をして頂けるディストリビューターパートナーを募集しています。<br>

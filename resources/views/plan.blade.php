@@ -56,7 +56,7 @@
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
                             <li class="title_image">
-                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/VS4.png" style="width:60%; height:auto;"></a>
+                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/VS4Auti2.png" style="width:60%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#paid" class="header_nav_itm_link">有償プラン</a>
@@ -101,7 +101,7 @@
                 <div class="mobile">
                     <ul>
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/VS4.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/')}}" class=""><img src="img/VS4Auti2.png" style="width:30%; height:auto;"></a>
                         </li>
                         <li class="header_nav_itm">
                             <div class="register-button">
@@ -175,7 +175,7 @@
                             <div class="elementor-heading-tit">完全無料</div>
                         </div>
                         <div class="elementor-widget-container">
-                            <div class="elementor-heading-english">全ての絵スケジュールの作成<br>歯科スケジュールの保存</div>
+                            <div class="elementor-heading-english">全ての絵スケジュールの作成<br>イラスト・歯科スケジュールの保存</div>
                         </div>
                         <div class="elementor-element">
                             <p class="elementor-heading-dis">
@@ -211,6 +211,7 @@
                                         <span class="elementor-icon">スケジュール作成</span>
                                     </li>
                                     <li class="elementor-icon">
+                                        <span class="elementor-icon">イラストスケジュールの保存（無制限）</span>
                                         <span class="elementor-icon">歯科スケジュールの保存（無制限）</span>
                                     </li>
                                 </ul>

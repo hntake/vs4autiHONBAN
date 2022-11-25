@@ -53,7 +53,7 @@
 
     <h1>新規スケジュール作成</h1>
     <div class="register-button">
-        <a href="https://youtube.com/embed/" class="header_nav_itm_link">利用説明動画を見る</a>
+        <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="header_nav_itm_link">利用説明動画を見る</a>
     </div>
     <form action="{{ url('create_sort') }}" method="post">
         {{ csrf_field() }}

@@ -230,12 +230,27 @@
                 <div class="movie_cap">
                     <div class="elementor-widget">
                         <a name="monitor">
-                            <img src="img/schedule1.png">
+                            <img src="img/schedule12.png">
                         </a>
                     </div>
                     <div class="youtube">
                         <div class="elementor-image">
                             <a href="https://youtube.com/embed/kjYiP-uOFbQ" class="video-open"><img src="img/play.png"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="youtube_kv">
+                <div class="movie_cap">
+                    <div class="elementor-widget">
+                        <a name="monitor">
+                            <img src="img/schedule1-1.png">
+                        </a>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                            <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="video-open"><img src="img/play.png"></a>
                         </div>
                     </div>
 
