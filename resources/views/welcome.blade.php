@@ -143,16 +143,16 @@
                         <div id="nav-content">
                             <ul class="header_nav_list">
                                 <li>
-                                <div class="home-button">
-                                    <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">保存リスト</a>
-                                    <div class="description1">保存リストへ移動する</div>
-                                </div>
+                                    <div class="home-button">
+                                        <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">保存リスト</a>
+                                        <div class="description1">保存リストへ移動する</div>
+                                    </div>
                                 </li>
                                 <li>
-                                <div class="home-button">
-                                    <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科リスト</a>
-                                    <div class="description1">歯科リストへ移動する</div>
-                                </div>
+                                    <div class="home-button">
+                                        <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科リスト</a>
+                                        <div class="description1">歯科リストへ移動する</div>
+                                    </div>
                                 </li>
                                 <li>
                                     <div class="home-button">
@@ -212,7 +212,7 @@
                                 <div class="hero__cover"></div>
                             </div>
                             <div class="video">
-                                <video class="pc" src="img/nagi.mp4" autoplay loop muted playsinlin></video>
+                                <video class="pc" src="img/nagi2.mp4" autoplay loop muted playsinlin></video>
                                 <video class="sp" src="img/nagi_sp2.mp4" autoplay loop muted playsinlin></video>
                             </div>
                         </div>

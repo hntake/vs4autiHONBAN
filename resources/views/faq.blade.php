@@ -2,6 +2,11 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
     <script src="according.js"></script>
 </head>
