@@ -213,7 +213,7 @@
                             </div>
                             <div class="video">
                                 <video class="pc" src="img/nagi2.mp4" autoplay loop muted playsinlin></video>
-                                <video class="sp" src="img/nagi_sp3.mp4" autoplay loop muted playsinlin></video>
+                                <video class="sp" src="img/nagi_sp_short.mp4" autoplay loop muted playsinlin></video>
                             </div>
                         </div>
                         </div>
