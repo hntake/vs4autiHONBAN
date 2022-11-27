@@ -213,14 +213,14 @@
                             </div>
                             <div class="video">
                                 <video class="pc" src="img/nagi2.mp4" autoplay loop muted playsinlin></video>
-                                <video class="sp" src="img/nagi_sp2.mp4" autoplay loop muted playsinlin></video>
+                                <video class="sp" src="img/nagi_sp3.mp4" autoplay loop muted playsinlin></video>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     <div class="hero__lead-container">
                         <picture>
-                            <source media="(max-width:800px)" srcset="img/vs4_top2.png">
-                            <img class="hero__lead" src="img/vs4_top2.png" alt="" loading="lazy">
+                            <source media="(max-width:800px)" srcset="img/vs4_top3.png">
+                            <img class="hero__lead" src="img/vs4_top3.png" alt="" loading="lazy">
                         </picture>
                     </div>
                     <!--     <div class="youtube">
