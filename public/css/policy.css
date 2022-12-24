@@ -1,0 +1,23 @@
+body
+{
+    width:60%;
+}
+h1{
+    font-size:10px;
+}
+p{
+    font-size:10px;
+}
+h2{
+    font-size:10px;
+}
+li{
+    font-size:10px;
+}
+.button a{
+    text-decoration: none;
+    color:blue;
+}
+.top{
+    margin-top:10px;
+}

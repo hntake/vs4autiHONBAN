@@ -48,12 +48,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-/*     public function verify()
-    {
-        return view('registe_mail'
-        ['email_token =>$email_token']);
-    }
- */
+
     /**
      * Get a validator for an incoming registration request.
      *

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/policy.css') }}"> <!-- word.cssと連携 -->
     <title>プライバシーポリシー VS4”</title>
 
 </head>
