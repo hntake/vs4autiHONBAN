@@ -19,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+    <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
     <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
     <style>
         body {

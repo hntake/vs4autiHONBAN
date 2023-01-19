@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'VS4') }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>支払い情報 VS4”</title>
+    <title>支払い情報 VS4</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->

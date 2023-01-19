@@ -56,7 +56,7 @@
 
                 <div class="route">
                     <div class="submit_button">
-                        <a href="{{ route('create') }}">新規作成</a>
+                        <a href="{{ url('dentist/create') }}">新規作成</a>
                     </div>
                     <div class="submit_button">
                         <button onclick="history.back()">リストに戻る</button>
