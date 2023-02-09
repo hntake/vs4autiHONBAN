@@ -31,6 +31,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -95,8 +97,7 @@
                             @endif
                             <li class="header_nav_itm">
                                 <div class="register-button">
-                                    <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
-
+                                    <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
                             </li>
@@ -182,7 +183,7 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
@@ -218,7 +219,7 @@
                                 <video class="sp" src="img/nagi_sp_short.mp4" autoplay loop muted playsinline></video>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     <div class="hero__lead-container">
                         <picture>
                             <source media="(max-width:800px)" srcset="img/vs4_top3.png">
@@ -227,7 +228,7 @@
                     </div>
                     <!--     <div class="youtube">
                         <div class="elementor-image">
-                            <a href="https://youtube.com/embed/yB4qq_0xH9A" class="video-open"><img src="img/movie_button.png"></a>
+                            <a href="https://youtube.com/embed/7HUQzYWZe7M" class="video-open"><img src="img/movie_button.png"></a>
                         </div>
                     </div> -->
                 </div>
