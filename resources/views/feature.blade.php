@@ -115,7 +115,7 @@
                             @endif
                             <li class="header_nav_itm">
                                 <div class="register-button">
-                                    <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                    <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
                             </li>
@@ -193,7 +193,7 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/HkfDeiOHosE" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
@@ -220,7 +220,7 @@
                     </div>
                     <div class="youtube">
                         <div class="elementor-image">
-                            <a href="https://youtube.com/embed/yB4qq_0xH9A" class="video-open"><img src="img/play.png"></a>
+                            <a href="https://youtube.com/embed/7HUQzYWZe7M" class="video-open"><img src="img/play.png"></a>
                         </div>
                     </div>
 
