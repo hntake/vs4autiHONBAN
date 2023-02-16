@@ -4,11 +4,19 @@
 
 @section('content')
 <div class="top">
-<a href="{{ url('/') }}"><h3>トップページに戻る</h3></a>
-         </div>
+    <a href="{{ url('/') }}">
+        <h3>トップページに戻る</h3>
+    </a>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <!-- フラッシュメッセージ -->
+            @if (session('flash_message'))
+            <div class="flash_message">
+                {{ session('flash_message') }}
+            </div>
+            @endif
             <div class="card-header">{{ __('仮登録画面') }}</div>
             <div class="card">
 
@@ -16,7 +24,7 @@
                     <form method="POST" action="{{ route('register.pre_check') }}" enctype="multipart/form-data">
                         @csrf
 
-                   <!--      <div >
+                        <!--      <div >
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前 ※必須') }}</label>
 
                             <div >
@@ -38,13 +46,13 @@
                         <div class="r-box">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>
 
-                            <div >
+                            <div>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -52,13 +60,13 @@
                         <div class="r-box">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password ※必須 8桁以上') }}</label>
 
-                            <div >
+                            <div>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -66,19 +74,45 @@
                         <div class="r-box">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password ※必須') }}</label>
 
-                            <div >
+                            <div>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
+                        <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
+                            ※性別を選択してください<br>
+                            <label for="gender">
+                                男の子<input id="gender" type="radio" name="gender" value="boy" ><br>
+                            </label>
+                            <label for="gender">
+                                女の子<input id="gender" type="radio" name="gender" value="girl"><br>
+                            </label>
+                        </div>
+
+                        <div class="box" style="margin-bottom: 10px; background-color:#ADD8E6 ; padding: 0 20px;">
+                            ※完了マークを選択してください<br>
+                            <label for="image_id2">
+                                1.<img src="{{asset('img/hana.png')}}"><input id="image_id2" type="radio" name="image_id" value="2" ><br>
+                            </label>
+                            <label for="image_id3">
+                                2.<img src="{{asset('img/smile.png')}}"><input id="image_id3" type="radio" name="image_id" value="3"><br>
+                            </label>
+                            <label for="image_id1">
+                                3.<img src="{{asset('img/check.png')}}"><input id="image_id1" type="radio" name="image_id" value="1"><br>
+                            </label>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="margin-top:30px">
                                     {{ __('登録する') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <p>
+                        <a href="https://www.freepik.com/free-vector/mixed-emoji-set_4159931.htm#query=smile&position=14&from_view=search&track=sph">Image by rawpixel.com</a> on Freepik
+                    </p>
                 </div>
             </div>
         </div>

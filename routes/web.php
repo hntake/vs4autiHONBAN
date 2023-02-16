@@ -112,11 +112,13 @@ Auth::routes(['verify' => true]);
  Route::get('/mail/register_mail', [App\Http\Controllers\Auth\RegisterController::class,'verify'])->middleware('auth')->name('verification.notice');
 
 
+ //支払い画面へ
+ Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->name('stripe');
 
 /* Route::get('/auth/verifyemail/{token}', [App\Http\Controllers\Auth\RegisterController::class,'verify']);
- */
-//支払い画面へ
-Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->name('stripe');
+*/
+//メール確認済みのユーザーのみ
+Route::middleware(['verified'])->group(function(){
 //ホーム画面へ
 Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->name('home');
 //リストページへ遷移
@@ -135,12 +137,14 @@ Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'sch
 Route::get('dentaist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_delete_list'])->name('dentist_delete_list');
 //イラストリスト削除
 Route::get('list_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_delete_list'])->name('sort_delete_list');
+
+Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class, 'list'])->name('dashoboad');
+});
 //サブスクに加入済みか判定し
 Route::middleware(['subscribed'])->group(function () {
     /*     Route::get('stripe', [App\Http\Controllers\StripeController::class, 'stripe'])->middleware('subscribed'); */
     Route::get('/account', [App\Http\Controllers\StripeController::class, 'account']);
 
-    Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class, 'list'])->name('dashoboad');
 
     //プロフィール編集画面へ
     Route::get('/profile_edit', [App\Http\Controllers\StripeController::class, 'profile_edit'])->name('profile_edit');
@@ -206,7 +210,7 @@ Route::get('/search', [App\Http\Controllers\ExtraController::class, 'search'])->
 //スケジュール検索結果ページへ遷移
 Route::get('/result', [App\Http\Controllers\ExtraController::class, 'search'])->name('search');
 
-//Route::post('register',[App\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::post('register',[App\Http\Controllers\Auth\RegisterController::class, 'register']);
 //ログイン
 Route::post('log', [App\Http\Controllers\Auth\LoginController::class, 'log'])->name('log');
 //ログアウト

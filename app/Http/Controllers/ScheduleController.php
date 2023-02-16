@@ -45,10 +45,11 @@ class ScheduleController extends Controller
     {
 
         $schedule = Schedule::where('id', $request->id)->first();
+        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
 
 /* dd($schedule->imageOne); */
 
-        return view('schedule',compact('schedule'));
+        return view('schedule',compact('schedule','user_img'));
     }
     /**
      * 歯科IDを選んだスケジュール表示
@@ -60,9 +61,10 @@ class ScheduleController extends Controller
     {
 
         $schedule = Schedule::where('id', $request->id)->first();
+        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
 
 
-        return view('dentist/schedule',compact('schedule'));
+        return view('dentist/schedule',compact('schedule','user_img'));
     }
     /**
      * イラストIDを選んだスケジュール表示
@@ -74,9 +76,10 @@ class ScheduleController extends Controller
     {
 
         $schedule = Schedule::where('id', $request->id)->first();
+        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
 
 
-        return view('schedule_sort',compact('schedule'));
+        return view('schedule_sort',compact('schedule','user_img'));
     }
 
     /**
@@ -156,45 +159,74 @@ class ScheduleController extends Controller
         /* else{
             $path4=null;
         } */
-        if (Auth::user() ){
-        //schedulesテーブルへの受け渡し
-        $schedule = new Schedule;
-        $schedule->schedule_name = $request->schedule_name;
-        $schedule->image0 = str_replace('public/', '', $path0);
-        $schedule->image1 = str_replace('public/', '', $path1);
-        if(isset($path2)){
-        $schedule->image2 = str_replace('public/', '', $path2);
-        }
-        if(isset($path3)){
-        $schedule->image3 = str_replace('public/', '', $path3);
-        }
-        if(isset($path4)){
-        $schedule->image4 = str_replace('public/', '', $path4);
-        }
-        $schedule->user_id = User::where('id','=',Auth::id())->value('id');
-        $schedule->save();
-
+        if(Auth::user() ){
         $user = Auth::user();
         $stripe = $user->stripe_id;
-        $role =$user->role;
-        if (isset($stripe)){
+        /**stripeがNULLでないなら */
+            if (isset($stripe)){
+            //schedulesテーブルへの受け渡し
+            $schedule = new Schedule;
+            $schedule->schedule_name = $request->schedule_name;
+            $schedule->image0 = str_replace('public/', '', $path0);
+            $schedule->image1 = str_replace('public/', '', $path1);
+                if(isset($path2)){
+                $schedule->image2 = str_replace('public/', '', $path2);
+                }
+                if(isset($path3)){
+                $schedule->image3 = str_replace('public/', '', $path3);
+                }
+                if(isset($path4)){
+                $schedule->image4 = str_replace('public/', '', $path4);
+                }
+            $schedule->user_id = User::where('id','=',Auth::id())->value('id');
+            $schedule->save();
 
-                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+            $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
 
-                return view('list', ['schedules'=>$schedules]);
-            }
 
-          /*   elseif(1==$role){
-                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-
-                return view('list', ['schedules'=>$schedules]);
-            } */
-            else{
-                $schedule = Schedule::orderBy('created_at', 'desc')->first();
-            return redirect()->route('sample',$schedule);
-            }
+            return view('schedule', [
+                'schedule'=>$schedule,
+                'user_img'=>$user_img
+            ]);
         }
+        /*stripeがNULLなら*/
+        else{
+            $count=Schedule::where('user_id','=', Auth::user()->id)->where('list','=','0')->count();
+            /*scheduleの数が5以下なら*/
+            if($count < 6){
+                $schedule = new Schedule;
+                $schedule->schedule_name = $request->schedule_name;
+                $schedule->image0 = str_replace('public/', '', $path0);
+                $schedule->image1 = str_replace('public/', '', $path1);
+                    if(isset($path2)){
+                    $schedule->image2 = str_replace('public/', '', $path2);
+                    }
+                    if(isset($path3)){
+                    $schedule->image3 = str_replace('public/', '', $path3);
+                    }
+                    if(isset($path4)){
+                    $schedule->image4 = str_replace('public/', '', $path4);
+                    }
+                $schedule->user_id = User::where('id','=',Auth::id())->value('id');
+                $schedule->save();
 
+                $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
+
+
+                return view('schedule', [
+                    'schedule'=>$schedule,
+                    'user_img'=>$user_img
+                ]);
+            }
+            else{
+                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
+
+                session()->flash('flash_message', 'スケジュールの数が5個を超えています。削除するか、有料プランを申し込み下さい');
+                return view('list', ['schedules'=>$schedules]);
+            }
+
+        }
+    }
         else{
 
             //schedulesテーブルへの受け渡し
@@ -265,9 +297,13 @@ class ScheduleController extends Controller
        /*  $stripe = $user->stripe_id;
         $role =$user->role; */
 /*         if (isset($stripe)){
- */                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-                return view('dentist/list', ['schedules'=>$schedules]);
-          /*   }elseif(1==$role){
+ */                        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
+
+
+            return view('dentist/schedule', [
+                'schedule'=>$schedule,
+                'user_img'=>$user_img
+            ]);          /*   }elseif(1==$role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
                 return view('dentist/list', ['schedules'=>$schedules]);
@@ -342,12 +378,13 @@ class ScheduleController extends Controller
         $schedule->save();
 
         $user = Auth::user();
-        /*歯科スケジュールは無料会員も保存できるように変更*/
-       /*  $stripe = $user->stripe_id;
-        $role =$user->role; */
-/*         if (isset($stripe)){
- */                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-                return view('list_sort', ['schedules'=>$schedules]);
+
+        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
+               
+            return view('schedule_sort', [
+                'schedule'=>$schedule,
+                'user_img'=>$user_img
+            ]);
           /*   }elseif(1==$role){
                 $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
 
@@ -404,20 +441,19 @@ public function sample_sort(Schedule $schedule){
     public function list(Request $request)
     {
         $user = Auth::user();
-        $stripe = $user->stripe_id;
+     /*    $stripe = $user->stripe_id;
         $verify= $user->email_verified_at;
-        if (isset($stripe)){
-         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','0')->get();
+        if (isset($stripe)){ */
+            $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','0')->get();
 
         return view('list', ['schedules'=>$schedules]);
-        }
+       /*  }
         else{
             $user=Auth::user();
             return view('stripe',[
                 'intent' => $user->createSetupIntent()
-            ]);
+            ]); */
 
-    }
 }
     /**学校用リスト画面へ遷移
     * @param Request $request

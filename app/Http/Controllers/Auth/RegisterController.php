@@ -76,7 +76,9 @@ class RegisterController extends Controller
         $user= User::create([
            /*  'name' => $data['name'], */
 /*             'role' =>$data['role'],
- */            'email' => $data['email'],
+ */         'email' => $data['email'],
+            'gender' => $data['gender'],
+            'image_id' => $data['image_id'],
             'password' => Hash::make($data['password']),
             'uuid'=>(string) Str::uuid(),
             'email_verify_token' => base64_encode($data['email']),
@@ -84,7 +86,6 @@ class RegisterController extends Controller
 
        /*  $email = new EmailVerification($user);
         \Mail::to($user->email)->send($email); *///二通になるのでコメントアウト
-
         return $user;
 
     }
@@ -93,7 +94,6 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
         //flash data
         $request->flashOnly( 'email');
-
         $bridge_request = $request->all();
         // password マスキング
         $bridge_request['password_mask'] = '******';
@@ -154,9 +154,8 @@ class RegisterController extends Controller
       $user = User::where('email_verify_token',$request->email_token)->first();
       $user->status = config('const.USER_STATUS.REGISTER');
       $user->name = $request->name;
-      $user->name_pronunciation = $request->name_pronunciation;
-      $user->birth_year = $request->birth_year;
-      $user->birth_month = $request->birth_month;
+      $user->gender= $request->gender;
+      $user->image_id = $request->image_id;
       $user->birth_day = $request->birth_day;
       $user->save();
 

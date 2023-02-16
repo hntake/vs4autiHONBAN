@@ -58,7 +58,12 @@
 <div class="panel-body">
     <!-- バリデーションエラーの表示 -->
     @include('common.errors')
-
+ <!-- フラッシュメッセージ -->
+ @if (session('flash_message'))
+            <div class="flash_message">
+                {{ session('flash_message') }}
+            </div>
+        @endif
     <div class="list-area">
         <h1>スケジュールリスト</h1>
         <div class="list">

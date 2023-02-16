@@ -88,7 +88,7 @@
                                 <div class="register-button">
                                     @if (Route::has('register'))
                                     <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                    <div class="description1">30日間無料トライアルを試してみる </div>
+                                    <div class="description1">無料登録をする </div>
 
                                 </div>
                             </li>
@@ -127,8 +127,8 @@
                             <div class="register-button">
                                 @if (Route::has('register'))
                                 <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                <div class="description1">30日間無料トライアルを試してみる</div>
-
+                              <!--   <div class="description1">30日間無料トライアルを試してみる</div>
+ -->
                             </div>
                         </li>
 
@@ -147,43 +147,43 @@
                             <ul class="header_nav_list">
                                 <li>
                                     <div class="home-button">
-                                        <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">保存リスト</a>
+                                        <a href="{{ url('/dentist/list') }}"><h3  ontouchstart="">保存リスト</h3></a>
                                         <div class="description1">保存リストへ移動する</div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="home-button">
-                                        <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科リスト</a>
+                                        <a href="{{ url('/dentist/list') }}" ><h3  ontouchstart="">歯科リスト</h3></a>
                                         <div class="description1">歯科リストへ移動する</div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="home-button">
-                                        <a href="{{ url('list_sort') }}" class=" header_nav_itm_link">イラストリスト</a>
+                                        <a href="{{ url('list_sort') }}"><h3  ontouchstart="">イラストリスト</h3></a>
                                         <div class="description1">イラストを使った保存リストへ移動する</div>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="{{ url('create') }}" class="header_nav_itm_link">
-                                        スケジュール作成
+                                    <a href="{{ url('create') }}" ><h3  ontouchstart="">
+                                        スケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('create_sort') }}" class="header_nav_itm_link">
-                                        イラストスケジュール作成
+                                    <a href="{{ url('create_sort') }}"><h3  ontouchstart="">
+                                        イラストスケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
+                                    <a href="{{ url('dentist/create') }}" ><h3  ontouchstart="">歯科スケジュール作成</h3></a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('feature') }}" class="header_nav_itm_link">
-                                        使い方 申込み方法
+                                    <a href="{{ url('feature') }}" ><h3  ontouchstart="">
+                                        使い方 申込み方法</h3>
                                     </a>
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link" ontouchstart="">説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
@@ -269,7 +269,7 @@
                                 </div>
                                 <div class="bottom-right">
                                     <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                                        <span class="elementor-button">30日間無料トライアル</span>
+                                        <span class="elementor-button">無料登録をする</span>
                                     </a>
                                 </div>
                             </div>

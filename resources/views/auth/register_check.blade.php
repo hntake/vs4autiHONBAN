@@ -30,6 +30,28 @@
                                 <input type="hidden" name="password" value="{{$password}}">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">性別</label>
+
+                            <div class="col-md-6">
+                                <span class="">{{$gender}}</span>
+                                <input type="hidden" name="gender" value="{{$gender}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">完了マーク</label>
+
+                            <div class="col-md-6">
+                                @if($image_id==2)
+                                <img src="{{asset('img/hana.png')}}">
+                                @elseif($image_id==3)
+                                <img src="{{asset('img/smile.png')}}">
+                                @else
+                                <img src="{{asset('img/check.png')}}">
+                                @endif
+                                <input type="hidden" name="image_id" value="{{$image_id}}">
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

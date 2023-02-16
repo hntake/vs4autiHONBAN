@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4 "style="margin-top:30px">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('ログインする') }}
                                 </button>
@@ -75,7 +75,7 @@
                 <p>登録して全ての機能を使おう！</p>
                 <ul>
                     <li style="list-style: none;">
-                        <a href="{{ route('register') }}" class="button">月額プラン100円を新規登録</a>
+                        <a href="{{ route('register') }}" class="button">新規登録(無料プラン）</a>
                     </li>
                     <li style="list-style: none;">
                         <a href="{{ route('admin_form') }}" class="button">年額プラン500円を申し込む</a>

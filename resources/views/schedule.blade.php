@@ -20,37 +20,67 @@
                 <div class="card-header" style="display:flex; flex-direction: column;">
                     <tr>
                         <td>{{ $schedule->schedule_name }}</td><br>
+                        @if($user_img==1)
                         <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image" onclick="this.src='/img/check.png'"></td>
+                        @elseif($user_img==2)
+                        <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                        @else
+                        <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         <td>
-                            <p>
-                            <div class="arrow">&#9660;</div>
-                            </p>
-                        </td>
-                        <td><img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" onclick="this.src='/img/check.png'"></td>
-                        @if(isset($schedule->image2))
-                        <td>
-                            <p>
-                            <div class="arrow">&#9660;</div>
-                            </p>
-                        </td>
-                        <td><img src="{{ asset('storage/' . $schedule->image2) }}" alt="image" onclick="this.src='/img/check.png'"></td>
                         @endif
+                            <p>
+                            <div class="arrow">&#9660;</div>
+                            </p>
+                        </td>
+                        @if($user_img==1)
+                        <td><img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" onclick="this.src='/img/check.png'"></td>
+                        @elseif($user_img==2)
+                        <td><img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                        @else
+                        <td><img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
+                        <td>
+                        @endif                        @if(isset($schedule->image2))
+                        <td>
+                            <p>
+                            <div class="arrow">&#9660;</div>
+                            </p>
+                        </td>
+                        @if($user_img==1)
+                        <td><img src="{{ asset('storage/' . $schedule->image2) }}" alt="image" onclick="this.src='/img/check.png'"></td>
+                        @elseif($user_img==2)
+                        <td><img src="{{ asset('storage/' . $schedule->image2) }}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                        @else
+                        <td><img src="{{ asset('storage/' . $schedule->image2) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
+                        <td>
+                        @endif                        @endif
                         @if(isset($schedule->image3))
                         <td>
                             <p>
                             <div class="arrow">&#9660;</div>
                             </p>
                         </td>
+                        @if($user_img==1)
                         <td><img src="{{ asset('storage/' . $schedule->image3) }}" alt="image" onclick="this.src='/img/check.png'"></td>
-                        @endif
+                        @elseif($user_img==2)
+                        <td><img src="{{ asset('storage/' . $schedule->image3) }}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                        @else
+                        <td><img src="{{ asset('storage/' . $schedule->image3) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
+                        <td>
+                        @endif                        @endif
                         @if(isset($schedule->image4))
                         <td>
                             <p>
                             <div class="arrow">&#9660;</div>
                             </p>
                         </td>
+                        @if($user_img==1)
                         <td><img src="{{ asset('storage/' . $schedule->image4) }}" alt="image" onclick="this.src='/img/check.png'"></td>
-                        @endif
+                        @elseif($user_img==2)
+                        <td><img src="{{ asset('storage/' . $schedule->image4) }}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                        @else
+                        <td><img src="{{ asset('storage/' . $schedule->image4) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
+                        <td>
+                        @endif                        @endif
                     </tr>
                 </div>
 

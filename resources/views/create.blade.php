@@ -56,7 +56,7 @@
 
     <h1>新規スケジュール作成</h1>
     <p>画像は最低でも2枚以上は選んでください</p>
-    <p>画像のサイズは1000kB以下でお願い致します。</p>
+    <p>画像のサイズは可能なら<span style="color:red;"> 小サイズ</span>を選択してください。</p>
     <h6>※画像は暗号化されて保存されるので、ログインしたユーザーのみしか写真を見ることはできません</h6>
     <form action="{{ url('create') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}

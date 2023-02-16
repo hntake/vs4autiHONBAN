@@ -23,9 +23,15 @@ class StripeController extends Controller
     public function stripe(Request $request)
     {
         $user=Auth::user();
-        return view('stripe',[
-        'intent' => $user->createSetupIntent()
-    ]);
+        if($user){
+            return view('stripe',[
+            'intent' => $user->createSetupIntent()
+        ]);
+        }
+        else{
+            session()->flash('flash_message', 'まずは無料登録をしてください。');
+            return view('auth.register');
+        }
 
     }
 

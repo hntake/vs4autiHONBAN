@@ -339,6 +339,11 @@ tr{
 .contact li{
     margin: 10px auto;
 }
+.flash_message{
+    font-weight:bold;
+    color:red;
+    font-weight:17px;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     img{
