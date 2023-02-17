@@ -21,6 +21,9 @@
                     <li><a href="{{ url('dentist/list') }}">
                             <h3>保存リスト（歯科）</h3>
                         </a></li>
+                        <li><a href="{{ url('medical/list') }}">
+                        <h3>保存リスト（医療）</h3>
+                    </a></li>
                     <li><a href="{{ url('list_sort') }}">
                             <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
                         </a></li>
@@ -30,6 +33,9 @@
                     <li><a href="{{ url('dentist/create') }}">
                             <h3>新規作成（歯科）</h3>
                         </a></li>
+                        <li><a href="{{ url('medical/create') }}">
+                        <h3>新規作成（医療）</h3>
+                    </a></li>
                     <li><a href="{{ url('create_sort') }}">
                             <h3>新規作成（イラスト）</h3>
                         </a></li>

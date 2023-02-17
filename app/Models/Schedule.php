@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Image;
 use App\Models\Illust;
+use App\Models\Med;
 use Kyslik\ColumnSortable\Sortable;
 
 class Schedule extends Model
@@ -74,6 +75,31 @@ class Schedule extends Model
     public function illustFive()
     {
         return $this->hasOne(Illust::class,'id','image4');
+
+    }
+    public function MedOne()
+        {
+            return $this->hasOne(Med::class,'id','image0');
+
+        }
+    public function MedTwo()
+        {
+            return $this->hasOne(Med::class,'id','image1');
+
+        }
+    public function MedThree()
+        {
+            return $this->hasOne(Med::class,'id','image2');
+
+        }
+    public function MedFour()
+        {
+            return $this->hasOne(Med::class,'id','image3');
+
+        }
+    public function MedFive()
+    {
+        return $this->hasOne(Med::class,'id','image4');
 
     }
 }

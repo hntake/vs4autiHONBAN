@@ -61,6 +61,10 @@
                                 <div class="description1">歯科スケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
+                                <a href="{{ url('medical/create') }}" class="header_nav_itm_link">医療スケジュール作成</a>
+                                <div class="description1">医療スケジュールを作ってみる</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
                                 <div class="description1">VS4の使い方</div>
                             </li>
@@ -76,6 +80,10 @@
                             <li class="header_nav_itm">
                                 <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科</a>
                                 <div class="description1">歯科リストへ移動する</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="{{ url('/medical/list') }}" class=" header_nav_itm_link">医療</a>
+                                <div class="description1">医療リストへ移動する</div>
                             </li>
                             <li class="header_nav_itm">
                                 @else
@@ -159,6 +167,12 @@
                                 </li>
                                 <li>
                                     <div class="home-button">
+                                        <a href="{{ url('/medical/list') }}" ><h3  ontouchstart="">医療リスト</h3></a>
+                                        <div class="description1">医療リストへ移動する</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="home-button">
                                         <a href="{{ url('list_sort') }}"><h3  ontouchstart="">イラストリスト</h3></a>
                                         <div class="description1">イラストを使った保存リストへ移動する</div>
                                     </div>
@@ -175,6 +189,9 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('dentist/create') }}" ><h3  ontouchstart="">歯科スケジュール作成</h3></a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('medical/create') }}" ><h3  ontouchstart="">医療スケジュール作成</h3></a>
                                 </li>
                                 <li>
                                     <a href="{{ url('feature') }}" ><h3  ontouchstart="">

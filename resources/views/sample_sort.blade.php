@@ -90,7 +90,7 @@
     <div class="footer">
         <p>スケジュール保存が必要なら
             会員登録しましょう！<br>
-            歯科スケジュールとイラストを使ったスケジュールだけなら無料で保存できます。<br>
+            無制限でなければ無料会員で保存できます。<br>
             申し込みはこちらから！<button class="submit_button" style="float:unset;"><a href="{{ route('register') }}">新規登録</a></button>
         </p>
     </div>

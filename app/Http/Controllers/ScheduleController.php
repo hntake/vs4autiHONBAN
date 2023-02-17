@@ -67,6 +67,20 @@ class ScheduleController extends Controller
         return view('dentist/schedule',compact('schedule','user_img'));
     }
     /**
+     * 医療IDを選んだスケジュール表示
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function medical_index(Request $request)
+    {
+
+        $schedule = Schedule::where('id', $request->id)->first();
+        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
+
+        return view('medical/schedule',compact('schedule','user_img'));
+    }
+    /**
      * イラストIDを選んだスケジュール表示
      *
      * @param Request $request
@@ -292,25 +306,12 @@ class ScheduleController extends Controller
         $schedule->list = 1;
         $schedule->save();
 
-        $user = Auth::user();
-        /*歯科スケジュールは無料会員も保存できるように変更*/
-       /*  $stripe = $user->stripe_id;
-        $role =$user->role; */
-/*         if (isset($stripe)){
- */                        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
-
+        $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
 
             return view('dentist/schedule', [
                 'schedule'=>$schedule,
                 'user_img'=>$user_img
-            ]);          /*   }elseif(1==$role){
-                $schedules = Schedule::where('user_id','=', Auth::user()->id)->get();
-
-                return view('dentist/list', ['schedules'=>$schedules]);
-            }else{
-                $schedule = Schedule::orderBy('created_at', 'desc')->first();
-            return redirect()->route('dentist_sample',$schedule);
-            } */
+            ]);       
         }
         else{
 
@@ -333,6 +334,84 @@ class ScheduleController extends Controller
 
         $schedule = Schedule::orderBy('created_at', 'desc')->first();
         return redirect()->route('dentist_sample',$schedule);
+    }
+
+        }
+/**
+     * 医療スケジュールを作成保存
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function medical_schedule(Request $request){
+
+        $validate = $request -> validate([
+            'schedule_name' => 'required|max:25',
+            'image0' => 'required|max:25',
+            'image1' => 'required|max:25',
+          /*   'image2' => 'required|max:25',
+            'image3' => 'required|max:25',
+            'image4' => 'required|max:25', */
+        ],
+        [
+            /*unique取り消し*/
+/*             'schedule_name.unique' => '別のスケジュール名にしてください。',
+ */
+     ]);
+
+     if (Auth::user() ){
+        //schedulesテーブルへの受け渡し
+        $schedule = new Schedule;
+        $schedule->schedule_name = $request->schedule_name;
+        $schedule->image0 = $request->image0;
+        $schedule->image1 = $request->image1;
+        if(isset($request->image2)){
+            $schedule->image2 = $request->image2;
+        }
+        if(isset($request->image3)){
+        $schedule->image3 = $request->image3;
+        }
+        if(isset($request->image4)){
+        $schedule->image4 = $request->image4;
+        }
+        $schedule->user_id = User::where('id','=',Auth::id())->value('id');
+        $schedule->list = 3;
+        $schedule->save();
+
+        $user = Auth::user();
+        /*歯科スケジュールは無料会員も保存できるように変更*/
+       /*  $stripe = $user->stripe_id;
+        $role =$user->role; */
+/*         if (isset($stripe)){
+*/      $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
+
+
+            return view('medical/schedule', [
+                'schedule'=>$schedule,
+                'user_img'=>$user_img
+            ]);         
+        }
+        else{
+
+            //schedulesテーブルへの受け渡し
+            $schedule = new Schedule;
+            $schedule->schedule_name = $request->schedule_name;
+            $schedule->image0 = $request->image0;
+            $schedule->image1 = $request->image1;
+            if(isset($request->image2)){
+                $schedule->image2 = $request->image2;
+            }
+            if(isset($request->image3)){
+            $schedule->image3 = $request->image3;
+            }
+            if(isset($request->image4)){
+            $schedule->image4 = $request->image4;
+            }
+            $schedule->user_id = '0';
+            $schedule->save();
+
+        $schedule = Schedule::orderBy('created_at', 'desc')->first();
+        return redirect()->route('medical_sample',$schedule);
     }
 
         }
@@ -427,6 +506,10 @@ public function sample(Schedule $schedule){
 public function dentist_sample(Schedule $schedule){
         return view('dentist/sample',compact('schedule'));
     }
+/*医療サンプル表示*/
+public function medical_sample(Schedule $schedule){
+        return view('medical/sample',compact('schedule'));
+    }
 /*イラストサンプル表示*/
 public function sample_sort(Schedule $schedule){
         return view('sample_sort',compact('schedule'));
@@ -488,6 +571,21 @@ public function sample_sort(Schedule $schedule){
         ]);
     }
      /**
+     * 医療リスト画面へ遷移
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function medical_list(Request $request)
+    {
+
+         $schedules = Schedule::where('user_id','=', Auth::user()->id)->where('list','=','3')->get();
+
+        return view('medical/list', [
+            'schedules'=>$schedules,
+        ]);
+    }
+     /**
      * イラストスケリスト画面へ遷移
      *
      * @param Request $request
@@ -542,6 +640,18 @@ public function sample_sort(Schedule $schedule){
     {
         $schedule = Schedule::where('id', $request->id)->delete();
         return redirect('dentist/list');
+
+    }
+     /**
+     * 選択した医療リストを削除
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function medical_delete_list(Request $request)
+    {
+        $schedule = Schedule::where('id', $request->id)->delete();
+        return redirect('medical/list');
 
     }
      /**

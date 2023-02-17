@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
+<title>医療保存リスト画面 VS4</title>
+
 @section('content')
 
 <!--ハンバーガーメニュー-->
@@ -19,14 +21,11 @@
                 <li><a href="{{ url('dentist/list') }}">
                         <h3>保存リスト（歯科）</h3>
                     </a></li>
-                    <li><a href="{{ url('medical/list') }}">
-                        <h3>保存リスト（医療）</h3>
-                    </a></li>
+                <li><a href="{{ url('medical/list') }}">
+                    <h3>保存リスト（医療）</h3>
+                </a></li>
                 <li><a href="{{ url('list_sort') }}">
                         <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
-                    </a></li>
-                <li><a href="{{ url('account') }}">
-                        <h3>支払い情報</h3>
                     </a></li>
                 <li><a href="{{ url('create') }}">
                         <h3>新規作成</h3>
@@ -34,11 +33,14 @@
                 <li><a href="{{ url('dentist/create') }}">
                         <h3>新規作成（歯科）</h3>
                     </a></li>
-                    <li><a href="{{ url('medical/create') }}">
-                        <h3>新規作成（医療）</h3>
-                    </a></li>
+                <li><a href="{{ url('medical/create') }}">
+                    <h3>新規作成（医療）</h3>
+                </a></li>
                 <li><a href="{{ url('create_sort') }}">
                         <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                <li><a href="{{ url('account') }}">
+                        <h3>支払い情報</h3>
                     </a></li>
             </ul>
             <div class="logout_buttom">
@@ -66,23 +68,23 @@
 
     <div class="list-area">
 
-        <h1>スケジュールリスト</h1>
+        <h1>スケジュールリスト(医療)</h1>
         <div class="list">
-            <!--sort button-->
-            <form action="{{ route('sort') }}" method="GET">
-                @csrf
-                <select name="narabi">
-                    <option value="asc">昇順</option>
-                    <option value="desc">降順</option>
-                </select>
-                <div class="form-group">
-                    <div class="button">
-                        <input type="submit" value="並び替え">
-                        <!--  <i class="fa fa-plus">並び替え</i> -->
-                        </input>
+            <!--  sort button
+                    <form action="{{ route('sort') }}" method="GET">
+                        @csrf
+                        <select name="narabi">
+                            <option value="asc">昇順</option>
+                            <option value="desc">降順</option>
+                        </select>
+                        <div class="form-group">
+                            <div class="button">
+                                <input type="submit" value="並び替え">
+                                <i class="fa fa-plus">並び替え</i>
+                            </input>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form> -->
 
             <table class="result">
                 <tbody id="tbl">
@@ -91,10 +93,11 @@
                     <tr>
                         <td>{{ $schedule->schedule_name }}</td>
                         <td>
-                            <div class="button"><a href="{{ route('schedule',['id'=>$schedule->id]) }}">表示</a></div>
+                            <div class="list_button"><a href="{{ route('medical_schedule',['id'=>$schedule->id]) }}">表示</a></div>
                         </td>
-                        <!--                                             <td ><div  class="button"><a href="{{ route('delete_list',['id'=> $schedule->id]) }}" >削除</a></div></td>
- -->
+                        <td>
+                            <div class="list_button"><a href="{{ route('medical_delete_list',['id'=> $schedule->id]) }}">削除</a></div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

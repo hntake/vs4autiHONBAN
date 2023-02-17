@@ -36,16 +36,16 @@
                     <tr>
                         <!-- <td>{{ $schedule->id }}</td><br>
                                 <td>{{ $schedule->schedule_name }}</td><br> -->
-                        <td><a href="{{ asset('img/dentist/'.$schedule->imageOne->pic_name) }}" target="_blank"></a>
-                            <img src="{{ asset('img/dentist/'.$schedule->imageOne->pic_name) }}" alt="image" style="width: 160px; height: auto;">
+                        <td><a href="{{ asset('img/medical/'.$schedule->MedOne->pic_name) }}" target="_blank"></a>
+                            <img src="{{ asset('img/medical/'.$schedule->MedOne->pic_name) }}" alt="image" style="width: 160px; height: auto;">
                         </td>
                         <td>
                             <p>
                             <div class="arrow">&#9660;</div>
                             </p>
                         </td>
-                        <td><a href="{{ asset('img/dentist/'.$schedule->imageTwo->pic_name) }}" target="_blank"></a>
-                            <img src="{{ asset('img/dentist/'.$schedule->imageTwo->pic_name) }}" alt="image" style="width: 160px; height: auto;">
+                        <td><a href="{{ asset('img/medical/'.$schedule->MedTwo->pic_name) }}" target="_blank"></a>
+                            <img src="{{ asset('img/medical/'.$schedule->MedTwo->pic_name) }}" alt="image" style="width: 160px; height: auto;">
                         </td>
                         @if(isset($schedule->image2))
                         <td>
@@ -53,8 +53,8 @@
                             <div class="arrow">&#9660;</div>
                             </p>
                         </td>
-                        <td><a href="{{ asset('img/dentist/'.$schedule->imageThree->pic_name) }}" target="_blank"></a>
-                            <img src="{{ asset('img/dentist/'.$schedule->imageThree->pic_name) }}" alt="image" style="width: 160px; height: auto;">
+                        <td><a href="{{ asset('img/medical/'.$schedule->MedThree->pic_name) }}" target="_blank"></a>
+                            <img src="{{ asset('img/medical/'.$schedule->MedThree->pic_name) }}" alt="image" style="width: 160px; height: auto;">
                         </td>
                         @endif
                         @if(isset($schedule->image3))
@@ -63,8 +63,8 @@
                             <div class="arrow">&#9660;</div>
                             </p>
                         </td>
-                        <td><a href="{{ asset('img/dentist/'.$schedule->imageFour->pic_name) }}" target="_blank"></a>
-                            <img src="{{asset('img/dentist/'.$schedule->imageFour->pic_name) }}" alt="image" style="width: 160px; height: auto;">
+                        <td><a href="{{ asset('img/medical/'.$schedule->MedFour->pic_name) }}" target="_blank"></a>
+                            <img src="{{asset('img/medical/'.$schedule->MedFour->pic_name) }}" alt="image" style="width: 160px; height: auto;">
                         </td>
                         @endif
                         @if(isset($schedule->image4))
@@ -73,8 +73,8 @@
                             <div class="arrow">&#9660;</div>
                             </p>
                         </td>
-                        <td><a href="{{ asset('img/dentist/'.$schedule->imageFive->pic_name) }}" target="_blank"></a>
-                            <img src="{{ asset('img/dentist/'.$schedule->imageFive->pic_name) }}" alt="image" style="width: 160px; height: auto;">
+                        <td><a href="{{ asset('img/medical/'.$schedule->MedFive->pic_name) }}" target="_blank"></a>
+                            <img src="{{ asset('img/medical/'.$schedule->MedFive->pic_name) }}" alt="image" style="width: 160px; height: auto;">
                         </td>
                         @endif
                     </tr>
@@ -90,7 +90,7 @@
     <div class="footer">
         <p>スケジュール保存が必要なら
             会員登録しましょう！<br>
-            無制限でなければ無料会員で保存できます。<br>
+            無制限でなければ無料会員でで保存できます。<br>
             申し込みはこちらから！<button class="submit_button" style="float:unset;"><a href="{{ route('register') }}">新規登録</a></button>
         </p>
     </div>
