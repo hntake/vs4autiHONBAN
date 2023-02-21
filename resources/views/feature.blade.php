@@ -78,6 +78,10 @@
                                 <div class="description1">歯科スケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
+                                <a href="#use" class="header_nav_itm_link">医療スケジュール作成</a>
+                                <div class="description1">医療スケジュールを作ってみる</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="#monitor-apply" class="header_nav_itm_link">申込み方法</a>
                                 <div class="description1">VS4の申込み方法</div>
                             </li>
@@ -105,7 +109,7 @@
                                 <div class="register-button">
                                     @if (Route::has('register'))
                                     <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                    <div class="description1">30日間無料トライアルを試してみる </div>
+                                    <div class="description1">簡単登録！</div>
 
                                 </div>
                             </li>
@@ -153,7 +157,7 @@
                             <div class="register-button">
                                 @if (Route::has('register'))
                                 <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                <div class="description1">30日間無料トライアルを試してみる</div>
+                              <!--   <div class="description1">30日間無料トライアルを試してみる</div> -->
                             </div>
                         </li>
 
@@ -372,7 +376,7 @@
                         <tr>
                             <td>オリジナルスケジュール保存</td>
                             <td>〇</td>
-                            <td>✕</td>
+                            <td>〇（5個まで）</td>
                             <td>✕</td>
                         </tr>
                         <tr>
@@ -391,15 +395,16 @@
                         <tr>
                             <td>チェックマークの表示</td>
                             <td>〇</td>
-                            <td>✕</td>
+                            <td>〇</td>
                             <td>✕</td>
                         </tr>
                         <div class="sright">
                             <div class="slide-head"></div>
                             <div class="slide-description">
                                 <b>簡単登録</b>
-                                登録をしなくてもスケジュールは作成できますが、<br>
-                                それ以外の機能は一切利用できません<br>
+                                無料会員で全ての機能が使えます<br>
+                               有料会員のみ無制限でスケジュールが作れます<br>
+                               <br>
                                 <br>
                                 <div class="llco" style="background-color:unset;">
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
@@ -418,7 +423,7 @@
         <div class="element">
             <div class="use">
                 <!-- リンク内移動-->
-                <br>有料プランで使える
+                <br>無料登録で使える
                 <br>便利な機能
     </a>
     </div>
@@ -509,7 +514,7 @@
                     </div>
                     <div class="bottom-right">
                         <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                            <span class="elementor-button">30日間無料トライアル</span>
+                            <span class="elementor-button">無料登録</span>
                         </a>
                     </div>
                 </div>

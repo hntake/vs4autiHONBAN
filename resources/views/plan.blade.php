@@ -159,7 +159,7 @@
                             </div>
                             <div class="elementor-bottom">
                                 <div class="elementor-heading-title">
-                                    スケジュールの保存は有料です。<br>歯科スケジュールの保存のみ無料です。
+                                    スケジュールの無制限保存のみ<span style="color:red; font-weight:bold;">有料</span>です。<br>それ以外は全て<span style="color:red; font-weight:bold;">無料</span>で利用できます。
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                             <div class="elementor-heading-tit">完全無料</div>
                         </div>
                         <div class="elementor-widget-container">
-                            <div class="elementor-heading-english">全ての絵スケジュールの作成<br>イラスト・歯科スケジュールの保存</div>
+                            <div class="elementor-heading-english">カスタムスケジュール作成<br>(5個まで）、無制限のイラストスケジュールの作成・保存</div>
                         </div>
                         <div class="elementor-element">
                             <p class="elementor-heading-dis">
@@ -208,7 +208,7 @@
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon">
                                     <li class="elementor-icon">
-                                        <span class="elementor-icon">スケジュール作成</span>
+                                        <span class="elementor-icon">スケジュール作成(5個まで)</span>
                                     </li>
                                     <li class="elementor-icon">
                                         <span class="elementor-icon">イラストスケジュールの保存（無制限）</span>
@@ -228,7 +228,7 @@
                             </a>
                         </div>
                         <div class="elementor-widget-container">
-                            <div class="elementor-heading-english">スケジュールの保存<br>チェックマークの表示</div>
+                            <div class="elementor-heading-english">スケジュールの保存・利用<br>全て無制限</div>
                         </div>
                         <div class="elementor-element">
                             <p class="elementor-heading-dis">
@@ -249,9 +249,16 @@
                         <div class="elementor-button">
                             <div class="elementor-widget-container">
                                 <div class="elementor-heading-title-button">
-                                    <a href="{{route('register')}}" target="_blank" class="elementor-button">
+                                    <a href="{{route('admin_form')}}" target="_blank" class="elementor-button">
                                         <span class="elementor-button">
-                                            今すぐ申し込む
+                                            年額プラン申込
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="elementor-heading-title-button">
+                                    <a href="{{route('stripe')}}" target="_blank" class="elementor-button">
+                                        <span class="elementor-button">
+                                            月額プラン申込
                                         </span>
                                     </a>
                                 </div>
@@ -266,7 +273,7 @@
                             <div class="elementor-widget-container">
                                 <ul class="elementor-icon">
                                     <li class="elementor-icon">
-                                        <span class="elementor-icon">スケジュールの保存（無制限）</span>
+                                        <span class="elementor-icon">全てのスケジュールの保存（無制限）</span>
                                     </li>
                                 </ul>
                             </div>
@@ -276,7 +283,7 @@
             </div>
         </div>
         <!--説明動画-->
-        <div class="youtube_kv">
+   <!--      <div class="youtube_kv">
             <div class="movie_cap">
                 <div class="elementor-widget">
                     <a name="monitor">
@@ -290,7 +297,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
         <section class="option-section">
             <div class="site-content">
                 <div class="elementor-column">

@@ -95,6 +95,26 @@ class ScheduleController extends Controller
 
         return view('schedule_sort',compact('schedule','user_img'));
     }
+    /**
+     * ヘアカットスケジュール表示
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function cut(Request $request)
+    {
+
+        if(Auth::user()){
+            $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
+
+            return view('hair/schedule',compact('user_img'));
+        }
+        else{
+            $user_img=null;
+
+            return view('hair/schedule',compact('user_img'));
+        }
+    }
 
     /**
      * 画像保存ページへ遷移
@@ -311,7 +331,7 @@ class ScheduleController extends Controller
             return view('dentist/schedule', [
                 'schedule'=>$schedule,
                 'user_img'=>$user_img
-            ]);       
+            ]);
         }
         else{
 
@@ -389,7 +409,7 @@ class ScheduleController extends Controller
             return view('medical/schedule', [
                 'schedule'=>$schedule,
                 'user_img'=>$user_img
-            ]);         
+            ]);
         }
         else{
 
@@ -459,7 +479,7 @@ class ScheduleController extends Controller
         $user = Auth::user();
 
         $user_img=User::where('id','=',Auth::user()->id)->value('image_id');
-               
+
             return view('schedule_sort', [
                 'schedule'=>$schedule,
                 'user_img'=>$user_img

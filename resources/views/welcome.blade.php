@@ -65,6 +65,10 @@
                                 <div class="description1">医療スケジュールを作ってみる</div>
                             </li>
                             <li class="header_nav_itm">
+                                <a href="{{ url('hair/schedule') }}" class=" header_nav_itm_link">ヘアカット</a>
+                                <div class="description1">ヘアカットスケジュールへ移動する</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
                                 <div class="description1">VS4の使い方</div>
                             </li>
@@ -84,6 +88,10 @@
                             <li class="header_nav_itm">
                                 <a href="{{ url('/medical/list') }}" class=" header_nav_itm_link">医療</a>
                                 <div class="description1">医療リストへ移動する</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="{{ url('hair/schedule') }}" class=" header_nav_itm_link">ヘアカット</a>
+                                <div class="description1">ヘアカットスケジュールへ移動する</div>
                             </li>
                             <li class="header_nav_itm">
                                 @else
@@ -176,6 +184,11 @@
                                         <a href="{{ url('list_sort') }}"><h3  ontouchstart="">イラストリスト</h3></a>
                                         <div class="description1">イラストを使った保存リストへ移動する</div>
                                     </div>
+                                </li>
+                                <li>
+                                    <div class="home-button">
+                                        <a href="{{ url('hair/schedule') }}"><h3  ontouchstart="">ヘアカット</h3></a>
+                                        <div class="description1">ヘアカットスケジュールへ移動する</div>
                                 </li>
                                 <li>
                                     <a href="{{ url('create') }}" ><h3  ontouchstart="">

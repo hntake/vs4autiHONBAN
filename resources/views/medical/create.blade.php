@@ -24,6 +24,9 @@
                 <li><a href="{{ url('list_sort') }}">
                         <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
                     </a></li>
+                <li><a href="{{ url('hair/schedule') }}">
+                        <h3 style="font-size: 1.50rem;">ヘアカット</h3>
+                    </a></li>
                 <li><a href="{{ url('create') }}">
                         <h3>新規作成</h3>
                     </a></li>
@@ -183,8 +186,8 @@
                                 <li><img src="{{ asset('img/sort/toilet_benki.png') }}" alt="toilet"></li>
                             </ul>
                         </div>
-                      
-                        
+
+
                     </tr>
                 </tbody>
             </table>

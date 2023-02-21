@@ -78,6 +78,25 @@ Route::get('/faq',function(){
 Route::get('/partner',function(){
     return view('partner');
 });
+Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut'])->name('cut');
+Route::get('/hair/cut',function(){
+    return view('hair/cut');
+});
+Route::get('/hair/timer1',function(){
+    return view('hair/timer1');
+});
+Route::get('/hair/timer2',function(){
+    return view('hair/timer2');
+});
+Route::get('/hair/timer3',function(){
+    return view('hair/timer3');
+});
+Route::get('/hair/timer4',function(){
+    return view('hair/timer4');
+});
+Route::get('/hair/clipper',function(){
+    return view('hair/clipper');
+});
 
 
 //入力ページ
