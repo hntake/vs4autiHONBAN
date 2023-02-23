@@ -102,11 +102,11 @@
                             </td>
                         </div>
                         @if($user_img==1 || $user_img==null)
-                        <td><img src="{{asset('img/cape.jpeg')}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                        <td><img src="{{asset('img/cape.webp')}}" alt="image" onclick="this.src='/img/check.png'"></td>
                         @elseif($user_img==2)
-                        <td><img src="{{asset('img/cape.jpeg')}}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                        <td><img src="{{asset('img/cape.webp')}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                         @else
-                        <td><img src="{{asset('img/cape.jpeg')}}" alt="image" onclick="this.src='/img/smile.png'"></td>
+                        <td><img src="{{asset('img/cape.webp')}}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         @endif
                         <td>
                             <p>
@@ -116,11 +116,11 @@
                         <ul style="margin:0 30px 0 0;">
                             <li>
                             @if($user_img==1 || $user_img==null)
-                            <td><img src="{{asset('img/seizer.png')}}" alt="image" onclick="this.src='/img/check.png'"></td>
+                            <td><img src="{{asset('img/seizer.webp')}}" alt="image" onclick="this.src='/img/check.png'"></td>
                             @elseif($user_img==2)
-                            <td><img src="{{asset('img/seizer.png')}}" alt="image" onclick="this.src='/img/hana.png'"></td>
+                            <td><img src="{{asset('img/seizer.webp')}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                             @else
-                            <td><img src="{{asset('img/seizer.png')}}" alt="image" onclick="this.src='/img/smile.png'"></td>
+                            <td><img src="{{asset('img/seizer.webp')}}" alt="image" onclick="this.src='/img/smile.png'"></td>
                             @endif
                         <td>
                             </li>
