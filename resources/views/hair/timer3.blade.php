@@ -16,7 +16,7 @@
 </head>
 
 <div class="container">
-<img src="{{asset('img/boy_r.png')}}" alt="right"style="width:55%;height:auto;">
+<img src="{{asset('img/boy_r.webp')}}" alt="right"style="width:55%;height:auto;">
     <div class="pie"></div>
 </div>
 <script>

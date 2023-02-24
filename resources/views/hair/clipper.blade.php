@@ -16,7 +16,7 @@
 </head>
 
 <div class="container">
-<img src="{{asset('img/clipper.jpeg')}}" alt="clipper" style="width:70%; height:auto;">
+<img src="{{asset('img/clipper.webp')}}" alt="clipper" style="width:70%; height:auto;">
     <div class="pie"></div>
 </div>
 <script>
