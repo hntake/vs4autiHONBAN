@@ -16,7 +16,13 @@
 </head>
 
 <div class="container">
+@if($user==null)
 <img src="{{asset('img/boy_r.webp')}}" alt="right"style="width:55%;height:auto;">
+@elseif($user->gender=="boy")
+<img src="{{asset('img/boy_r.webp')}}" alt="right"style="width:55%;height:auto;">
+@else
+<img src="{{asset('img/g_right.webp')}}" alt="right"style="width:55%;height:auto;">
+@endif
     <div class="pie"></div>
 </div>
 <script>

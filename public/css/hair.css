@@ -10,12 +10,12 @@
     width:100%;
 }
 .one_box_list img{
-    width:50%;
+    width:80%;
 }
 
 .one_box{
     margin-left:5px;
-    height:80px;
+    height:100px;
     border-radius: 10px;
 }
 button.done{

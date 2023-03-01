@@ -16,13 +16,12 @@
 </head>
 
 <div class="container">
-<img src="{{asset('img/clipper.webp')}}" alt="clipper" style="width:70%; height:auto;">
+    <img src="{{asset('img/b_clipper.webp')}}" alt="clipper" style="width:70%; height:auto;">
     <div class="pie"></div>
 </div>
 <script>
-    setTimeout(function(){
-  window.location.href='/hair/cut';
-}, 60*1000);
+    setTimeout(function() {
+        window.location.href = '/hair/cut';
+    }, 60 * 1000);
 </script>
 @endsection
-

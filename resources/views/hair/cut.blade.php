@@ -22,26 +22,69 @@
             <div class="card">
                 <ul class="one_box_list" style="display:flex; flex-direction: row;margin: 10px 30px 10px 0;">
 
-                            <li><td ><div class="one_box" style="padding-top:10px;background-color: lightgoldenrodyellow;margin-bottom:10px;"onclick="location.href='{{ url('hair/timer1') }}'"><img src="{{asset('img/front.webp')}}" alt="front"style="width:55%;"></div></td>
-                                <td><div class="one_box" style="padding-top:10px;background-color: lightpink;"onclick="location.href='{{ url('hair/timer2') }}'"><img src="{{asset('img/back.webp')}}" alt="back" style="width:55%;"></div></td>
-                            </li>
-                            <li><td><div class="one_box" style="background-color: lightblue;margin-bottom:10px;"onclick="location.href='{{ url('hair/timer3') }}'"><img src="{{asset('img/boy_r.webp')}}" alt="right"></div></td>
-                                <td><div class="one_box"style="background-color: lightgreen;"onclick="location.href='{{ url('hair/timer4') }}'"><img src="{{asset('img/boy_l.webp')}}" alt="left"></div></td>
-                            </li>
+                    <li>
+                        <td>
+                            @if($user==null)
+                            <div class="one_box" style="padding-top:10px; background-color:lightgoldenrodyellow; margin-bottom:10px;" onclick="location.href='{{ url('hair/timer1')}}'"><img src="{{asset('img/front.webp')}}" alt="front" style="width:85%;"></div>
+                            @elseif($user->gender=="boy")
+                            <div class="one_box" style="padding-top:10px; background-color:lightgoldenrodyellow; margin-bottom:10px;" onclick="location.href='{{ url('hair/timer1')}}'"><img src="{{asset('img/front.webp')}}" alt="front" style="width:85%;"></div>
+                            @else
+                            <div class="one_box" style="padding-top:10px; background-color:lightgoldenrodyellow; margin-bottom:10px;" onclick="location.href='{{ url('hair/timer1')}}'"><img src="{{asset('img/g_front.webp')}}" alt="front" style="width:65%;"></div>
+                        @endif
+                        </td>
+                        <td>
+                        @if($user==null)
+                            <div class="one_box" style="padding-top:10px;background-color: lightpink;" onclick="location.href='{{ url('hair/timer2') }}'"><img src="{{asset('img/back.webp')}}" alt="back" style="width:85%;"></div>
+                            @elseif($user->gender=="boy")
+                            <div class="one_box" style="padding-top:10px;background-color: lightpink;" onclick="location.href='{{ url('hair/timer2') }}'"><img src="{{asset('img/back.webp')}}" alt="back" style="width:85%;"></div>
+                        @else
+                            <div class="one_box" style="padding-top:10px;background-color: lightpink;" onclick="location.href='{{ url('hair/timer2') }}'"><img src="{{asset('img/g_back.webp')}}" alt="back" style="width:65%;"></div>
+                        @endif
+                        </td>
+                    </li>
+                    <li>
+                        <td>
+                        @if($user==null)
+                            <div class="one_box" style="background-color: lightblue;margin-bottom:10px; width:85%;" onclick="location.href='{{ url('hair/timer3') }}'"><img src="{{asset('img/boy_r.webp')}}" alt="right"></div>
+                            @elseif($user->gender=="boy")
+                            <div class="one_box" style="background-color: lightblue;margin-bottom:10px; width:85%;" onclick="location.href='{{ url('hair/timer3') }}'"><img src="{{asset('img/boy_r.webp')}}" alt="right"></div>
+                        @else
+                            <div class="one_box" style="background-color: lightblue;margin-bottom:10px; width:85%;" onclick="location.href='{{ url('hair/timer3') }}'"><img src="{{asset('img/g_right.webp')}}" alt="right"></div>
+                        @endif
+                        </td>
+                        <td>
+                        @if($user==null)
+                            <div class="one_box" style="background-color: lightgreen; width:85%;" onclick="location.href='{{ url('hair/timer4') }}'"><img src="{{asset('img/boy_l.webp')}}" alt="left"></div>
+                            @elseif($user->gender=="boy")
+                            <div class="one_box" style="background-color: lightgreen; width:85%;" onclick="location.href='{{ url('hair/timer4') }}'"><img src="{{asset('img/boy_l.webp')}}" alt="left"></div>
+                        @else
+                            <div class="one_box" style="background-color: lightgreen; width:85%;" onclick="location.href='{{ url('hair/timer4') }}'"><img src="{{asset('img/g_left.webp')}}" alt="left"></div>
+                        @endif
+                        </td>
+                    </li>
                 </ul>
                 <ul class="one_box_list" style="display:flex; flex-direction: row;margin: 10px 30px 10px 0;">
-                            <li style="margin-right:20px;">
-                                <td><div  class="one_box" style="padding:5px 0; border-radius: 10px; background-color: lightgray;"onclick="location.href='{{ url('hair/clipper') }}'"><img src="{{asset('img/clipper.webp')}}" alt="clipper" style="width:45%;"></div></td>
-                            </li>
-                            <li class="button" style="width:80%;">
-                                <td><div class="one_box" style="padding:5px; border-radius: 10px; margin-top:10px;"><button class="done" onClick="location.href='/hair/schedule';">カット終了！</button></div>
-                            <div class="description1">カットスケジュールに戻る</div>                            </td>
-                            </li>
+                    <li style="margin-right:20px;">
+                        <td>
+                        @if($user==null)
+                            <div class="one_box" style="padding:5px 0; border-radius: 10px; background-color: lightgray;" onclick="location.href='{{ url('hair/clipper') }}'"><img src="{{asset('img/b_clipper.webp')}}" alt="clipper" style="width:65%;"></div>
+                            @elseif($user->gender=="boy")
+                            <div class="one_box" style="padding:5px 0; border-radius: 10px; background-color: lightgray;" onclick="location.href='{{ url('hair/clipper') }}'"><img src="{{asset('img/b_clipper.webp')}}" alt="clipper" style="width:65%;"></div>
+                        @else
+                        @endif
+                        </td>
+                    </li>
+                    <li class="button" style="width:80%;">
+                        <td>
+                            <div class="one_box" style="padding:5px; border-radius: 10px;width:120px;"><button class="done" onClick="location.href='/hair/schedule';">カット終了！</button></div>
+                            <div class="description1">カットスケジュールに戻る</div>
+                        </td>
+                    </li>
 
                 </ul>
 
 
-               <!--  <div class="route">
+                <!--  <div class="route">
                     <div class="submit_button">
                         <a href="{{ url('hair/create') }}">新規作成</a>
                     </div>
@@ -55,4 +98,3 @@
 </div>
 </div>
 @endsection
-
