@@ -1,6 +1,7 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> <!-- schedule.cssと連携 -->
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">
@@ -16,15 +17,7 @@
                 <li><a href="{{ url('list') }}">
                         <h3>保存リスト</h3>
                     </a></li>
-                <li><a href="{{ url('dentist/list') }}">
-                        <h3>保存リスト（歯科）</h3>
-                    </a></li>
-                <li><a href="{{ url('medical/list') }}">
-                        <h3>保存リスト（医療）</h3>
-                    </a></li>
-                <li><a href="{{ url('list_sort') }}">
-                        <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
-                    </a></li>
+
                 <li><a href="{{ url('hair/schedule') }}">
                         <h3 style="font-size: 1.50rem;">ヘアカット</h3>
                     </a></li>
@@ -67,11 +60,11 @@
     @include('common.errors')
 
 
-    <div class="list-area">
+    <div class="dashboard-area">
 
-        <h1>スケジュールリスト</h1>
-        <div class="list">
-            <!--sort button-->
+        <h1>保存リスト</h1>
+        <!--   並び変えは一時保留
+       <div class="list">
             <form action="{{ route('sort') }}" method="GET">
                 @csrf
                 <select name="narabi">
@@ -81,28 +74,127 @@
                 <div class="form-group">
                     <div class="button">
                         <input type="submit" value="並び替え">
-                        <!--  <i class="fa fa-plus">並び替え</i> -->
                         </input>
                     </div>
                 </div>
             </form>
-
+        </div> -->
+        <div class="box">
             <table class="result">
                 <tbody id="tbl">
                     <!--スケジュール一覧 -->
+                    <h2>写真スケジュール</h2>
                     @foreach ($schedules as $schedule)
                     <tr>
-                        <td>{{ $schedule->schedule_name }}</td>
+                        <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image"></td>
+                        <td><a href="{{ route('schedule',['id'=>$schedule->id]) }}">{{ $schedule->schedule_name }}</a></td>
                         <td>
-                            <div class="button"><a href="{{ route('schedule',['id'=>$schedule->id]) }}">表示</a></div>
+                            <div class="relative" x-data="{ isOpen:false }">
+                                <button class="text-black" @click="isOpen = !isOpen"> ︙</button>
+                                <div class="open" x-show="isOpen">
+                                    <a href="{{ route('delete',['id'=> $schedule->id]) }}">削除</a>
+                                    <a href="{{ route('edit',['id'=> $schedule->id]) }}">修正</a>
+                                </div>
+                            </div>
                         </td>
-                        <!--                                             <td ><div  class="button"><a href="{{ route('delete_list',['id'=> $schedule->id]) }}" >削除</a></div></td>
- -->
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        </tbody>
+        <div class="box">
+            <table class="result">
+                <tbody id="tbl">
+                    <!--スケジュール一覧 -->
+                    <h2>歯科スケジュール</h2>
+                    @foreach ($dentists as $dentist)
+                    <tr>
+                        <td><img src="{{asset('img/dentist/'.$dentist->imageOne->pic_name)}}" alt="image"></td>
+                        <td><a href="{{ route('dentist_schedule',['id'=>$dentist->id]) }}">{{ $dentist->schedule_name }}</a></td>
+                        <td>
+                            <div class="relative" x-data="{ isOpen:false }">
+                                <button class="text-black" @click="isOpen = !isOpen"> ︙</button>
+                                <div class="open" x-show="isOpen">
+                                    <a href="{{ route('dentist_delete',['id'=> $dentist->id]) }}">削除</a>
+                                    <a href="{{ route('dentist_edit',['id'=> $dentist->id]) }}">修正</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="box">
+            <table class="result">
+                <tbody id="tbl">
+                    <!--スケジュール一覧 -->
+                    <h2>イラストスケジュール</h2>
+                    @foreach ($illusts as $illust)
+                    <tr>
+                        <td><img src="{{asset('img/sort/'.$illust->illustOne->pic_name)}}" alt="image"></td>
+                        <td><a href="{{ route('schedule_sort',['id'=>$illust->id]) }}">{{ $illust->schedule_name }}</a></td>
+                        <td>
+                            <div class="relative" x-data="{ isOpen:false }">
+                                <button class="text-black" @click="isOpen = !isOpen"> ︙</button>
+                                <div class="open" x-show="isOpen">
+                                    <a href="{{ route('sort_delete',['id'=> $illust->id]) }}">削除</a>
+                                    <a href="{{ route('sort_edit',['id'=> $illust->id]) }}">修正</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="box">
+            <table class="result">
+                <tbody id="tbl">
+                    <!--スケジュール一覧 -->
+                    <h2>医療スケジュール</h2>
+                    @foreach ($medicals as $medical)
+                    <tr>
+                        <td><img src="{{asset('img/medical/'.$medical->MedOne->pic_name)}}" alt="image"></td>
+                        <td><a href="{{ route('medical_schedule',['id'=>$medical->id]) }}">{{ $medical->schedule_name }}</a></td>
+                        <td>
+                            <div class="relative" x-data="{ isOpen:false }">
+                                <button class="text-black" @click="isOpen = !isOpen"> ︙</button>
+                                <div class="open" x-show="isOpen">
+                                    <a href="{{ route('medical_delete',['id'=> $medical->id]) }}">削除</a>
+                                    <a href="{{ route('medical_edit',['id'=> $medical->id]) }}">修正</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="box">
+            <table class="result">
+                <tbody id="tbl">
+                    <!--スケジュール一覧 -->
+                    <h2>自立支援スケジュール</h2>
+                    @foreach ($supports as $support)
+                    <tr>
+                        <td><img src="{{asset('storage/' . $support->image1)}}" alt="image" name="area1"></td>
+                        <td><a href="{{ route('independence_schedule',['id'=>$support->id]) }}">{{ $support->schedule_name }}</a></td>
+                        <td>
+                            <div class="relative" x-data="{ isOpen:false }">
+                                <button class="text-black" @click="isOpen = !isOpen"> ︙</button>
+                                <div class="open" x-show="isOpen">
+                                    <a href="{{ route('independence_delete',['id'=> $support->id]) }}">削除</a>
+                                    <a href="{{ route('independence_edit',['id'=> $support->id]) }}">修正</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-    @endsection
+    </tbody>
+</div>
+@endsection

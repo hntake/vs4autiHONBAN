@@ -1,102 +1,72 @@
 @extends('layouts.app')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- schedule.cssと連携 -->
-<!--ハンバーガーメニュー-->
-<div class="header-logo-menu">
-    <div id="nav-drawer">
-        <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">
-            <ul>
-                <li><a href="{{ url('/') }}">
-                        <h3>トップページに戻る</h3>
-                    </a></li>
-                <li><a href="{{ url('dashboard') }}">
-                        <h3>保存リスト</h3>
-                    </a></li>
-              
-                <li><a href="{{ url('hair/schedule') }}">
-                        <h3 style="font-size: 1.50rem;">ヘアカット</h3>
-                    </a></li>
-                <li><a href="{{ url('create') }}">
-                        <h3>新規作成</h3>
-                    </a></li>
-                <li><a href="{{ url('dentist/create') }}">
-                        <h3>新規作成（歯科）</h3>
-                    </a></li>
-                <li><a href="{{ url('medical/create') }}">
-                        <h3>新規作成（医療）</h3>
-                    </a></li>
-                <li><a href="{{ url('create_sort') }}">
-                        <h3>新規作成（イラスト）</h3>
-                    </a></li>
-                <li><a href="{{ url('account') }}">
-                        <h3>支払い情報</h3>
-                    </a></li>
-            </ul>
-        </div>
-        <script>
-            $(function() {
-                $('#nav-content li a').on('click', function(event) {
-                    $('#nav-input').prop('checked', false);
-                });
-            });
-        </script>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="ja">
 
-<!-- 新規スケジュール作成パネル… -->
-<div class="panel-body">
-    <!-- バリデーションエラーの表示 -->
-    @include('common.errors')
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- home.cssと連携 -->
+    <link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- home.cssと連携 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!-- jQueryのライブラリを読み込み -->
+    <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イラストスケジュール編集画面 VS4</title>
+</head>
 
+<div class="container">
+<div class="edit">
+    <form method="POST" action="{{route('sort_update',['id'=> $schedule->id])}}" enctype="multipart/form-data">
+        @csrf
+        @method('patch')
+        <table class="table-hover">
+            <thead>
+                <tr>
+                    <th >スケジュール名</th>
+                    <td><input type="text" name="schedule_name" value="{{ $schedule->schedule_name}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >一番目画像</th>
+                    <td><img src="{{asset('img/sort/'.$schedule->illustOne->pic_name)}}" alt="image" ></td>
+                    <td><input type="text" name="image0" value="{{ $schedule->image0}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >二番目画像</th>
+                    <td><img src="{{asset('img/sort/'.$schedule->illustTwo->pic_name)}}" alt="image" ></td>
+                    <td><input type="text" name="image1" value="{{ $schedule->image1}}" class="form-control"></td>
+                </tr>
+                @if(isset($schedule->image2))
+                <tr>
+                    <th >三番目画像</th>
+                    <td><img src="{{asset('img/sort/'.$schedule->illustThree->pic_name)}}" alt="image" ></td>
+                    <td><input type="text" name="image2" value="{{ $schedule->image2}}" class="form-control"></td>
+                </tr>
+                @endif
+                @if(isset($schedule->image3))
+                <tr>
+                    <th >四番目画像</th>
+                    <td><img src="{{asset('img/sort/'.$schedule->illustFour->pic_name)}}" alt="image" ></td>
+                    <td><input type="text" name="image3" value="{{ $schedule->image3}}" class="form-control"></td>
+                </tr>
+                @endif
+                @if(isset($schedule->image4))
+                <tr>
+                    <th >五番目画像</th>
+                    <td><img src="{{asset('img/sort/'.$schedule->illustFive->pic_name)}}" alt="image" ></td>
+                    <td><input type="text" name="image4" value="{{ $schedule->image4}}" class="form-control"></td>
+                </tr>
+                @endif
+            </thead>
+        </table>
 
-    <h1>新規スケジュール作成</h1>
-    <div class="register-button">
-        <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="header_nav_itm_link">利用説明動画を見る</a>
-    </div>
-    <form action="{{ url('create_sort') }}" method="post">
-        {{ csrf_field() }}
-        <div class='create-group'>
-            <div class="create_schedule">
-                <input type="text" name="schedule_name" id="schedule_name" class="form-control" size="15" placeholder="スケジュール名を入力">
-            </div>
-            <div class="col-sm-6">
-                <input type="text" name="image0" id="image0" class="form-control" size="15" placeholder="正しい画像番号を入力">
-            </div>
-            <div class="col-sm-6">
-                <input type="text" name="image1" id="image1" class="form-control" size="15" placeholder="正しい画像番号を入力">
-            </div>
-            <div class="col-sm-6">
-                <input type="text" name="image2" id="image2" class="form-control" size="15" placeholder="正しい画像番号を入力">
-            </div>
-            <div class="col-sm-6">
-                <input type="text" name="image3" id="image3" class="form-control" size="15" placeholder="正しい画像番号を入力">
-            </div>
-            <div class="col-sm-6">
-                <input type="text" name="image4" id="image4" class="form-control" size="15" placeholder="正しい画像番号を入力">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="button">
-                <button type="submit">
-                    <i class="fa fa-plus"></i> 作成する
-                </button>
-            </div>
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-        </div>
+                <div class="button"><input type="submit" value="更新">
+                    <h6>更新ボタンを押さないと変更されません</h6>
+                   <!--  <h4>!!空欄のままだとエラーになります。クラス番号を削除するときは<span style="color:red;">000</span>を入力してください!!</h4> -->
+                </div>
     </form>
-    <h2>保存画面一覧</h2>
-    <div class="table_main">
+</div>
+<div class="table_main" style="background-color:lightsteelblue;">
+        <h4>保存画面一覧</h4>
         <h2>あそび</h2>
         <div class="image-list">
             <table>

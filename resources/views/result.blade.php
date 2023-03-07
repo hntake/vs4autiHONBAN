@@ -14,7 +14,7 @@
                 <li><a href="{{ url('/') }}">
                         <h3>トップページに戻る</h3>
                     </a></li>
-                <li><a href="{{ url('list') }}">
+                <li><a href="{{ url('dashboard') }}">
                         <h3>保存リストへ</h3>
                     </a></li>
                 <li><a href="{{ url('account') }}">

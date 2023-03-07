@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
-<title>医療保存リスト画面 VS4</title>
+<title>自立支援保存リスト画面 VS4</title>
 
 @section('content')
 
@@ -18,7 +18,7 @@
                 <li><a href="{{ url('dashboard') }}">
                         <h3>保存リスト</h3>
                     </a></li>
-        
+          
                 <li><a href="{{ url('hair/schedule') }}">
                         <h3 style="font-size: 1.50rem;">ヘアカット</h3>
                     </a></li>
@@ -63,7 +63,7 @@
 
     <div class="list-area">
 
-        <h1>スケジュールリスト(医療)</h1>
+        <h1>スケジュールリスト(自立支援)</h1>
         <div class="list">
             <!--  sort button
                     <form action="{{ route('sort') }}" method="GET">
@@ -86,12 +86,16 @@
                     <!--スケジュール一覧 -->
                     @foreach ($schedules as $schedule)
                     <tr>
-                        <td>{{ $schedule->schedule_name }}</td>
+                        @if($schedule->public==0)
+                        <td>{{ $schedule->schedule_name }}(個人用)</td>
+                        @else
+                        <td>{{ $schedule->schedule_name }}(一般公開)</td>
+                        @endif
                         <td>
-                            <div class="list_button"><a href="{{ route('medical_schedule',['id'=>$schedule->id]) }}">表示</a></div>
+                            <div class="list_button"><a href="{{ route('independence_schedule',['id'=>$schedule->id]) }}">表示</a></div>
                         </td>
                         <td>
-                            <div class="list_button"><a href="{{ route('medical_delete',['id'=> $schedule->id]) }}">削除</a></div>
+                            <div class="list_button"><a href="{{ route('independence_delete',['id'=> $schedule->id]) }}">削除</a></div>
                         </td>
                     </tr>
                     @endforeach

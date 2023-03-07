@@ -15,18 +15,10 @@
                 <li><a href="{{ url('/') }}">
                         <h3>トップページに戻る</h3>
                     </a></li>
-                <li><a href="{{ url('list') }}">
+                <li><a href="{{ url('dashboard') }}">
                         <h3>保存リスト</h3>
                     </a></li>
-                <li><a href="{{ url('dentist/list') }}">
-                        <h3>保存リスト（歯科）</h3>
-                    </a></li>
-                <li><a href="{{ url('medical/list') }}">
-                        <h3>保存リスト（医療）</h3>
-                    </a></li>
-                <li><a href="{{ url('list_sort') }}">
-                        <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
-                    </a></li>
+             
                 <li><a href="{{ url('hair/schedule') }}">
                         <h3 style="font-size: 1.50rem;">ヘアカット</h3>
                     </a></li>
@@ -99,7 +91,7 @@
                             <div class="list_button"><a href="{{ route('schedule_sort',['id'=>$schedule->id]) }}">表示</a></div>
                         </td>
                         <td>
-                            <div class="list_button"><a href="{{ route('sort_delete_list',['id'=> $schedule->id]) }}">削除</a></div>
+                            <div class="list_button"><a href="{{ route('sort_delete',['id'=> $schedule->id]) }}">削除</a></div>
                         </td>
                     </tr>
                     @endforeach

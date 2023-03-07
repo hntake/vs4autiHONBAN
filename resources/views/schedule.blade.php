@@ -89,7 +89,7 @@
                         <a href="{{ route('create') }}">新規作成</a>
                     </div>
                     <div class="submit_button">
-                        <a href="{{ route('home') }}">保存リストへ</a>
+                        <a href="{{ route('dashboard') }}">保存リストへ</a>
                     </div>
                 </div>
             </div>

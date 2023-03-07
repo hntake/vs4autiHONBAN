@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
-<title>新規作成画面 "VS4”</title>
+<title>自立支援 新規作成画面 "VS4”</title>
 @section('content')
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">
@@ -55,34 +55,46 @@
     @include('common.errors')
 
 
-    <h1>新規スケジュール作成</h1>
+    <h1>新規自立支援スケジュール作成</h1>
     <p>画像は最低でも2枚以上は選んでください</p>
     <p>画像のサイズは可能なら<span style="color:red;"> 小サイズ</span>を選択してください。</p>
     <h6>※画像は暗号化されて保存されるので、ログインしたユーザーのみしか写真を見ることはできません</h6>
-    <form action="{{ url('create') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('independence/create') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class='create-group'>
             <div class="create_schedule">
                 <input type="text" name="schedule_name" id="schedule_name" class="form-control" size="15" placeholder="スケジュール名を入力">
             </div>
 
-            <div class='create'>
-                <input type="file" name="image0" id="image" class="form-control">
-            </div>
+
             <div class='create'>
                 <input type="file" name="image1" id="image" class="form-control">
+                <input type="text" name="explain1" id="explain1" class="form-control" size="15" placeholder="説明文">
+                <input type="text" name="caution1" id="caution1" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
                 <input type="file" name="image2" id="image" class="form-control">
+                <input type="text" name="explain2" id="explain2" class="form-control" size="15" placeholder="説明文">
+                <input type="text" name="caution2" id="caution2" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
                 <input type="file" name="image3" id="image" class="form-control">
+                <input type="text" name="explain3" id="explain3" class="form-control" size="15" placeholder="説明文">
+                <input type="text" name="caution3" id="caution3" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
                 <input type="file" name="image4" id="image" class="form-control">
+                <input type="text" name="explain4" id="explain4" class="form-control" size="15" placeholder="説明文">
+                <input type="text" name="caution4" id="caution4" class="form-control" size="15" placeholder="注意事項">
             </div>
+            <div class='create'>
+                <input type="file" name="image5" id="image" class="form-control">
+                <input type="text" name="explain5" id="explain5" class="form-control" size="15" placeholder="説明文">
+                <input type="text" name="caution5" id="caution5" class="form-control" size="15" placeholder="注意事項">
 
-
+            </div>
+            <input id="private" type="radio" name="public" value="1" checked="checked">自分用に保存
+            <input id="public" type="radio" name="public" value="2">一般公開する
             <div class="create-button">
                 <div class="button">
                     <button type="submit">

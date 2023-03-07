@@ -1,0 +1,26 @@
+h2{
+    text-align: left;
+}
+.panel-body{
+    background-color:ivory;
+    border:unset;
+    width:100%;
+    height:auto;
+}
+button.text-black{
+    border: unset;
+    background-color: ivory;
+    margin-left: 30px;
+}
+.open a{
+    display:block;
+    color:rgb(235, 101, 101);
+}
+#ask{
+    display: block;
+    width:50px;
+}
+tr{
+    display:block;
+}
+

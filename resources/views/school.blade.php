@@ -15,27 +15,19 @@
                     <li><a href="{{ url('/') }}">
                             <h3>トップページに戻る</h3>
                         </a></li>
-                    <li><a href="{{ url('list') }}">
+                    <li><a href="{{ url('dashboard') }}">
                             <h3>保存リスト</h3>
                         </a></li>
-                    <li><a href="{{ url('dentist/list') }}">
-                            <h3>保存リスト（歯科）</h3>
-                        </a></li>
-                        <li><a href="{{ url('medical/list') }}">
-                        <h3>保存リスト（医療）</h3>
-                    </a></li>
-                    <li><a href="{{ url('list_sort') }}">
-                            <h3 style="font-size: 1.50rem;">保存リスト（イラスト）</h3>
-                        </a></li>
+                 
                     <li><a href="{{ url('create') }}">
                             <h3>新規作成</h3>
                         </a></li>
                     <li><a href="{{ url('dentist/create') }}">
                             <h3>新規作成（歯科）</h3>
                         </a></li>
-                        <li><a href="{{ url('medical/create') }}">
-                        <h3>新規作成（医療）</h3>
-                    </a></li>
+                    <li><a href="{{ url('medical/create') }}">
+                            <h3>新規作成（医療）</h3>
+                        </a></li>
                     <li><a href="{{ url('create_sort') }}">
                             <h3>新規作成（イラスト）</h3>
                         </a></li>
@@ -94,7 +86,7 @@
                                 <div class="list_button"><a href="{{ route('schedule',['id'=>$schedule->id]) }}">表示</a></div>
                             </td>
                             <td>
-                                <div class="list_button"><a href="{{ route('delete_list',['id'=> $schedule->id]) }}">削除</a></div>
+                                <div class="list_button"><a href="{{ route('delete',['id'=> $schedule->id]) }}">削除</a></div>
                             </td>
                         </tr>
                         @endforeach

@@ -31,8 +31,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -81,14 +80,7 @@
                                 <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
                                 <div class="description1">Myホーム画面へ移動する </div>
                             </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科</a>
-                                <div class="description1">歯科リストへ移動する</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('/medical/list') }}" class=" header_nav_itm_link">医療</a>
-                                <div class="description1">医療リストへ移動する</div>
-                            </li>
+
                             <li class="header_nav_itm">
                                 <a href="{{ url('hair/schedule') }}" class=" header_nav_itm_link">ヘアカット</a>
                                 <div class="description1">ヘアカットスケジュールへ移動する</div>
@@ -143,7 +135,7 @@
                             <div class="register-button">
                                 @if (Route::has('register'))
                                 <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                              <!--   <div class="description1">30日間無料トライアルを試してみる</div>
+                                <!--   <div class="description1">30日間無料トライアルを試してみる</div>
  -->
                             </div>
                         </li>
@@ -163,52 +155,46 @@
                             <ul class="header_nav_list">
                                 <li>
                                     <div class="home-button">
-                                        <a href="{{ url('/dentist/list') }}"><h3  ontouchstart="">保存リスト</h3></a>
+                                        <a href="{{ url('dashboard') }}">
+                                            <h3 ontouchstart="">保存リスト</h3>
+                                        </a>
                                         <div class="description1">保存リストへ移動する</div>
                                     </div>
                                 </li>
+                         
                                 <li>
                                     <div class="home-button">
-                                        <a href="{{ url('/dentist/list') }}" ><h3  ontouchstart="">歯科リスト</h3></a>
-                                        <div class="description1">歯科リストへ移動する</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="home-button">
-                                        <a href="{{ url('/medical/list') }}" ><h3  ontouchstart="">医療リスト</h3></a>
-                                        <div class="description1">医療リストへ移動する</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="home-button">
-                                        <a href="{{ url('list_sort') }}"><h3  ontouchstart="">イラストリスト</h3></a>
-                                        <div class="description1">イラストを使った保存リストへ移動する</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="home-button">
-                                        <a href="{{ url('hair/schedule') }}"><h3  ontouchstart="">ヘアカット</h3></a>
+                                        <a href="{{ url('hair/schedule') }}">
+                                            <h3 ontouchstart="">ヘアカット</h3>
+                                        </a>
                                         <div class="description1">ヘアカットスケジュールへ移動する</div>
                                 </li>
                                 <li>
-                                    <a href="{{ url('create') }}" ><h3  ontouchstart="">
-                                        スケジュール作成</h3>
+                                    <a href="{{ url('create') }}">
+                                        <h3 ontouchstart="">
+                                            スケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('create_sort') }}"><h3  ontouchstart="">
-                                        イラストスケジュール作成</h3>
+                                    <a href="{{ url('create_sort') }}">
+                                        <h3 ontouchstart="">
+                                            イラストスケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('dentist/create') }}" ><h3  ontouchstart="">歯科スケジュール作成</h3></a>
+                                    <a href="{{ url('dentist/create') }}">
+                                        <h3 ontouchstart="">歯科スケジュール作成</h3>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('medical/create') }}" ><h3  ontouchstart="">医療スケジュール作成</h3></a>
+                                    <a href="{{ url('medical/create') }}">
+                                        <h3 ontouchstart="">医療スケジュール作成</h3>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('feature') }}" ><h3  ontouchstart="">
-                                        使い方 申込み方法</h3>
+                                    <a href="{{ url('feature') }}">
+                                        <h3 ontouchstart="">
+                                            使い方 申込み方法</h3>
                                     </a>
                                 </li>
                                 <li>

@@ -1,0 +1,58 @@
+ul{
+    display: flex;
+    justify-content:space-evenly;
+}
+.picture img{
+    width: auto;
+    height: 40%;
+}
+.icon img {
+    zoom:unset;
+    width: 160px;
+    height: auto;
+    background-color: lightseagreen;
+    border-radius: 20px;
+}
+button {
+    border-radius: 20px;
+    font-size: 40px;
+    padding: 5px 20px;
+}
+button.back{
+    margin-left:15px;
+}
+li{
+    margin-top:10px;
+}
+.submit_button a{
+    color:red;
+}
+.submit_button{
+  /*   background-color: lightpink; */
+}
+button{
+    border:none;
+    background-color: unset;
+}
+.bottom{
+    margin:20px auto;
+}
+@media (max-width: 480px){
+    .picture img{
+        width: 100%;
+        height: auto;
+    }
+    .icon img {
+        zoom:unset;
+        width: 100px;
+        height: auto;
+    }
+    ul{
+        display:flex;
+    }
+    .card img{
+        width:100%;
+        height:auto;
+    }
+
+}

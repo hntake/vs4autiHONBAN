@@ -78,25 +78,40 @@ Route::get('/faq',function(){
 Route::get('/partner',function(){
     return view('partner');
 });
-Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut'])->name('cut');
-Route::get('/hair/cut',function(){
-    return view('hair/cut');
+Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');
+
+Route::get('/hair/cut', [App\Http\Controllers\ScheduleController::class, 'cut'])->name('cut');
+Route::get('/hair/timer1',[App\Http\Controllers\ScheduleController::class, 'timer1'])->name('timer1');
+Route::get('/hair/timer2',[App\Http\Controllers\ScheduleController::class, 'timer2'])->name('timer2');
+Route::get('/hair/timer3',[App\Http\Controllers\ScheduleController::class, 'timer3'])->name('timer3');
+Route::get('/hair/timer4',[App\Http\Controllers\ScheduleController::class, 'timer4'])->name('timer4');
+Route::get('/hair/clipper',[App\Http\Controllers\ScheduleController::class, 'clipper'])->name('clipper');
+Route::get('/independence/sample',function(){
+    return view('independence/sample');
 });
-Route::get('/hair/timer1',function(){
-    return view('hair/timer1');
+Route::get('/independence/one',function(){
+    return view('independence/one');
 });
-Route::get('/hair/timer2',function(){
-    return view('hair/timer2');
+Route::get('/independence/two',function(){
+    return view('independence/two');
 });
-Route::get('/hair/timer3',function(){
-    return view('hair/timer3');
+Route::get('/independence/three',function(){
+    return view('independence/three');
 });
-Route::get('/hair/timer4',function(){
-    return view('hair/timer4');
+Route::get('/independence/four',function(){
+    return view('independence/four');
 });
-Route::get('/hair/clipper',function(){
-    return view('hair/clipper');
+Route::get('/independence/five',function(){
+    return view('independence/five');
 });
+//自立支援一般公開リストページへ遷移
+Route::get('independence/public', [App\Http\Controllers\ScheduleController::class, 'independence_public'])->name('independence_public');
+//自立支援写真表示画面
+Route::get('independence/schedule_one/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_one'])->name('independence_one');
+Route::get('independence/schedule_two/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_two'])->name('independence_two');
+Route::get('independence/schedule_three/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_three'])->name('independence_three');
+Route::get('independence/schedule_four/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_four'])->name('independence_four');
+Route::get('independence/schedule_five/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_five'])->name('independence_five');
 
 
 //入力ページ
@@ -143,22 +158,49 @@ Route::get('/home', [App\Http\Controllers\ScheduleController::class, 'list'])->n
 //リストページへ遷移
 Route::get('/list', [App\Http\Controllers\ScheduleController::class, 'list'])->name('list');
 //リスト削除
-Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'delete_list'])->name('delete_list');
+Route::get('/delete/{id}', [App\Http\Controllers\ScheduleController::class, 'delete'])->name('delete');
+//リスト編集
+Route::get('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'edit'])->name('edit');
+Route::patch('/list/{id}', [App\Http\Controllers\ScheduleController::class, 'update'])->name('update');
 //歯科リストページへ遷移
 Route::get('dentist/list', [App\Http\Controllers\ScheduleController::class, 'dentist_list'])->name('dentist_list');
 //医療リストページへ遷移
 Route::get('medical/list', [App\Http\Controllers\ScheduleController::class, 'medical_list'])->name('medical_list');
+//自立支援リストページへ遷移
+Route::get('independence/list', [App\Http\Controllers\ScheduleController::class, 'independence_list'])->name('independence_list');
+
 //イラストリストページへ遷移
 Route::get('list_sort', [App\Http\Controllers\ScheduleController::class, 'list_sort'])->name('list_sort');
 
 //歯科リスト削除
-Route::get('dentist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_delete_list'])->name('dentist_delete_list');
+Route::get('dentist/delete/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_delete'])->name('dentist_delete');
 //医療リスト削除
-Route::get('medical/list/{id}', [App\Http\Controllers\ScheduleController::class, 'medical_delete_list'])->name('medical_delete_list');
-//イラストリスト削除
-Route::get('list_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_delete_list'])->name('sort_delete_list');
+Route::get('medical/delete/{id}', [App\Http\Controllers\ScheduleController::class, 'medical_delete'])->name('medical_delete');
 
-Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class, 'list'])->name('dashoboad');
+//イラストリスト削除
+Route::get('list_sort/delete/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_delete'])->name('sort_delete');
+//自立支援リスト削除
+Route::get('independence_list/delete/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_delete'])->name('independence_delete');
+//歯科リスト編集
+Route::get('dentist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_edit'])->name('dentist_edit');
+//医療リスト編集
+Route::get('medical/list/{id}', [App\Http\Controllers\ScheduleController::class, 'medical_edit'])->name('medical_edit');
+
+//イラストリスト編集
+Route::get('list_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_edit'])->name('sort_edit');
+//自立支援リスト編集
+Route::get('independence_edit/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_edit'])->name('independence_edit');
+//更新
+Route::patch('dentist/list/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_update'])->name('dentist_update');
+Route::patch('medical/list/{id}', [App\Http\Controllers\ScheduleController::class, 'medical_update'])->name('medical_update');
+Route::patch('list_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_update'])->name('sort_update');
+Route::patch('independence_list/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_update'])->name('independence_update');
+
+Route::get('/dashboard', [App\Http\Controllers\ScheduleController::class, 'dashboard'])->name('dashboard');
+  //自立支援新規作成画面へ遷移
+  Route::get('/independence/create', function () {
+    return view('independence/create');
+    });
 });
 //サブスクに加入済みか判定し
 Route::middleware(['subscribed'])->group(function () {
@@ -177,6 +219,11 @@ Route::middleware(['subscribed'])->group(function () {
    //医療新規作成画面へ遷移
    Route::get('/medical/create', function () {
     return view('medical/create');
+    });
+
+   //並び替え新規作成画面へ遷移
+   Route::get('/create_sort', function () {
+    return view('create_sort');
     });
    //並び替え新規作成画面へ遷移
    Route::get('/create_sort', function () {
@@ -197,6 +244,8 @@ Route::post('/create', [App\Http\Controllers\ScheduleController::class, 'schedul
 Route::post('dentist/create', [App\Http\Controllers\ScheduleController::class, 'dentist_schedule'])->name('dentist_create');
 //医療新規スケジュールの保存
 Route::post('medical/create', [App\Http\Controllers\ScheduleController::class, 'medical_schedule'])->name('medical_create');
+//自立支援新規スケジュールの保存
+Route::post('independence/create', [App\Http\Controllers\ScheduleController::class, 'independence_schedule'])->name('independence_create');
 //イラスト新規スケジュールの保存
 Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'schedule_sort'])->name('schedule_sort');
 //サンプル画面表示
@@ -235,6 +284,8 @@ Route::get('/schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'i
 Route::get('dentist/schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_index'])->name('dentist_schedule');
 //医療スケジュール表示画面
 Route::get('medical/schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'medical_index'])->name('medical_schedule');
+//自立支援スケジュール表示画面
+Route::get('independence/schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_index'])->name('independence_schedule');
 //イラストスケジュール表示画面
 Route::get('schedule_sort/{id}', [App\Http\Controllers\ScheduleController::class, 'sort_index'])->name('schedule_sort');
 //スケジュール検索画面表示

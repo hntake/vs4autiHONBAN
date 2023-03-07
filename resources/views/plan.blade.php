@@ -73,10 +73,6 @@
                                 <div class="description1">Myホーム画面へ移動する </div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科</a>
-                                <div class="description1">歯科リストへ移動する</div>
-                            </li>
-                            <li class="header_nav_itm">
                                 @else
                                 <div class="login-button">
                                     <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
