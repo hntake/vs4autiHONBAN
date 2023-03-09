@@ -9,10 +9,11 @@ use App\Models\Illust;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Schedule;
 use App\Models\Independence;
+use App\Models\View;
 use App\Models\Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-
+use IntlChar;
 
 class ScheduleController extends Controller
 {
@@ -1146,74 +1147,64 @@ class ScheduleController extends Controller
         $schedules->schedule_name = $request->input('schedule_name');
         // 画像ファイルインスタンス取得
         // 現在の画像へのパスをセット
-        if($request->ask1==2){
-        $uploadImg0 = $request->image0;
-        $filePath0 = $uploadImg0->store('public');
-        $data['image0'] = str_replace('public/', '', $filePath0);
-        // 現在の画像ファイルの削除
-        $schedule0 = Schedule::where('id', $id)->pluck('image0');
-        Storage::disk('public')->delete($schedule0);
+        if ($request->ask1 == 2) {
+            $uploadImg0 = $request->image0;
+            $filePath0 = $uploadImg0->store('public');
+            $data['image0'] = str_replace('public/', '', $filePath0);
+            // 現在の画像ファイルの削除
+            $schedule0 = Schedule::where('id', $id)->pluck('image0');
+            Storage::disk('public')->delete($schedule0);
+        } else {
+            $data['image0'] = Schedule::where('id', $id)->value('image0');
         }
-        else{
-            $data['image0'] =Schedule::where('id', $id)->value('image0');
-        }
-        if($request->ask2==2){
-        $uploadImg1 = $request->image1;
-        $filePath1 = $uploadImg1->store('public');
-        $data['image1'] = str_replace('public/', '', $filePath1);
-        $schedule1 = Schedule::where('id', $id)->pluck('image1');
-        Storage::disk('public')->delete($schedule1);
-        }
-        else{
-            $data['image1'] =Schedule::where('id', $id)->value('image1');
+        if ($request->ask2 == 2) {
+            $uploadImg1 = $request->image1;
+            $filePath1 = $uploadImg1->store('public');
+            $data['image1'] = str_replace('public/', '', $filePath1);
+            $schedule1 = Schedule::where('id', $id)->pluck('image1');
+            Storage::disk('public')->delete($schedule1);
+        } else {
+            $data['image1'] = Schedule::where('id', $id)->value('image1');
         }
         if ($request->has('image2')) {
-            if($request->ask3==2){
-            $uploadImg2 = $request->image2;
-            $filePath2 = $uploadImg2->store('public');
-            $data['image2'] = str_replace('public/', '', $filePath2);
-            $schedule2 = Schedule::where('id', $id)->pluck('image2');
-            Storage::disk('public')->delete($schedule2);
+            if ($request->ask3 == 2) {
+                $uploadImg2 = $request->image2;
+                $filePath2 = $uploadImg2->store('public');
+                $data['image2'] = str_replace('public/', '', $filePath2);
+                $schedule2 = Schedule::where('id', $id)->pluck('image2');
+                Storage::disk('public')->delete($schedule2);
+            } else {
+                $data['image2'] = Schedule::where('id', $id)->value('image2');
+            }
+        } else {
+            $data['image2'] = null;
         }
-        else{
-            $data['image2'] =Schedule::where('id', $id)->value('image2');
-        }
-        }
-    else{
-        $data['image2'] =null;
-    }
         if (null !== $request->file('image3')) {
-            if($request->ask4==2){
-            $uploadImg3 = $request->image3;
-            $filePath3 = $uploadImg3->store('public');
-            $data['image3'] = str_replace('public/', '', $filePath3);
-            $schedule3 = Schedule::where('id', $id)->pluck('image3');
-            Storage::disk('public')->delete($schedule3);
+            if ($request->ask4 == 2) {
+                $uploadImg3 = $request->image3;
+                $filePath3 = $uploadImg3->store('public');
+                $data['image3'] = str_replace('public/', '', $filePath3);
+                $schedule3 = Schedule::where('id', $id)->pluck('image3');
+                Storage::disk('public')->delete($schedule3);
+            } else {
+                $data['image3'] = Schedule::where('id', $id)->value('image3');
+            }
+        } else {
+            $data['image3'] = null;
         }
-        else{
-            $data['image3'] =Schedule::where('id', $id)->value('image3');
-
-        }
-    }
-    else{
-        $data['image3'] =null;
-    }
         if (null !== $request->file('image4')) {
-            if($request->ask5==2){
-            $uploadImg4 = $request->image4;
-            $filePath4 = $uploadImg4->store('public');
-            $data['image4'] = str_replace('public/', '', $filePath4);
-            $schedule4 = Schedule::where('id', $id)->pluck('image4');
-            Storage::disk('public')->delete($schedule4);
-        }
-            else{
-                $data['image4'] =Schedule::where('id', $id)->value('image4');
-
+            if ($request->ask5 == 2) {
+                $uploadImg4 = $request->image4;
+                $filePath4 = $uploadImg4->store('public');
+                $data['image4'] = str_replace('public/', '', $filePath4);
+                $schedule4 = Schedule::where('id', $id)->pluck('image4');
+                Storage::disk('public')->delete($schedule4);
+            } else {
+                $data['image4'] = Schedule::where('id', $id)->value('image4');
             }
+        } else {
+            $data['image4'] = null;
         }
-            else{
-                $data['image4'] =null;
-            }
         // データベースを更新
         $schedule = Schedule::find($id);
 
@@ -1359,80 +1350,70 @@ class ScheduleController extends Controller
         $schedules->caution2 = $request->input('caution2');
         // 画像ファイルインスタンス取得
         // 現在の画像へのパスをセット
-        if($request->ask1==2){
-        $uploadImg0 = $request->image1;
-        $filePath0 = $uploadImg0->store('public');
-        $data['image1'] = str_replace('public/', '', $filePath0);
-        // 現在の画像ファイルの削除
-        $schedule0 = Independence::where('id', $id)->pluck('image1');
-        Storage::disk('public')->delete($schedule0);
+        if ($request->ask1 == 2) {
+            $uploadImg0 = $request->image1;
+            $filePath0 = $uploadImg0->store('public');
+            $data['image1'] = str_replace('public/', '', $filePath0);
+            // 現在の画像ファイルの削除
+            $schedule0 = Independence::where('id', $id)->pluck('image1');
+            Storage::disk('public')->delete($schedule0);
+        } else {
+            $data['image1'] = Independence::where('id', $id)->value('image1');
         }
-        else{
-            $data['image1'] =Independence::where('id', $id)->value('image1');
-        }
-        if($request->ask2==2){
-        $uploadImg1 = $request->image2;
-        $filePath1 = $uploadImg1->store('public');
-        $data['image2'] = str_replace('public/', '', $filePath1);
-        $schedule1 = Independence::where('id', $id)->pluck('image2');
-        Storage::disk('public')->delete($schedule1);
-        }
-        else{
-            $data['image2'] =Independence::where('id', $id)->value('image2');
+        if ($request->ask2 == 2) {
+            $uploadImg1 = $request->image2;
+            $filePath1 = $uploadImg1->store('public');
+            $data['image2'] = str_replace('public/', '', $filePath1);
+            $schedule1 = Independence::where('id', $id)->pluck('image2');
+            Storage::disk('public')->delete($schedule1);
+        } else {
+            $data['image2'] = Independence::where('id', $id)->value('image2');
         }
         if ($request->has('image3')) {
             $schedules->explain3 = $request->input('explain3');
             $schedules->caution3 = $request->input('caution3');
-            if($request->ask3==2){
-            $uploadImg2 = $request->image3;
-            $filePath2 = $uploadImg2->store('public');
-            $data['image3'] = str_replace('public/', '', $filePath2);
-            $schedule2 = Independence::where('id', $id)->pluck('image3');
-            Storage::disk('public')->delete($schedule2);
+            if ($request->ask3 == 2) {
+                $uploadImg2 = $request->image3;
+                $filePath2 = $uploadImg2->store('public');
+                $data['image3'] = str_replace('public/', '', $filePath2);
+                $schedule2 = Independence::where('id', $id)->pluck('image3');
+                Storage::disk('public')->delete($schedule2);
+            } else {
+                $data['image3'] = Independence::where('id', $id)->value('image3');
+            }
+        } else {
+            $data['image3'] = null;
         }
-        else{
-            $data['image3'] =Independence::where('id', $id)->value('image3');
-        }
-        }
-    else{
-        $data['image3'] =null;
-    }
         if (null !== $request->file('image4')) {
             $schedules->explain4 = $request->input('explain4');
             $schedules->caution4 = $request->input('caution4');
-            if($request->ask4==2){
-            $uploadImg3 = $request->image4;
-            $filePath3 = $uploadImg3->store('public');
-            $data['image4'] = str_replace('public/', '', $filePath3);
-            $schedule3 = Independence::where('id', $id)->pluck('image4');
-            Storage::disk('public')->delete($schedule3);
+            if ($request->ask4 == 2) {
+                $uploadImg3 = $request->image4;
+                $filePath3 = $uploadImg3->store('public');
+                $data['image4'] = str_replace('public/', '', $filePath3);
+                $schedule3 = Independence::where('id', $id)->pluck('image4');
+                Storage::disk('public')->delete($schedule3);
+            } else {
+                $data['image4'] = Independence::where('id', $id)->value('image4');
+            }
+        } else {
+            $data['image4'] = null;
         }
-        else{
-            $data['image4'] =Independence::where('id', $id)->value('image4');
-
-        }
-    }
-    else{
-        $data['image4'] =null;
-    }
         if (null !== $request->file('image5')) {
             $schedules->explain5 = $request->input('explain5');
             $schedules->caution5 = $request->input('caution5');
-            if($request->ask5==2){
-            $uploadImg4 = $request->image5;
-            $filePath4 = $uploadImg4->store('public');
-            $data['image5'] = str_replace('public/', '', $filePath4);
-            $schedule4 = Independence::where('id', $id)->pluck('image5');
-            Storage::disk('public')->delete($schedule4);
-        }
-            else{
-                $data['image5'] =Independence::where('id', $id)->value('image5');
-
+            if ($request->ask5 == 2) {
+                $uploadImg4 = $request->image5;
+                $filePath4 = $uploadImg4->store('public');
+                $data['image5'] = str_replace('public/', '', $filePath4);
+                $schedule4 = Independence::where('id', $id)->pluck('image5');
+                Storage::disk('public')->delete($schedule4);
+            } else {
+                $data['image5'] = Independence::where('id', $id)->value('image5');
             }
+        } else {
+            $data['image5'] = null;
         }
-            else{
-                $data['image5'] =null;
-            }
         // データベースを更新
         $schedule = Independence::find($id);
 
@@ -1540,5 +1521,23 @@ class ScheduleController extends Controller
     {
         $image = Image::where('id', $request->id)->delete();
         return redirect('store');
+    }
+    /**
+     * 自立支援公開でのページ選択時
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function pv(Request $request, $id)
+    {
+        $schedule = Independence::where('id', $request->id)->first();
+        $view = Independence::where('id', $request->id)->value('count');
+        $new_count = $view = +1;
+        $view = Independence::where('id', $request->id)
+            ->update([
+                'count' => $new_count
+            ]);
+
+        return view('independence/schedule', ['schedule' => $schedule]);
     }
 }

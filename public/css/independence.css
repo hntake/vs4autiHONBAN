@@ -1,3 +1,9 @@
+body{
+    background-color: ivory;
+}
+h1{
+    font-size: larger;
+}
 ul{
     display: flex;
     justify-content:space-evenly;
@@ -15,7 +21,7 @@ ul{
 }
 button {
     border-radius: 20px;
-    font-size: 40px;
+    font-size: 20px;
     padding: 5px 20px;
 }
 button.back{
@@ -32,12 +38,25 @@ li{
 }
 button{
     border:none;
-    background-color: unset;
+    background-color: ivory;
 }
 .bottom{
     margin:20px auto;
 }
-@media (max-width: 480px){
+.submit_button{
+    background-color: #a7d39c;
+    border:unset;
+}
+.route{
+    margin:auto;
+}
+input{
+    width: 30%;
+    border: unset;
+    background-color: rgb(176, 233, 182);
+    margin-top: 16px;
+}
+@media only screen and (max-width: 767px){
     .picture img{
         width: 100%;
         height: auto;
@@ -54,5 +73,7 @@ button{
         width:100%;
         height:auto;
     }
-
+tr{
+    display: grid;
+}
 }

@@ -1,17 +1,19 @@
 @extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- home.cssと連携 -->
+    <link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- home.cssと連携 -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!-- jQueryのライブラリを読み込み -->
     <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>歯科スケジュール画面 VS4</title>
 </head>
-@section('content')
 
 <div class="container">
     <div class="row justify-content-center">
@@ -38,7 +40,7 @@
                         <td><img src="{{asset('img/dentist/'.$schedule->imageTwo->pic_name)}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                         @else
                         <td><img src="{{asset('img/dentist/'.$schedule->imageTwo->pic_name)}}" alt="image" onclick="this.src='/img/smile.png'"></td>
-                        @endif                        
+                        @endif
                         @if(isset($schedule->image2))
                         <td>
                             <p>
@@ -51,7 +53,7 @@
                         <td><img src="{{asset('img/dentist/'.$schedule->imageThree->pic_name)}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                         @else
                         <td><img src="{{asset('img/dentist/'.$schedule->imageThree->pic_name)}}" alt="image" onclick="this.src='/img/smile.png'"></td>
-                        @endif                        @endif
+                        @endif @endif
                         @if(isset($schedule->image3))
                         <td>
                             <p>
@@ -64,7 +66,7 @@
                         <td><img src="{{asset('img/dentist/'.$schedule->imageFour->pic_name)}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                         @else
                         <td><img src="{{asset('img/dentist/'.$schedule->imageFour->pic_name)}}" alt="image" onclick="this.src='/img/smile.png'"></td>
-                        @endif                        @endif
+                        @endif @endif
                         @if(isset($schedule->image4))
                         <td>
                             <p>
@@ -77,7 +79,7 @@
                         <td><img src="{{asset('img/dentist/'.$schedule->imageFive->pic_name)}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                         @else
                         <td><img src="{{asset('img/dentist/'.$schedule->imageFive->pic_name)}}" alt="image" onclick="this.src='/img/smile.png'"></td>
-                        @endif                        @endif
+                        @endif @endif
                     </tr>
                 </div>
 
@@ -86,7 +88,8 @@
                         <a href="{{ url('dentist/create') }}">新規作成</a>
                     </div>
                     <div class="submit_button">
-                        <button onclick="history.back()">リストに戻る</button>
+                        <a href="{{ url('dashboard') }}">リストに戻る</a>
+
                     </div>
                 </div>
             </div>

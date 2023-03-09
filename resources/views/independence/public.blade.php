@@ -2,6 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- schedule.cssと連携 -->
 <title>自立支援一般公開リスト画面 VS4</title>
 
 
@@ -62,21 +63,24 @@
     @include('common.errors')
 
 
-    <div class="list-area">
+    <div class="dashboard-area">
 
-        <h1>スケジュールリスト(自立支援)</h1>
-        <div class="list">
+        <h3>スケジュールリスト(自立支援)</h3>
 
-
+        <div class="box">
             <table class="result">
                 <tbody id="tbl">
                     <!--スケジュール一覧 -->
                     @foreach ($schedules as $schedule)
+                    <form method="POST" action="{{route('pv',['id'=> $schedule->id])}}" >
+                     @csrf
                     <tr>
                         <td><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></td>
-                        <td><a href="{{ route('independence_schedule',['id'=>$schedule->id]) }}">{{ $schedule->schedule_name }}</a></td>
+                          <input type="submit" value="{{ $schedule->schedule_name }}">
+
                     </tr>
-                    @endforeach
+                </form>
+                @endforeach
                 </tbody>
             </table>
         </div>

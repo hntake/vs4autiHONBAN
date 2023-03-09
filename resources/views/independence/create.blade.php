@@ -1,9 +1,11 @@
 @extends('layouts.app')
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- home.cssと連携 -->
+
 <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
 <title>自立支援 新規作成画面 "VS4”</title>
-@section('content')
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">
     <div id="nav-drawer">
@@ -18,7 +20,7 @@
                 <li><a href="{{ url('dashboard') }}">
                         <h3>保存リスト</h3>
                     </a></li>
-              
+
                 <li><a href="{{ url('hair/schedule') }}">
                         <h3 style="font-size: 1.50rem;">ヘアカット</h3>
                     </a></li>
@@ -93,8 +95,13 @@
                 <input type="text" name="caution5" id="caution5" class="form-control" size="15" placeholder="注意事項">
 
             </div>
-            <input id="private" type="radio" name="public" value="1" checked="checked">自分用に保存
-            <input id="public" type="radio" name="public" value="2">一般公開する
+            <p><span style="color:red; font-weight:bold;">自分用</span>か<span style="color:red; font-weight:bold;">一般公開</span>か選択してください</p>
+            <div class="open">
+                <input id="private" type="radio" name="public" value="1" checked="checked"><h6>自分用に保存</h6>
+            </div>
+            <div class="open">
+            <input id="public" type="radio" name="public" value="2"><h6>一般公開する</h6>
+            </div>
             <div class="create-button">
                 <div class="button">
                     <button type="submit">

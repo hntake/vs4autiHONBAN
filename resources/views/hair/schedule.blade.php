@@ -29,7 +29,7 @@
                     <li><a href="{{ url('dashboard') }}">
                             <h3>保存リスト</h3>
                         </a></li>
-                 
+
                     <li><a href="{{ url('hair/schedule') }}">
                             <h3 style="font-size: 1.50rem;">ヘアカット</h3>
                         </a></li>
@@ -181,7 +181,8 @@
                         <a href="{{ url('hair/create') }}">新規作成</a>
                     </div>
                     <div class="submit_button">
-                        <button onclick="history.back()">リストに戻る</button>
+                                                <button><a href="{{ url('dashboard') }}">リストに戻る</a></button>
+
                     </div>
                 </div> -->
                 </div>

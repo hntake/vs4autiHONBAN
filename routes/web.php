@@ -106,6 +106,8 @@ Route::get('/independence/five',function(){
 });
 //自立支援一般公開リストページへ遷移
 Route::get('independence/public', [App\Http\Controllers\ScheduleController::class, 'independence_public'])->name('independence_public');
+//自立支援一般公開で利用
+Route::post('independence/pv/{id}', [App\Http\Controllers\ScheduleController::class, 'pv'])->name('pv');
 //自立支援写真表示画面
 Route::get('independence/schedule_one/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_one'])->name('independence_one');
 Route::get('independence/schedule_two/{id}', [App\Http\Controllers\ScheduleController::class, 'independence_two'])->name('independence_two');

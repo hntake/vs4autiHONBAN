@@ -22,7 +22,7 @@
                         <td>{{ $schedule->schedule_name }}</td><br>
                         <td>
                             <div id="img_button1">
-                                <button  style="float:unset;"><a href="{{ route('independence_one',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></a></button>
+                                <button style="float:unset;"><a href="{{ route('independence_one',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></a></button>
                             </div>
                             <input type="button" onclick="showimg1()" value="完了">
                         </td>
@@ -33,9 +33,9 @@
                         </td>
                         <td>
                             <div id="img_button2">
-                            <button class="img_button2" style="float:unset;"><a href="{{ route('independence_two',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image2)}}" alt="image" name="area2"></a></button>
+                                <button class="img_button2" style="float:unset;"><a href="{{ route('independence_two',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image2)}}" alt="image" name="area2"></a></button>
                             </div>
-                        <input type="button" onclick="showimg2()" value="完了">
+                            <input type="button" onclick="showimg2()" value="完了">
                         </td>
                         @if(isset($schedule->image3))
                         <td>
@@ -45,9 +45,9 @@
                         </td>
                         <td>
                             <div id="img_button3">
-                            <button class="img_button3" style="float:unset;"><a href="{{ route('independence_three',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image3)}}" alt="image" name="area3"></a></button>
+                                <button class="img_button3" style="float:unset;"><a href="{{ route('independence_three',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image3)}}" alt="image" name="area3"></a></button>
                             </div>
-                        <input type="button" onclick="showimg3()" value="完了">
+                            <input type="button" onclick="showimg3()" value="完了">
                         </td>
                         @endif
                         @if(isset($schedule->image4))
@@ -58,9 +58,9 @@
                         </td>
                         <td>
                             <div id="img_button4">
-                            <button class="img_button4" style="float:unset;"><a href="{{ route('independence_four',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image4)}}" alt="image" name="area4"></a></button>
+                                <button class="img_button4" style="float:unset;"><a href="{{ route('independence_four',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image4)}}" alt="image" name="area4"></a></button>
                             </div>
-                        <input type="button" onclick="showimg4()" value="完了">
+                            <input type="button" onclick="showimg4()" value="完了">
                         </td>
                         @endif
                         @if(isset($schedule->image5))
@@ -71,9 +71,9 @@
                         </td>
                         <td>
                             <div id="img_button5">
-                            <button class="img_button5" style="float:unset;"><a href="{{ route('independence_five',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image5)}}" alt="image" name="area5"></a></button>
+                                <button class="img_button5" style="float:unset;"><a href="{{ route('independence_five',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image5)}}" alt="image" name="area5"></a></button>
                             </div>
-                        <input type="button" onclick="showimg5()" value="完了">
+                            <input type="button" onclick="showimg5()" value="完了">
                         </td>
                         @endif
                     </tr>
@@ -81,10 +81,12 @@
 
                 <div class="route">
                     <div class="submit_button">
-                        <button><a href="{{ url('independence/create') }}">新規作成</a></button>
+                        <a href="{{ url('independence/create') }}">新規作成</a>
+
                     </div>
                     <div class="submit_button">
-                        <button onclick="history.back()">リストに戻る</button>
+                        <a href="{{ url('dashboard') }}">リストに戻る</a>
+
                     </div>
                 </div>
                 <div class="bottom">
@@ -97,29 +99,29 @@
 </div>
 </div>
 <script>
-function showimg1(){
-document.area1.src = "/img/check.png";
-}
+    function showimg1() {
+        document.area1.src = "/img/check.png";
+    }
 </script>
 <script>
-function showimg2(){
-document.area2.src = "/img/check.png";
-}
+    function showimg2() {
+        document.area2.src = "/img/check.png";
+    }
 </script>
 <script>
-function showimg3(){
-document.area3.src = "/img/check.png";
-}
+    function showimg3() {
+        document.area3.src = "/img/check.png";
+    }
 </script>
 <script>
-function showimg4(){
-document.area4.src = "/img/check.png";
-}
+    function showimg4() {
+        document.area4.src = "/img/check.png";
+    }
 </script>
 <script>
-function showimg5(){
-document.area5.src = "/img/check.png";
-}
+    function showimg5() {
+        document.area5.src = "/img/check.png";
+    }
 </script>
 
 @endsection

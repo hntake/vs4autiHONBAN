@@ -1,5 +1,18 @@
+body{
+    background-color: ivory;
+}
+h1{
+    font-size: 48px;
+
+}
 h2{
     text-align: left;
+    font-size:32px;
+}
+.box{
+    background-color: ghostwhite;
+    width: 80%;
+    margin: 32px auto;
 }
 .panel-body{
     background-color:ivory;
@@ -23,4 +36,12 @@ button.text-black{
 tr{
     display:block;
 }
-
+a{
+    font-size: 16px;
+    margin-left: 8px;
+}
+input{
+    width: 30%;
+    border: unset;
+    background-color: rgb(176, 233, 182);
+}
