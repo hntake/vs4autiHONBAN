@@ -1,9 +1,9 @@
 @extends('layouts.app')
+<title>自立支援一般公開リスト画面 VS4</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- schedule.cssと連携 -->
-<title>自立支援一般公開リスト画面 VS4</title>
 
 
 <!--ハンバーガーメニュー-->
@@ -13,7 +13,7 @@
         <label id="nav-open" for="nav-input"><span></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
-            <ul>
+            <ul class="ham">
                 <li><a href="{{ url('/') }}">
                         <h3>トップページに戻る</h3>
                     </a></li>
@@ -35,6 +35,9 @@
                     </a></li>
                 <li><a href="{{ url('create_sort') }}">
                         <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                <li><a href="{{ url('independence/create') }}">
+                        <h3>新規作成（自立支援）</h3>
                     </a></li>
                 <li><a href="{{ url('account') }}">
                         <h3>支払い情報</h3>
@@ -65,22 +68,24 @@
 
     <div class="dashboard-area">
 
-        <h3>スケジュールリスト(自立支援)</h3>
+        <h4>スケジュールリスト(自立支援)</h4>
 
         <div class="box">
             <table class="result">
                 <tbody id="tbl">
                     <!--スケジュール一覧 -->
                     @foreach ($schedules as $schedule)
-                    <form method="POST" action="{{route('pv',['id'=> $schedule->id])}}" >
-                     @csrf
-                    <tr>
-                        <td><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></td>
-                          <input type="submit" value="{{ $schedule->schedule_name }}">
-
-                    </tr>
-                </form>
-                @endforeach
+                    <form method="POST" action="{{route('pv',['id'=> $schedule->id])}}">
+                        @csrf
+                        <tr>
+                            <td><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></td>
+                            <td>
+                            スケジュール名<input class="sk_name" type="submit" value="{{ $schedule->schedule_name }}"style="background-color:unset;">
+                            </td>
+                            <td>利用回数<span style="font-weight:bold;"> {{$schedule->count}}</span>回</td>
+                        </tr>
+                    </form>
+                    @endforeach
                 </tbody>
             </table>
         </div>

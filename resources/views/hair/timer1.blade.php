@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<title>前髪カット画面 "VS4”</title>
 @section('content')
 <!DOCTYPE html>
 <html lang="ja">

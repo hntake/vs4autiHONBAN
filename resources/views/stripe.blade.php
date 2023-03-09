@@ -15,7 +15,7 @@
 <div class="card_container py-3">
     <h3 class="mb-3">月額プラン登録フォーム</h3>
     <div class="explain">
-        <p style="margin-bottom:0;">自分の作ったスケジュールを保存して、いつでも見れるようにするには<span>月額プランがおすすめ！</span></p><br>
+        <p style="margin-bottom:0;">自分の作ったスケジュールを<span>無制限</span>に保存して、いつでも見れるようにするには<span>月額プランがおすすめ！</span></p><br>
         <div class="month">
             年額プランはメールでの申し込みが必要となります。→<a href="{{ route('admin_form') }}" style="background-color:none;">年額プラン申込ページへ移動する</a>
         </div>
@@ -38,9 +38,12 @@
 
     </form>
     <div class="try">
-        <h5>まずは無料プランだけで使ってみる</h5>
+        <h5>無料プランだけで使ってみる</h5>
+        <button class="btn btn-primary" id="card-button"><a href="{{ url('create') }}">自分の画像を使ったスケジュール作成</a></button>
         <button class="btn btn-primary" id="card-button"><a href="{{ url('create_sort') }}">イラストを使ったスケジュール作成</a></button>
+        <button class="btn btn-primary" id="card-button"><a href="{{ url('medical/create') }}">医療用スケジュール作成</a></button>
         <button class="btn btn-primary" id="card-button"><a href="{{ url('dentist/create') }}">歯科用スケジュール作成</a></button>
+        <button class="btn btn-primary" id="card-button"><a href="{{ url('independence/create') }}">自立支援スケジュール作成</a></button>
     </div>
 </div>
 <script>

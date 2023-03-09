@@ -671,7 +671,7 @@ class ScheduleController extends Controller
                 }
             }
         } else {
-            //非ユーザーは作成も出来ないのでアクセスできない
+            //非ユーザーは作成は全て公開になる方向にしたいけど今は保留。保留解除時には以下は修正が必要です
             //schedulesテーブルへの受け渡し
             /*  $schedule = new Independence;
         $schedule->schedule_name = $request->schedule_name;

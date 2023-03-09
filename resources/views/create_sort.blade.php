@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<title>イラストスケジュール新規作成画面 "VS4”</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- schedule.cssと連携 -->
 <!--ハンバーガーメニュー-->
@@ -15,7 +16,7 @@
                 <li><a href="{{ url('dashboard') }}">
                         <h3>保存リスト</h3>
                     </a></li>
-              
+
                 <li><a href="{{ url('hair/schedule') }}">
                         <h3 style="font-size: 1.50rem;">ヘアカット</h3>
                     </a></li>
@@ -30,6 +31,9 @@
                     </a></li>
                 <li><a href="{{ url('create_sort') }}">
                         <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                    <li><a href="{{ url('independence/create') }}">
+                        <h3>新規作成（自立支援）</h3>
                     </a></li>
                 <li><a href="{{ url('account') }}">
                         <h3>支払い情報</h3>

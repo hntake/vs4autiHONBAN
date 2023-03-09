@@ -36,6 +36,9 @@
                 <li><a href="{{ url('create_sort') }}">
                         <h3>新規作成（イラスト）</h3>
                     </a></li>
+                <li><a href="{{ url('independence/create') }}">
+                        <h3>新規作成（自立支援）</h3>
+                    </a></li>
             </ul>
             <div class="logout_buttom">
                 <form action="{{ route('logout') }}" method="post">

@@ -68,6 +68,10 @@
                                 <div class="description1">ヘアカットスケジュールへ移動する</div>
                             </li>
                             <li class="header_nav_itm">
+                                <a href="{{ url('independence/public') }}" class=" header_nav_itm_link">自立支援ツール一覧</a>
+                                <div class="description1">一般公開されている自立支援リストへ</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
                                 <div class="description1">VS4の使い方</div>
                             </li>
@@ -161,7 +165,7 @@
                                         <div class="description1">保存リストへ移動する</div>
                                     </div>
                                 </li>
-                         
+
                                 <li>
                                     <div class="home-button">
                                         <a href="{{ url('hair/schedule') }}">
@@ -191,6 +195,11 @@
                                         <h3 ontouchstart="">医療スケジュール作成</h3>
                                     </a>
                                 </li>
+                                <li >
+                                <a href="{{ url('independence/public') }}" >
+                                    <h3 ontouchstart="">自立支援ツール一覧</h3>
+                                </a>
+                            </li>
                                 <li>
                                     <a href="{{ url('feature') }}">
                                         <h3 ontouchstart="">

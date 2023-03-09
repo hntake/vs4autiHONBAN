@@ -1,11 +1,11 @@
 @extends('layouts.app')
+<title>自立支援 新規作成画面 "VS4”</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- home.cssと連携 -->
 
 <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
-<title>自立支援 新規作成画面 "VS4”</title>
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">
     <div id="nav-drawer">
@@ -13,7 +13,7 @@
         <label id="nav-open" for="nav-input"><span></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
-            <ul>
+            <ul class="ham">
                 <li><a href="{{ url('/') }}">
                         <h3>トップページに戻る</h3>
                     </a></li>
@@ -35,6 +35,9 @@
                     </a></li>
                 <li><a href="{{ url('create_sort') }}">
                         <h3>新規作成（イラスト）</h3>
+                    </a></li>
+                <li><a href="{{ url('independence/create') }}">
+                        <h3>新規作成（自立支援）</h3>
                     </a></li>
                 <li><a href="{{ url('account') }}">
                         <h3>支払い情報</h3>
@@ -97,10 +100,12 @@
             </div>
             <p><span style="color:red; font-weight:bold;">自分用</span>か<span style="color:red; font-weight:bold;">一般公開</span>か選択してください</p>
             <div class="open">
-                <input id="private" type="radio" name="public" value="1" checked="checked"><h6>自分用に保存</h6>
+                <input id="private" type="radio" name="public" value="1" checked="checked">
+                <h6>自分用に保存</h6>
             </div>
             <div class="open">
-            <input id="public" type="radio" name="public" value="2"><h6>一般公開する</h6>
+                <input id="public" type="radio" name="public" value="2">
+                <h6>一般公開する</h6>
             </div>
             <div class="create-button">
                 <div class="button">

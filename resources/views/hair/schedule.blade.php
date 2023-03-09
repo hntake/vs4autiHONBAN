@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<title>ヘアカットスケジュール画面 "VS4”</title>
 @section('content')
 <!DOCTYPE html>
 <html lang="ja">
@@ -45,6 +46,9 @@
                     <li><a href="{{ url('create_sort') }}">
                             <h3>新規作成（イラスト）</h3>
                         </a></li>
+                        <li><a href="{{ url('independence/create') }}">
+                        <h3>新規作成（自立支援）</h3>
+                    </a></li>
                     <li><a href="{{ url('account') }}">
                             <h3>支払い情報</h3>
                         </a></li>
