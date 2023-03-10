@@ -14,6 +14,9 @@
 </head>
     <div class="picture">
         <img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" >
+    </div>
+    <div class ="b_button">
+
         <ul class="icon">
                 <li>
                     <button class="back" onClick="history.back();"><img src="{{ asset('img/left-arrow.png')}}"></button>
@@ -34,6 +37,9 @@
                 @endif
                 </li>
             </ul>
+            <div class="end">
+            <a href="{{route('independence_schedule',['id'=>$schedule->id])}}" class="btn_blue">スケジュールに戻る</a>
+            </div>
     </div>
 
 <script>

@@ -1,6 +1,9 @@
 body{
     background-color: ivory;
 }
+.panel-body{
+    background-color :rgb(209, 199, 199);
+}
 h1{
     font-size: larger;
 }
@@ -65,6 +68,17 @@ input.sk_name:hover{
 	color: #FF0000;
 	font-size: 20px;
 	font-weight: bold;
+}
+.b_button{
+
+        display: grid;
+        justify-items: stretch;
+}
+.or{
+    margin-top:10px;
+}
+h6{
+    margin-top:8px;
 }
 @media only screen and (max-width: 767px){
     .picture img{

@@ -73,32 +73,39 @@
 
 
             <div class='create'>
+                <h4>一枚目</h4>
                 <input type="file" name="image1" id="image" class="form-control">
                 <input type="text" name="explain1" id="explain1" class="form-control" size="15" placeholder="説明文">
                 <input type="text" name="caution1" id="caution1" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
+                <h4>二枚目</h4>
                 <input type="file" name="image2" id="image" class="form-control">
                 <input type="text" name="explain2" id="explain2" class="form-control" size="15" placeholder="説明文">
                 <input type="text" name="caution2" id="caution2" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
+                <h4>三枚目</h4>
                 <input type="file" name="image3" id="image" class="form-control">
                 <input type="text" name="explain3" id="explain3" class="form-control" size="15" placeholder="説明文">
                 <input type="text" name="caution3" id="caution3" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
+                <h4>四枚目</h4>
                 <input type="file" name="image4" id="image" class="form-control">
                 <input type="text" name="explain4" id="explain4" class="form-control" size="15" placeholder="説明文">
                 <input type="text" name="caution4" id="caution4" class="form-control" size="15" placeholder="注意事項">
             </div>
             <div class='create'>
+                <h4>五枚目</h4>
                 <input type="file" name="image5" id="image" class="form-control">
                 <input type="text" name="explain5" id="explain5" class="form-control" size="15" placeholder="説明文">
                 <input type="text" name="caution5" id="caution5" class="form-control" size="15" placeholder="注意事項">
 
             </div>
-            <p><span style="color:red; font-weight:bold;">自分用</span>か<span style="color:red; font-weight:bold;">一般公開</span>か選択してください</p>
+            <div class="or">
+                <p><span style="color:red; font-weight:bold;">自分用</span>か<span style="color:red; font-weight:bold;">一般公開</span>か選択してください</p>
+            </div>
             <div class="open">
                 <input id="private" type="radio" name="public" value="1" checked="checked">
                 <h6>自分用に保存</h6>
@@ -109,7 +116,7 @@
             </div>
             <div class="create-button">
                 <div class="button">
-                    <button type="submit">
+                    <button type="submit" style="color:gray;">
                         <i class="fa fa-plus"></i> 作成する
                     </button>
                 </div>

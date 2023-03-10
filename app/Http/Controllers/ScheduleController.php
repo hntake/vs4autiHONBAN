@@ -667,7 +667,7 @@ class ScheduleController extends Controller
                     $schedules = Independence::where('user_id', '=', Auth::user()->id)->get();
 
                     session()->flash('flash_message', 'スケジュールの数が5個を超えています。削除するか、有料プランを申し込み下さい');
-                    return view('independence/list', ['schedules' => $schedules]);
+                    return view('dashboard', ['schedules' => $schedules]);
                 }
             }
         } else {

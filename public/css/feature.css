@@ -26,8 +26,8 @@ body {
 }
 
 .header_inner {
-    display: flex;
-    margin:0px auto 0 auto;
+/*     display: flex;
+ */    margin:0px auto 0 auto;
     padding: 0px;
 }
 .mobile{
@@ -177,8 +177,8 @@ section{
 /*tab*/
 .tab_wrap{
     width:80%;
-    margin-left:500px;
-}
+/*     margin-left:500px;
+ */}
 
 input[type="radio"]{
     display:none;

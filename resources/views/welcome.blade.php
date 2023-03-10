@@ -81,8 +81,8 @@
                             </li>
                             <li class="header_nav_itm">
                                 @auth
-                                <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
-                                <div class="description1">Myホーム画面へ移動する </div>
+                                <a href="{{ url('/dashboard') }}" class=" header_nav_itm_link">Home</a>
+                                <div class="description1">自分の保存リスト画面へ移動する </div>
                             </li>
 
                             <li class="header_nav_itm">

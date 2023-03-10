@@ -249,7 +249,7 @@ Route::post('medical/create', [App\Http\Controllers\ScheduleController::class, '
 //自立支援新規スケジュールの保存
 Route::post('independence/create', [App\Http\Controllers\ScheduleController::class, 'independence_schedule'])->name('independence_create');
 //イラスト新規スケジュールの保存
-Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'schedule_sort'])->name('schedule_sort');
+Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'create_sort'])->name('create_sort');
 //サンプル画面表示
 Route::get('/sample/{schedule}', [App\Http\Controllers\ScheduleController::class, 'sample'])->name('sample');
 //歯科サンプル画面表示

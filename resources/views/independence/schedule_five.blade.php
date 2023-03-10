@@ -12,12 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自立支援写真画面 VS4</title>
 </head>
-<div class="picture">
+    <div class="picture">
         <img src="{{ asset('storage/' . $schedule->image5) }}" alt="image" >
+    </div>
+    <div class ="b_button">
         <ul class="icon">
                 <li>
-                    <button class="back" onClick="history.back();">戻る</button>
+                    <button class="back" onClick="history.back();"><img src="{{ asset('img/left-arrow.png')}}"></button>
                 </li>
+        </ul>
             <ul class="icon">
                 <li>
                 @if(isset($schedule->explain5))
@@ -30,6 +33,9 @@
                 @endif
                 </li>
             </ul>
+            <div class="end">
+            <a href="{{route('independence_schedule',['id'=>$schedule->id])}}" class="btn_blue">スケジュールに戻る</a>
+            </div>
     </div>
 
 <script>
