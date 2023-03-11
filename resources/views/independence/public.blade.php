@@ -60,35 +60,46 @@
         </script>
     </div>
 </div>
-<!-- 新規スケジュール作成パネル… -->
-<div class="panel-body">
-    <!-- バリデーションエラーの表示 -->
-    @include('common.errors')
+<div class="container">
+
+    <div class="panel-body">
+        <!-- バリデーションエラーの表示 -->
+        @include('common.errors')
 
 
-    <div class="dashboard-area">
+        <div class="dashboard-area">
 
-        <h4>スケジュールリスト(自立支援)</h4>
+            <h4>スケジュールリスト(自立支援)</h4>
 
-        <div class="box">
-            <table class="result">
-                <tbody id="tbl">
-                    <!--スケジュール一覧 -->
-                    @foreach ($schedules as $schedule)
-                    <form method="POST" action="{{route('pv',['id'=> $schedule->id])}}">
-                        @csrf
-                        <tr>
-                            <td><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></td>
-                            <td>
-                            スケジュール名<input class="sk_name" type="submit" value="{{ $schedule->schedule_name }}">
-                            </td>
-                            <td>利用回数<span style="font-weight:bold;"> {{$schedule->count}}</span>回</td>
-                        </tr>
-                    </form>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="box">
+                <table class="result">
+                    <tbody id="tbl">
+                        <!--スケジュール一覧 -->
+                        @foreach ($schedules as $schedule)
+                        <form method="POST" action="{{route('pv',['id'=> $schedule->id])}}">
+                            @csrf
+                            <tr>
+                                <td><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></td>
+                                <td>
+                                スケジュール名<input class="sk_name" type="submit" value="{{ $schedule->schedule_name }}">
+                                </td>
+                                <td>利用回数<span style="font-weight:bold;"> {{$schedule->count}}</span>回</td>
+                            </tr>
+                        </form>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            </tbody>
         </div>
-        </tbody>
     </div>
+    <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
+                    <h4>登録して<br>自分でも作ってみよう！</h4>
+                    <ul>
+                        <li style="list-style: none;">
+                            <a href="{{ route('register') }}" class="button">登録はこちら！（無料です）</a>
+                        </li>
+                    </ul>
+    </div>
+</div>
     @endsection

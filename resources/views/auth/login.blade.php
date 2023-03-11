@@ -81,7 +81,7 @@
                         <a href="{{ route('admin_form') }}" class="button">年額プラン500円を申し込む</a>
                     </li>
                 </ul>
-        </div>
+            </div>
         </div>
     </div>
 

@@ -468,7 +468,7 @@
 
             </div>
             <div id="panel6" class="tab_panel">
-                <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
+                <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="check" style="width:30%;"></a>
                 <div class="sright">
                     <div class="slide-head">画像と音声で</div>
                     <div class="slide-description">
@@ -531,12 +531,12 @@
         </div>
         <div class="panel_area">
             <div id="panel8" class="tab_panel">
-                <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:30%;"></a>
                 <div class="sright">
                     <div class="slide-head">視覚タイマー付き</div>
                     <div class="slide-description">
                         <b>ヘアカットスケジュール</b>
-                         理美容室やご自宅でのヘアカットに、便利なヘアカットスケジュールは視覚タイマー付きで誰でも使えます
+                         理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
                         <br>
                         ※詳細は画像をクリックして拡大してみてください
                         <div class="llco" style="background-color:unset;">
@@ -549,7 +549,7 @@
         </div>
         <div class="panel_area">
             <div id="panel9" class="tab_panel">
-                <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                <a href="img/independence2.png" data-lightbox="group"><img src="img/independence2.png" alt="list" style="width:30%;"></a>
                 <div class="sright">
                     <div class="slide-head">みんなで共有できる</div>
                     <div class="slide-description">
@@ -567,12 +567,12 @@
         </div>
         <div class="panel_area">
             <div id="panel10" class="tab_panel">
-                <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="list" style="width:30%;"></a>
                 <div class="sright">
                     <div class="slide-head">登録しなくても</div>
                     <div class="slide-description">
                         <b>簡単にスケジュールは作れます</b>
-                       登録しないと保存はできませんが、自立支援スケジュール以外は作成できます
+                       登録しないと保存はできませんが、自立支援スケジュール以外は全て作成できます。
                         <br>
                         ※詳細は画像をクリックして拡大してみてください
                         <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
