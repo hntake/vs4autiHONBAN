@@ -92,6 +92,14 @@
                     </td>
                 </tr>
                 @endif
+                <tr>
+                    <th rowspan="2">保存タイプ</th>
+                    @if($schedule->public==0)
+                    <td><input type="checkbox" name="public"  value="1" class="form-control">一般公開に変更する</td>
+                    @else
+                    <td><input type="checkbox" name="public"  value="2" class="form-control">自分用に変更する</td>
+                    @endif
+                </tr>
             </thead>
         </table>
 
