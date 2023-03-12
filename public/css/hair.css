@@ -19,6 +19,31 @@ button.done{
     color:rgb(4, 69, 20);
     font-weight: bold;
 }
+.pie {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+    border-radius: 50%;
+    background: #28344e;
+    background: linear-gradient(to right, #28344e 50%, #cf9134 0);/*左が紺色、右が黄色*/
+  }
+  .pie::before {
+  content: '';
+  display: block;
+  margin-left: 50%;
+  height: 100%;
+  border-radius: 0 100% 100% 0 / 50%;
+  background-color: #28344e;/*紺色*/
+  transform-origin: left;
+  animation: spin 60s linear infinite,color 120s step-end infinite;/*半円が反転するのにかかる時間は10秒。20秒の半分で半円の色を変える*/
+  }
+  @keyframes spin {
+  to { transform: rotate(.5turn); }
+  }
+  @keyframes color {
+  50% { background: #cf9134; }/*黄色*/
+  }
 @media screen and (max-width: 979px){
 .col-md-8{
     flex:none;
