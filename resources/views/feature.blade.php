@@ -224,6 +224,36 @@
             <div class="youtube_kv">
                 <div class="movie_cap">
                     <div class="elementor-widget">
+                        <a name="hair">
+                            <img src="img/hair0.png">
+                        </a>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                            <a href="https://youtube.com/embed/7AU83_gtAuM" class="video-open"><img src="img/play.png"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="youtube_kv">
+                <div class="movie_cap">
+                    <div class="elementor-widget">
+                        <a name="independence">
+                            <img src="img/id1-0.png">
+                        </a>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                            <a href="https://youtube.com/embed/OFXvH-pVCCY" class="video-open"><img src="img/play.png"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="youtube_kv">
+                <div class="movie_cap">
+                    <div class="elementor-widget">
                         <a name="monitor">
                             <img src="img/schedule12.png">
                         </a>
