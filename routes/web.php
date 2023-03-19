@@ -227,10 +227,7 @@ Route::middleware(['subscribed'])->group(function () {
    Route::get('/create_sort', function () {
     return view('create_sort');
     });
-   //並び替え新規作成画面へ遷移
-   Route::get('/create_sort', function () {
-    return view('create_sort');
-    });
+
 
  //患者用歯科リストページへ遷移
  Route::get('dentist/patient/{id}', [App\Http\Controllers\ScheduleController::class, 'dentist_list_for'])->name('dentist_list_for');
@@ -249,7 +246,7 @@ Route::post('medical/create', [App\Http\Controllers\ScheduleController::class, '
 //自立支援新規スケジュールの保存
 Route::post('independence/create', [App\Http\Controllers\ScheduleController::class, 'independence_schedule'])->name('independence_create');
 //イラスト新規スケジュールの保存
-Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'create_sort'])->name('create_sort');
+Route::post('create_sort', [App\Http\Controllers\ScheduleController::class, 'schedule_sort'])->name('create_sort');
 //サンプル画面表示
 Route::get('/sample/{schedule}', [App\Http\Controllers\ScheduleController::class, 'sample'])->name('sample');
 //歯科サンプル画面表示
