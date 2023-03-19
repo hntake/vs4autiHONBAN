@@ -27,32 +27,32 @@
                 </tr>
                 <tr>
                     <th >一番目画像</th>
-                    <td><img src="{{asset('img/sort/'.$schedule->illustOne->pic_name)}}" alt="image" ></td>
+                    <td><img src="{{asset('img/medical/'.$schedule->MedOne->pic_name)}}" alt="image" ></td>
                     <td><input type="text" name="image0" value="{{ $schedule->image0}}" class="form-control"></td>
                 </tr>
                 <tr>
                     <th >二番目画像</th>
-                    <td><img src="{{asset('img/sort/'.$schedule->illustTwo->pic_name)}}" alt="image" ></td>
+                    <td><img src="{{asset('img/medical/'.$schedule->MedTwo->pic_name)}}" alt="image" ></td>
                     <td><input type="text" name="image1" value="{{ $schedule->image1}}" class="form-control"></td>
                 </tr>
                 @if(isset($schedule->image2))
                 <tr>
                     <th >三番目画像</th>
-                    <td><img src="{{asset('img/sort/'.$schedule->illustThree->pic_name)}}" alt="image" ></td>
+                    <td><img src="{{asset('img/medical/'.$schedule->MedThree->pic_name)}}" alt="image" ></td>
                     <td><input type="text" name="image2" value="{{ $schedule->image2}}" class="form-control"></td>
                 </tr>
                 @endif
                 @if(isset($schedule->image3))
                 <tr>
                     <th >四番目画像</th>
-                    <td><img src="{{asset('img/sort/'.$schedule->illustFour->pic_name)}}" alt="image" ></td>
+                    <td><img src="{{asset('img/medical/'.$schedule->MedFour->pic_name)}}" alt="image" ></td>
                     <td><input type="text" name="image3" value="{{ $schedule->image3}}" class="form-control"></td>
                 </tr>
                 @endif
                 @if(isset($schedule->image4))
                 <tr>
                     <th >五番目画像</th>
-                    <td><img src="{{asset('img/sort/'.$schedule->illustFive->pic_name)}}" alt="image" ></td>
+                    <td><img src="{{asset('img/medical/'.$schedule->MedFive->pic_name)}}" alt="image" ></td>
                     <td><input type="text" name="image4" value="{{ $schedule->image4}}" class="form-control"></td>
                 </tr>
                 @endif
