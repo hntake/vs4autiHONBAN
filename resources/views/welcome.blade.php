@@ -123,7 +123,7 @@
                             @if (Route::has('login'))
                             @auth
                             <div class="home-button">
-                                <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
+                                <a href="{{ url('/dashboard') }}" class=" header_nav_itm_link">Home</a>
                                 <div class="description1">Myホーム画面へ移動する </div>
                             </div>
                         </li>
