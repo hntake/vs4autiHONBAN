@@ -80,6 +80,11 @@ input.sk_name:hover{
 h6{
     margin-top:8px;
 }
+.store{
+    width:60%;
+    margin:0 auto;
+    margin-top:10px;
+}
 @media only screen and (max-width: 767px){
     .picture img{
         width: 100%;

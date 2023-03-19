@@ -31,10 +31,10 @@
                     <td rowspan="2"><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></td>
                     <td style="border: 3px solid lightgray;">変更しない<input id="ask" type="radio" name="ask1" value="1" checked></td>
                     <td style="border: 3px solid lightgray;">変更する<input id="ask" type="radio" name="ask1" value="2" ><input type="file" name="image1" value="{{ $schedule->image1}}" class="form-control"></td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="explain1" class="form-control"  value="{{ $schedule->explain1}}" >
                     </td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="caution1" class="form-control"  value="{{ $schedule->caution1}}" >
                     </td>
                 </tr>
@@ -43,10 +43,10 @@
                     <td rowspan="2"><img src="{{asset('storage/' . $schedule->image2)}}" alt="image" name="area2"></td>
                     <td style="border: 3px solid lightgray;">変更しない<input id="ask" type="radio" name="ask2" value="1" checked></td>
                     <td style="border: 3px solid lightgray;">変更する<input id="ask" type="radio" name="ask2" value="2" ><input type="file" name="image2" value="{{ $schedule->image2}}" class="form-control"></td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="explain2" class="form-control"  value="{{ $schedule->explain2}}" >
                     </td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="caution2" class="form-control"  value="{{ $schedule->caution2}}" >
                     </td>
                 </tr>
@@ -56,10 +56,10 @@
                     <td rowspan="2"><img src="{{asset('storage/' . $schedule->image3)}}" alt="image" name="area3"></td>
                     <td style="border: 3px solid lightgray;">変更しない<input id="ask" type="radio" name="ask3" value="1" checked></td>
                     <td style="border: 3px solid lightgray;">変更する<input id="ask" type="radio" name="ask3" value="2" ><input type="file" name="image3" value="{{ $schedule->image3}}" class="form-control"></td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="explain3" class="form-control"  value="{{ $schedule->explain3}}" >
                     </td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="caution3" class="form-control"  value="{{ $schedule->caution3}}" >
                     </td>
                 </tr>
@@ -70,10 +70,10 @@
                     <td rowspan="2"><img src="{{asset('storage/' . $schedule->image4)}}" alt="image" name="area4"></td>
                     <td style="border: 3px solid lightgray;">変更しない<input id="ask" type="radio" name="ask4" value="1" checked></td>
                     <td style="border: 3px solid lightgray;">変更する<input id="ask" type="radio" name="ask4" value="2" ><input type="file" name="image4" value="{{ $schedule->image4}}" class="form-control"></td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="explain4" class="form-control"  value="{{ $schedule->explain4}}" >
                     </td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="caution4" class="form-control"  value="{{ $schedule->caution4}}" >
                     </td>
                 </tr>
@@ -84,29 +84,33 @@
                     <td rowspan="2"><img src="{{asset('storage/' . $schedule->image5)}}" alt="image" name="area5"></td>
                     <td style="border: 3px solid lightgray;">変更しない<input id="ask" type="radio" name="ask5" value="1" checked></td>
                     <td style="border: 3px solid lightgray;">変更する<input id="ask" type="radio" name="ask5" value="2" ><input type="file" name="image5" value="{{ $schedule->image5}}" class="form-control"></td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="explain5" class="form-control"  value="{{ $schedule->explain5}}" >
                     </td>
-                    <td>
+                    <td style="border: 3px solid lightgray;">
                         <input type="text" name="caution5" class="form-control"  value="{{ $schedule->caution5}}" >
                     </td>
                 </tr>
                 @endif
-                <tr>
+            </thead>
+        </table>
+                <div class="store">
                     <th rowspan="2">保存タイプ</th>
                     @if($schedule->public==0)
                     <td><input type="checkbox" name="public"  value="1" class="form-control">一般公開に変更する</td>
                     @else
                     <td><input type="checkbox" name="public"  value="2" class="form-control">自分用に変更する</td>
                     @endif
-                </tr>
-            </thead>
-        </table>
+                </div>
 
                 <div class="button"><input type="submit" value="更新">
                     <h6>更新ボタンを押さないと変更されません</h6>
                    <!--  <h4>!!空欄のままだとエラーになります。クラス番号を削除するときは<span style="color:red;">000</span>を入力してください!!</h4> -->
                 </div>
+                <div class="button">
+                        <a href="{{ url('dashboard') }}">変更せずにリストに戻る</a>
+
+                    </div>
     </form>
 
 </div>
