@@ -1345,11 +1345,14 @@ class ScheduleController extends Controller
         $schedules->caution2 = $request->input('caution2');
         //プライベートに変更
         if($request->public==1){
-            $schedules->public = 0;
+            $new_public = 1;
         }
         //一般公開に変更
-        if(($request->public==2)){
-            $schedules->public = 1;
+        elseif(($request->public==2)){
+            $new_public= 0;
+        }
+        else{
+            $new_public = $schedules->public;
         }
         // 画像ファイルインスタンス取得
         // 現在の画像へのパスをセット
@@ -1432,7 +1435,7 @@ class ScheduleController extends Controller
             'caution3' => $request->caution3,
             'caution4' => $request->caution4,
             'caution5' => $request->caution5,
-            'public' => $request->public,
+            'public'=>$new_public,
             'image1' => $data['image1'],
             'image2' => $data['image2'],
             'image3' => $data['image3'],
