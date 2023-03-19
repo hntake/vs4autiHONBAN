@@ -107,7 +107,6 @@ class ScheduleController extends Controller
     {
 
         $schedule = Independence::where('id', $id)->first();
-        $user_img = User::where('id', '=', Auth::user()->id)->value('image_id');
 
         return view('independence/schedule_one', compact('schedule'));
     }
@@ -121,7 +120,6 @@ class ScheduleController extends Controller
     {
 
         $schedule = Independence::where('id', $id)->first();
-        $user_img = User::where('id', '=', Auth::user()->id)->value('image_id');
 
         return view('independence/schedule_two', compact('schedule'));
     }
@@ -135,7 +133,6 @@ class ScheduleController extends Controller
     {
 
         $schedule = Independence::where('id', $id)->first();
-        $user_img = User::where('id', '=', Auth::user()->id)->value('image_id');
 
         return view('independence/schedule_three', compact('schedule'));
     }
@@ -149,7 +146,6 @@ class ScheduleController extends Controller
     {
 
         $schedule = Independence::where('id', $id)->first();
-        $user_img = User::where('id', '=', Auth::user()->id)->value('image_id');
 
         return view('independence/schedule_four', compact('schedule'));
     }
@@ -163,7 +159,6 @@ class ScheduleController extends Controller
     {
 
         $schedule = Independence::where('id', $id)->first();
-        $user_img = User::where('id', '=', Auth::user()->id)->value('image_id');
 
         return view('independence/schedule_five', compact('schedule'));
     }
@@ -1540,11 +1535,11 @@ class ScheduleController extends Controller
     public function pv(Request $request, $id)
     {
         $schedule = Independence::where('id', $request->id)->first();
-        $view = Independence::where('id', $request->id)->value('count');
-        $new_count = $view = +1;
+        $view = Independence::where('id', $request->id)->value('view');
+        $new_view = $view  +1;
         $view = Independence::where('id', $request->id)
             ->update([
-                'count' => $new_count
+                'view' => $new_view
             ]);
 
         return view('independence/schedule', ['schedule' => $schedule]);

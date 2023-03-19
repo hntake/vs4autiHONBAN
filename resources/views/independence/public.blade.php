@@ -83,7 +83,7 @@
                                 <td>
                                 スケジュール名<input class="sk_name" type="submit" value="{{ $schedule->schedule_name }}">
                                 </td>
-                                <td>利用回数<span style="font-weight:bold;"> {{$schedule->count}}</span>回</td>
+                                <td>利用回数<span style="font-weight:bold;"> {{$schedule->view}}</span>回</td>
                             </tr>
                         </form>
                         @endforeach
