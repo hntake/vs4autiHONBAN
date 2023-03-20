@@ -123,7 +123,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    {!!$new->main!!}
+                                    {!!$new->title!!}
                                 </li>
                             </ul>
                         </div>
