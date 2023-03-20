@@ -114,7 +114,19 @@
                                 </div>
                             </li>
                         </ul>
-
+                        <div class="news">
+                            <ul>
+                                <p style="font-weight:bold;">お知らせ</p>
+                                <li>
+                                    <a href="{{ url('news/index')}}">
+                                        {{$new->created_at}}
+                                    </a>
+                                </li>
+                                <li>
+                                    {!!$new->main!!}
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
                 <div class="mobile-login">
@@ -195,11 +207,11 @@
                                         <h3 ontouchstart="">医療スケジュール作成</h3>
                                     </a>
                                 </li>
-                                <li >
-                                <a href="{{ url('independence/public') }}" >
-                                    <h3 ontouchstart="">自立支援ツール一覧</h3>
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="{{ url('independence/public') }}">
+                                        <h3 ontouchstart="">自立支援ツール一覧</h3>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="{{ url('feature') }}">
                                         <h3 ontouchstart="">
@@ -226,6 +238,21 @@
                 </div>
             </header>
             <div class="main-column">
+            <div class="mobile-login-news">
+                    <div class="news">
+                        <ul>
+                            <p style="font-weight:bold;">お知らせ</p>
+                            <li>
+                                <a href="{{ url('news/index')}}">
+                                    {{$new->created_at}}
+                                </a>
+                            </li>
+                            <li>
+                                {!!$new->title!!}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="hero">
                     <div class="hero__pad">
                         <div class="pin-spacer">
@@ -323,7 +350,7 @@
                         <div class="menu-site-map-1-container">
                             <ul id="menu-site-map-1" class="menu">
                                 <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
-                                <l><a href="https://eng50cha.com/news/index">お知らせ</a></li>
+                                <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                     <li><a href="{{ url('partner')}}">パートナー</a></li>
                             </ul>
                         </div>

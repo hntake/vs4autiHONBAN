@@ -39,9 +39,7 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/policy', function () {
     return view('policy');
 });
@@ -78,6 +76,7 @@ Route::get('/faq',function(){
 Route::get('/partner',function(){
     return view('partner');
 });
+Route::get('/',  [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');
 
 Route::get('/hair/cut', [App\Http\Controllers\ScheduleController::class, 'cut'])->name('cut');
@@ -308,8 +307,12 @@ Route::post('/subscription/cancel/{user}',  [App\Http\Controllers\StripeControll
 //STRIPEカスタマーポータル
 Route::get('/subscription/portal/{user}',  [App\Http\Controllers\StripeController::class, 'portalsubscription'])->name('stripe.portalsubscription');
 
-
-
+/**news表示 */
+Route::get('/news/index', [\App\Http\Controllers\FormController::class, 'news_index'])->name('news.index');
+Route::get('/news/page{id}', [\App\Http\Controllers\FormController::class, 'news_page'])->name('news.page');
+/*NEws書き込み権限*/
+Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->name('news.form');
+Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_news']);
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');
  */

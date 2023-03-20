@@ -150,7 +150,7 @@
                             <div class="register-button">
                                 @if (Route::has('register'))
                                 <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                              <!--   <div class="description1">30日間無料トライアルを試してみる</div> -->
+                                <!--   <div class="description1">30日間無料トライアルを試してみる</div> -->
                             </div>
                         </li>
 
@@ -326,14 +326,14 @@
 
                 </div>
             </div>
-    <section>
-        <a name="use" class="use">
-            <div class="element">
-                <div class="use">
-                    <!-- リンク内移動-->
-                    <br>VS4で
-                    <br>絵スケジュールを作ろう
-        </a>
+            <section>
+                <a name="use" class="use">
+                    <div class="element">
+                        <div class="use">
+                            <!-- リンク内移動-->
+                            <br>VS4で
+                            <br>絵スケジュールを作ろう
+                </a>
                 <div class="tab_wrap">
                     <input id="tab1" type="radio" name="tab_btn" checked>
                     <input id="tab2" type="radio" name="tab_btn">
@@ -428,7 +428,7 @@
                                         <b>簡単登録</b>
                                         無料会員で全ての機能が使えます<br>
                                         有料会員のみ無制限でスケジュールが作れます<br>
-                                    <br>
+                                        <br>
                                         <br>
                                         <div class="llco" style="background-color:unset;">
                                             <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
@@ -442,101 +442,101 @@
 
                     </div>
                 </div>
-    </div>
-    <a name="useful" class="use">
-        <div class="element">
-            <div class="use">
-                <!-- リンク内移動-->
-                <br>無料登録で使える
-                <br>便利な機能
-    </a>
-    <div class="tab_wrap">
-        <input id="tab4" type="radio" name="tab_btn2" checked>
-        <input id="tab5" type="radio" name="tab_btn2">
-        <input id="tab6" type="radio" name="tab_btn2">
-        <input id="tab7" type="radio" name="tab_btn2">
-        <div class="nav-wrap">
-            <div class="scroll-nav">
-                <div class="tab_area">
-                    <label class="tab4_label" for="tab4">リスト保存</label>
-                    <label class="tab5_label" for="tab5">チェックマークの表示</label>
-                    <label class="tab6_label" for="tab6">自立支援スケジュールの作成</label>
-                    <label class="tab7_label" for="tab7">デバイスフリー</label>
-                </div>
-            </div>
-            <div class="next-btn">＞</div>
         </div>
-        <div class="panel_area">
-            <div id="panel4" class="tab_panel">
-                <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">リスト保存で</div>
-                    <div class="slide-description">
-                        <b>簡単にスケジュール表示</b>
-                        絵スケジュールを作成すると<br>
-                        保存されるので、次回からワンクリックで<br>表示されます
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
+        <a name="useful" class="use">
+            <div class="element">
+                <div class="use">
+                    <!-- リンク内移動-->
+                    <br>無料登録で使える
+                    <br>便利な機能
+        </a>
+        <div class="tab_wrap">
+            <input id="tab4" type="radio" name="tab_btn2" checked>
+            <input id="tab5" type="radio" name="tab_btn2">
+            <input id="tab6" type="radio" name="tab_btn2">
+            <input id="tab7" type="radio" name="tab_btn2">
+            <div class="nav-wrap">
+                <div class="scroll-nav">
+                    <div class="tab_area">
+                        <label class="tab4_label" for="tab4">リスト保存</label>
+                        <label class="tab5_label" for="tab5">チェックマークの表示</label>
+                        <label class="tab6_label" for="tab6">自立支援スケジュールの作成</label>
+                        <label class="tab7_label" for="tab7">デバイスフリー</label>
                     </div>
                 </div>
+                <div class="next-btn">＞</div>
             </div>
-            <div id="panel5" class="tab_panel">
-                <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">チェックマーク表示で</div>
-                    <div class="slide-description">
-                        <b>より支援に役立つ</b>
-                        絵スケジュールを<br>
-                        完了するごとにクリックすることで<br>
-                        チェックマークが表示されます。<br>
-                        スケジュールがより伝わります。
-                        <br>
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
+            <div class="panel_area">
+                <div id="panel4" class="tab_panel">
+                    <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">リスト保存で</div>
+                        <div class="slide-description">
+                            <b>簡単にスケジュール表示</b>
+                            絵スケジュールを作成すると<br>
+                            保存されるので、次回からワンクリックで<br>表示されます
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                        </div>
                     </div>
                 </div>
+                <div id="panel5" class="tab_panel">
+                    <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">チェックマーク表示で</div>
+                        <div class="slide-description">
+                            <b>より支援に役立つ</b>
+                            絵スケジュールを<br>
+                            完了するごとにクリックすることで<br>
+                            チェックマークが表示されます。<br>
+                            スケジュールがより伝わります。
+                            <br>
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                        </div>
+                    </div>
 
-            </div>
-            <div id="panel6" class="tab_panel">
-                <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="check" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">画像と音声で</div>
-                    <div class="slide-description">
-                        <b>自分で出来ることを増やそう</b>
+                </div>
+                <div id="panel6" class="tab_panel">
+                    <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="check" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">画像と音声で</div>
+                        <div class="slide-description">
+                            <b>自分で出来ることを増やそう</b>
                             画像だけでなく、各画像に指示を付けるとボタンで読み上げてくれます。
-                        <br>
-                        自分だけでなく一般公開も出来るので他の人とも共有できます。
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="llco" style="background-color:unset;">
-                                    <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
-                                    </div>
+                            <br>
+                            自分だけでなく一般公開も出来るので他の人とも共有できます。
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                            <div class="llco" style="background-color:unset;">
+                                <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-                </div>
-            </div>
-            <div id="panel7" class="tab_panel">
-                <img src="img/smafo.png" alt="phone" style="width:30%;">
-                <div class="sright">
-                    <div class="slide-head">自分にあった使い方</div>
-                    <div class="slide-description">
-                        <b>PC、スマホ、タブレット</b>
-                        いずれのデバイスでも<br>
-                        利用できます<br>
-                        <br>
-                        ダウンロードもなくアクセスすれば
-                        <br>
-                        どこでも使えます。
-                        <br>
-                        移動のお手伝いにぜひご利用ください
-                        <br>
+                <div id="panel7" class="tab_panel">
+                    <img src="img/smafo.png" alt="phone" style="width:30%;">
+                    <div class="sright">
+                        <div class="slide-head">自分にあった使い方</div>
+                        <div class="slide-description">
+                            <b>PC、スマホ、タブレット</b>
+                            いずれのデバイスでも<br>
+                            利用できます<br>
+                            <br>
+                            ダウンロードもなくアクセスすれば
+                            <br>
+                            どこでも使えます。
+                            <br>
+                            移動のお手伝いにぜひご利用ください
+                            <br>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <a name="free" class="use">
         <div class="element">
@@ -566,16 +566,16 @@
                     <div class="slide-head">視覚タイマー付き</div>
                     <div class="slide-description">
                         <b>ヘアカットスケジュール</b>
-                         理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
+                        理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
                         <br>
                         ※詳細は画像をクリックして拡大してみてください
                         <div class="llco" style="background-color:unset;">
-                                    <div class="admin_button"><a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
-                                    </div>
+                            <div class="admin_button"><a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="panel_area">
             <div id="panel9" class="tab_panel">
@@ -584,16 +584,16 @@
                     <div class="slide-head">みんなで共有できる</div>
                     <div class="slide-description">
                         <b>自立支援スケジュール</b>
-                       登録会員が作った自立支援スケジュールは個人用だけでなく一般公開も出来るので、公開されたものは誰でも利用することが出来ます
+                        登録会員が作った自立支援スケジュールは個人用だけでなく一般公開も出来るので、公開されたものは誰でも利用することが出来ます
                         <br>
                         ※詳細は画像をクリックして拡大してみてください
                         <div class="llco" style="background-color:unset;">
-                                    <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
-                                    </div>
+                            <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="panel_area">
             <div id="panel10" class="tab_panel">
@@ -602,7 +602,7 @@
                     <div class="slide-head">登録しなくても</div>
                     <div class="slide-description">
                         <b>簡単にスケジュールは作れます</b>
-                       登録しないと保存はできませんが、自立支援スケジュール以外は全て作成できます。
+                        登録しないと保存はできませんが、自立支援スケジュール以外は全て作成できます。
                         <br>
                         ※詳細は画像をクリックして拡大してみてください
                         <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
@@ -613,31 +613,31 @@
                 </div>
             </div>
         </div>
-    </section>
-    <div class="bottom">
-        <div class="bottom-container">
-            <div class="bottom-element">
-                <div class="bottom-element-top">
-                    <h2 class="bottom-element-top">
-                        今すぐはじめてみよう！
-                    </h2>
-                </div>
-                <div class="bottom-inner">
-                    <div class="bottom-left">
-                        <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
-                            <span class="elementor-button">スケジュールを作る</span>
-                        </a>
+        </section>
+        <div class="bottom">
+            <div class="bottom-container">
+                <div class="bottom-element">
+                    <div class="bottom-element-top">
+                        <h2 class="bottom-element-top">
+                            今すぐはじめてみよう！
+                        </h2>
                     </div>
-                    <div class="bottom-right">
-                        <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                            <span class="elementor-button">無料登録</span>
-                        </a>
+                    <div class="bottom-inner">
+                        <div class="bottom-left">
+                            <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
+                                <span class="elementor-button">スケジュールを作る</span>
+                            </a>
+                        </div>
+                        <div class="bottom-right">
+                            <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
+                                <span class="elementor-button">無料登録</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            </div>
-        </div>
+    </div>
     </div>
     </div>
     </div>
@@ -660,7 +660,7 @@
                     <div class="menu-site-map-1-container">
                         <ul id="menu-site-map-1" class="menu">
                             <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
-                            <l><a href="https://eng50cha.com/news/index">お知らせ</a></li>
+                            <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                 <li><a href="{{ url('partner')}}">パートナー</a></li>
                         </ul>
                     </div>

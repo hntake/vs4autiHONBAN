@@ -279,7 +279,7 @@
             </div>
         </div>
         <!--説明動画-->
-   <!--      <div class="youtube_kv">
+        <!--      <div class="youtube_kv">
             <div class="movie_cap">
                 <div class="elementor-widget">
                     <a name="monitor">
@@ -360,7 +360,7 @@
                     <div class="menu-site-map-1-container">
                         <ul id="menu-site-map-1" class="menu">
                             <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
-                            <l><a href="https://eng50cha.com/news/index">お知らせ</a></li>
+                            <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                 <li><a href="{{ url('partner') }}">パートナー</a></li>
                         </ul>
                     </div>

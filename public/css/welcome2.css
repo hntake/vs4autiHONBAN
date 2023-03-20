@@ -1043,7 +1043,7 @@ b{
         display:flex;
         right:0;
         top:0;
-        width:80%;
+        width:100%;
         position:unset;
     }
     .home_copy {
@@ -1059,7 +1059,7 @@ b{
     display:flex;
     right:0;
     top:0;
-    width:80%;
+    width:100%;
     position:unset;
 }
 .home_kv{
@@ -1106,7 +1106,7 @@ section{
     display:flex;
     right:0;
     top:0;
-    width:80%;
+    width:100%;
     position:unset;
 }
 .mobile-login{
@@ -1148,7 +1148,7 @@ section{
     content: '';
     cursor: pointer;
   }
-  
+
   #nav-open span:before {
     bottom: -8px;
   }
@@ -1388,7 +1388,7 @@ a.use{
     display:flex;
     right:0;
     top:0;
-    width:80%;
+    width:100%;
     position:unset;
     margin-top:100px;
 }
@@ -1829,7 +1829,7 @@ a.use{
         display:flex;
         right:0;
         top:0;
-        width:80%;
+        width:100%;
         position:unset;
     }
     .mobile-login{

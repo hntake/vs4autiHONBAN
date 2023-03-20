@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use App\Models\News;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -32,8 +33,15 @@ class HomeController extends Controller
 
         return view('home',compact('schedule'));
     }
+    //top_page
+    public function welcome()
+    {
+        $new = News::orderBy('created_at', 'desc')->first();
+        return view('welcome', [
+            'new' => $new
+        ]);
+    }
 
-     
     /* public function index()
     {
         $schedules = Schedule::where('created_at', 'asc')->first();

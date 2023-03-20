@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ニュース｜webアプリ制作会社llco</title>
+    <title>おしらせ｜webアプリ制作会社llco</title>
     <link rel="stylesheet" href="{{asset('../css/news.css')}}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,35 +26,12 @@
             <div class="header_inner">
                 <nav id="menu" class="header_nav">
 
-                    @if (Route::has('login'))
+
                     <ul class="header_nav_list">
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="../img/vs4auti2.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon500.png" style="width:30%; height:auto;"></a>
                         </li>
 
-                        <li class="header_nav_itm">
-                            @auth
-                            <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
-                            <div class="description1">Myホーム画面へ移動する </div>
-                        </li>
-                        <li class="header_nav_itm">
-                            @else
-                            <div class="login-button">
-                                <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                <div class="description1">ログイン画面へ移動する </div>
-                            </div>
-                        </li>
-                        <li class="header_nav_itm">
-                            <div class="register-button">
-                                @if (Route::has('register'))
-                                <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                <div class="description1">登録は無料！全機能を使おう！ </div>
-
-                            </div>
-                        </li>
-                        @endif
-                        @endauth
-                        @endif
                         <li class="header_nav_itm">
                             <div class="register-button">
                                 <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
@@ -74,8 +51,9 @@
                     <div id="nav-content">
                         <ul class="header_nav_list">
                             <li><a href="{{ url('feature') }}">
-                                    <h3>便利な機能</h3>
+                                    <h3>使い方</h3>
                                 </a></li>
+
                             <li class="header_nav_itm">
                                 <div class="register-button">
                                     <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
@@ -104,7 +82,7 @@
                     </div>
                     <div class="elementor-bottom">
                         <div class="elementor-heading-title">
-                            VS4のアップデートやメンテナンスに関する情報をお知らせします。
+                            アップデートやメンテナンスに関する情報をお知らせします。
                         </div>
                     </div>
                 </div>
@@ -113,17 +91,6 @@
             </div> -->
                 <div class="area">
 
-                    <div class="elementor-container">
-                        <div class="elementor-widget">
-                            <p>作成日</p>
-                        </div>
-                        <div class="elementor-widget">
-                            <p>カテゴリ</p>
-                        </div>
-                        <div class="elementor-widget">
-                            <p> タイトル</p>
-                        </div>
-                    </div>
                     <input type="radio" name="tab_name" id="tab2" checked>
                     <label class="tab_class" for="tab2">サービス</label>
                     <div class="content_class">
@@ -132,14 +99,16 @@
                                 @foreach($service as $services)
                                 <div class="all_blogs_item">
 
+                                    <a href="{{ route('blog.page',['id'=>$services->id]) }}">
+                                        <h1>{{$services->title}}</h1>
+                                    </a>
                                     <ul class="category_title">
-                                        <li class="notice-date">
-                                            {{\Carbon\Carbon::parse($services->updated_at)->toDateString() }}
+                                        <li>
+                                            <h5>{{\Carbon\Carbon::parse($services->updated_at)->toDateString() }}</h5>
                                         </li>
-                                        <li class="notice-cate" style="color:black;">{{$services->Category->category}}
-                                        </li>
-                                        <li class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$services->id]) }}">{{$services->title}}</a>
+                                        <li>
+                                            <h5 style="color:black;">{{$services->Category->category}}</h5>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -155,14 +124,16 @@
                                 @foreach($mente as $mentes)
                                 <div class="all_blogs_item">
 
+                                    <a href="{{ route('blog.page',['id'=>$mentes->id]) }}">
+                                        <h1>{{$mentes->title}}</h1>
+                                    </a>
                                     <ul class="category_title">
-                                        <li class="notice-date">
-                                            {{\Carbon\Carbon::parse($mentes->updated_at)->toDateString() }}
+                                        <li>
+                                            <h5>{{\Carbon\Carbon::parse($mentes->updated_at)->toDateString() }}</h5>
                                         </li>
-                                        <li class="notice-cate" style="color:black;">{{$mentes->Category->category}}
-                                        </li>
-                                        <li class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$mentes->id]) }}">{{$mentes->title}}</a>
+                                        <li>
+                                            <h5 style="color:black;">{{$mentes->Category->category}}</h5>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -178,40 +149,45 @@
                                 @foreach($lelease as $leleases)
                                 <div class="all_blogs_item">
 
+                                    <a href="{{ route('blog.page',['id'=>$leleases->id]) }}">
+                                        <h1>{{$leleases->title}}</h1>
+                                    </a>
                                     <ul class="category_title">
-                                        <li class="notice-date">
-                                            {{\Carbon\Carbon::parse($leleases->updated_at)->toDateString() }}
+                                        <li>
+                                            <h5>{{\Carbon\Carbon::parse($leleases->updated_at)->toDateString() }}</h5>
                                         </li>
-                                        <li class="notice-cate" style="color:black;">{{$leleases->Category->category}}
+                                        <li>
+                                            <h5 style="color:black;">{{$leleases->Category->category}}</h5>
 
                                         </li>
-                                        <li class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$leleases->id]) }}">{{$leleases->title}}</a>
-                                        </li>
                                     </ul>
+
                                 </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
-                    <input type="radio" name="tab_name" id="tab5" checked>
-                    <label class="tab_class" for="tab5">その他</label>
+                    <input type="radio" name="tab_name" id="tab4" checked>
+                    <label class="tab_class" for="tab4">その他</label>
                     <div class="content_class">
                         <div class="allBlogs">
                             <div class="allBlogs_list">
                                 @foreach($etc as $etcs)
                                 <div class="all_blogs_item">
+
+                                    <a href="{{ route('blog.page',['id'=>$etcs->id]) }}">
+                                        <h1>{{$etcs->title}}</h1>
+                                    </a>
                                     <ul class="category_title">
-                                        <li class="notice-date">
-                                            {{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}
+                                        <li>
+                                            <h5>{{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}</h5>
                                         </li>
-                                        <li class="notice-cate" style="color:black;">{{$etcs->Category->category}}
+                                        <li>
+                                            <h5 style="color:black;">{{$etcs->Category->category}}</h5>
 
                                         </li>
-                                        <li class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$etcs->id]) }}">{{$etcs->title}}</a>
-                                        </li>
                                     </ul>
+
                                 </div>
                                 @endforeach
                             </div>
@@ -224,16 +200,19 @@
                             <div class="allBlogs_list">
                                 @foreach($data as $datas)
                                 <div class="all_blogs_item">
+                                    <a href="{{ route('blog.page',['id'=>$datas->id]) }}">
+                                        <h1>{{$datas->title}}</h1>
+                                    </a>
                                     <ul class="category_title">
-                                        <li class="notice-date">
-                                            {{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}
+                                        <li>
+                                            <h5>{{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}</h5>
                                         </li>
-                                        <li class="notice-cate" style="color:black;">{{$datas->Category->category}}
-                                        </li>
-                                        <li class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$datas->id]) }}">{{$datas->title}}</a>
+                                        <li>
+                                            <h5 style="color:black;">{{$datas->Category->category}}</h5>
+
                                         </li>
                                     </ul>
+
                                 </div>
                                 @endforeach
                             </div>
@@ -251,7 +230,6 @@
                                     <li><a href="{{ url('feature') }}">機能</a></li>
                                     <li><a href="{{ url('plan') }}">利用料金</a></li>
                                     <li><a href="{{ url('case') }}">導入事例</a></li>
-                                    <li><a href="{{ url('/admin/login')}}">管理者画面</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -259,8 +237,8 @@
                             <h2 class="widget-title">関連情報</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
-                                    <l><a href="{{ url('news/index')}}">お知らせ</a></li>
+                                <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
+                                    <l><a href="{{ url('news')}}">お知らせ</a></li>
                                         <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>
                             </div>
