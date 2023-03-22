@@ -76,7 +76,8 @@ Route::get('/faq',function(){
 Route::get('/partner',function(){
     return view('partner');
 });
-Route::get('/',  [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
+
 Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');
 
 Route::get('/hair/cut', [App\Http\Controllers\ScheduleController::class, 'cut'])->name('cut');

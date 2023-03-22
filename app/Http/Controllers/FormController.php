@@ -56,4 +56,12 @@ public function save_news (Request $request){
         'data' => $data,
     ]);
   }
+    //top_page
+    public function welcome()
+    {
+        $new = News::orderBy('created_at', 'desc')->first();
+        return view('welcome', [
+            'new' => $new
+        ]);
+    }
 }
