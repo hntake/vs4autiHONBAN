@@ -1,0 +1,83 @@
+th{
+    width:100%;
+}
+tr{
+    display:grid;
+    margin-bottom: 20px;
+}
+input{
+    width:30%;
+}
+.form-control{
+}
+table.table-hover{
+    display: grid;
+}
+.box1, .box2, .box3{
+    border:1px gray solid;
+    padding:3px 100px;
+    display:flex;
+}
+.box1{
+background-color: rgb(244, 183, 103);
+}
+.box2{
+background-color: rgb(243, 123, 36);
+}
+.box3{
+background-color: rgb(195, 173, 157);
+}
+.horizon{
+    margin-bottom: 10px;
+}
+.thank{
+    margin-bottom: 24px;
+}
+.thank img{
+    width:50%;
+}
+button.c-button{
+    padding: 0.5em;
+    margin: 10px 0;
+    display: unset;
+    color: #fff !important;
+    background: #00913D;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:16px;
+    border-radius: 3px;
+    text-align:center;
+    text-decoration:none !important;
+  }
+  button.c-button:hover {
+    background: #6FB83F;
+  }
+  button.c-button a{
+    color:#fff;
+    padding:5px;
+  }
+  @media screen and (min-width: 768px){
+    button.c-button{
+      padding: 0.5em 2em;
+      margin: 10px auto;
+      font-size:20px;
+      display:inline-block;
+    }
+    button.c-button:before {
+      margin: -3px 10px 0 0;
+    }
+  }
+.it2u{
+
+}
+@media only screen and (max-width: 767px){
+.horizon{
+   display: grid;
+   justify-items: center;
+}
+.box1, .box2, .box3{
+    display:grid;
+    border:1px gray solid;
+    padding:3px 100px;
+}
+}

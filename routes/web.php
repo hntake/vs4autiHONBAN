@@ -133,10 +133,15 @@ Route::group(['middleware' => 'admin_auth'], function(){
 });*/
 /**仮登録から認証本登録 */
 Route::post('register/pre_check', [App\Http\Controllers\Auth\RegisterController::class,'pre_check'])->name('register.pre_check');
-Route::get('register/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class,'showForm']);
-Route::post('register/main_check', [App\Http\Controllers\Auth\RegisterController::class,'mainCheck'])->name('register.main.check');
-Route::post('register/main_register', [App\Http\Controllers\Auth\RegisterController::class,'mainRegister'])->name('register.main.registered');
-
+Route::get('auth/main/register', [App\Http\Controllers\HomeController::class,'showForm']);
+ Route::post('dashboard', [App\Http\Controllers\HomeController::class,'mainCheck'])->name('register.main.check');
+Route::post('register/main_register', [App\Http\Controllers\HomeController::class,'mainRegister'])->name('register.main.registered');
+//my_page表示
+Route::get('my_page', [App\Http\Controllers\HomeController::class,'my_page'])->name('my_page');
+/*選択したユーザーの編集画面へ*/
+Route::get('/edit_user/{id}', [App\Http\Controllers\HomeController::class, 'edit_user'])->name('edit_user');
+/*選択したユーザーを編集する*/
+Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user');
 Auth::routes();
 //ホーム画面表示
  Route::get('/home',function(){
@@ -314,6 +319,12 @@ Route::get('/news/page{id}', [\App\Http\Controllers\FormController::class, 'news
 /*NEws書き込み権限*/
 Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->name('news.form');
 Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_news']);
+
+//見守り
+Route::get('lost/home/{id}',[\App\Http\Controllers\ExtraController::class, 'protect']);
+Route::post('lost/home/{id}/to_call/{to_call}',[\App\Http\Controllers\ExtraController::class, 'to_call'])->name('to_call');
+
+
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');
  */

@@ -1,0 +1,19 @@
+.py-4{
+    margin-left:0%;
+}
+/*ipad*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .py-4{
+        width:auto;
+    }
+    .col-md-8{
+        max-width: 100%;
+        flex:none;
+    }
+}
+    @media (max-width: 480px){
+        .py-4{
+            width:fit-content;
+        }
+    }
+

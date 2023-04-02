@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>新規登録画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>仮登録画面 VS4</title>
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
 @section('content')
@@ -44,6 +44,20 @@
 
 
                         <div class="r-box">
+                        ※申込サービスを選択してください<br>
+                            <label for="type">
+                                絵スケジュール<input id="type" type="radio" name="type" value="0" ><br>
+                            </label>
+                            <label for="type">
+                                見守りグッズ<input id="type" type="radio" name="type" value="1"><br>
+                            </label>
+                            @error('type')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                        </div>
+                        <div class="r-box">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>
 
                             <div>
@@ -79,7 +93,7 @@
                             </div>
                         </div>
 
-                        <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
+                  <!--       <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                             ※性別を選択してください<br>
                             <label for="gender">
                                 男の子<input id="gender" type="radio" name="gender" value="boy" ><br>
@@ -100,7 +114,7 @@
                             <label for="image_id1">
                                 3.<img src="{{asset('img/check.png')}}"><input id="image_id1" type="radio" name="image_id" value="1"><br>
                             </label>
-                        </div>
+                        </div> -->
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

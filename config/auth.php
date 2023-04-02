@@ -40,6 +40,15 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'lost' => [
+            'driver' => 'session',
+            'provider' => 'losts',
+        ],
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -63,6 +72,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'losts' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Lost::class,
         ],
 
         // 'users' => [
@@ -89,6 +102,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'losts' => [
+            'provider' => 'losts',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

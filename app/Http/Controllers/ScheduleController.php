@@ -966,21 +966,27 @@ class ScheduleController extends Controller
     public function dashboard(Request $request)
     {
         $user = Auth::user();
+    if($user->status==1){
+    $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
+    $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
+    $dentists = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '1')->get();
+    $medicals = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '3')->get();
+    $supports = Independence::where('user_id', '=', Auth::user()->id)->get();
 
-        $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
-        $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
-        $dentists = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '1')->get();
-        $medicals = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '3')->get();
-        $supports = Independence::where('user_id', '=', Auth::user()->id)->get();
-
-        return view('dashboard', [
-            'schedules' => $schedules,
-            'illusts' => $illusts,
-            'dentists' => $dentists,
-            'medicals' => $medicals,
-            'supports' => $supports,
-        ]);
+    return view('dashboard', [
+        'schedules' => $schedules,
+        'illusts' => $illusts,
+        'dentists' => $dentists,
+        'medicals' => $medicals,
+        'supports' => $supports,
+    ]);
+}
+    elseif($user->status==0){
+    return view('auth/main/register',[
+        'user'=>$user,
+    ]);
     }
+}
     /**
      * 自立支援リスト画面へ遷移
      *
