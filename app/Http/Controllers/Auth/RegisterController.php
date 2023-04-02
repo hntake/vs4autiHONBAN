@@ -77,12 +77,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user= User::create([
-           /*  'name' => $data['name'], */
-/*             'role' =>$data['role'],
- */         'email' => $data['email'],
+
+           'email' => $data['email'],
             'type' => $data['type'],
-          /*   'gender' => $data['gender'],
-            'image_id' => $data['image_id'], */
             'password' => Hash::make($data['password']),
             'uuid'=>(string) Str::uuid(),
             'email_verify_token' => base64_encode($data['email']),
@@ -98,6 +95,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
         //flash data
         $request->flashOnly( 'email');
+        $request->flashOnly( 'type');
         $bridge_request = $request->all();
         // password マスキング
         $bridge_request['password_mask'] = '******';
@@ -121,7 +119,6 @@ class RegisterController extends Controller
      //確認画面
     public function mainCheck(Request $request)
     {
-        dd($request);
       $request->validate([
         'name' => 'required|string',
 
