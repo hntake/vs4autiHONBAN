@@ -54,7 +54,7 @@
                                 <form method="POST" action="{{ route('register.main.check') }}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">名前 ※必須</label>
                                     <div class="col-md-6">
                                         <input
                                             id="name" type="text"
@@ -71,7 +71,7 @@
 
                                 <div class="form-group row">
                                     <label for="name_pronunciation"
-                                           class="col-md-4 col-form-label text-md-right">フリガナ</label>
+                                           class="col-md-4 col-form-label text-md-right">フリガナ ※必須</label>
 
                                     <div class="col-md-6">
                                         <input id="name_pronunciation" type="text"
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel1"
-                                           class="col-md-4 col-form-label text-md-right">連絡先①</label>
+                                           class="col-md-4 col-form-label text-md-right">連絡先① ※必須</label>
 
                                     <div class="col-md-6">
                                         <input id="tel1" type="text"
@@ -111,7 +111,7 @@
                                         <input id="tel2" type="text"
                                                class="form-control{{ $errors->has('tel2') ? ' is-invalid' : '' }}"
                                                name="tel2" value="{{ old('tel2') }}"
-                                               required>
+                                               >
 
                                         @if ($errors->has('tel2'))
                                             <span class="invalid-feedback">
@@ -131,7 +131,7 @@
                                         <input id="address" type="text"
                                                class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
                                                name="address" value="{{ old('address') }}"
-                                               required>
+                                               >
 
                                         @if ($errors->has('address'))
                                             <span class="invalid-feedback">

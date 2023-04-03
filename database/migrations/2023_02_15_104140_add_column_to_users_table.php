@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function(Blueprint $table) {
-            $table->string('gender');
-            $table->integer('image_id');
+            $table->string('gender')->default('boy');
+            $table->integer('image_id')->default('2');
         });
     }
 

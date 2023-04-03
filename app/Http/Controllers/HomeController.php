@@ -77,6 +77,8 @@ class HomeController extends Controller
           $lost->name=$request->name;
           $lost->name_pronunciation = $request->name_pronunciation;
           $lost->email=$user->email;
+          $lost->password=$user->password;
+          $lost->uuid=$user->uuid;
           $lost->tel1=$request->tel1;
           $lost->tel2=$request->tel2;
           $lost->address=$request->address;
@@ -101,6 +103,7 @@ class HomeController extends Controller
           $lost->sun1=$request->sun1;
           $lost->sun2=$request->sun2;
           $lost->sun3=$request->sun3;
+          $lost->save();
         }
 
         return view('auth.main.register_check', compact('user','email_token','lost'));
