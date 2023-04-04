@@ -60,8 +60,11 @@ public function save_news (Request $request){
     public function welcome()
     {
         $new = News::orderBy('created_at', 'desc')->first();
+        $user = Auth::user();
+
         return view('welcome', [
-            'new' => $new
-        ]);
+            'new' => $new,
+            'user' => $user,
+                ]);
     }
 }

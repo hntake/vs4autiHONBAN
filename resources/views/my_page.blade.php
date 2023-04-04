@@ -80,7 +80,6 @@
                             </div>
                         </div>
                         <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                            ※掛ける連絡先を選択してください<br>
                             <table class="0">
                                 <thead>
                                     <tr>

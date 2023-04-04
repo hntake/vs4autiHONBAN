@@ -34,7 +34,7 @@
                                 @else
                                 <img src="{{asset('img/check.png')}}">
                                 @endif
-                                <input type="hidden" name="image_id" value="{{$image_id}}">
+                                <input type="hidden" name="image_id" value="{{$user->image_id}}">
                             </div>
                         </div>
                         <div class="form-group row mb-0">

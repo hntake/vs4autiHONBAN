@@ -133,7 +133,7 @@ Route::group(['middleware' => 'admin_auth'], function(){
 });*/
 /**仮登録から認証本登録 */
 Route::post('register/pre_check', [App\Http\Controllers\Auth\RegisterController::class,'pre_check'])->name('register.pre_check');
-Route::get('auth/main/register', [App\Http\Controllers\HomeController::class,'showForm']);
+/* Route::get('auth/main/register', [App\Http\Controllers\HomeController::class,'showForm']); */
  Route::post('dashboard', [App\Http\Controllers\HomeController::class,'mainCheck'])->name('register.main.check');
 Route::post('register/main_register', [App\Http\Controllers\HomeController::class,'mainRegister'])->name('register.main.registered');
 //my_page表示

@@ -111,7 +111,6 @@ class RegisterController extends Controller
     public function showForm()
     {
         $user=Auth::user();
-
         return view('auth.main.register');
 
     }

@@ -82,7 +82,11 @@
                             <li class="header_nav_itm">
                                 @auth
                                 <a href="{{ url('/dashboard') }}" class=" header_nav_itm_link">Home</a>
+                                @if($user->type==0)
                                 <div class="description1">自分の保存リスト画面へ移動する </div>
+                                @else
+                                <div class="description1">自分の登録情報画面へ移動する </div>
+                                @endif
                             </li>
 
                             <li class="header_nav_itm">

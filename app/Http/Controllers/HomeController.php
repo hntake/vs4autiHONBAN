@@ -55,21 +55,21 @@ class HomeController extends Controller
        //確認画面
       public function mainCheck(Request $request)
       {
-        $request->validate([
-          'name' => 'required|string',
+  /*         $request->validate([
+              'name' => 'required|string',
 
-        ]);
-        //データ保持用
-        $email_token = $request->email_token;
-
-        //申込種類によって分ける
-        $user=Auth::user();
-        $user=User::where('id','=',$user->id)->first();
-        if($user->type==0){
-          $user->update([
-              'gender'=> $request->gender,
-              'image_id'=> $request->image_id,
-          ]);
+            ]); */
+            //データ保持用
+            $email_token = $request->email_token;
+            //申込種類によって分ける
+           $user=User::where('id','=',Auth::user()->id)->first();
+           if($user->type==0){
+               $user
+               ->update([
+                   'image_id'=> $request->image_id,
+                   'gender'=> $request->gender,
+                ]);
+                return view('auth.main.register_check', compact('user','email_token',));
         }
 
         elseif($user->type==1){
@@ -104,9 +104,11 @@ class HomeController extends Controller
           $lost->sun2=$request->sun2;
           $lost->sun3=$request->sun3;
           $lost->save();
-        }
 
-        return view('auth.main.register_check', compact('user','email_token','lost'));
+
+        return view('auth.main.register_check', compact('email_token','lost'));
+
+        }
       }
       //本登録
       public function mainRegister(Request $request)
@@ -120,9 +122,11 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->type==0){
         $user=User::where('id', '=', Auth::id());
-        $user->gender= $request->gender;
-        $user->image_id = $request->image_id;
-        $user->save();
+        $user
+        ->update([
+            'image_id'=> $request->image_id,
+            'gender'=> $request->gender,
+         ]);
         }
         elseif($user->type==1){
             $lost=new Lost;

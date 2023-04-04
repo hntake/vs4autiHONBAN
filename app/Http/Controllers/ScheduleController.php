@@ -12,6 +12,7 @@ use App\Models\Independence;
 use App\Models\View;
 use App\Models\Image;
 use App\Models\User;
+use App\Models\Lost;
 use Illuminate\Support\Facades\Storage;
 use IntlChar;
 
@@ -966,6 +967,7 @@ class ScheduleController extends Controller
     public function dashboard(Request $request)
     {
         $user = Auth::user();
+        $lost=Lost::where('email','=',$user->email)->first();
     if($user->status==1){
     $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
     $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
@@ -979,11 +981,14 @@ class ScheduleController extends Controller
         'dentists' => $dentists,
         'medicals' => $medicals,
         'supports' => $supports,
+        'user' => $user,
+        'lost' => $lost,
     ]);
 }
     elseif($user->status==0){
     return view('auth/main/register',[
         'user'=>$user,
+        'lost' => $lost,
     ]);
     }
 }
