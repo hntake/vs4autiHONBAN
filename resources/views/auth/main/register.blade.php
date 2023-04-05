@@ -88,7 +88,8 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel1"
-                                           class="col-md-4 col-form-label text-md-right">連絡先① ※必須</label>
+                                           class="col-md-4 col-form-label text-md-right">連絡先① ※必須 ハイフン無しで入力</label>
+
 
                                     <div class="col-md-6">
                                         <input id="tel1" type="text"
@@ -105,7 +106,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel2"
-                                           class="col-md-4 col-form-label text-md-right">連絡先②</label>
+                                           class="col-md-4 col-form-label text-md-right">連絡先② ハイフン無しで入力</label>
 
                                     <div class="col-md-6">
                                         <input id="tel2" type="text"

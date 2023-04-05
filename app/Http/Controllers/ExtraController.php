@@ -143,7 +143,7 @@ public function to_call (Request $request, $id,$to_call){
 
     $call= new Call;
     $call->name = $user->name;
-    $call->tel1 =$user->tel1;
+    $call->tel1 =$tel;
     $call->ip = $request->ip();
     $call->save();
 

@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password ※必須 8桁以上') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード ※必須 8桁以上') }}</label>
 
                             <div>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password ※必須') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('パスワードの確認入力 ※必須') }}</label>
 
                             <div>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
