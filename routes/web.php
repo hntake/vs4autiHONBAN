@@ -61,6 +61,9 @@ Route::get('/myprofile', function () {
 Route::get('/feature',function(){
     return view('feature');
 });
+Route::get('/protect',function(){
+    return view('protect');
+});
 Route::get('/plan',function(){
     return view('plan');
 });
@@ -75,6 +78,9 @@ Route::get('/faq',function(){
 });
 Route::get('/partner',function(){
     return view('partner');
+});
+Route::get('/paypay',function(){
+    return view('paypay');
 });
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 

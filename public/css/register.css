@@ -1,0 +1,43 @@
+.row{
+  display: block;
+}
+.col-md-8{
+    max-width:-webkit-fill-available;
+}
+.col-md-6{
+    max-width:-webkit-fill-available;
+}
+
+.py-4{
+    display:block;
+}
+table.zero{
+    margin:0 auto;
+}
+
+@media (min-width: 768px){
+    .col-md-4 {
+        max-width:fit-content;
+    }
+
+}
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+.card-body{
+    width:80%;
+    margin:30px;
+    padding:0;
+}
+label{
+    display:flex;
+}
+.col-md-6{
+    padding-left: 0;
+    padding-right: 0;
+}
+.box{
+    padding:0;
+}
+  }

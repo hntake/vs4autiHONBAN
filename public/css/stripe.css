@@ -108,6 +108,84 @@ body{
  #card-button{
     margin-top:20Px;
  }
+ /*==================================================
+アコーディオンのためのcss
+===================================*/
+section{
+    display:flex;
+}
+/*アコーディオン全体*/
+.accordion-area{
+    list-style: none;
+    width: 96%;
+    max-width: 900px;
+    margin:0 auto;
+}
+
+.accordion-area li{
+    margin: 10px 0;
+}
+
+.accordion-area section {
+  border: 1px solid #ccc;
+}
+
+/*アコーディオンタイトル*/
+.title {
+    cursor: pointer;
+    font-size:1rem;
+    font-weight: normal;
+    transition: all .5s ease;
+    color: #0056b3;
+
+}
+
+/*アイコンの＋と×*/
+.title::before,
+.title::after{
+    position: absolute;
+    content:'';
+    width: 15px;
+    height: 2px;
+
+}
+.title::before{
+    top:48%;
+    left: 15px;
+    transform: rotate(0deg);
+
+}
+.title::after{
+    top:48%;
+    left: 15px;
+    transform: rotate(90deg);
+
+}
+/*　closeというクラスがついたら形状変化　*/
+.title.close::before{
+  transform: rotate(45deg);
+}
+
+.title.close::after{
+  transform: rotate(-45deg);
+}
+
+/*アコーディオンで現れるエリア*/
+.box {
+    display: none;/*はじめは非表示*/
+    background: #f3f3f3;
+  margin:0 3% 3% 3%;
+    padding: 3%;
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+
+h2{
+    text-align: center;
+    margin: 30px 0;
+    font-size:1rem;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     .MyCardElement{

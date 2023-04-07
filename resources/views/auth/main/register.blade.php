@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -142,9 +144,9 @@
                                     </div>
                                 </div>
 
-                                <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
+                                <div class="box" >
                             ※掛ける連絡先を選択してください<br>
-                            <table class="0">
+                            <table class="zero">
                                 <thead>
                                     <tr>
                                     <th style="width:20%">曜日</th>
@@ -153,7 +155,7 @@
                                     <th style="width:20%">夜19～6時</th>
                                     </tr>
                                 </thead>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >月曜日</label>
                                     </td>
@@ -185,7 +187,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >火曜日</label>
                                     </td>
@@ -217,7 +219,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >水曜日</label>
                                     </td>
@@ -249,7 +251,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >木曜日</label>
                                     </td>
@@ -281,7 +283,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >金曜日</label>
                                     </td>
@@ -313,7 +315,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >土曜日</label>
                                     </td>
@@ -345,7 +347,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="background-color:#87CEFA;">
                                     <td>
                                         <label >日曜日</label>
                                     </td>

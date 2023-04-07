@@ -7,14 +7,14 @@
             <div class="card">
                 <div class="card-header">仮会員登録完了</div>
 
-                <div class="card-body">
+                <div class="card-body" style="text-align:start;">
                     <p>この度は、ご登録いただき、誠にありがとうございます。</p>
                     <p>
-                        ご本人様確認のため、ご登録いただいたメールアドレスに、<br>
+                        ご本人様確認のため、ご登録いただいたメールアドレスに、
                         本登録のご案内のメールが届きます。
                     </p>
                     <p>
-                        そちらに記載されているURLにアクセスし、<br>
+                        そちらに記載されているURLにアクセスし、
                         アカウントの本登録を完了させてください。
                     </p>
                 </div>

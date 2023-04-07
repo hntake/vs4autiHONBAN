@@ -9,7 +9,8 @@
 
                     <div class="card-body">
                         <p>本会員登録が完了しました。</p>
-                        <a href="{{url('/my_page')}}" class="sg-btn">マイページへ移動</a>
+                        <p>そのまま、支払いページへ移動して申し込みを完了してください。</p>
+                        <a href="{{url('/paypay')}}" class="sg-btn">支払いページへ移動</a>
 
                     </div>
                 </div>

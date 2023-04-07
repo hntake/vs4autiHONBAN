@@ -1,8 +1,8 @@
 @extends('layouts.app')
 <title>仮登録画面 VS4</title>
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 <div class="top">
     <a href="{{ url('/') }}">
         <h3>トップページに戻る</h3>
@@ -44,7 +44,7 @@
 
 
                         <div class="r-box">
-                        ※申込サービスを選択してください<br>
+                        ※申込サービスを選択してください<br><br>
                             <label for="type">
                                 絵スケジュール<input id="type" type="radio" name="type" value="0" ><br>
                             </label>
