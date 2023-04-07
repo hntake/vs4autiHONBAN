@@ -14,12 +14,24 @@
 table.zero{
     margin:0 auto;
 }
-
+.card-body{
+    padding:0;
+}
+.form-control{
+    width:80%;
+    margin:0 atuo;
+    display:unset;
+}
+.offset-md-4{
+    margin-left:0;
+}
 @media (min-width: 768px){
     .col-md-4 {
         max-width:fit-content;
     }
-
+    .card-body{
+        padding:0;
+    }
 }
 @media only screen
   and (min-device-width: 390px)
