@@ -7,6 +7,8 @@ use App\Models\Schedule;
 use App\Models\Lost;
 use App\Models\Call;
 use Carbon\Carbon;
+use App\Mail\CallMail;
+
 
 
 class ExtraController extends Controller
@@ -146,6 +148,8 @@ public function to_call (Request $request, $id,$to_call){
     $call->tel1 =$tel;
     $call->ip = $request->ip();
     $call->save();
+
+    \Mail::to($user['email'])->send(new CallMail($user,$call));
 
     return redirect("tel:{{$tel}}");
 

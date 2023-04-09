@@ -25,7 +25,7 @@
         <div class="month">
             <section style="display:flex;">
 
-            <h2 class="title">3.振込（恐れ入りますが振込手数料はお客様の負担でお願いいたします）</h2>
+            <h2 class="title">3.振込</h2>
             <div class="box">
                 <p>【振込先】</p>
                 <p>振込口座名 竹内貴代</p>
@@ -33,6 +33,7 @@
                 <p>支店名 五三八</p>
                 <p>口座種類 普通</p>
                 <p>口座番号 1569554</p>
+                <p>（恐れ入りますが振込手数料はお客様の負担でお願いいたします）</p>
             </div>
 
             </section>
