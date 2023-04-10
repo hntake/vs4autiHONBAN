@@ -44,18 +44,18 @@
 
 
                         <div class="r-box">
-                        ※申込サービスを選択してください<br><br>
+                            ※申込サービスを選択してください<br><br>
                             <label for="type">
-                                絵スケジュール<input id="type" type="radio" name="type" value="0" ><br>
+                                絵スケジュール<input id="type" type="radio" name="type" value="0"><br>
                             </label>
                             <label for="type">
-                                見守りグッズ<input id="type" type="radio" name="type" value="1"><br>
+                                お守りグッズ<input id="type" type="radio" name="type" value="1"><br>
                             </label>
                             @error('type')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="r-box">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>

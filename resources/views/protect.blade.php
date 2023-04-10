@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>見守りバッジとは？ </title>
+    <title>お守りバッジとは？ </title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
     <!-- Styles -->
     <!--  <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/feature.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/protect.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
@@ -66,11 +67,11 @@
                                 <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:60%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#use" class="header_nav_itm_link">見守りバッジとは</a>
+                                <a href="#use" class="header_nav_itm_link">お守りバッジとは</a>
                                 <div class="description1">携帯も持てない、電話番号も伝えれない方の万が一の時の為の準備</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#free" class="header_nav_itm_link">見守りバッジの申込方法</a>
+                                <a href="#free" class="header_nav_itm_link">お守りバッジの申込方法</a>
                                 <div class="description1">申込は簡単です！</div>
                             </li>
 
@@ -78,7 +79,7 @@
                                 <a href="#monitor-apply" class="header_nav_itm_link">料金</a>
                                 <div class="description1">送料込みで500円～</div>
                             </li>
-                        <!--     <li class="header_nav_itm">
+                            <!--     <li class="header_nav_itm">
                                 <a href="#useful" class="header_nav_itm_link">登録のメリット</a>
                                 <div class="description1">無料登録してみよう！</div>
                             </li> -->
@@ -172,23 +173,23 @@
                                 </li>
                                 <li>
                                     <a href="#use" class="header_nav_itm_link">
-                                    見守りバッジとは
+                                        お守りバッジとは
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#free" class="header_nav_itm_link">
-                                    見守りバッジの申込方法
+                                        お守りバッジの申込方法
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="#monitor-apply" class="header_nav_itm_link">
-                                    料金
+                                        料金
                                     </a>
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://www.tiktok.com/@llcovs4/video/7220301301597408513?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001" class="header_nav_itm_link">説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
@@ -206,7 +207,20 @@
                     </div>
                 </div>
             </header>
-            <div class="youtube_kv">
+
+                    <div class="youtube">
+                        <div class="elementor-image">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220301301597408513" data-video-id="7220301301597408513" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Chu,Tayousei. - ano" href="https://www.tiktok.com/music/ChuTayousei-7158336575057692673?refer=embed">♬ Chu,Tayousei. - ano</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220300029888711937" data-video-id="7220300029888711937" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Hip Hop with impressive piano sound(793766) - Dusty Sky" href="https://www.tiktok.com/music/Hip-Hop-with-impressive-piano-sound-793766-6860502663327385601?refer=embed">♬ Hip Hop with impressive piano sound(793766) - Dusty Sky</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                    </div>
+
+                </div>
+      <!--       <div class="youtube_kv">
                 <div class="movie_cap">
                     <div class="elementor-widget">
                         <a name="monitor-apply">
@@ -220,14 +234,14 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
             <section>
                 <a name="use" class="use">
                     <div class="element">
                         <div class="use">
                             <!-- リンク内移動-->
                             <br>万が一の時の準備に
-                            <br>見守りバッジ
+                            <br>お守りバッジ
                 </a>
                 <div class="tab_wrap">
                     <input id="tab1" type="radio" name="tab_btn" checked>
@@ -236,23 +250,24 @@
                     <div class="nav-wrap">
                         <div class="scroll-nav">
                             <div class="tab_area">
-                                <label class="tab1_label" for="tab1">見守りバッジとは？</label>
+                                <label class="tab1_label" for="tab1">お守りバッジとは？</label>
                                 <label class="tab2_label" for="tab2">個人情報</label>
                                 <label class="tab3_label" for="tab3">連絡先は二か所</label>
                             </div>
                         </div>
-                        <div class="next-btn">＞</div>
+                        <div class="next-btn"></div>
                     </div>
                     <div class="panel_area">
                         <div id="panel1" class="tab_panel">
-                            <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:30%;"></a>
+                            <a href="img/lost.png" data-lightbox="group"> <img src="img/lost.png" alt="create" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">万が一の時の準備</div>
                                 <div class="slide-description">
-                                    <b>お守り代わりに</b>携帯を常備できなかったり、ご家族の連絡先が伝えれない小さなお子様や、障がいの為に方が、
+                                    <b>お守り代わりに</b>携帯を常備できなかったり、ご家族の連絡先が伝えることができないい小さなお子様や、障がいのある方が、
                                     万が一迷子になった時に、気付いてくれた方がバッジのQRコードを
                                     スキャンすると登録した電話番号につないでくれます。<br>
-                                    ※詳細は画像をクリックして拡大してみてください
+                                    また、同時に登録したメールアドレスに通知が届きます。
+
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
 
                                 </div>
@@ -260,7 +275,7 @@
 
                         </div>
                         <div id="panel2" class="tab_panel">
-                            <a href="img/.png" data-lightbox="group"> <img src="img/.png" alt="" style="width:30%;"></a>
+                            <a href="img/protect-regi16.png" data-lightbox="group"> <img src="img/protect-regi16.png" alt="" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">QRコードで</div>
                                 <div class="slide-description">
@@ -275,13 +290,13 @@
                             </div>
                         </div>
                         <div id="panel3" class="tab_panel">
-                            <a href="img/.png" data-lightbox="group"> <img src="img/.png" alt="" style="width:30%;"></a>
+                            <a href="img/protect-regi11.png" data-lightbox="group"> <img src="img/protect-regi11.png" alt="" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">時間帯で</div>
                                 <div class="slide-description">
-                                    <b>連絡先で変えれる</b>
+                                    <b>連絡先をカスタマイズ</b>
                                     登録できる電話番号は二種類<br>
-                                    日中は携帯、夜は自宅など事前にかかってくる連絡先を決めておくことが出来ます。<br>
+                                    日中は学校や事業所、夜は自宅など事前にかかってくる連絡先を決めておくことが出来ます。<br>
                                     登録情報はマイページでいつでも変更できます。<br>
                                     ※詳細は画像をクリックして拡大してみてください
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
@@ -318,7 +333,7 @@
             </div>
             <div class="panel_area">
                 <div id="panel4" class="tab_panel">
-                    <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                    <a href="img/protect-regi1.png" data-lightbox="group"><img src="img/protect-regi3.png" alt="list" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">仮登録から本登録まで</div>
                         <div class="slide-description">
@@ -326,13 +341,12 @@
                             1.仮登録はメールアドレスとパスワードのみ入力<br>
                             2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.支払い<br>5.受取
                             <br>
-                            ※詳細は画像をクリックして拡大してみてください
                             <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                         </div>
                     </div>
                 </div>
                 <div id="panel5" class="tab_panel">
-                    <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
+                    <a href="img/price.png" data-lightbox="group"> <img src="img/price.png" alt="check" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head"></div>
                         <div class="slide-description">
@@ -342,22 +356,21 @@
                             送料:200円～/個数による<br>
                             <br>
                             <br>
-                            ※詳細は画像をクリックして拡大してみてください
                             <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                         </div>
                     </div>
 
                 </div>
                 <div id="panel6" class="tab_panel">
-                    <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="check" style="width:30%;"></a>
+                    <a href="img/protect-regi15.png" data-lightbox="group"> <img src="img/protect-regi15.png" alt="check" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">3種類の</div>
                         <div class="slide-description">
                             <b>支払い方法</b>
-                          1.クレジットカード
+                            1.クレジットカード
                             <br>2.電子マネー(ApplePay,GooglePay,Paypay)
                             <br>3.振込<br>
-                          → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選んで、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
+                            → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
                             ※詳細は画像をクリックして拡大してみてください
                             <div class="admin_button"><a href="{{url('/paypay') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                         </div>
@@ -386,106 +399,7 @@
             </div>
         </div>
     </div>
-    <a name="free" class="use">
-        <div class="element">
-            <div class="use">
-                <!-- リンク内移動-->
-                <br>登録なしでも使える
-                <br>便利な機能
-    </a>
-    <div class="tab_wrap">
-        <input id="tab8" type="radio" name="tab_btn3" checked>
-        <input id="tab9" type="radio" name="tab_btn3">
-        <input id="tab10" type="radio" name="tab_btn3">
-        <div class="nav-wrap">
-            <div class="scroll-nav">
-                <div class="tab_area">
-                    <label class="tab8_label" for="tab8">ヘアカット</label>
-                    <label class="tab9_label" for="tab9">自立支援</label>
-                    <label class="tab10_label" for="tab10">サンプル作成</label>
-                </div>
-            </div>
-            <div class="next-btn">＞</div>
-        </div>
-        <div class="panel_area">
-            <div id="panel8" class="tab_panel">
-                <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">視覚タイマー付き</div>
-                    <div class="slide-description">
-                        <b>ヘアカットスケジュール</b>
-                        理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="llco" style="background-color:unset;">
-                            <div class="admin_button"><a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel_area">
-            <div id="panel9" class="tab_panel">
-                <a href="img/independence2.png" data-lightbox="group"><img src="img/independence2.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">みんなで共有できる</div>
-                    <div class="slide-description">
-                        <b>自立支援スケジュール</b>
-                        登録会員が作った自立支援スケジュールは個人用だけでなく一般公開も出来るので、公開されたものは誰でも利用することが出来ます
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="llco" style="background-color:unset;">
-                            <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel_area">
-            <div id="panel10" class="tab_panel">
-                <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">登録しなくても</div>
-                    <div class="slide-description">
-                        <b>簡単にスケジュールは作れます</b>
-                        登録しないと保存はできませんが、自立支援スケジュール以外は全て作成できます。
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
-                        <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
-                        <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">医療スケジュール作成ページへ</a></div>
-                        <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">イラストスケジュール作成ページへ</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
-        <div class="bottom">
-            <div class="bottom-container">
-                <div class="bottom-element">
-                    <div class="bottom-element-top">
-                        <h2 class="bottom-element-top">
-                            今すぐはじめてみよう！
-                        </h2>
-                    </div>
-                    <div class="bottom-inner">
-                        <div class="bottom-left">
-                            <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
-                                <span class="elementor-button">スケジュールを作る</span>
-                            </a>
-                        </div>
-                        <div class="bottom-right">
-                            <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                                <span class="elementor-button">無料登録</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     </div>
     </div>
     </div>

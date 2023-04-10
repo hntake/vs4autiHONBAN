@@ -19,7 +19,7 @@
                                 @if($type==0)
                                 絵スケジュール
                                 @elseif($type==1)
-                                見守りグッズ
+                                お守りグッズ
                                 @endif
                                 <input type="hidden" name="type" value="{{$type}}">
                             </div>
@@ -42,7 +42,7 @@
                                 <input type="hidden" name="password" value="{{$password}}">
                             </div>
                         </div>
-                 
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

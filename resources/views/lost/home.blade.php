@@ -8,22 +8,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">見守りページ</div>
+                <div class="card-header">お守りページ</div>
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
                     <div class="thank">
                         <img src="{{asset('img/lost_ad.png')}}">
                     </div>
                     <form method="POST" action="{{ route('to_call',['id'=>$user->id,'to_call'=>$to_call])}}">
-                    @csrf
-                    <button class="c-button" type="submit">
-                    <i class="fas fa-phone"></i>支援者に電話する</a>
-                    </button>
+                        @csrf
+                        <button class="c-button" type="submit">
+                            <i class="fas fa-phone"></i>支援者に電話する</a>
+                        </button>
 
                     </form>
                     <div class="it2u">
@@ -34,15 +34,15 @@
                             <br>
                             <a href="mailto:info@itcha50.com">メールはこちらへ</a>
                             <br>
-                            <a href="{{ url('/') }}">  https://wwww.itcha50.com</a>
+                            <a href="{{ url('/') }}"> https://wwww.itcha50.com</a>
                         </h6>
                     </div>
 
 
                 </div>
-                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
