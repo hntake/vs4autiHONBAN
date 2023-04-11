@@ -35,7 +35,7 @@
 
                         <li class="header_nav_itm">
                             <div class="register-button">
-                                <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
                                 <div class="description1">マニュアル動画ページへ</div>
                             </div>
                         </li>
@@ -56,7 +56,7 @@
                                 </a></li>
                             <li class="header_nav_itm">
                                 <div class="register-button">
-                                    <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                    <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
                             </li>
@@ -119,7 +119,7 @@
                             <h2 class="widget-title">関連情報</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
+                                    <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
                                     <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                         <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>

@@ -263,9 +263,9 @@
                             <div class="sright">
                                 <div class="slide-head">万が一の時の準備</div>
                                 <div class="slide-description">
-                                    <b>お守り代わりに</b>携帯を常備できなかったり、ご家族の連絡先が伝えることができないい小さなお子様や、障がいのある方が、
-                                    万が一迷子になった時に、気付いてくれた方がバッジのQRコードを
-                                    スキャンすると登録した電話番号につないでくれます。<br>
+                                    <b>お守り代わりに</b>携帯電話を常備できなかったり、ご家族の連絡先を伝えることができない、小さなお子様や障がいのある方が、
+                                    万が一迷子になった時…気付いてくれた方がバッジのQRコードを
+                                    スキャンする事で登録した電話番号につないでくれます。<br>
                                     また、同時に登録したメールアドレスに通知が届きます。
 
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
@@ -282,7 +282,7 @@
                                     <b>個人情報を最小限に</b>
                                     気付いてくれた方がQRコードをスキャンしない限り、情報は見られません。
                                     <br>
-                                    電話を掛ければその方のの電話番号も表示されます（非通知設定でなければ）。<br>
+                                    電話を掛ければその方のの電話番号も表示されます（非通知設定されてなければ）<br>
                                     また、その電話を掛けてくれた方のIPアドレスが自動取得されているので、万が一の際の位置情報確保も出来ます。
                                     ※詳細は画像をクリックして拡大してみてください
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
@@ -297,7 +297,7 @@
                                     <b>連絡先をカスタマイズ</b>
                                     登録できる電話番号は二種類<br>
                                     日中は学校や事業所、夜は自宅など事前にかかってくる連絡先を決めておくことが出来ます。<br>
-                                    登録情報はマイページでいつでも変更できます。<br>
+                                    そして、登録情報はマイページでいつでも変更できるので、万が一のとき迄自分の電話番号を登録しない方法も可能です。<br>
                                     ※詳細は画像をクリックして拡大してみてください
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                                 </div>
@@ -308,7 +308,7 @@
                     </div>
                 </div>
         </div>
-        <a name="useful" class="use">
+        <a name="free" class="use">
             <div class="element">
                 <div class="use">
                     <!-- リンク内移動-->
@@ -319,14 +319,12 @@
             <input id="tab4" type="radio" name="tab_btn2" checked>
             <input id="tab5" type="radio" name="tab_btn2">
             <input id="tab6" type="radio" name="tab_btn2">
-            <input id="tab7" type="radio" name="tab_btn2">
             <div class="nav-wrap">
                 <div class="scroll-nav">
                     <div class="tab_area">
                         <label class="tab4_label" for="tab4">登録方法</label>
                         <label class="tab5_label" for="tab5">料金</label>
                         <label class="tab6_label" for="tab6">支払い方法</label>
-                        <label class="tab7_label" for="tab7"></label>
                     </div>
                 </div>
                 <div class="next-btn"></div>

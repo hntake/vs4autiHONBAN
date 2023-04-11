@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Lost;
+use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -52,6 +53,22 @@ class HomeController extends Controller
           return view('auth.main.register');
 
       }
+      //vs4会員のバッジ申込画面に遷移
+      public function register()
+      {
+          $user=Auth::user();
+
+          return view('lost.register', compact('user'));
+
+      }
+      //バッジ会員のVS4申込画面に遷移
+      public function vs4()
+      {
+          $user=Auth::user();
+
+          return view('vs4', compact('user'));
+
+      }
        //確認画面
       public function mainCheck(Request $request)
       {
@@ -69,7 +86,7 @@ class HomeController extends Controller
                    'image_id'=> $request->image_id,
                    'gender'=> $request->gender,
                 ]);
-                return view('auth.main.register_check', compact('user','email_token',));
+                return view('auth.main.register_check', compact('user','email_token'));
         }
 
         elseif($user->type==1){
@@ -111,6 +128,68 @@ class HomeController extends Controller
 
         }
       }
+       //バッジ会員のVS4確認画面
+      public function vs4Check(Request $request)
+      {
+  /*         $request->validate([
+              'name' => 'required|string',
+
+            ]); */
+            //データ保持用
+            $email_token = $request->email_token;
+            //申込種類によって分ける
+           $user=User::where('id','=',Auth::user()->id)->first();
+               $user
+               ->update([
+                   'image_id'=> $request->image_id,
+                   'gender'=> $request->gender,
+                ]);
+                return view('vs4_check', compact('user','email_token'));
+
+      }
+       //VS4からお守りへの申込確認画面
+      public function lostCheck(Request $request)
+      {
+            //データ保持用
+            $email_token = $request->email_token;
+            //申込種類によって分ける
+           $user=User::where('id','=',Auth::user()->id)->first();
+
+          $lost=new Lost();
+          $lost->name=$request->name;
+          $lost->name_pronunciation = $request->name_pronunciation;
+          $lost->email=$user->email;
+          $lost->password=$user->password;
+          $lost->uuid=$user->uuid;
+          $lost->tel1=$request->tel1;
+          $lost->tel2=$request->tel2;
+          $lost->address=$request->address;
+          $lost->mon1=$request->mon1;
+          $lost->mon2=$request->mon2;
+          $lost->mon3=$request->mon3;
+          $lost->tue1=$request->tue1;
+          $lost->tue2=$request->tue2;
+          $lost->tue3=$request->tue3;
+          $lost->wed1=$request->wed1;
+          $lost->wed2=$request->wed2;
+          $lost->wed3=$request->wed3;
+          $lost->thu1=$request->thu1;
+          $lost->thu2=$request->thu2;
+          $lost->thu3=$request->thu3;
+          $lost->fri1=$request->fri1;
+          $lost->fri2=$request->fri2;
+          $lost->fri3=$request->fri3;
+          $lost->sat1=$request->sat1;
+          $lost->sat2=$request->sat2;
+          $lost->sat3=$request->sat3;
+          $lost->sun1=$request->sun1;
+          $lost->sun2=$request->sun2;
+          $lost->sun3=$request->sun3;
+
+
+        return view('lost.register_check', compact('email_token','lost','user'));
+
+        }
       //本登録
       public function mainRegister(Request $request)
       {
@@ -164,12 +243,88 @@ class HomeController extends Controller
         }
         return view('auth.main.registered');
       }
+      //バッジ会員のVS4本登録
+      public function vs4Register(Request $request)
+      {
+
+        $user = Auth::user();
+        $user=User::where('id', '=', Auth::id());
+        $user
+        ->update([
+            'image_id'=> $request->image_id,
+            'gender'=> $request->gender,
+            'type'=> 3,
+         ]);
+         $user=User::where('id', '=', Auth::id())->first();
+         $type=$user->type;
+         $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
+         $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
+         $dentists = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '1')->get();
+         $medicals = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '3')->get();
+         $supports = Independence::where('user_id', '=', Auth::user()->id)->get();
+         return view('dashboard', [
+            'schedules' => $schedules,
+            'illusts' => $illusts,
+            'dentists' => $dentists,
+            'medicals' => $medicals,
+            'supports' => $supports,
+            'user' => $user,
+            'type'=>$type,
+        ]);
+      }
+      //VS4会員のお守りバッジ本登録
+      public function lostRegister(Request $request)
+      {
+          $user = Auth::user();
+          $user=User::where('id', '=', Auth::id());
+          $user
+          ->update([
+              'type'=> 3,
+            ]);
+
+            $user = Auth::user();
+            $lost=new Lost;
+            $lost->name=$request->name;
+            $lost->name_pronunciation = $request->name_pronunciation;
+            $lost->email=$user->email;
+            $lost->password=$user->password;
+            $lost->uuid=$user->uuid;
+            $lost->tel1=$request->tel1;
+            $lost->tel2=$request->tel2;
+            $lost->address=$request->address;
+            $lost->mon1=$request->mon1;
+            $lost->mon2=$request->mon2;
+            $lost->mon3=$request->mon3;
+            $lost->tue1=$request->tue1;
+            $lost->tue2=$request->tue2;
+            $lost->tue3=$request->tue3;
+            $lost->wed1=$request->wed1;
+            $lost->wed2=$request->wed2;
+            $lost->wed3=$request->wed3;
+            $lost->thu1=$request->thu1;
+            $lost->thu2=$request->thu2;
+            $lost->thu3=$request->thu3;
+            $lost->fri1=$request->fri1;
+            $lost->fri2=$request->fri2;
+            $lost->fri3=$request->fri3;
+            $lost->sat1=$request->sat1;
+            $lost->sat2=$request->sat2;
+            $lost->sat3=$request->sat3;
+            $lost->sun1=$request->sun1;
+            $lost->sun2=$request->sun2;
+            $lost->sun3=$request->sun3;
+            $lost->save();
+
+            $type=$user->type;
+        return view('auth.main.registered');
+      }
           //my_page画面に遷移
           public function my_page()
           {
             $user=Auth::user();
+            $type=$user->type;
             $lost=Lost::where('email','=',$user->email)->first();
-                return view('my_page',compact('user','lost'));
+                return view('my_page',compact('type','lost','user'));
             }
 
         /**

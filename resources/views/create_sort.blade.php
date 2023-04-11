@@ -32,7 +32,7 @@
                 <li><a href="{{ url('create_sort') }}">
                         <h3>新規作成（イラスト）</h3>
                     </a></li>
-                    <li><a href="{{ url('independence/create') }}">
+                <li><a href="{{ url('independence/create') }}">
                         <h3>新規作成（自立支援）</h3>
                     </a></li>
                 <li><a href="{{ url('account') }}">
@@ -58,7 +58,7 @@
 
     <h1>新規スケジュール作成</h1>
     <div class="register-button">
-        <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="header_nav_itm_link">利用説明動画を見る</a>
+        <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="header_nav_itm_link">利用VS4説明動画を見る</a>
     </div>
     <form action="{{ url('create_sort') }}" method="post">
         {{ csrf_field() }}

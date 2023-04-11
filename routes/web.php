@@ -328,7 +328,16 @@ Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_ne
 
 //お守り
 Route::get('lost/home/{id}', [\App\Http\Controllers\ExtraController::class, 'protect']);
+//電話する
 Route::post('lost/home/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'to_call'])->name('to_call');
+//VS4会員がお守りバッジ申込む
+Route::get('lost/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('lost.register');
+Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'lostCheck'])->name('register.lost.check');
+Route::post('lost/register', [App\Http\Controllers\HomeController::class, 'lostRegister'])->name('register.lost.registered');
+//お守り会員がVS4を申込む
+Route::get('vs4', [\App\Http\Controllers\HomeController::class, 'vs4'])->name('vs4');
+Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'vs4Check'])->name('vs4.check');
+Route::post('vs4', [App\Http\Controllers\HomeController::class, 'vs4Register'])->name('vs4.registered');
 
 
 //キャンセル後遷移

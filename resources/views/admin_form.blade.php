@@ -19,7 +19,7 @@
 
 </head>
 <div class="contact">
-    <h2>年額プラン申し込み</h2>
+    <h2>申し込み</h2>
     <form method="POST" action="{{ route('admin_confirm') }}">
         @csrf
         <ul>

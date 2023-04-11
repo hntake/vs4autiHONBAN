@@ -57,7 +57,7 @@
                         @endif
                         <li class="header_nav_itm">
                             <div class="register-button">
-                                <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
                                 <div class="description1">マニュアル動画ページへ</div>
                             </div>
                         </li>
@@ -78,7 +78,7 @@
                                 </a></li>
                             <li class="header_nav_itm">
                                 <div class="register-button">
-                                    <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                    <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
                             </li>

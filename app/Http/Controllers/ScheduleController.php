@@ -974,7 +974,6 @@ class ScheduleController extends Controller
     $dentists = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '1')->get();
     $medicals = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '3')->get();
     $supports = Independence::where('user_id', '=', Auth::user()->id)->get();
-
     return view('dashboard', [
         'schedules' => $schedules,
         'illusts' => $illusts,

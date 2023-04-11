@@ -126,7 +126,7 @@
                                 </li>
                                 <li class="header_nav_itm">
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">VS4説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>

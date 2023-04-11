@@ -48,6 +48,10 @@
                         <ul class="header_nav_list">
 
                             <li class="header_nav_itm">
+                                <a href="{{ url('protect') }}" class="header_nav_itm_link">お守りバッジ</a>
+                                <div class="description1">迷子対策に！</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="{{ url('create') }}" class="header_nav_itm_link">スケジュール作成</a>
                                 <div class="description1">スケジュールを作ってみる</div>
                             </li>
@@ -111,12 +115,6 @@
                             @endif
                             @endauth
                             @endif
-                            <li class="header_nav_itm">
-                                <div class="register-button">
-                                    <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">説明動画</a>
-                                    <div class="description1">マニュアル動画ページへ</div>
-                                </div>
-                            </li>
                         </ul>
                         <div class="news">
                             <ul>
@@ -223,8 +221,20 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{ url('protect') }}">
+                                        <h3 ontouchstart="">
+                                            お守りバッジ</h3>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="register-button" style="margin-bottom:10px;">
+                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link" ontouchstart="">VS4説明動画</a>
+                                        <div class="description1">マニュアル動画ページへ</div>
+                                    </div>
+                                </li>
+                                <li>
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link" ontouchstart="">説明動画</a>
+                                        <a href="https://www.tiktok.com/@llcovs4/video/7220301301597408513?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001" class="header_nav_itm_link" ontouchstart="">お守りバッジ説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
@@ -242,7 +252,7 @@
                 </div>
             </header>
             <div class="main-column">
-            <div class="mobile-login-news">
+                <div class="mobile-login-news">
                     <div class="news">
                         <ul>
                             <p style="font-weight:bold;">お知らせ</p>
