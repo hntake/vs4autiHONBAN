@@ -113,7 +113,7 @@
                             @endif
                             <li class="header_nav_itm">
                                 <div class="register-button">
-                                    <a href="https://youtube.com/embed/" class="header_nav_itm_link">説明動画</a>
+                                <a href="https://www.tiktok.com/@llcovs4/video/7220301301597408513?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001" class="header_nav_itm_link">説明動画</a>
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
                             </li>
