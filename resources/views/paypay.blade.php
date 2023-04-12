@@ -20,7 +20,7 @@
           <a href="https://buy.stripe.com/8wM4hv9EpduMaE8007" style="background-color:none;"> 1.クレジットカード、ApplePay、GooglePay</a>
         </div>
         <div class="month">
-          <a href="{{ route('admin_form') }}" style="background-color:none;"> 2.paypay</a>
+          <a href="{{ route('admin_form') }}" style="background-color:none;"> 2.paypay（利用申請中の為、現在はまだ利用できません）</a>
         </div>
         <div class="month">
             <section style="display:flex;">
