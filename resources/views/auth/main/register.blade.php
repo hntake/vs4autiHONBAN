@@ -19,7 +19,7 @@
                     @empty($message)
                         <div class="card-body">
                             @if($user->type==0)
-                            <form method="POST" action="{{ route('register.main.check') }}">
+                            <form method="POST" action="{{ route('register.main.registered') }}">
                                 @csrf
                                 <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                     ※性別を選択してください<br>
@@ -45,8 +45,11 @@
                                 </div>
                                 <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                            <button type="button" onClick="history.back()">
+                                戻る
+                            </button>
                                 <button type="submit" class="btn btn-primary">
-                                    確認画面へ
+                                    本登録
                                 </button>
                             </div>
                         </div>

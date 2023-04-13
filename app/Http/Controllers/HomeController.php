@@ -86,7 +86,8 @@ class HomeController extends Controller
                    'image_id'=> $request->image_id,
                    'gender'=> $request->gender,
                 ]);
-                return view('auth.main.register_check', compact('user','email_token'));
+                return view('auth.main.registered');
+               /*  return view('auth.main.register_check', compact('user','email_token')); */
         }
 
         elseif($user->type==1){
@@ -241,7 +242,7 @@ class HomeController extends Controller
             $lost->sun3=$request->sun3;
             $lost->save();
         }
-        return view('auth.main.registered');
+        return view('auth.main.registered', compact('user'));
       }
       //バッジ会員のVS4本登録
       public function vs4Register(Request $request)
