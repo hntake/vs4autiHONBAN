@@ -332,8 +332,8 @@ Route::get('lost/home/{id}', [\App\Http\Controllers\ExtraController::class, 'pro
 Route::post('lost/home/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'to_call'])->name('to_call');
 //VS4会員がお守りバッジ申込む
 Route::get('lost/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('lost.register');
-Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'lostCheck'])->name('register.lost.check');
-Route::post('lost/register', [App\Http\Controllers\HomeController::class, 'lostRegister'])->name('register.lost.registered');
+Route::post('lost/register', [App\Http\Controllers\HomeController::class, 'lostCheck'])->name('register.lost.check');
+Route::post('lost/register_check', [App\Http\Controllers\HomeController::class, 'lostRegister'])->name('register.lost.registered');
 //お守り会員がVS4を申込む
 Route::get('vs4', [\App\Http\Controllers\HomeController::class, 'vs4'])->name('vs4');
 Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'vs4Check'])->name('vs4.check');

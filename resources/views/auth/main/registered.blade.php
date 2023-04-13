@@ -9,12 +9,20 @@
 
                     <div class="card-body">
                         <p>本会員登録が完了しました。</p>
+                        <!--VS4のみ-->
                         @if($user->type==0)
-                        <a href="{{url('/dashoboard')}}" class="sg-btn">保存リストへ移動</a>
-                        @elseis($user->type==1)
+                        <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動</a>
+                        <!--お守りのみ-->
+                        @elseif($user->type==1)
                         <p>そのまま、支払いページへ移動して申し込みを完了してください。</p>
                         <a href="{{url('/paypay')}}" class="sg-btn">支払いページへ移動</a>
+                        <!--お守りからVS4もの人-->
                         @elseif($user->type==3 && $user->pm_type !== null)
+                        <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動</a>
+                        @elseif($user->type==3 && $user->pm_type == null)
+                        <p>そのまま、支払いページへ移動して申し込みを完了してください。</p>
+                        <a href="{{url('/paypay')}}" class="sg-btn">支払いページへ移動</a>
+                        @endif
                     </div>
                 </div>
             </div>

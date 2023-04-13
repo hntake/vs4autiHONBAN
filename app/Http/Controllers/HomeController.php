@@ -86,7 +86,7 @@ class HomeController extends Controller
                    'image_id'=> $request->image_id,
                    'gender'=> $request->gender,
                 ]);
-                return view('auth.main.registered');
+                return view('auth.main.registered', compact('user','email_token'));
                /*  return view('auth.main.register_check', compact('user','email_token')); */
         }
 
@@ -155,7 +155,6 @@ class HomeController extends Controller
             $email_token = $request->email_token;
             //申込種類によって分ける
            $user=User::where('id','=',Auth::user()->id)->first();
-
           $lost=new Lost();
           $lost->name=$request->name;
           $lost->name_pronunciation = $request->name_pronunciation;
@@ -202,12 +201,12 @@ class HomeController extends Controller
         ]);
         $user = Auth::user();
         if($user->type==0){
-        $user=User::where('id', '=', Auth::id());
-        $user
-        ->update([
-            'image_id'=> $request->image_id,
-            'gender'=> $request->gender,
-         ]);
+            $user=User::where('id', '=', Auth::id())
+            ->update([
+                'image_id'=> $request->image_id,
+                'gender'=> $request->gender,
+            ]);
+            $user=User::where('id', '=', Auth::id())->first();
         }
         elseif($user->type==1){
             $lost=new Lost;
@@ -277,12 +276,10 @@ class HomeController extends Controller
       public function lostRegister(Request $request)
       {
           $user = Auth::user();
-          $user=User::where('id', '=', Auth::id());
-          $user
+          $user=User::where('id', '=', Auth::id())
           ->update([
               'type'=> 3,
             ]);
-
             $user = Auth::user();
             $lost=new Lost;
             $lost->name=$request->name;
@@ -317,7 +314,7 @@ class HomeController extends Controller
             $lost->save();
 
             $type=$user->type;
-        return view('auth.main.registered');
+        return view('auth.main.registered', compact('user'));
       }
           //my_page画面に遷移
           public function my_page()
