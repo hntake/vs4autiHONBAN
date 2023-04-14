@@ -82,6 +82,9 @@ Route::get('/partner', function () {
 Route::get('/paypay', function () {
     return view('paypay');
 });
+Route::get('/stop', function () {
+    return view('stop');
+});
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 
 Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');
@@ -330,6 +333,15 @@ Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_ne
 Route::get('lost/home/{id}', [\App\Http\Controllers\ExtraController::class, 'protect']);
 //電話する
 Route::post('lost/home/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'to_call'])->name('to_call');
+//お守りを停止する画面へ
+Route::get('lost/stop', [\App\Http\Controllers\ExtraController::class, 'stop'])->name('stop');
+//お守りを停止する
+Route::post('lost/stop', [\App\Http\Controllers\ExtraController::class, 'stop_call'])->name('stop_call');
+//お守りを再開する画面へ
+Route::get('lost/again', [\App\Http\Controllers\ExtraController::class, 'again'])->name('again');
+//お守りを再開する
+Route::post('lost/again', [\App\Http\Controllers\ExtraController::class, 'again_call'])->name('again_call');
+
 //VS4会員がお守りバッジ申込む
 Route::get('lost/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('lost.register');
 Route::post('lost/register', [App\Http\Controllers\HomeController::class, 'lostCheck'])->name('register.lost.check');

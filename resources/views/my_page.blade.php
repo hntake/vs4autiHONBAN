@@ -12,7 +12,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">登録情報</div>
-
+                @if($lost->mode==0)
+                <div class="pro_button"><a href="{{ route('stop') }}">サービスを停止する</a></div>
+                @elseif($lost->mode==1)
+                <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
+                @endif
                 <div class="card-body">
                 <div class="form-group row">
 

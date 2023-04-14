@@ -18,12 +18,12 @@
 
                     @empty($message)
                     <div class="card-body">
-                            <form method="POST" action="{{ route('vs4.check') }}">
+                            <form method="POST" action="{{ route('vs4.registered') }}">
                                 @csrf
                                 <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                     ※性別を選択してください<br>
                                     <label for="gender">
-                                        男の子<input id="gender" type="radio" name="gender" value="boy" ><br>
+                                        男の子<input id="gender" type="radio" name="gender" value="boy" required><br>
                                     </label>
                                     <label for="gender">
                                         女の子<input id="gender" type="radio" name="gender" value="girl"><br>
@@ -33,7 +33,7 @@
                                 <div class="box" style="margin-bottom: 10px; background-color:#ADD8E6 ; padding: 0 20px;">
                                     ※完了マークを選択してください<br>
                                     <label for="image_id2">
-                                        1.<img src="{{asset('img/hana.png')}}"><input id="image_id2" type="radio" name="image_id" value="2" ><br>
+                                        1.<img src="{{asset('img/hana.png')}}"><input id="image_id2" type="radio" name="image_id" value="2"required ><br>
                                     </label>
                                     <label for="image_id3">
                                         2.<img src="{{asset('img/smile.png')}}"><input id="image_id3" type="radio" name="image_id" value="3"><br>
@@ -45,7 +45,7 @@
                                 <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    確認画面へ
+                                    登録する
                                 </button>
                             </div>
                         </div>

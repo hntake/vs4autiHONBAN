@@ -46,7 +46,7 @@
                         <div class="r-box">
                             ※申込サービスを選択してください<br><br>
                             <label for="type">
-                                絵スケジュール<input id="type" type="radio" name="type" value="0"><br>
+                                絵スケジュール<input id="type" type="radio" name="type" value="0" required><br>
                             </label>
                             <label for="type">
                                 お守りグッズ<input id="type" type="radio" name="type" value="1"><br>
