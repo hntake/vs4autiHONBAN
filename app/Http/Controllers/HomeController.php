@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Lost;
 use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Payment;
+
 
 
 class HomeController extends Controller
@@ -390,5 +392,32 @@ class HomeController extends Controller
     }
         return redirect('my_page');
     }
+  /*payment入力画面*/
+  public function payment(Request $request)
+  {
+    $user=Auth::user();
+    if($user->role==1){
+        $payments=Payment::orderBy('id', 'desc')->paginate(10);
+        return view('pay_type',compact('payments'));
+    }
+  }
+  /*payment登録*/
+  public function payment_post(Request $request)
+  {
+      $user=User::where('email', '=',$request->email)->first();
+      $payment = new Payment;
+      $payment->name = $request->name;
+      $payment->email = $request->email;
+      $payment->type = $request->type;
+      $payment->uuid = $user->uuid;
+      $payment->save();
 
+      $new_pay=1;
+      $user
+      ->update([
+          'pm_type'=>$new_pay,
+      ]);
+
+      return redirect('pay_type');
+  }
 }

@@ -350,6 +350,9 @@ Route::post('lost/register_check', [App\Http\Controllers\HomeController::class, 
 Route::get('vs4', [\App\Http\Controllers\HomeController::class, 'vs4'])->name('vs4');
 Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'vs4Check'])->name('vs4.check');
 Route::post('vs4', [App\Http\Controllers\HomeController::class, 'vs4Register'])->name('vs4.registered');
+//payment表
+Route::get('pay_type', [\App\Http\Controllers\HomeController::class, 'payment'])->name('payment');
+Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'payment_post'])->name('payment_post');
 
 
 //キャンセル後遷移

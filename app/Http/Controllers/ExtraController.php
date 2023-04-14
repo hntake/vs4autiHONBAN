@@ -141,13 +141,13 @@ class ExtraController extends Controller
         return redirect("tel:{{$tel}}");
     }
     /*お守りバッジサービスを停止確認画面*/
-    public function stop(Request $requestl)
+    public function stop(Request $request)
     {
 
         return view('lost/stop');
     }
     /*お守りバッジサービスを停止確認画面*/
-    public function stop_call(Request $requestl)
+    public function stop_call(Request $request)
     {
 
         $new_lost=1;
@@ -162,13 +162,13 @@ class ExtraController extends Controller
         return redirect('my_page');
     }
     /*お守りバッジサービスを再開確認画面*/
-    public function again(Request $requestl)
+    public function again(Request $request)
     {
 
         return view('lost/again');
     }
     /*お守りバッジサービスを再開確認画面*/
-    public function again_call(Request $requestl)
+    public function again_call(Request $request)
     {
 
         $new_lost=0;
@@ -182,5 +182,6 @@ class ExtraController extends Controller
 
         return redirect('my_page');
     }
+
 
 }
