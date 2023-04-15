@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
     <link rel="stylesheet" type="text/css" href="css/9-6-2.css">
     <!-- Styles -->
-    <!--    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
-    <!-- <link rel="stylesheet" href="{{ asset('css/feature.css') }}"> -->
+
     <link rel="stylesheet" href="{{ asset('css/partner.css') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Homemade+Apple rel=" stylesheet">

@@ -751,7 +751,7 @@ section{
     -ms-flex-direction: row;
 }
 .mobile{
-    display:none;
+    display: none !important;;
 }
 #nav-drawer {
     position: relative;
@@ -864,6 +864,9 @@ section{
     float:unset;
 }
 .mobile-login{
+}
+.mobile{
+    display: none !important;;
 }
 /*ハンバーガーメニュー*/
 .mobile-menu{
