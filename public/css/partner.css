@@ -371,7 +371,9 @@ h2.bottom-element-top{
     .sales_discription{
         padding:100px 50px;
     }
-
+    .p-logo{
+        text-align: center;
+    }
     /*広告掲載費table*/
     table.company {
         width: 400px;
@@ -780,7 +782,9 @@ section{
   #nav-open span:after {
     bottom: -16px;
   }
-
+  .header_nav_itm{
+    width:auto;
+}
   /*閉じる用の薄黒箇所*/
   #nav-close {
     display: none;
@@ -834,6 +838,9 @@ section{
 }
 .gotop{
     top:-5rem;
+}
+.p-logo{
+    text-align: center;
 }
   }
  /************************************************************************/
