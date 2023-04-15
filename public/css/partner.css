@@ -623,6 +623,9 @@ display:block;
 text-decoration:none;
 color:#222222;
 }
+.header_nav_itm{
+    width:auto;
+}
 .bottom-container{
 display:block;
 }
@@ -957,6 +960,12 @@ section{
 }
 .site-footer .site-info{
     padding-top: 45rem;
+}
+.p-logo{
+    text-align: center;
+}
+.partner_image{
+    margin:0;
 }
   }
 

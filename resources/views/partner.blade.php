@@ -154,8 +154,10 @@
             </div>
             <section>
                 <div class="partner_logo">
-                    <h2>VS4<br>
-                        パートナープログラム</h2>
+                    <div class="p-logo">
+                        <h2>VS4</h2>
+                            <h3>パートナープログラム</h3>
+                    </div>
                     <div class="partner_image">
                         <img src="img/partner2.png" alt="partner" style="width:100%; height:auto;">
                     </div>
@@ -167,7 +169,10 @@
                 <div class="middle-partner">
                     <a name="paid">
                         <div class="partner_logo">
-                            <h2>VS4 <br>ディストリビュータープログラム</h2>
+                        <div class="p-logo">
+                            <h2>VS4 </h2>
+                            <h3>ディストリビュータープログラム</h3>
+                        </div>
                         </div>
                         <div class="sales">
                             <div class="sales_image">
@@ -184,7 +189,10 @@
                 <div class="middle-partner">
                     <a name="monitor">
                         <div class="partner_logo">
-                            <h2>VS4 <br>サポータープログラム</h2>
+                        <div class="p-logo">
+                            <h2>VS4 </h2>
+                            <h3>サポータープログラム</h3>
+                        </div>
                         </div>
                         <div class="sales">
                             <div class="item">
@@ -203,7 +211,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="sponsor_discription">
+                            <div class="sales_discription">
                                 VS4は視覚支援ツールです。広告は、視覚支援の妨げになりますので、限られたページでのみの広告となりますが、運営するためのサポートをして下さる広告スポンサーを募集しています。<br>
                                 詳しくはこちらからお問い合わせください。
                                 <div class="admin_button"><a href="{{ route('contact.index') }}" style="background-color:none; color:#7791DE;">お問い合わせページへ</a></div>

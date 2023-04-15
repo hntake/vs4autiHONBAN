@@ -65,4 +65,4 @@
 </div>
 </main>
 @endsection
-<a href="#" class="gotop">トップへ</a>
+<a href="{{('/')}}" class="gotop">トップへ</a>
