@@ -225,7 +225,7 @@
                 <div class="movie_cap">
                     <div class="elementor-widget">
                         <a name="hair">
-                            <img src="img/hair0.png">
+                            <img src="img/hair0.jpg">
                         </a>
                     </div>
                     <div class="youtube">
@@ -240,7 +240,7 @@
                 <div class="movie_cap">
                     <div class="elementor-widget">
                         <a name="independence">
-                            <img src="img/id1-0.png">
+                            <img src="img/id1-0.jpg">
                         </a>
                     </div>
                     <div class="youtube">

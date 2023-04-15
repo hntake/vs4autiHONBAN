@@ -17,7 +17,7 @@
                     </div>
                     @endif
                     <div class="thank">
-                        <img src="{{asset('img/lost_ad.png')}}">
+                        <img src="{{asset('img/lost_ad.jpg')}}">
                     </div>
                     <form method="POST" action="{{ route('to_call',['id'=>$user->id,'to_call'=>$to_call])}}">
                         @csrf

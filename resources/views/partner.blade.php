@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="elementor-widget-mobile">
-                    <img src="img/partner.jpg" style="width:100%; height:auto;">
+                    <img src="img/partner.webp" style="width:100%; height:auto;">
                     <div class="post_title1">
                         <h2 class="post_title">
                             Your smile makes me happy
@@ -156,7 +156,7 @@
                 <div class="partner_logo">
                     <div class="p-logo">
                         <h2>VS4</h2>
-                            <h3>パートナープログラム</h3>
+                        <h3>パートナープログラム</h3>
                     </div>
                     <div class="partner_image">
                         <img src="img/partner2.png" alt="partner" style="width:100%; height:auto;">
@@ -169,10 +169,10 @@
                 <div class="middle-partner">
                     <a name="paid">
                         <div class="partner_logo">
-                        <div class="p-logo">
-                            <h2>VS4 </h2>
-                            <h3>ディストリビュータープログラム</h3>
-                        </div>
+                            <div class="p-logo">
+                                <h2>VS4 </h2>
+                                <h3>ディストリビュータープログラム</h3>
+                            </div>
                         </div>
                         <div class="sales">
                             <div class="sales_image">
@@ -189,10 +189,10 @@
                 <div class="middle-partner">
                     <a name="monitor">
                         <div class="partner_logo">
-                        <div class="p-logo">
-                            <h2>VS4 </h2>
-                            <h3>サポータープログラム</h3>
-                        </div>
+                            <div class="p-logo">
+                                <h2>VS4 </h2>
+                                <h3>サポータープログラム</h3>
+                            </div>
                         </div>
                         <div class="sales">
                             <div class="item">
@@ -240,7 +240,7 @@
                     <h2 class="widget-title">関連情報</h2>
                     <div class="menu-site-map-1-container">
                         <ul id="menu-site-map-1" class="menu">
-                        <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
+                            <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
                             <l><a href="{{ url('news')}}">お知らせ</a></li>
                                 <li><a href="{{ url('partner')}}">パートナー</a></li>
                         </ul>
