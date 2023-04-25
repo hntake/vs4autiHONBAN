@@ -1171,7 +1171,7 @@ class ScheduleController extends Controller
         } else {
             $data['image1'] = Schedule::where('id', $id)->value('image1');
         }
-        if ($request->has('image2')) {
+        if (isset($schedules->image2)) {
             if ($request->ask3 == 2) {
                 $uploadImg2 = $request->image2;
                 $filePath2 = $uploadImg2->store('public');
@@ -1184,7 +1184,7 @@ class ScheduleController extends Controller
         } else {
             $data['image2'] = null;
         }
-        if (null !== $request->file('image3')) {
+        if (isset($schedules->image3)) {
             if ($request->ask4 == 2) {
                 $uploadImg3 = $request->image3;
                 $filePath3 = $uploadImg3->store('public');
@@ -1197,7 +1197,7 @@ class ScheduleController extends Controller
         } else {
             $data['image3'] = null;
         }
-        if (null !== $request->file('image4')) {
+        if (isset($schedules->image3)) {
             if ($request->ask5 == 2) {
                 $uploadImg4 = $request->image4;
                 $filePath4 = $uploadImg4->store('public');
@@ -1207,7 +1207,7 @@ class ScheduleController extends Controller
             } else {
                 $data['image4'] = Schedule::where('id', $id)->value('image4');
             }
-        } else {
+        } else{
             $data['image4'] = null;
         }
         // データベースを更新
