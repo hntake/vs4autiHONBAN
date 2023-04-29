@@ -68,45 +68,45 @@ class ExtraController extends Controller
             $now = Carbon::now();
             $date = $now->hour;
             $week = $now->dayOfWeek;
-            if ($week == 1 &&  $date >= 6 && $date <= 12) {
+            if ($week == 1 &&  $date >= 6 && $date < 12) {
                 $to_call = $user->mon1;
-            } elseif ($week == 2 && $date >= 6 && $date <= 12) {
+            } elseif ($week == 2 && $date >= 6 && $date < 12) {
                 $to_call = $user->tue1;
-            } elseif ($week == 3 && $date >= 6 && $date <= 12) {
+            } elseif ($week == 3 && $date >= 6 && $date < 12) {
                 $to_call = $user->wed1;
-            } elseif ($week == 4 && $date >= 6 && $date <= 12) {
+            } elseif ($week == 4 && $date >= 6 && $date < 12) {
                 $to_call = $user->thu1;
-            } elseif ($week == 5 && $date >= 6 && $date <= 12) {
+            } elseif ($week == 5 && $date >= 6 && $date < 12) {
                 $to_call = $user->fri1;
-            } elseif ($week == 6 && $date >= 6 && $date <= 12) {
+            } elseif ($week == 6 && $date >= 6 && $date < 12) {
                 $to_call = $user->sat1;
-            } elseif ($week == 7 && $date >= 6 && $date <= 12) {
+            } elseif ($week == 7 && $date >= 6 && $date < 12) {
                 $to_call = $user->sun1;
-            } elseif ($week == 1 && $date >= 12 && $date <= 19) {
+            } elseif ($week == 1 && $date >= 12 && $date < 19) {
                 $to_call = $user->mon2;
-            } elseif ($week == 2 && $date >= 12 && $date <= 19) {
+            } elseif ($week == 2 && $date >= 12 && $date < 19) {
                 $to_call = $user->tue2;
-            } elseif ($week == 3 && $date >= 12 && $date <= 19) {
+            } elseif ($week == 3 && $date >= 12 && $date < 19) {
                 $to_call = $user->wed2;
-            } elseif ($week == 4 && $date >= 12 && $date <= 19) {
+            } elseif ($week == 4 && $date >= 12 && $date < 19) {
                 $to_call = $user->thu2;
-            } elseif ($week == 5 && $date >= 12 && $date <= 19) {
+            } elseif ($week == 5 && $date >= 12 && $date < 19) {
                 $to_call = $user->fri2;
-            } elseif ($week == 6 && $date >= 12 && $date <= 19) {
+            } elseif ($week == 6 && $date >= 12 && $date < 19) {
                 $to_call = $user->sat2;
-            } elseif ($week == 7 &&  $date >= 12 && $date <= 19) {
+            } elseif ($week == 7 &&  $date >= 12 && $date < 19) {
                 $to_call = $user->sun2;
-            } elseif ($week == 1 && $date >= 19 || $date <= 6) {
+            } elseif ($week == 1 && $date >= 19 || $date < 6) {
                 $to_call = $user->mon3;
-            } elseif ($week == 2 && $date >= 19 || $date <= 6) {
+            } elseif ($week == 2 && $date >= 19 || $date < 6) {
                 $to_call = $user->tue3;
-            } elseif ($week == 3 && $date >= 19 || $date <= 6) {
+            } elseif ($week == 3 && $date >= 19 || $date < 6) {
                 $to_call = $user->wed3;
-            } elseif ($week == 4 && $date >= 19 || $date <= 6) {
+            } elseif ($week == 4 && $date >= 19 || $date < 6) {
                 $to_call = $user->thu3;
-            } elseif ($week == 5 && $date >= 19 || $date <= 6) {
+            } elseif ($week == 5 && $date >= 19 || $date < 6) {
                 $to_call = $user->fri3;
-            } elseif ($week == 6 && $date >= 19 || $date <= 6) {
+            } elseif ($week == 6 && $date >= 19 || $date < 6) {
                 $to_call = $user->sat3;
             } else {
                 $to_call = $user->sun3;
