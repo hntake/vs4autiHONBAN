@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'VS4') }}</title>
+    <title>VS4視覚支援ツール</title>
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 

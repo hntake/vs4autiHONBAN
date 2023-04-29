@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('losts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('name_pronunciation');
+            $table->string('name_pronunciation')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

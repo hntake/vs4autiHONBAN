@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>左側カット画面 "VS4”</title>
+<title>左側カット画面 "VS4視覚支援ツール”</title>
 @section('content')
 <!DOCTYPE html>
 <html lang="ja">
@@ -17,19 +17,18 @@
 </head>
 
 <div class="container">
-@if($user==null)
-<img src="{{asset('img/boy_l.webp')}}" alt="left"style="width:55%;height:auto;">
-@elseif($user->gender=="boy")
-<img src="{{asset('img/boy_l.webp')}}" alt="left"style="width:55%;height:auto;">
-@else
-<img src="{{asset('img/g_left.webp')}}" alt="left"style="width:55%;height:auto;">
-@endif
+    @if($user==null)
+    <img src="{{asset('img/boy_l.webp')}}" alt="left" style="width:55%;height:auto;">
+    @elseif($user->gender=="boy")
+    <img src="{{asset('img/boy_l.webp')}}" alt="left" style="width:55%;height:auto;">
+    @else
+    <img src="{{asset('img/g_left.webp')}}" alt="left" style="width:55%;height:auto;">
+    @endif
     <div class="pie"></div>
 </div>
 <script>
-    setTimeout(function(){
-  window.location.href='/hair/cut';
-}, 60*1000);
+    setTimeout(function() {
+        window.location.href = '/hair/cut';
+    }, 60 * 1000);
 </script>
 @endsection
-

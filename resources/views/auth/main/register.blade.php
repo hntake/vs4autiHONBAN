@@ -82,7 +82,7 @@
                                         <input id="name_pronunciation" type="text"
                                                class="form-control{{ $errors->has('name_pronunciation') ? ' is-invalid' : '' }}"
                                                name="name_pronunciation" value="{{ old('name_pronunciation') }}"
-                                               required>
+                                               >
 
                                         @if ($errors->has('name_pronunciation'))
                                             <span class="invalid-feedback">

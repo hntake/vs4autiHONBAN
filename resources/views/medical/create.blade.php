@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>医療スケジュール新規作成画面 "VS4”</title>
+<title>医療スケジュール新規作成画面 "VS4視覚支援ツール”</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- schedule.cssと連携 -->
 <!--ハンバーガーメニュー-->

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>年額プラン申込画面 ”VS4”</title>
+    <title>年額プラン申込画面 ”VS4視覚支援ツール”</title>
 
 
     <!-- Fonts -->

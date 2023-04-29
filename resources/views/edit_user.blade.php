@@ -21,6 +21,8 @@
                     <tr>
                         <th >メールアドレス</th>
                         <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
+                        <th >パスワード</th>
+                        <td><input type="text" name="password" value="{{ $user->password}}" class="form-control"></td>
                     </tr>
                     @if($user->type==0 )
                     <tr>
@@ -607,9 +609,9 @@
                     </div>
                 </div>
                     <div class="button"><input type="submit" value="更新">
-                    <h4>更新ボタンを押さないと変更されません</h4>
-                </div>
-
+                        <h4>更新ボタンを押さないと変更されません</h4>
+                    </div>
+                   
             </div>
         </form>
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}">
-<title>プロフィール編集画面 VS4”</title>
+<title>プロフィール編集画面 VS4視覚支援ツール”</title>
 
 @section('content')
 

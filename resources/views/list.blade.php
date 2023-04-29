@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
-<title>保存リスト画面 VS4”</title>
+<title>保存リスト画面 VS4視覚支援ツール”</title>
 
 @section('content')
 

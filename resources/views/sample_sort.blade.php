@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'VS4') }}</title>
+    <title>VS4視覚支援ツール イラストスケジュールサンプル</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

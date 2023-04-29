@@ -12,7 +12,7 @@
     <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スケジュール画面 VS4”</title>
+    <title>スケジュール画面 VS4視覚支援ツール”</title>
 </head>
 
 <div class="container">
@@ -29,7 +29,7 @@
                         @else
                         <td><img src="{{ asset('storage/' . $schedule->image0) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         <td>
-                        @endif
+                            @endif
                             <p>
                             <div class="arrow">&#9660;</div>
                             </p>
@@ -41,7 +41,7 @@
                         @else
                         <td><img src="{{ asset('storage/' . $schedule->image1) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         <td>
-                        @endif                        @if(isset($schedule->image2))
+                            @endif @if(isset($schedule->image2))
                         <td>
                             <p>
                             <div class="arrow">&#9660;</div>
@@ -54,8 +54,8 @@
                         @else
                         <td><img src="{{ asset('storage/' . $schedule->image2) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         <td>
-                        @endif                        @endif
-                        @if(isset($schedule->image3))
+                            @endif @endif
+                            @if(isset($schedule->image3))
                         <td>
                             <p>
                             <div class="arrow">&#9660;</div>
@@ -68,8 +68,8 @@
                         @else
                         <td><img src="{{ asset('storage/' . $schedule->image3) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         <td>
-                        @endif                        @endif
-                        @if(isset($schedule->image4))
+                            @endif @endif
+                            @if(isset($schedule->image4))
                         <td>
                             <p>
                             <div class="arrow">&#9660;</div>
@@ -82,7 +82,7 @@
                         @else
                         <td><img src="{{ asset('storage/' . $schedule->image4) }}" alt="image" onclick="this.src='/img/smile.png'"></td>
                         <td>
-                        @endif                        @endif
+                            @endif @endif
                     </tr>
                 </div>
 

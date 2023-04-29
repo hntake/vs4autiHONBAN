@@ -365,6 +365,14 @@
                             </div>
                         </div>
                     @elseif($type==1 )
+                        <div class="card-header">登録情報</div>
+                            @if($lost->mode==0)
+                            <div class="pro_button"><a href="{{ route('stop') }}">サービスを停止する</a></div>
+                            @elseif($lost->mode==1)
+                            <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
+                            @endif
+                            <div class="card-body">
+                            <div class="form-group row">
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                             <div class="col-md-6">
@@ -661,6 +669,7 @@
                         </div>
                     @endif
                     <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a></div>
+                    <div class="pro_button"><a href="{{ route('password') }}">パスワード変更画面へ</a></div>
                 </div>
             </div>
         </div>

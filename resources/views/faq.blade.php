@@ -10,7 +10,7 @@
     <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
     <script src="according.js"></script>
 </head>
-<title>FAQ "VS4”</title>
+<title>FAQ "VS4視覚支援ツール”</title>
 
 <body>
     <h1 style="margin: 30px 0; text-align: center;">FAQ</h1>

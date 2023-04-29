@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="webサービス会社llco そして、ITの力で助けたいボランティア団体IT2Uについて" name="description">
 
-    <title>{{ config('app.name', 'VS4') }} about us</title>
+    <title>VS4視覚支援ツール about us</title>
+
     <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
 
     <!-- Fonts -->

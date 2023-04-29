@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>自立支援 新規作成画面 "VS4”</title>
+<title>自立支援 新規作成画面 "VS4視覚支援ツール”</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- home.cssと連携 -->

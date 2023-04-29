@@ -151,6 +151,10 @@ Route::get('my_page', [App\Http\Controllers\HomeController::class, 'my_page'])->
 Route::get('/edit_user/{id}', [App\Http\Controllers\HomeController::class, 'edit_user'])->name('edit_user');
 /*選択したユーザーを編集する*/
 Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user');
+/*選択したユーザーのパスワード変更画面へ*/
+Route::get('/update_password', [App\Http\Controllers\HomeController::class, 'password'])->name('password');
+/*選択したユーザーのパスワード変更申請*/
+Route::patch('/update_password', [App\Http\Controllers\HomeController::class, 'update_password'])->name('update_password');
 Auth::routes();
 //ホーム画面表示
 Route::get('/home', function () {

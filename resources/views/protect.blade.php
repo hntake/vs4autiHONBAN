@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？" name="description">
 
-    <title>お守りバッジとは？ </title>
+    <title>お守りバッジとは？迷子対策 </title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -68,7 +69,7 @@
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#use" class="header_nav_itm_link">お守りバッジとは</a>
-                                <div class="description1">携帯も持てない、電話番号も伝えれない方の万が一の時の為の準備</div>
+                                <div class="description1">の万が一の時の為の準備</div>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#free" class="header_nav_itm_link">お守りバッジの申込方法</a>

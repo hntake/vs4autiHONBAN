@@ -10,6 +10,9 @@ use App\Models\Lost;
 use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Payment;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 
 
@@ -392,6 +395,55 @@ class HomeController extends Controller
     }
         return redirect('my_page');
     }
+            /**
+     * 選択したユーザーのパスワード変更画面へ
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function password()
+    {
+        $user =  $user=Auth::user();
+        return view('update_password',[
+            'user' => $user,
+        ]);
+    }
+    protected function validator(array $data)
+    {
+        return Validator::make($data,[
+            'new_password' => 'required|string|min:6|confirmed',
+            ]);
+    }
+  /**
+     * 選択したユーザーのパスワードを変更する
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function update_password(Request $request)
+    {
+        $user =  $user=Auth::user();
+        if(!password_verify($request->current_password,$user->password))
+        {
+            return redirect('/password/change')
+                ->with('warning','パスワードが違います');
+        }
+
+        //新規パスワードの確認
+        $this->validator($request->all())->validate();
+
+        $user->password = bcrypt($request->new_password);
+        $user->save();
+
+        return redirect ('/')
+            ->with('status','パスワードの変更が終了しました');
+    }
+
+
+
+
+
+
   /*payment入力画面*/
   public function payment(Request $request)
   {
