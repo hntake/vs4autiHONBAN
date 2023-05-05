@@ -30,6 +30,7 @@ img{
 }
 form{
     width:70%;
+    margin-left:24px;
 }
 /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
