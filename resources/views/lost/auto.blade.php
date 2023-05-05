@@ -11,5 +11,5 @@
             <br>
             <a href="mailto:info@itcha50.com">メールはこちらへ</a>
             <br>
-            <a href="{{ url('/') }}">  https://wwww.itcha50.com</a>
+            <a href="{{ url('/') }}">  https://itcha50.com</a>
 <br>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れるサイトです。" name="description">
+    <meta content="自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れるサイトです。迷子対策のお守りバッジも販売中" name="description">
 
     <title>{{ config('app.name', 'VS4') }} スマホで作る絵スケジュールサイトVS4 トップページ</title>
 
@@ -98,6 +98,15 @@
                                 <a href="{{ url('hair/schedule') }}" class=" header_nav_itm_link">ヘアカット</a>
                                 <div class="description1">ヘアカットスケジュールへ移動する</div>
                             </li>
+                            <li>
+                                <div class="logout_buttom">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <!-- CSRF保護 -->
+                                        <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
+                                    </form>
+                                </div>
+                            </li>
                             <li class="header_nav_itm">
                                 @else
                                 <div class="login-button">
@@ -113,6 +122,7 @@
 
                                 </div>
                             </li>
+
                             @endif
                             @endauth
                             @endif
@@ -158,7 +168,15 @@
  -->
                             </div>
                         </li>
-
+                        <li>
+                                <div class="logout_buttom">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <!-- CSRF保護 -->
+                                        <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
+                                    </form>
+                                </div>
+                            </li>
                         @endif
                         @endauth
                         @endif
@@ -224,7 +242,7 @@
                                 <li>
                                     <a href="{{ url('protect') }}">
                                         <h3 ontouchstart="">
-                                            お守りバッジ</h3>
+                                            お守りバッジ（迷子対策）</h3>
                                     </a>
                                 </li>
                                 <li>
@@ -239,6 +257,15 @@
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
+                                <li>
+                                <div class="logout_buttom">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <!-- CSRF保護 -->
+                                        <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
+                                    </form>
+                                </div>
+                            </li>
                             </ul>
 
                         </div>

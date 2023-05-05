@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'status'=>0,//仮登録のみ
             'type'=>1,//お守りバッジ
-
+            'pm_type'=>10,//販売店購入
         ];
     }
 

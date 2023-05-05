@@ -33,23 +33,7 @@ class LostHomeController extends Controller
 
         return view('lost.home',compact('lost'));
     }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
-     public function edit(Request $request,$id) {
-
-      $losts= Lost::find($id);
-      $losts->user_name= $request->input('user_name');
-      $losts->email=$request->input('email');
-      $losts->tel1=$request->input('tel1');
-      $losts->tel2=$request->input('tel2');
-      $losts->mode=$request->input('mode');
-      $losts->mon1-$request->input('mon1');
-
-    }
+ 
 
 
 }

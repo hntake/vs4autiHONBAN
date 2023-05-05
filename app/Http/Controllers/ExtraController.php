@@ -116,8 +116,11 @@ class ExtraController extends Controller
                 'to_call' => $to_call,
             ]);
         }
-        else{
+        elseif($user->mode==2){
             return view('stop');
+        }
+        else{
+            return view('suspend');
         }
     }
     /*お守りで電話ボタンクリック*/
@@ -140,17 +143,38 @@ class ExtraController extends Controller
 
         return redirect("tel:{{$tel}}");
     }
+    /*お守りバッジサービスを一時停止確認画面*/
+    public function suspend(Request $request)
+    {
+
+        return view('lost/suspend');
+    }
+    /*お守りバッジサービスを一時停止に変更*/
+    public function suspend_call(Request $request)
+    {
+
+        $new_lost=1;
+
+        $user = Auth::user();
+        $lost = Lost::where('email', '=',Auth::user()->email)->first();
+        $lost
+        ->update([
+            'mode'=>$new_lost,
+        ]);
+
+        return redirect('my_page');
+    }
     /*お守りバッジサービスを停止確認画面*/
     public function stop(Request $request)
     {
 
         return view('lost/stop');
     }
-    /*お守りバッジサービスを停止確認画面*/
+    /*お守りバッジサービスを停止に変更*/
     public function stop_call(Request $request)
     {
 
-        $new_lost=1;
+        $new_lost=2;
 
         $user = Auth::user();
         $lost = Lost::where('email', '=',Auth::user()->email)->first();
@@ -167,7 +191,7 @@ class ExtraController extends Controller
 
         return view('lost/again');
     }
-    /*お守りバッジサービスを再開確認画面*/
+    /*お守りバッジサービスを再開に変更*/
     public function again_call(Request $request)
     {
 

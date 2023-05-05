@@ -45,3 +45,34 @@ input{
     border: unset;
     background-color: rgb(176, 233, 182);
 }
+.dashboard-area{
+    width:50%;
+    margin:0 auto;
+}
+.col-md-6{
+    margin: 0 auto;
+}
+.mypage_row{
+    display:block;
+}
+/*ipad*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .dashboard-area{
+        width:80%;
+        margin:0 auto;
+    }
+    .col-md-4{
+       max-width:100%;
+    }
+}
+/*iPhone12レスポンシブ対応*/
+@media only screen
+and (min-device-width: 390px)
+and (max-device-width: 844px)
+and (-webkit-min-device-pixel-ratio: 3) {
+      .dashboard-area{
+          width:100%;
+          margin:0 auto;
+      }
+
+  }

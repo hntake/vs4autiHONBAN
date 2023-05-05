@@ -12,16 +12,19 @@
                         <!--VS4のみ-->
                         @if($user->type==0)
                         <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動</a>
+                        <!--販売店より購入-->
+                        @elseif($user->type==1 && $user->pm_type == 10)
+                        <a href="{{url('/my_page')}}" class="sg-btn">登録情報確認ページへ移動</a>
                         <!--お守りのみ-->
                         @elseif($user->type==1)
-                        <p>そのまま、支払いページへ移動して申し込みを完了してください。</p>
-                        <a href="{{url('/paypay')}}" class="sg-btn">支払いページへ移動</a>
+                        <p>そのまま、デザイン選択ページへ移動してください。</p>
+                        <a href="{{url('/design')}}" class="sg-btn">デザイン選択ページへ移動</a>
                         <!--お守りからVS4もの人-->
                         @elseif($user->type==3 && $user->pm_type !== null)
                         <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動</a>
                         @elseif($user->type==3 && $user->pm_type == null)
-                        <p>そのまま、支払いページへ移動して申し込みを完了してください。</p>
-                        <a href="{{url('/paypay')}}" class="sg-btn">支払いページへ移動</a>
+                        <p>そのまま、デザイン選択ページへ移動してください。</p>
+                        <a href="{{url('/design')}}" class="sg-btn">デザイン選択ページへ移動</a>
                         @endif
                     </div>
                 </div>

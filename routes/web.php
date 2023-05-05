@@ -82,8 +82,17 @@ Route::get('/partner', function () {
 Route::get('/paypay', function () {
     return view('paypay');
 });
+Route::get('/paypay800', function () {
+    return view('paypay800');
+});
 Route::get('/stop', function () {
     return view('stop');
+});
+Route::get('/design', function () {
+    return view('design');
+});
+Route::get('/design_original', function () {
+    return view('design_original');
 });
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 
@@ -338,6 +347,10 @@ Route::get('lost/home/{id}', [\App\Http\Controllers\ExtraController::class, 'pro
 //電話する
 Route::post('lost/home/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'to_call'])->name('to_call');
 //お守りを停止する画面へ
+Route::get('lost/suspend', [\App\Http\Controllers\ExtraController::class, 'suspend'])->name('suspend');
+//お守りを停止する
+Route::post('lost/suspend', [\App\Http\Controllers\ExtraController::class, 'suspend_call'])->name('suspend_call');
+//お守りを停止する画面へ
 Route::get('lost/stop', [\App\Http\Controllers\ExtraController::class, 'stop'])->name('stop');
 //お守りを停止する
 Route::post('lost/stop', [\App\Http\Controllers\ExtraController::class, 'stop_call'])->name('stop_call');
@@ -354,6 +367,13 @@ Route::post('lost/register_check', [App\Http\Controllers\HomeController::class, 
 Route::get('vs4', [\App\Http\Controllers\HomeController::class, 'vs4'])->name('vs4');
 Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'vs4Check'])->name('vs4.check');
 Route::post('vs4', [App\Http\Controllers\HomeController::class, 'vs4Register'])->name('vs4.registered');
+//バッジデザイン選択
+Route::post('design', [App\Http\Controllers\HomeController::class, 'choice'])->name('choice');
+//デザイン登録
+Route::post('design_send', [App\Http\Controllers\HomeController::class, 'design_send'])->name('design_send');
+//originalデザイン登録
+Route::post('design_original', [App\Http\Controllers\HomeController::class, 'design_original'])->name('design_original');
+
 //payment表
 Route::get('pay_type', [\App\Http\Controllers\HomeController::class, 'payment'])->name('payment');
 Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'payment_post'])->name('payment_post');

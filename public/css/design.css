@@ -1,0 +1,68 @@
+
+.card img{
+    width:300px;
+
+    height:auto;
+}
+.relative {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+.absolute {
+    position:absolute;
+    top:118px;
+    left:85px;
+    width:50%;
+}
+.absolute img{
+    width:20%;
+}
+h5{
+    text-align: start;
+}
+.container{
+   /*  width:max-content; */
+   margin-top: 100px;
+}
+.col-md-8{
+    max-width: 100%;
+}
+h3{
+    font-size:18px;
+}
+.card{
+    padding:24px;
+    text-align: start;
+}
+.button{
+    margin: 20px auto;
+}
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+.card img{
+    width:300px;
+
+    height:auto;
+}
+.relative {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+.absolute {
+    position:absolute;
+    top:95px;
+    left:75px;
+    width:50%;
+}
+.absolute img{
+    width:17%;
+}
+.container{
+    width:max-content;
+}
+}

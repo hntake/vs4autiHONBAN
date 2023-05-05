@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Lost;
+use App\Models\Design;
 use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Payment;
@@ -100,7 +101,6 @@ class HomeController extends Controller
           $lost->name=$request->name;
           $lost->name_pronunciation = $request->name_pronunciation;
           $lost->email=$user->email;
-          $lost->password=$user->password;
           $lost->uuid=$user->uuid;
           $lost->tel1=$request->tel1;
           $lost->tel2=$request->tel2;
@@ -164,7 +164,6 @@ class HomeController extends Controller
           $lost->name=$request->name;
           $lost->name_pronunciation = $request->name_pronunciation;
           $lost->email=$user->email;
-          $lost->password=$user->password;
           $lost->uuid=$user->uuid;
           $lost->tel1=$request->tel1;
           $lost->tel2=$request->tel2;
@@ -218,7 +217,6 @@ class HomeController extends Controller
             $lost->name=$request->name;
             $lost->name_pronunciation = $request->name_pronunciation;
             $lost->email=$user->email;
-            $lost->password=$user->password;
             $lost->uuid=$user->uuid;
             $lost->tel1=$request->tel1;
             $lost->tel2=$request->tel2;
@@ -290,7 +288,6 @@ class HomeController extends Controller
             $lost->name=$request->name;
             $lost->name_pronunciation = $request->name_pronunciation;
             $lost->email=$user->email;
-            $lost->password=$user->password;
             $lost->uuid=$user->uuid;
             $lost->tel1=$request->tel1;
             $lost->tel2=$request->tel2;
@@ -438,13 +435,65 @@ class HomeController extends Controller
         return redirect ('/')
             ->with('status','パスワードの変更が終了しました');
     }
+/*デザイン選択送信
+* @param Request $request
+* @return Response
+*/
+public function choice(Request $request)
+{
+    $user=Auth::user();
+    $lost=Lost::where('email','=',$user->email)->first();
+    $design=Design::where('email','=',$user->email)->first();
+    $lost->design = $request->input('design');
+    $lost->save();
+
+    return view('design_confirm',[
+        'lost' => $lost,
+        'design'=>$design,
+    ]);
+}
+/*デザイン選択登録
+* @param Request $request
+* @return Response
+*/
+public function design_send(Request $request)
+{
+    $user=Auth::user();
+    $lost=Lost::where('email','=',$user->email)->first();
+    return view('design_registerd',[
+        'lost' => $lost,
+    ]);
+}
+/*オリジナルデザイン送信
+* @param Request $request
+* @return Response
+*/
+public function design_original(Request $request)
+{
+    $validate = $request->validate(
+        [
+            'image' => 'required|file|image:jpeg,png,jpg|max:5000',
+        ],
+        [
+            'image' => '画像を選んでください',
+            ]
+    );
+    $path = $request->file('image')->store('public');
+    $user=Auth::user();
+    $lost=Lost::where('email','=',$user->email)->first();
+    $design=new Design();
+    $design->email=$user->email;
+    $design->image = str_replace('public/', '', $path);
+    $design->save();
+
+    return view('design_confirm',[
+        'design'=>$design,
+        'lost'=>$lost,
+    ]);
+}
 
 
-
-
-
-
-  /*payment入力画面*/
+  /*payment入力画面（手動）*/
   public function payment(Request $request)
   {
     $user=Auth::user();

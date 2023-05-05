@@ -8,13 +8,13 @@
                 <div class="card-header">サービス停止確認画面</div>
 
                 <div class="card-body" style="text-align:start;">
-                    <p>紛失等の為にサービスを停止しますか？</p>
-                    <form method="POST" action="{{ route('stop_call') }}" enctype="multipart/form-data">
+                    <p>サービスを一時停止しますか？</p>
+                    <form method="POST" action="{{ route('suspend_call') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" style="margin-top:30px">
-                                    {{ __('停止する') }}
+                                    {{ __('一時停止する') }}
                                 </button>
                             </div>
                         </div>

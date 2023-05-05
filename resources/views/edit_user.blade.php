@@ -10,6 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            <a href="{{url('/')}}" class="">トップページに戻る</a>
             <form method="POST" action="{{route('update_user',['id'=> $user->id])}}" enctype="multipart/form-data">
             @csrf
             @method('patch')
@@ -21,8 +22,9 @@
                     <tr>
                         <th >メールアドレス</th>
                         <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
-                        <th >パスワード</th>
-                        <td><input type="text" name="password" value="{{ $user->password}}" class="form-control"></td>
+                        <!-- パスワード変更は別で -->
+                  <!--       <th >パスワード</th>
+                        <td><input type="text" name="password" value="{{ $user->password}}" class="form-control"></td> -->
                     </tr>
                     @if($user->type==0 )
                     <tr>
@@ -611,7 +613,7 @@
                     <div class="button"><input type="submit" value="更新">
                         <h4>更新ボタンを押さないと変更されません</h4>
                     </div>
-                   
+
             </div>
         </form>
 

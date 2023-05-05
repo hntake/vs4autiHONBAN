@@ -72,13 +72,13 @@
                                 <div class="description1">の万が一の時の為の準備</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#free" class="header_nav_itm_link">お守りバッジの申込方法</a>
-                                <div class="description1">申込は簡単です！</div>
+                                <a href="#free" class="header_nav_itm_link">お守りバッジの購入方法</a>
+                                <div class="description1">購入方法は色々あります！</div>
                             </li>
 
                             <li class="header_nav_itm">
                                 <a href="#monitor-apply" class="header_nav_itm_link">料金</a>
-                                <div class="description1">送料込みで500円～</div>
+                                <div class="description1">300円～</div>
                             </li>
                             <!--     <li class="header_nav_itm">
                                 <a href="#useful" class="header_nav_itm_link">登録のメリット</a>
@@ -179,7 +179,7 @@
                                 </li>
                                 <li>
                                     <a href="#free" class="header_nav_itm_link">
-                                        お守りバッジの申込方法
+                                        お守りバッジの購入方法
                                     </a>
                                 </li>
 
@@ -260,7 +260,7 @@
                     </div>
                     <div class="panel_area">
                         <div id="panel1" class="tab_panel">
-                            <a href="img/lost.png" data-lightbox="group"> <img src="img/lost.png" alt="create" style="width:30%;"></a>
+                            <a href="img/turtle-orange.png" data-lightbox="group"> <img src="img/turtle-orange.png" alt="create" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">万が一の時の準備</div>
                                 <div class="slide-description">
@@ -277,14 +277,16 @@
                         </div>
                         <div id="panel2" class="tab_panel">
                             <a href="img/protect-regi16.png" data-lightbox="group"> <img src="img/protect-regi16.png" alt="" style="width:30%;"></a>
+                            <a href="img/stop_explain.webp" data-lightbox="group"> <img src="img/stop_explain.webp" alt="" style="width:50%;"></a>
                             <div class="sright">
                                 <div class="slide-head">QRコードで</div>
                                 <div class="slide-description">
                                     <b>個人情報を最小限に</b>
                                     気付いてくれた方がQRコードをスキャンしない限り、情報は見られません。
                                     <br>
-                                    電話を掛ければその方のの電話番号も表示されます（非通知設定されてなければ）<br>
-                                    また、その電話を掛けてくれた方のIPアドレスが自動取得されているので、万が一の際の位置情報確保も出来ます。
+                                    電話を掛ければその方の電話番号も表示されます（非通知設定されてなければ）<br>
+                                    また、その電話を掛けてくれた方のIPアドレスが自動取得されているので、万が一の際の位置情報確保も出来ます。<br>
+                                    そして、サービス一時停止機能を使えば、万が一のそのとき迄、連絡先を隠しておくことも出来ます。<br>
                                     ※詳細は画像をクリックして拡大してみてください
                                     <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                                 </div>
@@ -313,8 +315,8 @@
             <div class="element">
                 <div class="use">
                     <!-- リンク内移動-->
-                    <br>登録から
-                    <br>受け取りまで
+                    <br>購入方法は
+                    <br>オンライン、メルカリ、直営店舗
         </a>
         <div class="tab_wrap">
             <input id="tab4" type="radio" name="tab_btn2" checked>
@@ -323,9 +325,9 @@
             <div class="nav-wrap">
                 <div class="scroll-nav">
                     <div class="tab_area">
-                        <label class="tab4_label" for="tab4">登録方法</label>
-                        <label class="tab5_label" for="tab5">料金</label>
-                        <label class="tab6_label" for="tab6">支払い方法</label>
+                        <label class="tab4_label" for="tab4">オンライン</label>
+                        <label class="tab5_label" for="tab5">メルカリ</label>
+                        <label class="tab6_label" for="tab6">直営店舗</label>
                     </div>
                 </div>
                 <div class="next-btn"></div>
@@ -334,12 +336,13 @@
                 <div id="panel4" class="tab_panel">
                     <a href="img/protect-regi1.png" data-lightbox="group"><img src="img/protect-regi3.png" alt="list" style="width:30%;"></a>
                     <div class="sright">
-                        <div class="slide-head">仮登録から本登録まで</div>
+                        <div class="slide-head">登録は10分程度</div>
                         <div class="slide-description">
-                            <b>10分程度</b>
+                            <b>自分だけのデザインでも作れます</b>
                             1.仮登録はメールアドレスとパスワードのみ入力<br>
-                            2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.支払い<br>5.受取
+                            2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.デザイン選択<br>5.支払い<br>5.郵送<br>6.受取
                             <br>
+                            
                             <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                         </div>
                     </div>

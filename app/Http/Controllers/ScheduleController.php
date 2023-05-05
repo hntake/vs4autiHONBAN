@@ -361,10 +361,6 @@ class ScheduleController extends Controller
     public function schedule(Request $request)
     {
 
-
-
-
-
         $validate = $request->validate(
             [
                 'schedule_name' => 'required|max:25',
@@ -375,9 +371,7 @@ class ScheduleController extends Controller
                 'image4' =>  'file|image:jpeg,png,jpg|max:5000',
             ],
             [
-                /**unique取り消し */
-                /*             'schedule_name.unique' => '別のスケジュール名にしてください。',
- */
+
                 'image0' => '画像を選んでください',
 
             ]
