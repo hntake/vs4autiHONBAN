@@ -214,11 +214,11 @@
                         <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220301301597408513" data-video-id="7220301301597408513" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Chu,Tayousei. - ano" href="https://www.tiktok.com/music/ChuTayousei-7158336575057692673?refer=embed">♬ Chu,Tayousei. - ano</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
-                    <div class="youtube">
+                  <!--   <div class="youtube">
                         <div class="elementor-image">
                         <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220300029888711937" data-video-id="7220300029888711937" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Hip Hop with impressive piano sound(793766) - Dusty Sky" href="https://www.tiktok.com/music/Hip-Hop-with-impressive-piano-sound-793766-6860502663327385601?refer=embed">♬ Hip Hop with impressive piano sound(793766) - Dusty Sky</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
       <!--       <div class="youtube_kv">
@@ -373,7 +373,7 @@
                         <div class="slide-description">
                             <b>直営店で購入</b>
                             現在、全国各地で販売してくれる施設や店舗を募集しております。
-                            <br>2.電子マネー(ApplePay,GooglePay,Paypay)
+                            <br>2.電子マネー(ApplePay、GooglePay、Paypay)
                             <br>3.振込<br>
                             → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
                             ※詳細は画像をクリックして拡大してみてください
