@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Models\Lost;
 use App\Models\User;
 use App\Models\Call;
+use App\Models\Shop;
 use Carbon\Carbon;
 use App\Mail\CallMail;
 use Illuminate\Support\Facades\Auth;
@@ -206,6 +207,11 @@ class ExtraController extends Controller
 
         return redirect('my_page');
     }
-
+  /*shopリスト表示画面*/
+  public function shop_list(Request $request)
+  {
+        $shops=Shop::orderBy('area', 'desc')->get();
+        return view('shop_list',compact('shops'));
+  }
 
 }

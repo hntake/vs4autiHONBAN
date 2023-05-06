@@ -55,6 +55,9 @@ input{
 .mypage_row{
     display:block;
 }
+tr{
+    border: 1px solid black;
+}
 /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .dashboard-area{

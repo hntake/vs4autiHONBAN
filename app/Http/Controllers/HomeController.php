@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\User;
 use App\Models\Lost;
 use App\Models\Design;
+use App\Models\Shop;
 use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Payment;
@@ -521,4 +522,40 @@ public function design_original(Request $request)
 
       return redirect('pay_type');
   }
+
+  /*shop入力画面（手動）*/
+  public function shop(Request $request)
+  {
+    $user=Auth::user();
+    if($user->role==1){
+        $shops=Shop::orderBy('id', 'desc')->paginate(10);
+        return view('shop_register',compact('shops'));
+    }
+  }
+  /*shop登録*/
+  public function shop_post(Request $request)
+  {
+      $shop = new Shop;
+      $shop->name = $request->name;
+      $shop->area = $request->area;
+      $shop->place = $request->place;
+      $shop->tel = $request->tel;
+      $shop->email = $request->email;
+      $shop->save();
+
+      $shops=Shop::orderBy('id', 'desc')->paginate(10);
+      return view('shop_list',[
+        'shops'=>$shops
+      ]);
+  }
+  /*カスタムデザイン一覧画面(自動で登録される)*/
+  public function design_list(Request $request)
+  {
+    $user=Auth::user();
+    if($user->role==1){
+        $designs=Design::orderBy('id', 'desc')->paginate(10);
+        return view('design_list',compact('designs'));
+    }
+  }
+
 }

@@ -335,46 +335,49 @@
             <div class="panel_area">
                 <div id="panel4" class="tab_panel">
                     <a href="img/protect-regi1.png" data-lightbox="group"><img src="img/protect-regi3.png" alt="list" style="width:30%;"></a>
+                    <a href="img/design.png" data-lightbox="group"><img src="img/design.png" alt="list" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">登録は10分程度</div>
                         <div class="slide-description">
                             <b>自分だけのデザインでも作れます</b>
                             1.仮登録はメールアドレスとパスワードのみ入力<br>
-                            2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.デザイン選択<br>5.支払い<br>5.郵送<br>6.受取
+                            2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.デザイン選択<br>(オリジナルデザインは追加料金300円)<br>5.支払い<br>(登録料:100円
+                            バッジ本体:200円/個
+                            送料:200円～/個数による)<br>5.郵送<br>6.受取
                             <br>
-                            
+                            <h6>※バッジ製品の素材は、アクリルや缶など、その時点で入手可能な素材に変更させていただく場合がございます。お客様にはご迷惑をおかけいたしますが、可能な限り商品の品質や外観に影響のないように配慮し、最高品質の商品を提供できるよう努めてまいります。<br><br>
+
+                            何かご不明な点がございましたら、弊社までお気軽にお問い合わせくださいませ。</h6>
                             <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                         </div>
                     </div>
                 </div>
                 <div id="panel5" class="tab_panel">
-                    <a href="img/price.png" data-lightbox="group"> <img src="img/price.png" alt="check" style="width:30%;"></a>
+                    <a href="img/dog-blue.png" data-lightbox="group"> <img src="img/dog-blue.png" alt="check" style="width:30%;"></a>
                     <div class="sright">
-                        <div class="slide-head"></div>
+                        <div class="slide-head">ご自分のアカウントで</div>
                         <div class="slide-description">
-                            <b>料金体系</b>
-                            登録料:100円<br>
-                            バッジ本体:200円/個<br>
-                            送料:200円～/個数による<br>
+                            <b>気軽に購入</b>
+                            料金はメルカリ側の手数料・配送料により変動することをご了承ください。
                             <br>
                             <br>
-                            <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                            <div class="admin_button"><a href="" style="background-color:none; color:#7791DE;">メルカリ商品ページへ</a></div>
                         </div>
                     </div>
 
                 </div>
                 <div id="panel6" class="tab_panel">
-                    <a href="img/protect-regi15.png" data-lightbox="group"> <img src="img/protect-regi15.png" alt="check" style="width:30%;"></a>
+                    <a href="img/.png" data-lightbox="group"> <img src="img/png" alt="check" style="width:30%;"></a>
                     <div class="sright">
-                        <div class="slide-head">3種類の</div>
+                        <div class="slide-head">最寄りにあるなら</div>
                         <div class="slide-description">
-                            <b>支払い方法</b>
-                            1.クレジットカード
+                            <b>直営店で購入</b>
+                            現在、全国各地で販売してくれる施設や店舗を募集しております。
                             <br>2.電子マネー(ApplePay,GooglePay,Paypay)
                             <br>3.振込<br>
                             → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
                             ※詳細は画像をクリックして拡大してみてください
-                            <div class="admin_button"><a href="{{url('/paypay') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                            <div class="admin_button"><a href="{{url('/shop_list') }}" style="background-color:none; color:#7791DE;">取り扱い先一覧</a></div>
                         </div>
 
                     </div>

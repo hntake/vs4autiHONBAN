@@ -377,6 +377,14 @@ Route::post('design_original', [App\Http\Controllers\HomeController::class, 'des
 //payment表
 Route::get('pay_type', [\App\Http\Controllers\HomeController::class, 'payment'])->name('payment');
 Route::post('dashboard', [App\Http\Controllers\HomeController::class, 'payment_post'])->name('payment_post');
+//カスタムデザイン表
+Route::get('design_list', [\App\Http\Controllers\HomeController::class, 'design_list'])->name('design_list');
+//店舗一覧表
+Route::get('shop_list', [\App\Http\Controllers\ExtraController::class, 'shop_list'])->name('shop_list');
+//店舗登録画面
+Route::get('shop_register', [\App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
+//店舗登録
+Route::post('shop_register', [App\Http\Controllers\HomeController::class, 'shop_post'])->name('shop_post');
 
 
 //キャンセル後遷移
