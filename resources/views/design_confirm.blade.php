@@ -4,7 +4,6 @@
 
 <link rel="stylesheet" href="{{ asset('css/design.css') }}"> <!-- home.cssと連携 -->
 
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -39,9 +38,9 @@
                             <div class="absolute">
                                 <img src="{{ asset('storage/' . $design->image) }}" alt="image" >
                             </div>
+                        </div>
                             <h5>※完成イメージです</h5>
                             <h5>※機種によってずれたイメージになりますが、<br>バッジ作成時にはQRコードと同サイズに修正し並べて配置致します。</h5>
-                        </div>
                         @endif
                         <button type="button"onclick="history.back()">
                             変更する
@@ -54,6 +53,5 @@
                 @endif
             </div>
         </div>
-    </div>
 </div>
 @endsection

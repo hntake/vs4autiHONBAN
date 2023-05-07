@@ -7,7 +7,7 @@
 .relative {
     position: relative;
     width: 500px;
-    height: 500px;
+    height: auto;
 }
 .absolute {
     position:absolute;
@@ -58,7 +58,7 @@ h3{
 .relative {
     position: relative;
     width: 500px;
-    height: 500px;
+    height: auto;
 }
 .absolute {
     position:absolute;
