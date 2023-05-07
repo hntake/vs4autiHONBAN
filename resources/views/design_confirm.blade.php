@@ -10,7 +10,7 @@
             <div class="card">
                 @if($lost->design==8 && empty($design))
                     <a href="{{url('design_original')}}">
-                    <h3>オリジナル画像<br>アップロードページへ移動する</h3>
+                    <h5>オリジナル画像<br>アップロードページへ移動する</h5>
                     </a>
                 @else
                 <form method="POST" action="{{ route('design_send') }}">

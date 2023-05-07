@@ -49,7 +49,7 @@
                                 絵スケジュール<input id="type" type="radio" name="type" value="0" required><br>
                             </label>
                             <label for="type">
-                                お守りグッズ<input id="type" type="radio" name="type" value="1"><br>
+                                お守りバッジ<input id="type" type="radio" name="type" value="1"><br>
                             </label>
                             @error('type')
                             <span class="invalid-feedback" role="alert">
