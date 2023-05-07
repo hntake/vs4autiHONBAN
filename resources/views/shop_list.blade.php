@@ -293,12 +293,8 @@
             <tr>
                 <td>{{ $shop->place }}</td>
                 <td>{{  $shop->name }}</td>
-                @if(isset($shop->tel))
                 <td>{{  $shop->tel }}</td>
-                @endif
-                @if(isset($shop->email))
                 <td>{{  $shop->email }}</td>
-                @endif
             </tr>
             @endif
             @endforeach
