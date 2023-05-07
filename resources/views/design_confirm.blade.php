@@ -40,6 +40,7 @@
                                 <img src="{{ asset('storage/' . $design->image) }}" alt="image" >
                             </div>
                             <h5>※完成イメージです</h5>
+                            <h5>※機種によってずれたイメージになりますが、<br>バッジ作成時にはQRコードと同サイズに修正し並べて配置致します。</h5>
                         </div>
                         @endif
                         <button type="button"onclick="history.back()">

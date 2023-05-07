@@ -11,9 +11,9 @@
 }
 .absolute {
     position:absolute;
-    top:118px;
-    left:85px;
-    width:50%;
+    top:125px;
+    left:80px;
+    width:70%;
 }
 .absolute img{
     width:20%;
@@ -38,11 +38,18 @@ h3{
 .button{
     margin: 20px auto;
 }
-/*iPhone12レスポンシブ対応*/
-@media only screen
-  and (min-device-width: 390px)
-  and (max-device-width: 844px)
-  and (-webkit-min-device-pixel-ratio: 3) {
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2){
+    .absolute {
+        position:absolute;
+        top:120px;
+        left:60px;
+        width:80%;
+    }
+}
+/*iPhoneレスポンシブ対応*/
+
+  @media screen and (max-width: 844px){
 .card img{
     width:300px;
 
@@ -56,8 +63,8 @@ h3{
 .absolute {
     position:absolute;
     top:95px;
-    left:75px;
-    width:50%;
+    left:55px;
+    width:70%;
 }
 .absolute img{
     width:17%;
@@ -65,4 +72,11 @@ h3{
 .container{
     width:max-content;
 }
+h3{
+    font-size:40px;
 }
+input#image.form-control {
+    width:30%;
+}
+  }
+

@@ -9,6 +9,7 @@
                 <form method="POST" action="{{ route('design_original') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <h3>オリジナルの画像を使う</h3>
+                    <h3><span style="color:red; font-weight:bold;">注意！</span>大きいサイスではエラーになる可能性があります。可能な限り<span style="color:red; font-weight:bold;">小さいサイズの画像</span>を選択してください</h3>
                     <input type="file" name="image" id="image" class="form-control">
                     <div class="create-button">
                         <div class="button">
