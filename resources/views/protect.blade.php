@@ -214,11 +214,11 @@
                         <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220301301597408513" data-video-id="7220301301597408513" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Chu,Tayousei. - ano" href="https://www.tiktok.com/music/ChuTayousei-7158336575057692673?refer=embed">♬ Chu,Tayousei. - ano</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
-                  <!--   <div class="youtube">
+                    <div class="youtube">
                         <div class="elementor-image">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220300029888711937" data-video-id="7220300029888711937" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Hip Hop with impressive piano sound(793766) - Dusty Sky" href="https://www.tiktok.com/music/Hip-Hop-with-impressive-piano-sound-793766-6860502663327385601?refer=embed">♬ Hip Hop with impressive piano sound(793766) - Dusty Sky</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7230404897911377154" data-video-id="7230404897911377154" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ funky house - Close-Wu" href="https://www.tiktok.com/music/funky-house-6963841260792645668?refer=embed">♬ funky house - Close-Wu</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
       <!--       <div class="youtube_kv">
@@ -326,7 +326,7 @@
                 <div class="scroll-nav">
                     <div class="tab_area">
                         <label class="tab4_label" for="tab4">オンライン</label>
-                        <label class="tab5_label" for="tab5">メルカリ</label>
+                        <label class="tab5_label" for="tab5">メルカリ（現在準備中）</label>
                         <label class="tab6_label" for="tab6">直営店舗</label>
                     </div>
                 </div>
@@ -358,10 +358,10 @@
                         <div class="slide-head">ご自分のアカウントで</div>
                         <div class="slide-description">
                             <b>気軽に購入</b>
-                            料金はメルカリ側の手数料・配送料により変動することをご了承ください。
+                            （現在準備中）料金はメルカリ側の手数料・配送料により変動することをご了承ください。
                             <br>
                             <br>
-                            <div class="admin_button"><a href="" style="background-color:none; color:#7791DE;">メルカリ商品ページへ</a></div>
+                            <div class="admin_button"><a href="" style="background-color:none; color:#7791DE;">（現在準備中）<!-- メルカリ商品ページへ --></a></div>
                         </div>
                     </div>
 
