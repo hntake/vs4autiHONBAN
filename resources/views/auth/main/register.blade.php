@@ -126,6 +126,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                @if($user->pm_type==null)
                                 <div class="form-group row">
                                     <label for="address"
                                            class="col-md-4 col-form-label text-md-right">住所</label>
@@ -146,7 +147,7 @@
                                         @endif
                                     </div>
                                 </div>
-
+                                @endif
                                 <div class="box" >
                             ※掛ける連絡先を選択してください<br>
                             <table class="zero">

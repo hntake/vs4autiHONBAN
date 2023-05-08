@@ -371,8 +371,12 @@ Route::post('vs4', [App\Http\Controllers\HomeController::class, 'vs4Register'])-
 Route::post('design', [App\Http\Controllers\HomeController::class, 'choice'])->name('choice');
 //デザイン登録
 Route::post('design_send', [App\Http\Controllers\HomeController::class, 'design_send'])->name('design_send');
-//originalデザイン登録
+//originalデザイン送信
 Route::post('design_original', [App\Http\Controllers\HomeController::class, 'design_original'])->name('design_original');
+//originalデザイン変更
+Route::get('design_original_confirm', [App\Http\Controllers\HomeController::class, 'design_delete'])->name('design_delete');
+//originalデザイン登録
+Route::post('design_original_confirm', [App\Http\Controllers\HomeController::class, 'design_original_send'])->name('design_original_send');
 
 //payment表
 Route::get('pay_type', [\App\Http\Controllers\HomeController::class, 'payment'])->name('payment');

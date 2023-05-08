@@ -487,12 +487,35 @@ public function design_original(Request $request)
     $design->image = str_replace('public/', '', $path);
     $design->save();
 
-    return view('design_confirm',[
+    return view('design_original_confirm',[
         'design'=>$design,
         'lost'=>$lost,
     ]);
 }
 
+/*オリジナルデザイン変更
+* @param Request $request
+* @return Response
+*/
+public function design_delete(Request $request)
+{
+    $user=Auth::user();
+    $design=Design::where('email','=',$user->email)->delete();
+
+    return view('design_original');
+}
+/*オリジナルデザイン選択登録
+* @param Request $request
+* @return Response
+*/
+public function design_original_send(Request $request)
+{
+    $user=Auth::user();
+    $lost=Lost::where('email','=',$user->email)->first();
+    return view('design_registerd',[
+        'lost' => $lost,
+    ]);
+}
 
   /*payment入力画面（手動）*/
   public function payment(Request $request)
