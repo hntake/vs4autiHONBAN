@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/edit.css') }}"> <!-- schedule.cssと連携 -->
-
+<title>VS4 支援ツール</title>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -6,10 +6,10 @@
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> <!-- schedule.cssと連携 -->
 
 <div class="container">
+    <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
 <!--     両方申込んでいる -->
     @if($type==3)
 
-            <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
 
             <a href="{{ url('dashboard') }}">
                 <h3>保存リストへ</h3>
