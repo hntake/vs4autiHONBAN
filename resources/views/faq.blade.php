@@ -19,6 +19,7 @@
         <ul>
             <li><a href="#index1">登録について</a></li>
             <li><a href="#index2">ログインについて</a></li>
+            <li><a href="#index2">お守りバッジについて</a></li>
             <li><a href="#index3">スケジュールについて</a></li>
             <li><a href="#index4">アカウント情報</a></li>
             <li><a href="#index5">支払いについて</a></li>
@@ -59,6 +60,43 @@
                 <div class="box">
                     <p>登録の際に認証メールから確認している場合→迷惑メールBOXをご確認ください。</p>
                     <p>登録の際に認証メールから確認していない場合→登録できていません。<a href="#index">"登録後の認証メールが来ない"を参照してください</a></p>
+                </div>
+            </section>
+        </li>
+        <h2><a id="index2">お守りバッジについて</a></h2>
+        <li>
+            <section>
+                <h2 class="title">Q.登録情報を変更したい</h2>
+                <div class="box">
+                    <p>ログインをすると表示されるページ(マイページ)下部にある登録情報編集画面へをクリックして編集画面へ移動する</p>
+                    <a href="{{ route('my_page') }}" class="button" style="font-size: 1.0rem; font-weight: 700;letter-spacing: normal;text-decoration: none;color: green;">マイページへ移動</a>
+                </div>
+                <h2 class="title">Q.パスワードを変更したい</h2>
+                <div class="box">
+                    <p>ログインをすると表示されるページ(マイページ)下部にあるパスワード変更画面へをクリックします</p>
+                    <a href="{{ route('my_page') }}" class="button" style="font-size: 1.0rem; font-weight: 700;letter-spacing: normal;text-decoration: none;color: green;">マイページへ移動</a>
+                </div>
+                <h2 class="title">Q.バッジを紛失したのでサービスを止めたい</h2>
+                <div class="box">
+                    <p>ログインをすると表示されるページ上部にある”紛失の為にサービスを停止する”をクリックし、次のページでも”停止する”をクリックする</p>
+                </div>
+
+                <h2 class="title">Q.本当に必要なとき迄、電話番号を隠しておきたい</h2>
+                <div class="box">
+                    <p>ログインをすると表示されるページ上部にある”サービスを一時停止する”をクリックし、次のページでも”一時停止する”をクリックする</p>
+                </div>
+                <h2 class="title">Q.サービスを再開したい</h2>
+                <div class="box">
+                    <p>ログインをすると表示されるページ上部にある”サービスを再開する”をクリックし、次のページでも”再開する”をクリックする</p>
+                </div>
+
+                <h2 class="title">Q.メールアドレスも電話番号も登録していないが、バッジ利用者が行方不明になった場合に何か協力してもらえますか？</h2>
+                <div class="box">
+                    <p>QRコードへのアクセスがあれば、その日時とIPアドレスの情報は確保出来ます。こちらまでお問い合わせください。可能な限り早急に対応させていただきます。</p>
+                </div>
+                <h2 class="title">Q.返品をしたい</h2>
+                <div class="box">
+                    <p>システムが機能しない場合は、じんそくに対応させていただきます。また、デザイン等ご注文と異なる商品が届いた場合又は商品に欠陥がある場合を除き、返品には応じません。</p>
                 </div>
             </section>
         </li>
