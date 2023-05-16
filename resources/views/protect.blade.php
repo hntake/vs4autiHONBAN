@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？" name="description">
+    <meta content="幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" name="description">
 
     <title>お守りバッジとは？迷子対策 </title>
 
@@ -254,12 +254,14 @@
                 <input id="tab1" type="radio" name="tab_btn" checked>
                 <input id="tab2" type="radio" name="tab_btn">
                 <input id="tab3" type="radio" name="tab_btn">
+                <input id="tab7" type="radio" name="tab_btn">
                 <div class="nav-wrap">
                     <div class="scroll-nav">
                         <div class="tab_area">
                             <label class="tab1_label" for="tab1">お守りバッジとは？</label>
                             <label class="tab2_label" for="tab2">個人情報</label>
                             <label class="tab3_label" for="tab3">連絡先は二か所</label>
+                            <label class="tab7_label" for="tab7">ヘルプマークに</label>
                         </div>
                     </div>
                     <div class="next-btn"></div>
@@ -312,6 +314,20 @@
                             </div>
                         </div>
                     </div>
+                    <div id="panel7" class="tab_panel">
+                         <img src="img/qr.png" alt="phone" style="width:30%;">
+                            <div class="sright">
+                            <div class="slide-head">一度の登録で</div>
+                            <div class="slide-description">
+                        <b>QRコードは無料提供</b>
+                        バッジに記載されたあなた用のQRコードは、
+                        ダウンロードや印刷できます。
+                        ヘルプマークやシールなど、
+                        ご自由にお使いください。
+                        <br>
+                    </div>
+                </div>
+            </div>
 
 
                 </div>
@@ -373,13 +389,13 @@
 
             </div>
             <div id="panel6" class="tab_panel">
-                <a href="img/.png" data-lightbox="group"> <img src="img/png" alt="check" style="width:30%;"></a>
+                <a href="img/store.png" data-lightbox="group"> <img src="img/store.png" alt="check" style="width:30%;"></a>
                 <div class="sright">
                     <div class="slide-head">最寄りにあるなら</div>
                     <div class="slide-description">
                         <b>直営店で購入</b>
                         現在、全国各地で販売してくれる施設や店舗を募集しております。
-                        <br>2.電子マネー(ApplePay、GooglePay、Paypay)
+                        <br>2.電子マネー(ApplePay、GooglePay)
                         <br>3.振込<br>
                         → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
                         ※詳細は画像をクリックして拡大してみてください
@@ -388,25 +404,7 @@
 
                 </div>
             </div>
-            <div id="panel7" class="tab_panel">
-                <img src="img/smafo.png" alt="phone" style="width:30%;">
-                <div class="sright">
-                    <div class="slide-head">自分にあった使い方</div>
-                    <div class="slide-description">
-                        <b>PC、スマホ、タブレット</b>
-                        いずれのデバイスでも<br>
-                        利用できます<br>
-                        <br>
-                        ダウンロードもなくアクセスすれば
-                        <br>
-                        どこでも使えます。
-                        <br>
-                        移動のお手伝いにぜひご利用ください
-                        <br>
-                    </div>
-                </div>
 
-            </div>
         </div>
     </div>
     </div>
