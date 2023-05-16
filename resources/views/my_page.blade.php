@@ -347,7 +347,16 @@
                                 </td>
                             </tr>
                         </table>
+                    </div>
+                    <div class="qr_code">
+                        <h5>貴方のQRコード</h5>
+                       {{$lost->tel2}}
+                        <a href="{{ asset('storage/' . $picture->image) }}"><img src="{{ asset('storage/' . $picture->image) }}" alt="image" ></a>
+                        <div class="print">
+                            <h6 >印刷したい方はQRコードをクリックし、画像画面で各デバイスに沿った印刷方法で印刷して下さい。<br>ヘルプカードに利用する場合はA4サイズを10～20%に設定してください</h6>
                         </div>
+
+                    </div>
                 </div>
                 <!--     VS4だけ申込んでいる -->
                 @elseif($type==0)
@@ -682,6 +691,62 @@
                 </div>
             </div>
         </div>
+        <footer class="site-footer">
+        <div class="bc-sitemap-wrapper">
+            <div class="sitemap clearfix">
+                <div id="nav_menu2" class="widget_nav_menu">
+                    <h3 class="widget-title">製品紹介</h3>
+                    <div class="menu-site-map-1-container">
+                        <ul id="menu-site-map-1" class="menu">
+                            <li><a href="{{ url('feature') }}">機能</a></li>
+                            <li><a href="{{ url('plan') }}">利用料金</a></li>
+                            <li><a href="{{ url('case') }}">導入事例</a></li>
+                            <li><a href="{{ url('admin')}}">管理者画面</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="nav_menu2" class="widget_nav_menu">
+                    <h3 class="widget-title">関連情報</h3>
+                    <div class="menu-site-map-1-container">
+                        <ul id="menu-site-map-1" class="menu">
+                            <li><a href="https://eng50cha.com/blog/index">ブログ</a></li>
+                            <l><a href="{{ url('news/index')}}">お知らせ</a></li>
+                                <li><a href="{{ url('partner')}}">パートナー</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="nav_menu2" class="widget_nav_menu">
+                    <h3 class="widget-title">サポート</h3>
+                    <div class="menu-site-map-1-container">
+                        <ul id="menu-site-map-1" class="menu">
+                            <li><a href="{{ url('contact')}}">お問い合わせ</a></li>
+                            <li><a href="{{ url('faq')}}">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="nav_menu2" class="widget_nav_menu">
+                    <h3 class="widget-title">会社情報</h3>
+                    <div class="menu-site-map-1-container">
+                        <ul id="menu-site-map-1" class="menu">
+                            <li><a href="{{ url('policy')}}">プライバシー</a></li>
+                            <li><a href="{{ url('rule')}}">利用規約</a></li>
+                            <li><a href="{{ url('aboutus')}}">About Us</a></li>
+                            <li><a href="{{ url('consumer')}}">特定商取引</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-info">
+                    <div class="widget">
+                        <span class="copu-right-text">© All rights reserved by llco</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <p></p>
+
+        <a href="#" class="gotop">トップへ</a>
+    </footer>
     </div>
 </div>
 @endsection

@@ -283,16 +283,16 @@ Route::get('/medical/sample/{schedule}', [App\Http\Controllers\ScheduleControlle
 //イラストサンプル画面表示
 Route::get('/sample_sort/{schedule}', [App\Http\Controllers\ScheduleController::class, 'sample_sort'])->name('sample_sort');
 
-//画像表示ページ
-/* Route::get('/selectpicture/{id}', [App\Http\Controllers\ScheduleController::class,'select_picture'])->name('select_picture');
- */ //画像削除
-/* Route::get('/picture/{id}', [App\Http\Controllers\ScheduleController::class,'delete_picture'])->name('delete_picture');
- */
-//画像投稿フォーム
-/* Route::get('/store', [App\Http\Controllers\ScheduleController::class,'picture'])->name('store');
- */ //画像保存
-/* Route::post('/store', [App\Http\Controllers\ScheduleController::class,'store'])->name('store');
- */
+//QR表示ページ
+Route::get('/selectpicture/{id}', [App\Http\Controllers\HomeController::class,'select_picture'])->name('select_picture');
+ //QR削除
+ Route::get('/picture/{id}', [App\Http\Controllers\HomeController::class,'delete_picture'])->name('delete_picture');
+
+//QR投稿フォーム
+ Route::get('/store', [App\Http\Controllers\HomeController::class,'picture'])->name('store');
+//QR保存
+ Route::post('/store', [App\Http\Controllers\HomeController::class,'store'])->name('store');
+
 //入力ページ
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact.index');
 

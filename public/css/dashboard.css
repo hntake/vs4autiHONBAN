@@ -1,6 +1,9 @@
 body{
     background-color: ivory;
 }
+.container{
+    width:100%;
+}
 h1{
     font-size: 48px;
 
@@ -58,6 +61,96 @@ input{
 tr{
     border: 1px solid black;
 }
+.print{
+    text-align: start;
+
+}
+
+  .footer-text {
+    color: #fff
+  }
+  .site-footer .sitemap .widget_nav_menu {
+    width: 15rem;
+    margin-right: 0.16rem;
+    float: left;
+}
+.site-footer .site-info .widget {
+    width: 12.8rem;
+    margin: 0 auto;
+    position: relative;
+}
+.site-footer .site-info {
+  /*   background: #343434; */
+    color: #888;
+    line-height: .34rem;
+    font-size: .14rem;
+   /*  border-top: 1px solid #434343; */
+    padding-top: 0.24rem;
+    padding-bottom: 0.24rem;
+}
+.site-footer .sitemap h3 {
+    /* font-size: .14rem; */
+    line-height: .2rem;
+    color: #888;
+    font-weight: 400;
+}
+.site-footer .bc-sitemap-wrapper {
+   /*  background: #343434; */
+    padding-top:50px;
+}
+
+.site-footer .sitemap {
+    width: 65rem;
+    margin: 0 auto;
+    padding: 0.6rem 0;
+    /* font-size: .14rem; */
+}
+.site-footer {
+    position: relative;
+    margin-top:50px;
+}
+.site-footer .sitemap ul {
+    margin-top: 30px;
+    list-style-type: none;
+    list-style-image: none;
+    text-align: calc();
+}
+.gotop{
+    display: block;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    background: rgb(98, 96, 96);
+    border: 1px solid #999;
+    padding-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    font-size: 85%;
+    text-decoration: none;
+    color: #333;
+    opacity: 0.5;
+    position:absolute;
+    top:110rem;
+    right: 1.34rem;
+    color:rgb(236, 231, 231);
+}
+.gotop::before{
+    content: "";
+    display: block;
+    border-top: 2px solid rgb(247, 244, 244);
+    border-right: 2px solid rgb(247, 244, 244);
+    width: 25%;
+    height: 25%;
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    transform: rotate(-45deg);
+}
+.gotop:hover{
+    opacity: 1;
+}
 /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .dashboard-area{
@@ -66,6 +159,15 @@ tr{
     }
     .col-md-4{
        max-width:100%;
+    }
+    .site-footer .sitemap .widget_nav_menu {
+        margin-left:0.5rem;
+        }
+    .site-footer .sitemap {
+        width:100%;
+        }
+    .site-info{
+        margin-top:400px;
     }
 }
 /*iPhone12レスポンシブ対応*/
@@ -77,5 +179,10 @@ and (-webkit-min-device-pixel-ratio: 3) {
           width:100%;
           margin:0 auto;
       }
-
+      .site-footer .site-info{
+        padding-top: 10rem;
+    }
+    .site-footer .sitemap {
+        width: auto;
+ }
   }

@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Lost;
 use App\Models\Design;
 use App\Models\Shop;
+use App\Models\Picture;
 use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Payment;
@@ -325,7 +326,8 @@ class HomeController extends Controller
             $user=Auth::user();
             $type=$user->type;
             $lost=Lost::where('email','=',$user->email)->first();
-                return view('my_page',compact('type','lost','user'));
+            $picture=Picture::where('uuid','=',$lost->uuid)->first();
+                return view('my_page',compact('type','lost','user','picture'));
             }
 
         /**
@@ -580,5 +582,28 @@ public function design_original_send(Request $request)
         return view('design_list',compact('designs'));
     }
   }
+ /*QR入力画面（手動）*/
+  public function picture(Request $request)
+  {
+    $user=Auth::user();
+    if($user->role==1){
 
+        return view('store');
+    }
+  }
+  /*QR画像登録*/
+  public function store(Request $request)
+  {
+      $picture = new Picture;
+       $uploadImg = $request->image;
+       if ($uploadImg->isValid()) {
+            $filePath = $uploadImg->store('public');
+            $picture->image = str_replace('public/', '', $filePath);
+        }
+      $picture->uuid = $request->uuid;
+      $picture->save();
+
+      return redirect('store');
+
+  }
 }

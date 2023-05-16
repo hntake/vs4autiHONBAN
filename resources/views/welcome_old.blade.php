@@ -44,7 +44,7 @@
             <h3>
                 保存リストを見る
             </h3>
-            <button class="button"><a href="{{ url('/home') }}">Home</a></button>
+            <button class="button"><a href="{{ url('//') }}">Home</a></button>
             @else
             <h3>
                 登録済みの方はこちらからログインする
