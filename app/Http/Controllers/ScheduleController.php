@@ -11,6 +11,7 @@ use App\Models\Schedule;
 use App\Models\Independence;
 use App\Models\View;
 use App\Models\Image;
+use App\Models\Picture;
 use App\Models\User;
 use App\Models\Lost;
 use Illuminate\Support\Facades\Storage;
@@ -962,6 +963,7 @@ class ScheduleController extends Controller
     {
         $user = Auth::user();
         $lost=Lost::where('email','=',$user->email)->first();
+        $picture=Picture::where('uuid','=',$lost->uuid)->first();
     if($user->status==1){
     $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
     $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
@@ -976,6 +978,7 @@ class ScheduleController extends Controller
         'supports' => $supports,
         'user' => $user,
         'lost' => $lost,
+        'picture' => $picture,
     ]);
 }
     elseif($user->status==0){
