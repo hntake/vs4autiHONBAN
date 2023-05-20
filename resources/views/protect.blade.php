@@ -77,7 +77,7 @@
                             </li>
 
                             <li class="header_nav_itm">
-                                <a href="#monitor-apply" class="header_nav_itm_link">料金</a>
+                                <a href="#free" class="header_nav_itm_link">料金</a>
                                 <div class="description1">300円～</div>
                             </li>
                             <!--     <li class="header_nav_itm">
@@ -184,7 +184,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#monitor-apply" class="header_nav_itm_link">
+                                    <a href="#free" class="header_nav_itm_link">
                                         料金
                                     </a>
                                 </li>
@@ -347,7 +347,7 @@
         <div class="nav-wrap">
             <div class="scroll-nav">
                 <div class="tab_area">
-                    <label class="tab4_label" for="tab4">オンライン</label>
+                    <label class="tab4_label" for="tab4">オンライン購入</label>
                     <label class="tab5_label" for="tab5">メルカリ（現在準備中）</label>
                     <label class="tab6_label" for="tab6">直営店舗</label>
                 </div>
@@ -356,17 +356,22 @@
         </div>
         <div class="panel_area">
             <div id="panel4" class="tab_panel">
-                <a href="img/protect-regi1.png" data-lightbox="group"><img src="img/protect-regi3.png" alt="list" style="width:30%;"></a>
-                <a href="img/design.png" data-lightbox="group"><img src="img/design.png" alt="list" style="width:30%;"></a>
+                <a href="img/flow.png" data-lightbox="group"><img src="img/flow.png" alt="list" style="width:40%;"></a>
                 <div class="sright">
-                    <div class="slide-head">登録は10分程度</div>
+                    <div class="slide-head">自分だけのデザインでも作れます</div>
                     <div class="slide-description">
-                        <b>自分だけのデザインでも作れます</b>
+                        <b>登録は10分程度</b>
+                        オンライン購入の場合<br>
                         1.仮登録はメールアドレスとパスワードのみ入力<br>
-                        2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.デザイン選択<br>(オリジナルデザインは追加料金300円)<br>5.支払い<br>(登録料:100円
-                        バッジ本体:200円/個
-                        送料:200円～/個数による)<br>5.郵送<br>6.受取
-                        <br>
+                        2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.デザイン選択<br>(オリジナルデザインは追加料金300円)<br>5.支払い<br>料金:<span style="color:red; font-weight:bold;">500円</span>（送料・税金込）<br>5.郵送<br>6.受取<br>
+                        <div class="method" style="background-color:#c7fecb;">
+                            支払い方法
+                            <br>1.クレジットカード
+                            <br>2.電子マネー(ApplePay、GooglePay)
+                            <br>3.振込<br>
+                            → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
+                            ※詳細は画像をクリックして拡大してみてください
+                        </div>
                         <h6>※バッジ製品の素材は、アクリルや缶など、その時点で入手可能な素材に変更させていただく場合がございます。お客様にはご迷惑をおかけいたしますが、可能な限り商品の品質や外観に影響のないように配慮し、最高品質の商品を提供できるよう努めてまいります。<br><br>
 
                             何かご不明な点がございましたら、弊社までお気軽にお問い合わせくださいませ。</h6>
@@ -394,11 +399,9 @@
                     <div class="slide-head">最寄りにあるなら</div>
                     <div class="slide-description">
                         <b>直営店で購入</b>
-                        現在、全国各地で販売してくれる施設や店舗を募集しております。
-                        <br>2.電子マネー(ApplePay、GooglePay)
-                        <br>3.振込<br>
-                        → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
-                        ※詳細は画像をクリックして拡大してみてください
+                        直営店で購入したら送料無しの<span style="color:red; font-weight:bold;">300円</span>(税込み)で購入できます。
+                        <br>※現在、全国各地で販売してくれる施設や店舗を募集しております。
+
                         <div class="admin_button"><a href="{{url('/shop_list') }}" style="background-color:none; color:#7791DE;">取り扱い先一覧</a></div>
                     </div>
 
