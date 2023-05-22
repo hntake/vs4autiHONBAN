@@ -963,7 +963,12 @@ class ScheduleController extends Controller
     {
         $user = Auth::user();
         $lost=Lost::where('email','=',$user->email)->first();
-        $picture=Picture::where('uuid','=',$lost->uuid)->first();
+        if($user->type== 1){
+            $picture=Picture::where('uuid','=',$lost->uuid)->first();
+        }
+        else{
+            $picture=null;
+        }
     if($user->status==1){
     $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
     $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();

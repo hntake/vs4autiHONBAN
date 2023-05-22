@@ -67,6 +67,7 @@
 
 
     <div class="dashboard-area">
+     <!-- VS4のみ -->
     @if($user->type==0)
             @if($user->type==0)
             <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('lost.register') }}" style="background-color:none; color:#7791DE;">お守りバッジを申込む</a></div>
@@ -203,6 +204,7 @@
                 </tbody>
             </table>
         </div>
+        <!-- お守りのみ -->
         @elseif($user->type == 1)
         <div class="pro_button"><a href="{{ route('vs4')}}">VS4を申込む</a></div>
         <div class="form-group row">
@@ -508,8 +510,9 @@
 
                     </div>
                         </div>
-                        <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a></div>
-                        @else
+                        <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a>
+                    </div>
+                @else
                         <a href="{{ url('my_page') }}">
                         <h5>登録情報確認ページへ移動</h5>
                     </a>
