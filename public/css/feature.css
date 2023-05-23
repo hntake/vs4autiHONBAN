@@ -762,7 +762,8 @@ section{
     font-family:'Rubik Dirt';
 }
 .use{
-    margin: 0 auto 25px auto;
+    margin: 0 50px 25px 50px;
+    margin-left:50px;
 }
 a.use{
     font-size: 30px;
@@ -1049,7 +1050,8 @@ section{
     font-family:'Rubik Dirt';
 }
 .use{
-    margin: 0 auto 25px auto;
+    margin: 0 50px 25px 50px;
+    margin-left:50px;
 }
 a.use{
     font-size: 30px;
@@ -1340,7 +1342,8 @@ a.use{
         font-family:'Rubik Dirt';
     }
     .use{
-        margin: 0 auto 25px auto;
+        margin: 0 50px 25px 50px;
+        margin-left:50px;
     }
     a.use{
         font-size: 30px;
@@ -1494,14 +1497,16 @@ a.use{
 
   }
   /*iPad*/
-  @media screen and (max-width: 979px){
+  @media screen and (max-width: 1024px){
+    .tab_wrap{
+        width:100%;
+    }
       html{
         width:100%;
     }
     section{
         margin-left:0;
-        width:768px;
-        margin:0 800px 400px 0;
+
     }
     .header_inner{
         display:none;
@@ -1597,13 +1602,6 @@ a.use{
         display: none;
 
 }
-
-/* .use{
-margin-left:200px;
-} */
-/* .tab_wrap{
-margin-left:200px;
-} */
 .design09{
 width:auto;
 }
@@ -1616,7 +1614,10 @@ width:100%;
 .contents{
 display:block;
 }
-
+.use{
+    margin: 0 auto;
+   
+}
 .home-button a.header_nav_itm_link {
 box-sizing: border-box;
 display: table-cell;

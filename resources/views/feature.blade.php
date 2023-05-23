@@ -538,82 +538,83 @@
             </div>
         </div>
     </div>
-    <a name="free" class="use">
-        <div class="element">
-            <div class="use">
-                <!-- リンク内移動-->
-                <br>登録なしでも使える
-                <br>便利な機能
-    </a>
-    <div class="tab_wrap">
-        <input id="tab8" type="radio" name="tab_btn3" checked>
-        <input id="tab9" type="radio" name="tab_btn3">
-        <input id="tab10" type="radio" name="tab_btn3">
-        <div class="nav-wrap">
-            <div class="scroll-nav">
-                <div class="tab_area">
-                    <label class="tab8_label" for="tab8">ヘアカット</label>
-                    <label class="tab9_label" for="tab9">自立支援</label>
-                    <label class="tab10_label" for="tab10">サンプル作成</label>
+        <a name="free" class="use">
+            <div class="element">
+                <div class="use">
+                    <!-- リンク内移動-->
+                    <br>登録なしでも使える
+                    <br>便利な機能
+        </a>
+        <div class="tab_wrap">
+            <input id="tab8" type="radio" name="tab_btn3" checked>
+            <input id="tab9" type="radio" name="tab_btn3">
+            <input id="tab10" type="radio" name="tab_btn3">
+            <div class="nav-wrap">
+                <div class="scroll-nav">
+                    <div class="tab_area">
+                        <label class="tab8_label" for="tab8">ヘアカット</label>
+                        <label class="tab9_label" for="tab9">自立支援</label>
+                        <label class="tab10_label" for="tab10">サンプル作成</label>
+                    </div>
                 </div>
+                <div class="next-btn">＞</div>
             </div>
-            <div class="next-btn">＞</div>
-        </div>
-        <div class="panel_area">
-            <div id="panel8" class="tab_panel">
-                <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">視覚タイマー付き</div>
-                    <div class="slide-description">
-                        <b>ヘアカットスケジュール</b>
-                        理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="llco" style="background-color:unset;">
-                            <div class="admin_button"><a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
+            <div class="panel_area">
+                <div id="panel8" class="tab_panel">
+                    <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">視覚タイマー付き</div>
+                        <div class="slide-description">
+                            <b>ヘアカットスケジュール</b>
+                            理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                            <div class="llco" style="background-color:unset;">
+                                <div class="admin_button"><a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="panel_area">
-            <div id="panel9" class="tab_panel">
-                <a href="img/independence2.png" data-lightbox="group"><img src="img/independence2.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">みんなで共有できる</div>
-                    <div class="slide-description">
-                        <b>自立支援スケジュール</b>
-                        登録会員が作った自立支援スケジュールは個人用だけでなく一般公開も出来るので、公開されたものは誰でも利用することが出来ます
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="llco" style="background-color:unset;">
-                            <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
+            <div class="panel_area">
+                <div id="panel9" class="tab_panel">
+                    <a href="img/independence2.png" data-lightbox="group"><img src="img/independence2.png" alt="list" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">みんなで共有できる</div>
+                        <div class="slide-description">
+                            <b>自立支援スケジュール</b>
+                            登録会員が作った自立支援スケジュールは個人用だけでなく一般公開も出来るので、公開されたものは誰でも利用することが出来ます
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                            <div class="llco" style="background-color:unset;">
+                                <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール一般公開リスト</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="panel_area">
-            <div id="panel10" class="tab_panel">
-                <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="list" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">登録しなくても</div>
-                    <div class="slide-description">
-                        <b>簡単にスケジュールは作れます</b>
-                        登録しないと保存はできませんが、自立支援スケジュール以外は全て作成できます。
-                        <br>
-                        ※詳細は画像をクリックして拡大してみてください
-                        <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
-                        <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
-                        <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">医療スケジュール作成ページへ</a></div>
-                        <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">イラストスケジュール作成ページへ</a></div>
+            <div class="panel_area">
+                <div id="panel10" class="tab_panel">
+                    <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="list" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">登録しなくても</div>
+                        <div class="slide-description">
+                            <b>簡単にスケジュールは作れます</b>
+                            登録しないと保存はできませんが、自立支援スケジュール以外は全て作成できます。
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                            <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
+                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
+                            <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">医療スケジュール作成ページへ</a></div>
+                            <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">イラストスケジュール作成ページへ</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
         <div class="bottom">
             <div class="bottom-container">
                 <div class="bottom-element">
