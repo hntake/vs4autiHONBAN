@@ -1498,6 +1498,9 @@ a.use{
       html{
         width:100%;
     }
+    section{
+        margin-left:0;
+    }
     .header_inner{
         display:none;
     }
