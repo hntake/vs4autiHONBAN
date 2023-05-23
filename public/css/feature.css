@@ -1500,6 +1500,7 @@ a.use{
     }
     section{
         margin-left:0;
+        width:100%;
     }
     .header_inner{
         display:none;
@@ -1677,6 +1678,7 @@ display:none;
         width:80%;
         height: auto;
     }
+
  }
  .youtube_kv{
      margin-top: 200px;
