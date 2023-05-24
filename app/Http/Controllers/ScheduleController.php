@@ -962,34 +962,33 @@ class ScheduleController extends Controller
     public function dashboard(Request $request)
     {
         $user = Auth::user();
-        $lost=Lost::where('email','=',$user->email)->first();
-        if($user->type== 1){
-            $picture=Picture::where('uuid','=',$lost->uuid)->first();
-        }
-        else{
-            $picture=null;
-        }
-    if($user->status==1){
-    $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
-    $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
-    $dentists = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '1')->get();
-    $medicals = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '3')->get();
-    $supports = Independence::where('user_id', '=', Auth::user()->id)->get();
-    return view('dashboard', [
-        'schedules' => $schedules,
-        'illusts' => $illusts,
-        'dentists' => $dentists,
-        'medicals' => $medicals,
-        'supports' => $supports,
-        'user' => $user,
-        'lost' => $lost,
-        'picture' => $picture,
-    ]);
+        if($user->status==1){
+            $lost=Lost::where('email','=',$user->email)->first();
+            if($user->type== 1){
+                $picture=Picture::where('uuid','=',$lost->uuid)->first();
+            }
+            else{
+                $picture=null;
+            }
+            $schedules = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->get();
+            $illusts = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '2')->get();
+            $dentists = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '1')->get();
+            $medicals = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '3')->get();
+            $supports = Independence::where('user_id', '=', Auth::user()->id)->get();
+            return view('dashboard', [
+                'schedules' => $schedules,
+                'illusts' => $illusts,
+                'dentists' => $dentists,
+                'medicals' => $medicals,
+                'supports' => $supports,
+                'user' => $user,
+                'lost' => $lost,
+                'picture' => $picture,
+            ]);
 }
     elseif($user->status==0){
     return view('auth/main/register',[
         'user'=>$user,
-        'lost' => $lost,
     ]);
     }
 }
