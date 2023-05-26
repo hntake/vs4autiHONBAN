@@ -44,19 +44,22 @@
 納入表
     </div>
     <div class="store">
-    @foreach ($losts as $lost)
-            <table class="design09" style="width:100%;">
-                    <tr>
-                                    <th>商品番号</th>
-                                    <th>事業所名</th>
-                                </tr>
+        <table class="design09" style="width:100%;">
+            <tr>
+                <th>商品番号</th>
+                <th>事業所名</th>
+            </tr>
+            @foreach ($losts as $lost)
                     <tr>
                         <td>{{ $lost->id }}</td>
                         <td>{{ $lost->office }}</td>
-               
+
                     </tr>
                     @endforeach
             </table>
     </div>
+    <a href="{{ url('inspect_list') }}">
+                    <h3>発注表へ</h3>
+                </a>
 </div>
 @endsection
