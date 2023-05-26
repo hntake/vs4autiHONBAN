@@ -51,6 +51,10 @@ class Lost extends Model
         'sun2',
         'sun3',
         'mode',
+        'complete',
+        'sold',
+        'office',
+        'order',
 
     ];
 

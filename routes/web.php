@@ -390,6 +390,19 @@ Route::get('shop_register', [\App\Http\Controllers\HomeController::class, 'shop'
 //店舗登録
 Route::post('shop_register', [App\Http\Controllers\HomeController::class, 'shop_post'])->name('shop_post');
 
+//発注登録
+Route::get('inspect_create', function () {
+    return view('inspect_create');
+});
+Route::post('inspect_create', [App\Http\Controllers\InspectController::class, 'create'])->name('inspect_create');
+//発注表表示
+Route::get('inspect_list', [App\Http\Controllers\InspectController::class, 'index'])->name('inspect');
+//発注完了
+Route::get('inspect_list/{id}', [App\Http\Controllers\InspectController::class, 'delete'])->name('inspect_delete');
+//納入表表示
+Route::get('inspect_complete', [App\Http\Controllers\InspectController::class, 'index_complete'])->name('inspect_complete');
+
+
 
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');

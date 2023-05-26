@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- products.cssと連携 -->
 @section('content')
-
+<title>取扱店登録画面</title>
 <div class="header-logo-menu">
     <div id="nav-drawer">
         <input id="nav-input" type="checkbox" class="nav-unshown">
