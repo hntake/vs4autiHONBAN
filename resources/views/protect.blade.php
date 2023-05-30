@@ -348,7 +348,7 @@
             <div class="scroll-nav">
                 <div class="tab_area">
                     <label class="tab4_label" for="tab4">オンライン購入</label>
-                    <label class="tab5_label" for="tab5">メルカリ（現在準備中）</label>
+                    <label class="tab5_label" for="tab5">メルカリで購入</label>
                     <label class="tab6_label" for="tab6">直営店舗</label>
                 </div>
             </div>
@@ -388,7 +388,7 @@
                         料金はメルカリ側の手数料・配送料により変動することをご了承ください。
                         <br>
                         <br>
-                        <div class="admin_button"><a href="https://login.jp.mercari.com/signup?params=client_id%3DnUYFDEaF6MNQgA5f0Xyx0xNXijNzp68u%26nonce%3DZ4Mhtpn2hBHZrdDXRtDkge%26prompt%3Dcreate%26redirect_uri%3Dhttps%253A%252F%252Fmercari-shops.com%252Fauth%252Fcallback%252Fmercari%26response_type%3Dcode%26scope%3Duser%253Aprofile%253Aread%2Buser%253Aemail%253Aread%2Buser%253Aprivate_profile%253Aread%2Buser%253Amercari_user_id%253Aread%2Boffline_access%2Bopenid%2Bmercari_shops%26state%3Dback_path%253D%25252Fproducts%25252FuvNeqnJVRhKUvjDdoYoB4V%2526signin%253Dtrue%2526source%253Dshared_link%2526utm_source%253Dshared_link" style="background-color:none; color:#7791DE;"> メルカリ商品ページへ </a></div>
+                        <div class="admin_button"><a href="https://mercari-shops.com/shops/ZPUvvAy3oftwnEyEc9SmYU?source=shared_link&utm_source=shared_link" style="background-color:none; color:#7791DE;"> メルカリ商品ページへ </a></div>
                     </div>
                 </div>
 
