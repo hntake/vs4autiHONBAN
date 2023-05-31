@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Notifications\VerifyEmail;
-use Laravel\Sanctum\HasApiTokens;
 use Laravel\Cashier\Billable;
+use Laravel\Passport\HasApiTokens; // include this
+
 
 
 
