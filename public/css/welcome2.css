@@ -4,6 +4,25 @@ a{
 a h3{
     color: #111;
 }
+.tiktok{
+    background-color: rgb(238, 140, 21);
+    text-align: center;
+    padding:10px;
+    width: 20%;
+    position: absolute;
+    left: 70%;
+    top: 60%;
+    border-radius: 10%;
+}
+.badge{
+    position: absolute;
+    left: 80%;
+    top: 80%;
+}
+.badge img{
+    width:80%;
+    height:auto;
+}
 
 .main-column::before{
     background-repeat: no-repeat;
@@ -320,7 +339,9 @@ a.header_nav_itm_link {
     .kv .sub-copy{
       font-size: 30px;
     }
-
+    .header_nav_list{
+        flex-wrap:wrap;
+    }
     /* video */
     .video{
       min-width: 960px;
@@ -331,6 +352,9 @@ a.header_nav_itm_link {
     }
     .title{
         width:50%;
+    }
+    .hero{
+        margin-top:300px;
     }
     .hero__lead{
         width: 85%;
@@ -345,6 +369,16 @@ a.header_nav_itm_link {
     .vs4nest{
         display:block;
     }
+    .badge{
+        position: absolute;
+        left: 70%;
+        top: 100%;
+    }
+    .badge img{
+        width:100%;
+        height:auto;
+    }
+
 
   }
 /*iPhone12レスポンシブ対応*/
@@ -352,11 +386,29 @@ a.header_nav_itm_link {
   and (min-device-width: 390px)
   and (max-device-width: 844px)
   and (-webkit-min-device-pixel-ratio: 3) {
+    .tiktok{
+        width:30%;
+        left:60%;
+        top:400%;
+    }
+
     .catch-copy{
         top:30px;
     }
     .title{
         width:50%;
+    }
+    .badge{
+        position: absolute;
+        left: 50%;
+        top: 100%;
+    }
+    .badge img{
+        width:110%;
+        height:auto;
+    }
+    .hero{
+        margin-top: 0;
     }
     .hero__lead{
         width: 85%;
@@ -1831,6 +1883,7 @@ a.use{
         top:0;
         width:100%;
         position:unset;
+        margin-top:150px;
     }
     .mobile-login{
         display: block;

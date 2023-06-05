@@ -40,9 +40,24 @@
         <div class="container">
             <header id="header" class="header is-open">
 
+                <div class="tiktok">
+                    <h3 style="margin:0;">
+                        Follow us
+                    </h3>
+                    <h4 style="margin:0;">
+                            マニュアル動画や、利用動画投稿中！
+                        </h4>
+                    <div class="v_content">
+                        <a href="https://www.tiktok.com/@llcovs4?lang=ja-JP" target="_blank">
+                            <img src="img/tiktok.png" alt="TikTok" width="40" height="auto" >
+                        </a>
+                    </div>
+                </div>
+                <div class="badge">
+                    <a href="{{url('/protect')}}"><img src="img/protect_pop.webp"  ></a>
+                </div>
                 <div class="header_inner">
                     <nav id="menu" class="header_nav">
-
 
                         @if (Route::has('login'))
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
@@ -422,6 +437,7 @@
                         <div class="widget">
                             <div class="copy-right">
                                 <span class="copu-right-text">© All rights reserved by llco</span>
+                                <span class="copu-right-text"><a target="_blank" href="https://icons8.com/icon/fdfLpA6fsXN2/%E3%83%81%E3%82%AF%E3%82%BF%E3%82%AF">チクタク</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span>
                             </div>
                         </div>
                     </div>
