@@ -160,6 +160,10 @@ Route::get('my_page', [App\Http\Controllers\HomeController::class, 'my_page'])->
 Route::get('/edit_user/{id}', [App\Http\Controllers\HomeController::class, 'edit_user'])->name('edit_user');
 /*選択したユーザーを編集する*/
 Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user');
+/*選択したユーザーの編集画面へflutter*/
+Route::get('/edit_user_fl/{id}', [App\Http\Controllers\HomeController::class, 'edit_user_fl'])->name('edit_user_fl');
+/*選択したユーザーを編集するflutter*/
+Route::patch('/update_fl/{id}', [App\Http\Controllers\HomeController::class, 'update_fl'])->name('update_user_fl');
 /*選択したユーザーのパスワード変更画面へ*/
 Route::get('/update_password', [App\Http\Controllers\HomeController::class, 'password'])->name('password');
 /*選択したユーザーのパスワード変更申請*/
@@ -346,9 +350,9 @@ Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_ne
 Route::get('lost/home/{id}', [\App\Http\Controllers\ExtraController::class, 'protect']);
 //電話する
 Route::post('lost/home/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'to_call'])->name('to_call');
-//お守りを停止する画面へ
+//お守りを一時停止する画面へ
 Route::get('lost/suspend', [\App\Http\Controllers\ExtraController::class, 'suspend'])->name('suspend');
-//お守りを停止する
+//お守りを一時停止する
 Route::post('lost/suspend', [\App\Http\Controllers\ExtraController::class, 'suspend_call'])->name('suspend_call');
 //お守りを停止する画面へ
 Route::get('lost/stop', [\App\Http\Controllers\ExtraController::class, 'stop'])->name('stop');
