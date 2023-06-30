@@ -346,20 +346,7 @@ class HomeController extends Controller
             'lost'=>$lost,
         ]);
     }
-        /**
-     * 選択したユーザーの編集画面へ(flutter)
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function edit_user_fl(Request $request, $id)
-    {
-        $lost=Lost::where('id','=',$id)->first();
-        return view('edit_user_fl', [
-            'id' => $id,
-            'lost'=>$lost,
-        ]);
-    }
+
     /**
      * 選択したユーザーを編集する
      *
@@ -377,7 +364,8 @@ class HomeController extends Controller
         $users->save();
         }
         else{
-        $lost=Lost::where('email','=',$user->email)->first();
+
+        $lost=Lost::where('uuid','=',$user->uuid)->first();
         $lost->email = $request->input('email');
         $lost->name = $request->input('name');
         $lost->tel1 = $request->input('tel1');
@@ -405,6 +393,10 @@ class HomeController extends Controller
         $lost->sun2 = $request->input('sun2');
         $lost->sun3 = $request->input('sun3');
         $lost->save();
+        $uuid=$lost->uuid;
+        $user = User::where('uuid',$uuid)->first();
+        $user->email = $request->input('email');
+        $user->save();
 
     }
         return redirect('my_page');
@@ -446,6 +438,10 @@ class HomeController extends Controller
         $lost->sun2 = $request->input('sun2');
         $lost->sun3 = $request->input('sun3');
         $lost->save();
+        $uuid=$lost->uuid;
+        $user = User::find($uuid);
+        $user->email = $request->input('email');
+        $user->save();
 
         return redirect('my_page');
     }
