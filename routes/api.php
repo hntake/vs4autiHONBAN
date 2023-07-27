@@ -20,3 +20,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/address/{zip}', [AddressController::class, 'address']);
+
+ ///ログイン
+Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+
+//my_page表示
+Route::get('my_page', [App\Http\Controllers\HomeController::class, 'my_page'])->name('my_page');
+/*選択したユーザーの編集画面へ*/
+Route::middleware('auth:api')-> get('/edit_user_fl/{id}', [App\Http\Controllers\Api\AuthController::class, 'edit_user_fl'])->name('edit_user_fl');
+/*選択したユーザーを編集する*/
+Route::put('/update_user_fl/{id}', [App\Http\Controllers\Api\AuthController::class, 'update'])->name('update_user_fl');
+/*選択したユーザーのパスワード変更画面へ*/
+Route::get('/update_password', [App\Http\Controllers\HomeController::class, 'password'])->name('password');
+/*選択したユーザーのパスワード変更申請*/
+Route::patch('/update_password', [App\Http\Controllers\HomeController::class, 'update_password'])->name('update_password');
+
+
+//お守りを一時停止する
+Route::post('lost/suspend/{id}', [\App\Http\Controllers\Api\AuthController::class, 'suspend_call'])->name('suspend_call_fl');
+
+//お守りを停止する
+Route::post('lost/stop/{id}', [\App\Http\Controllers\Api\AuthController::class, 'stop_call'])->name('stop_call_fl');
+
+//お守りを再開する
+Route::post('lost/again/{id}', [\App\Http\Controllers\Api\AuthController::class, 'again_call'])->name('again_call_fl');

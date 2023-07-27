@@ -436,8 +436,10 @@
                     <div class="site-info">
                         <div class="widget">
                             <div class="copy-right">
-                                <span class="copu-right-text">© All rights reserved by llco</span>
-                                <span class="copu-right-text"><a target="_blank" href="https://icons8.com/icon/fdfLpA6fsXN2/%E3%83%81%E3%82%AF%E3%82%BF%E3%82%AF">チクタク</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span>
+                                <span class="copy-right-text">© All rights reserved by llco</span>
+                            </div>
+                            <div class="copy-right">
+                            <span class="copy-right-text"><a target="_blank" href="https://icons8.com/icon/fdfLpA6fsXN2/%E3%83%81%E3%82%AF%E3%82%BF%E3%82%AF" style="color:#888888;">tiktok</a> icon by <a target="_blank" href="https://icons8.com" style="color:#888888;">Icons8</a></span>
                             </div>
                         </div>
                     </div>

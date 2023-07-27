@@ -369,10 +369,15 @@ a.header_nav_itm_link {
     .vs4nest{
         display:block;
     }
+    .tiktok {
+        position: absolute;
+        left: 45%;
+        width:25%;
+    }
     .badge{
         position: absolute;
         left: 70%;
-        top: 100%;
+        top: 50%;
     }
     .badge img{
         width:100%;
@@ -890,7 +895,7 @@ h2.bottom-element-top{
     position: relative;
 }
 .site-footer .site-info .copy-right {
-    line-height: .2rem;
+    line-height: .8rem;
     padding-top: 0.16rem;
 }
 .site-footer .site-info .copy-right-txt {
