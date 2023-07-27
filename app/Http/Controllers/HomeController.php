@@ -286,6 +286,7 @@ class HomeController extends Controller
               'type'=> 3,
             ]);
             $user = Auth::user();
+
             $lost=new Lost;
             $lost->name=$request->name;
             $lost->name_pronunciation = $request->name_pronunciation;
@@ -317,7 +318,8 @@ class HomeController extends Controller
             $lost->sun3=$request->sun3;
             $lost->save();
 
-            $type=$user->type;
+            $uuid=$lost->uuid;
+            $user = User::where('uuid',$uuid)->first();
         return view('auth.main.registered', compact('user'));
       }
           //my_page画面に遷移

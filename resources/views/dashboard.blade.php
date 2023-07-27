@@ -500,14 +500,14 @@
                                 </tr>
                             </table>
                         <div>
+                          @if(isset($picture))
                         <div class="qr_code">
                         <h5>貴方のQRコード</h5>
-                       {{$lost->tel2}}
                         <a href="{{ asset('storage/' . $picture->image) }}"><img src="{{ asset('storage/' . $picture->image) }}" alt="image" ></a>
                         <div class="print">
                             <h6 >印刷したい方はQRコードをクリックし、画像画面で各デバイスに沿った印刷方法で印刷して下さい。<br>ヘルプカードに利用する場合はA4サイズを10～20%に設定してください</h6>
                         </div>
-
+                    @endif
                     </div>
                         </div>
                         <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a>

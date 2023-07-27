@@ -93,7 +93,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'info@itcha50.com'),
-        'name' => env('MAIL_FROM_NAME', '視覚支援ツール${APP_NAME}'),
+        'name' => env('MAIL_FROM_NAME', '視覚支援ツール・お守りバッジ${APP_NAME}'),
     ],
 
     /*
