@@ -26,7 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-       Passport::routes();
+        Route::group(['middleware' => [CreateFreshApiToken::class]], function () {
+            Passport::routes();
+        });
     }
 }
