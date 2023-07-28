@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport; // add this
 use Laravel\Passport\Http\Middleware\CreateFreshApiToken; // 追加
+use Illuminate\Support\Facades\Route; // 追加
 
 
 
