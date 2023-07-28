@@ -29,8 +29,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        Route::group(['middleware' => [CreateFreshApiToken::class]], function () {
-            Passport::routes();
+        \Route::group(['middleware' => [CreateFreshApiToken::class]], function () {
+            \Route::post('/oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
         });
     }
 }
