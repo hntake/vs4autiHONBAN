@@ -24,8 +24,7 @@ Route::get('/address/{zip}', [AddressController::class, 'address']);
  ///ログイン
 Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 
-//my_page表示
-Route::get('my_page', [App\Http\Controllers\HomeController::class, 'my_page'])->name('my_page');
+
 /*選択したユーザーの編集画面へ*/
 Route::middleware('auth:api')-> get('/edit_user_fl/{id}', [App\Http\Controllers\Api\AuthController::class, 'edit_user_fl'])->name('edit_user_fl');
 /*選択したユーザーを編集する*/

@@ -36,7 +36,7 @@ class AuthController extends Controller
         if($user!='[]' && Hash::check($R->password,$user->password)){
             $token = $user->createToken('authToken')->accessToken;
             $lost=Lost::where('email','=',$user->email)->first();
-            $response = ['status' => 200, 'token' => $token, 'user'=>$user, 'lost' => $lost, 'message' => 'Successfully Login! Welcome Back'];
+            $response = ['status' => 200, 'token' => $token, 'user'=>$user, 'lost' => $lost, 'message' => 'ログインに成功しました'];
             return response()->json($response);
         }else if($user=='[]'){
             $response = ['status' => 500, 'message' => 'No account found with this email'];
