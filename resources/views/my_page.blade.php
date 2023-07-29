@@ -4,6 +4,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/mypage.css') }}"> <!-- schedule.cssと連携 -->
 
 <div class="container">
     <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
@@ -382,16 +383,16 @@
                                 <input type="hidden" name="image_id" value="{{$user->image_id}}">
                             </div>
                         </div>
-                  <!--     お守りバッジだけ申込んでいる -->
-                    @elseif($type==1 )
-                        <div class="card-header">登録情報</div>
-                        @if($lost->mode==0)
+            <!--     お守りバッジだけ申込んでいる -->
+            @elseif($type==1 )
+                <div class="card-header">登録情報</div>
+                @if($lost->mode==0)
                 <div class="pro_button"><a href="{{ route('suspend') }}">サービスを一時停止する（個人情報対策）</a></div>
                 <div class="pro_button"><a href="{{ route('stop') }}">紛失等の為にサービスを停止する</a></div>
                 @else
                 <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
                 @endif
-                        <div class="card-body">
+                    <div class="card-body">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                                 <div class="col-md-6">
@@ -684,23 +685,25 @@
                                         </td>
                                     </tr>
                                 </table>
-                        </div>
+                            </div>
                         @if(isset($picture))
                         <div class="qr_code">
-                        <h5>貴方のQRコード</h5>
-                        <a href="{{ asset('storage/' . $picture->image) }}"><img src="{{ asset('storage/' . $picture->image) }}" alt="image" ></a>
-                        <div class="print">
-                            <h6 >印刷したい方はQRコードをクリックし、画像画面で各デバイスに沿った印刷方法で印刷して下さい。<br>ヘルプカードに利用する場合はA4サイズを10～20%に設定してください</h6>
+                            <h5>貴方のQRコード</h5>
+                            <a href="{{ asset('storage/' . $picture->image) }}"><img src="{{ asset('storage/' . $picture->image) }}" alt="image" ></a>
+                            <div class="print">
+                                <h6 >印刷したい方はQRコードをクリックし、画像画面で各デバイスに沿った印刷方法で印刷して下さい。<br>ヘルプカードに利用する場合はA4サイズを10～20%に設定してください</h6>
+                            </div>
+                            @endif
                         </div>
-                    @endif
-                    </div>
                     </div>
                     @endif
                     <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a></div>
                     <div class="pro_button"><a href="{{ route('password') }}">パスワード変更画面へ</a></div>
-                </div>
-            </div>
-        </div>
+                    <div class="pro_button"><a href="{{ url('delete') }}">登録削除画面へ</a></div>
+                </div><!--card-->
+            </div><!--col-md-8-->
+        </div><!--row justify-content-center-->
+</div><!--container-->
         <footer class="site-footer">
         <div class="bc-sitemap-wrapper">
             <div class="sitemap clearfix">
@@ -751,7 +754,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <p></p>
 

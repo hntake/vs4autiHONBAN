@@ -405,8 +405,11 @@ Route::get('inspect_list', [App\Http\Controllers\InspectController::class, 'inde
 Route::get('inspect_list/{id}', [App\Http\Controllers\InspectController::class, 'delete'])->name('inspect_delete');
 //納入表表示
 Route::get('inspect_complete', [App\Http\Controllers\InspectController::class, 'index_complete'])->name('inspect_complete');
-
-
+//登録削除画面へ
+Route::get('delete', function () {
+    return view('delete');
+});
+Route::post('delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('account_delete');
 
 //キャンセル後遷移
 /* Route::get('/cancel',  [App\Http\Controllers\StripeController::class,'cancel'])->name('cancel');

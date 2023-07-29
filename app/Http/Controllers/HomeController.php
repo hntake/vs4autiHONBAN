@@ -658,4 +658,18 @@ public function design_original_send(Request $request)
       return redirect('store');
 
   }
+  /*登録削除*/
+  public function delete(Request $request)
+  {
+    $user=Auth::user();
+    $schedules=Schedule::where('user_id',$user->id)->get();
+    foreach ($schedules as $schedule) {
+        $schedule->delete();
+    }
+    if($user->type ==1 ||$user->type ==3){
+    }
+    Lost::where('email',$user->email)->delete();
+    User::where('id', $user->id)->delete();
+    return redirect('/');
+  }
 }
