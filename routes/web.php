@@ -85,6 +85,9 @@ Route::get('/paypay', function () {
 Route::get('/paypay800', function () {
     return view('paypay800');
 });
+Route::get('/paypay100', function () {
+    return view('paypay100');
+});
 Route::get('/stop', function () {
     return view('stop');
 });
