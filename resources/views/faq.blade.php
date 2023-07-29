@@ -120,7 +120,11 @@
         <h2><a id="index4">アカウント情報</a></h2>
         <li>
             <section>
-                <h2 class="title">Q.自分のアカウントをキャンセルしたい。</h2>
+            <h2 class="title">Q.退会し、全ての登録情報を削除したい</h2>
+                <div class="box">
+                    <p>マイページの最下部に登録削除ページへの遷移ボタンがあるので、そちらから削除してください。</p>
+                </div>
+                <h2 class="title">Q.サブスクプランをキャンセルしたい。</h2>
                 <div class="box">
                     <p>支払い情報ページよりキャンセルできます。</p>
                     <a href="img/cancel1.png" data-lightbox="group"><img src="img/cancel1.png" alt="cancel1" style="width:20%;"></a>
@@ -128,6 +132,7 @@
                     <a href="img/cancel3.png" data-lightbox="group"><img src="img/cancel3.png" alt="cancel3" style="width:20%;"></a>
                     <p>※詳細は画像をクリックして拡大してみてください</p>
                 </div>
+
                 <h2 class="title">Q.退会後の写真や個人情報は？</h2>
                 <div class="box">
                     <p>速やかにすべての情報が削除されます。</p>
