@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">本会員登録完了</div>
-                   
+
                     <div class="card-body">
                         <p>本会員登録が完了しました。</p>
                         <!--VS4からお守りの人-->
@@ -24,8 +24,10 @@
                         @endif
                         <!--お守りのみ-->
                         @if($user->type==1)
-                        <p>そのまま、デザイン選択ページへ移動してください。</p>
+                        <p>バッジを注文する方は、デザイン選択ページへ移動してください。</p>
                         <a href="{{url('/design')}}" class="sg-btn">デザイン選択ページへ移動</a>
+                        <p>バッジは注文せず、登録のみの方は登録料支払いページへ</p>
+                        <a href="{{url('/paypay100')}}" class="sg-btn">支払いページへ移動</a>
                         @endif
                         <!--お守りからVS4もの人-->
                         @if($user->type==3 && $user->pm_type ==! null)
