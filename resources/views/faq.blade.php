@@ -120,7 +120,12 @@
         <h2><a id="index4">アカウント情報</a></h2>
         <li>
             <section>
-            <h2 class="title">Q.退会し、全ての登録情報を削除したい</h2>
+                <h2 class="title">Q.自分の情報を一部残して、他は削除したい</h2>
+                <div class="box">
+                <p>個別の対応が必要となります。お問い合わせフォームよりご相談ください。</p>
+                    <a href="{{ route('contact.index') }}" class="button" style="font-size: 1.0rem; font-weight: 700;letter-spacing: normal;text-decoration: none;color: green;">こちらをクリック</a>
+                </div>
+                <h2 class="title">Q.退会し、全ての登録情報を削除したい</h2>
                 <div class="box">
                     <p>マイページの最下部に登録削除ページへの遷移ボタンがあるので、そちらから削除してください。</p>
                 </div>
