@@ -441,6 +441,7 @@ class HomeController extends Controller
         $lost->sun3 = $request->input('sun3');
         $lost->save();
         $uuid=Lost::where('id','=',$id)->value('uuid');
+        dd($uuid);
         $user = User::find($uuid);
         $user
         ->update([
