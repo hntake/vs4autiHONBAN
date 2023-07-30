@@ -440,10 +440,12 @@ class HomeController extends Controller
         $lost->sun2 = $request->input('sun2');
         $lost->sun3 = $request->input('sun3');
         $lost->save();
-        $uuid=$lost->uuid;
+        $uuid=Lost::where('id','=',$id)->value('uuid');
         $user = User::find($uuid);
-        $user->email = $request->input('email');
-        $user->save();
+        $user
+        ->update([
+            'email'=>$lost->email,
+        ]);
 
         return redirect('my_page');
     }
