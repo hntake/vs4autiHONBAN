@@ -85,6 +85,10 @@ class AuthController extends Controller
         $lost->tel1 = $request->input('tel1');
         $lost->tel2 = $request->input('tel2');
         $lost->save();
+        $uuid=$lost->uuid;
+        $user = User::where('uuid',$uuid)->first();
+        $user->email = $request->input('email');
+        $user->save();
 
     return response()->json(['message' => '更新しました']);
 }
