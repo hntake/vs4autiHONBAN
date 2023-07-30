@@ -403,52 +403,7 @@ class HomeController extends Controller
     }
         return redirect('my_page');
     }
-    /**
-     * 選択したユーザーを編集する(flutter)
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function update_fl(Request $request, $id)
-    {
-
-        $lost=Lost::where('id','=',$id)->first();
-        $lost->email = $request->input('email');
-        $lost->name = $request->input('name');
-        $lost->tel1 = $request->input('tel1');
-        $lost->tel2 = $request->input('tel2');
-        $lost->address = $request->input('address');
-        $lost->mon1 = $request->input('mon1');
-        $lost->mon2 = $request->input('mon2');
-        $lost->mon3 = $request->input('mon3');
-        $lost->tue1 = $request->input('tue1');
-        $lost->tue2 = $request->input('tue2');
-        $lost->tue3 = $request->input('tue3');
-        $lost->wed1 = $request->input('wed1');
-        $lost->wed2 = $request->input('wed2');
-        $lost->wed3 = $request->input('wed3');
-        $lost->thu1 = $request->input('thu1');
-        $lost->thu2 = $request->input('thu2');
-        $lost->thu3 = $request->input('thu3');
-        $lost->fri1 = $request->input('fri1');
-        $lost->fri2 = $request->input('fri2');
-        $lost->fri3 = $request->input('fri3');
-        $lost->sat1 = $request->input('sat1');
-        $lost->sat2 = $request->input('sat2');
-        $lost->sat3 = $request->input('sat3');
-        $lost->sun1 = $request->input('sun1');
-        $lost->sun2 = $request->input('sun2');
-        $lost->sun3 = $request->input('sun3');
-        $lost->save();
-        $uuid=Lost::where('id','=',$id)->value('uuid');
-        $user = User::find($uuid);
-        $user
-        ->update([
-            'email'=>$lost->email,
-        ]);
-
-        return redirect('my_page');
-    }
+  
             /**
      * 選択したユーザーのパスワード変更画面へ
      *
