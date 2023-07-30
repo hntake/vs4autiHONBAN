@@ -363,7 +363,7 @@
                         <b>登録は10分程度</b>
                         オンライン購入の場合<br>
                         1.仮登録はメールアドレスとパスワードのみ入力<br>
-                        2.メール認証<br>3.本登録は名前、住所、連絡先、連絡先の時間帯選択<br>4.デザイン選択<br>(オリジナルデザインは追加料金300円)<br>5.支払い<br>料金:<span style="color:red; font-weight:bold;">500円</span>（送料・税金込）<br>5.郵送<br>6.受取<br>
+                        2.メール認証<br>3.本登録は名前、住所（郵送を希望の場合）、連絡先、連絡先の時間帯選択<br>4.登録のみかバッジを購入する為のデザイン選択かを選んでください。<br>5.支払い<br>登録のみ料金：<span style="color:red; font-weight:bold;">100円</span><br>バッジ料金（送料込）:<span style="color:red; font-weight:bold;">500円</span><br>(オリジナルデザインは追加料金300円)<br>5.入金確認後速やかに郵送されます。<br>6.受取<br>
                         <div class="method" style="background-color:#c7fecb;">
                             支払い方法
                             <br>1.クレジットカード
