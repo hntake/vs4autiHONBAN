@@ -80,25 +80,15 @@
                                 <a href="#free" class="header_nav_itm_link">料金</a>
                                 <div class="description1">300円～</div>
                             </li>
-                            <!--     <li class="header_nav_itm">
-                                <a href="#useful" class="header_nav_itm_link">登録のメリット</a>
-                                <div class="description1">無料登録してみよう！</div>
-                            </li> -->
+
                             <!--    <li class="header_nav_itm">
                                     @auth
-                                        <a href="{{ url('//') }}" class=" header_nav_itm_link">Home</a>
-                                        <div class="description1">Myホーム画面へ移動する </div>
+
                                 </li>
-                                <li class="header_nav_itm">
-                                        <a href="{{ url('/dentist/list') }}" class=" header_nav_itm_link">歯科</a>
-                                        <div class="description1">歯科リストへ移動する</div>
-                                </li>
+
                                 <li class="header_nav_itm">
                                     @else
-                                    <div class="login-button">
-                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                        <div class="description1">ログイン画面へ移動する </div>
-                                    </div>
+
                                 </li> -->
                             <li class="header_nav_itm">
                                 <div class="register-button">
@@ -127,37 +117,15 @@
                         <li class="header_nav_itm">
                             <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:80%;"></a>
                         </li>
-                        <!--  @if (Route::has('login'))
-                            <li class="header_nav_itm">
-                                @auth
-                                    <div class="home-button">
-                                        <a href="{{ url('//') }}" class=" header_nav_itm_link">Home</a>
-                                        <div class="description1">Myホーム画面へ移動する </div>
-                                    </div>
-                            </li>
-                            <li>
-                                <div class="home-button">
-                                        <a href="{{ url('/dental/list') }}" class=" header_nav_itm_link">歯科</a>
-                                        <div class="description1">歯科リストへ移動する</div>
-                                </div>
-                            </li>
-                            <li class="header_nav_itm">
-                                    @else
-                                    <div class="login-button">
-                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                        <div class="description1">ログイン画面へ移動する </div>
-                                    </div>
-                            </li> -->
+
                         <li class="header_nav_itm">
                             <div class="register-button">
                                 @if (Route::has('register'))
                                 <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                <!--   <div class="description1">30日間無料トライアルを試してみる</div> -->
                             </div>
                         </li>
 
-                        <!--   @endif
-                                @endauth -->
+
                         @endif
                     </ul>
                 </div>
@@ -190,7 +158,7 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://www.tiktok.com/@llcovs4/video/7220301301597408513?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001" class="header_nav_itm_link">説明動画</a>
+                                        <a href="https://www.tiktok.com/@llcovs4/video/7261429997682920706?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001" class="header_nav_itm_link">説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
@@ -211,10 +179,7 @@
 
             <div class="youtube">
                 <div class="elementor-image">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7220301301597408513" data-video-id="7220301301597408513" style="max-width: 605px;min-width: 325px;">
-                        <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ Chu,Tayousei. - ano" href="https://www.tiktok.com/music/ChuTayousei-7158336575057692673?refer=embed">♬ Chu,Tayousei. - ano</a> </section>
-                    </blockquote>
-                    <script async src="https://www.tiktok.com/embed.js"></script>
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7261429997682920706" data-video-id="7261429997682920706" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> お守りバッジ アプリリリースの為、再投稿 <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a>  <a title="認知症" target="_blank" href="https://www.tiktok.com/tag/%E8%AA%8D%E7%9F%A5%E7%97%87?refer=embed">#認知症</a>  <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a target="_blank" title="♬ Aesthetic - Tollan Kim" href="https://www.tiktok.com/music/Aesthetic-7072513628145977346?refer=embed">♬ Aesthetic - Tollan Kim</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                 </div>
             </div>
             <div class="youtube">
@@ -227,21 +192,7 @@
             </div>
 
         </div>
-        <!--       <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor-apply">
-                            <img src="img/protect.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/" class="video-open"><img src="img/play.png"></a>
-                        </div>
-                    </div>
 
-                </div>
-            </div> -->
         <section>
             <a name="use" class="use">
                 <div class="element">
@@ -338,7 +289,7 @@
             <div class="use">
                 <!-- リンク内移動-->
                 <br>購入方法は
-                <br>オンライン、メルカリ、直営店舗
+                <br>オンライン、ネットショップ、直営店舗
     </a>
     <div class="tab_wrap">
         <input id="tab4" type="radio" name="tab_btn2" checked>
@@ -348,7 +299,7 @@
             <div class="scroll-nav">
                 <div class="tab_area">
                     <label class="tab4_label" for="tab4">オンライン購入</label>
-                    <label class="tab5_label" for="tab5">メルカリで購入</label>
+                    <label class="tab5_label" for="tab5">ネットショップで購入</label>
                     <label class="tab6_label" for="tab6">直営店舗</label>
                 </div>
             </div>
@@ -385,10 +336,11 @@
                     <div class="slide-head">ご自分のアカウントで</div>
                     <div class="slide-description">
                         <b>気軽に購入</b>
-                        料金はメルカリ側の手数料・配送料により変動することをご了承ください。
+                        料金はショップ側の手数料・配送料により変動することをご了承ください。
                         <br>
                         <br>
-                        <div class="admin_button"><a href="https://mercari-shops.com/shops/ZPUvvAy3oftwnEyEc9SmYU?source=shared_link&utm_source=shared_link" style="background-color:none; color:#7791DE;"> メルカリ商品ページへ </a></div>
+                        <div class="admin_button"><a href="https://mercari-shops.com/shops/ZPUvvAy3oftwnEyEc9SmYU?source=shared_link&utm_source=shared_link" style="background-color:none; color:#7791DE;"> メルカリshopページへ </a></div>
+                        <div class="admin_button"><a href="https://paypayfleamarket.yahoo.co.jp/user/p9622207" style="background-color:none; color:#7791DE;"> paypayフリマshopページへ </a></div>
                     </div>
                 </div>
 

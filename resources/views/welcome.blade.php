@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れるサイトです。迷子対策のお守りバッジも販売中" name="description">
+    <meta content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れます。迷子対策のお守りバッジも販売中" name="description">
 
-    <title>{{ config('app.name', 'VS4') }} スマホで作る絵スケジュールサイトVS4 トップページ</title>
+    <title>{{ config('app.name', 'VS4') }} ITで手助けを考えるIT2U トップページ</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -346,15 +346,15 @@
                     <div class="vs4nest">
                         <div class="vs4left">
                             <div class="vs4Up">
-                                <p>VS4はスケジュール作成に特化した<br>サイトです</p>
+                                <p>ボランティア団体<br>IT2U</p>
                             </div>
                         </div>
                         <div class="vs4right">
                             <div class="vs4Down">
                                 <p>
-                                    使い方は簡単！<br>
-                                    ご自分のスマホやPCに保存された画像をアップロードするだけで、<br>
-                                    自分だけのスケジュールが作成できます！
+                                    いずれも使い方は簡単！<br>
+                                    絵スケジュール作成やお守りバッジなど<br>
+                                    障がいのある方の手助けを考えます
                                 </p>
                             </div>
                         </div>
