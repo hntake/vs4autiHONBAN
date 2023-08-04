@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れます。迷子対策のお守りバッジも販売中" name="description">
 
-    <title>{{ config('app.name', 'VS4') }} ITで手助けを考えるIT2U トップページ</title>
+    <title>{{ config('app.name', 'VS4') }} ITで助けたい! IT2U トップページ</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">

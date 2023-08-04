@@ -29,7 +29,7 @@
 
                     <ul class="header_nav_list">
                         <li class="header_nav_itm">
-                            <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon500.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon.png" style="width:30%; height:auto;"></a>
                         </li>
 
                         <li class="header_nav_itm">
