@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/favicon2.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
     <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
     <style>
@@ -45,16 +45,16 @@
                         Follow us
                     </h3>
                     <h4 style="margin:0;">
-                            マニュアル動画や、利用動画投稿中！
-                        </h4>
+                        マニュアル動画や、利用動画投稿中！
+                    </h4>
                     <div class="v_content">
                         <a href="https://www.tiktok.com/@llcovs4?lang=ja-JP" target="_blank">
-                            <img src="img/tiktok.png" alt="TikTok" width="40" height="auto" >
+                            <img src="img/tiktok.png" alt="TikTok" width="40" height="auto">
                         </a>
                     </div>
                 </div>
                 <div class="badge">
-                    <a href="{{url('/protect')}}"><img src="img/protect_pop.webp"  ></a>
+                    <a href="{{url('/protect')}}"><img src="img/protect_pop.webp"></a>
                 </div>
                 <div class="header_inner">
                     <nav id="menu" class="header_nav">
@@ -184,14 +184,14 @@
                             </div>
                         </li>
                         <li>
-                                <div class="logout_buttom">
-                                    <form action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                        <!-- CSRF保護 -->
-                                        <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
-                                    </form>
-                                </div>
-                            </li>
+                            <div class="logout_buttom">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <!-- CSRF保護 -->
+                                    <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
+                                </form>
+                            </div>
+                        </li>
                         @endif
                         @endauth
                         @endif
@@ -268,20 +268,19 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://www.tiktok.com/@llcovs4/video/7230404897911377154?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001"
-                                        class="header_nav_itm_link" ontouchstart="">お守りバッジ説明動画</a>
+                                        <a href="https://www.tiktok.com/@llcovs4/video/7230404897911377154?is_from_webapp=1&sender_device=pc&web_id=7203241249292224001" class="header_nav_itm_link" ontouchstart="">お守りバッジ説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
                                 <li>
-                                <div class="logout_buttom">
-                                    <form action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                        <!-- CSRF保護 -->
-                                        <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
-                                    </form>
-                                </div>
-                            </li>
+                                    <div class="logout_buttom">
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <!-- CSRF保護 -->
+                                            <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
+                                        </form>
+                                    </div>
+                                </li>
                             </ul>
 
                         </div>
@@ -439,7 +438,7 @@
                                 <span class="copy-right-text">© All rights reserved by llco</span>
                             </div>
                             <div class="copy-right">
-                            <span class="copy-right-text"><a target="_blank" href="https://icons8.com/icon/fdfLpA6fsXN2/%E3%83%81%E3%82%AF%E3%82%BF%E3%82%AF" style="color:#888888;">tiktok</a> icon by <a target="_blank" href="https://icons8.com" style="color:#888888;">Icons8</a></span>
+                                <span class="copy-right-text"><a target="_blank" href="https://icons8.com/icon/fdfLpA6fsXN2/%E3%83%81%E3%82%AF%E3%82%BF%E3%82%AF" style="color:#888888;">tiktok</a> icon by <a target="_blank" href="https://icons8.com" style="color:#888888;">Icons8</a></span>
                             </div>
                         </div>
                     </div>
