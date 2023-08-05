@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+<link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 
 @section('content')
 <div class="container">

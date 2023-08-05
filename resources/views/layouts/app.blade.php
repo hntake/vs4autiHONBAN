@@ -20,7 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/schedule.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+    <link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 
 </head>
 

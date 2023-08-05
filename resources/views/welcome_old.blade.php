@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ config('app.name', 'VS4') }} トップページ</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+    <link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 
 
     <!-- Fonts -->

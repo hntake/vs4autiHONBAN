@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+<link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 <title>ログイン画面 </title>
 @section('content')
 <div class="container">
@@ -18,11 +18,11 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 <div class="error">
-                                @error('email')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -33,18 +33,18 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <div class="error">
-                                @error('password')
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
                                 </div>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <div >
-                                <div class="form-check" style="margin-left:150px";>
+                            <div>
+                                <div class="form-check" style="margin-left:150px" ;>
                                     <input class="form-check-input" style="margin-left: -180px;" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
@@ -55,15 +55,15 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4 "style="margin-top:30px">
+                            <div class="col-md-8 offset-md-4 " style="margin-top:30px">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('ログインする') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('パスワードを忘れましたか?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('パスワードを忘れましたか?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>

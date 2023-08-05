@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ config('app.name', 'VS4') }}有料プランについて </title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+    <link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">

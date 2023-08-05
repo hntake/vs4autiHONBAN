@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/independence.css') }}"> <!-- home.cssと連携 -->
 
-<link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+<link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 
 <!--ハンバーガーメニュー-->
 <div class="header-logo-menu">

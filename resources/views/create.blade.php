@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
-<link rel="icon" href="{{ asset('favicon.ico') }}" id="favicon">
+<link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 
 <title>新規作成画面 "VS4視覚支援ツール”</title>
 @section('content')
