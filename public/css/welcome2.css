@@ -17,7 +17,7 @@ a h3{
 .badge{
     position: absolute;
     left: 80%;
-    top: 80%;
+    top: 100%;
 }
 .badge img{
     width:80%;
@@ -76,7 +76,7 @@ display:none;
     display: flex;
 }
 .header_nav_list {
-    display: flex;
+    /* display: flex; */
     justify-content: flex-end;
     align-items: center;
     list-style: none;
@@ -141,7 +141,7 @@ a.header_nav_itm_link {
 }
 /*news_area*/
 .news{
-    position: absolute;
+    /* position: absolute; */
     right: 4.4rem;
     top:10rem;
     background: #b5e7d8;
