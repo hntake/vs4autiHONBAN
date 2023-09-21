@@ -63,7 +63,6 @@ class ExtraController extends Controller
     {
         /*uuidから対象者情報を取得*/
         $user = Lost::where('uuid', '=', $id)->first();
-        if($user->mode==0){
 
             /*曜日・時間帯を取得*/
             $now = Carbon::now();
@@ -112,17 +111,24 @@ class ExtraController extends Controller
             } else {
                 $to_call = $user->sun3;
             }
+            if($user->mode==0){
+
             return view('lost/home', [
                 'user' => $user,
                 'to_call' => $to_call,
             ]);
         }
         elseif($user->mode==2){
-            return view('stop');
+            return view('stop', [
+                'user' => $user,
+                'to_call' => $to_call,
+            ]);
         }
         else{
-            return view('suspend');
-        }
+            return view('suspend', [
+                'user' => $user,
+                'to_call' => $to_call,
+            ]);        }
     }
     /*お守りで電話ボタンクリック*/
     public function to_call(Request $request, $id, $to_call)
@@ -213,5 +219,158 @@ class ExtraController extends Controller
         $shops=Shop::orderBy('area', 'desc')->get();
         return view('shop_list',compact('shops'));
   }
+//警察
+  public function verify_index($id,$to_call)
+{
+    return view('lost/verify', [
+        'id' => $id,
+        'to_call' => $to_call,
+    ]);
+}
+//パスコード認証
+public function verify(Request $request,$id, $to_call)
+{
+    $password = $request->input('password');
 
+    // パスコードの検証ロジックをここに追加
+    if($password==32419110){
+ // 正しいパスコードの場合、次の操作に進む処理を実行
+
+ $user = Lost::where('id', '=', $id)->first();
+ if ($to_call == 0) {
+     $tel = $user->tel1;
+ } else {
+     $tel = $user->tel2;
+ }
+
+ $call = new Call;
+ $call->name = $user->name;
+ $call->tel1 = $tel;
+ $call->ip = $request->ip();
+ $call->save();
+
+ \Mail::to($user['email'])->send(new CallMail($user, $call));
+
+ return redirect("tel:{{$tel}}");
+}
+ else{
+    return view('lost/police');
+ }
+}
+//停止画面表示
+public function stop_index(Request $request, $id)
+{
+    /*uuidから対象者情報を取得*/
+    $user = Lost::where('uuid', '=', $id)->first();
+
+        /*曜日・時間帯を取得*/
+        $now = Carbon::now();
+        $date = $now->hour;
+        $week = $now->dayOfWeek;
+        if ($week == 1 &&  $date >= 6 && $date < 12) {
+            $to_call = $user->mon1;
+        } elseif ($week == 2 && $date >= 6 && $date < 12) {
+            $to_call = $user->tue1;
+        } elseif ($week == 3 && $date >= 6 && $date < 12) {
+            $to_call = $user->wed1;
+        } elseif ($week == 4 && $date >= 6 && $date < 12) {
+            $to_call = $user->thu1;
+        } elseif ($week == 5 && $date >= 6 && $date < 12) {
+            $to_call = $user->fri1;
+        } elseif ($week == 6 && $date >= 6 && $date < 12) {
+            $to_call = $user->sat1;
+        } elseif ($week == 7 && $date >= 6 && $date < 12) {
+            $to_call = $user->sun1;
+        } elseif ($week == 1 && $date >= 12 && $date < 19) {
+            $to_call = $user->mon2;
+        } elseif ($week == 2 && $date >= 12 && $date < 19) {
+            $to_call = $user->tue2;
+        } elseif ($week == 3 && $date >= 12 && $date < 19) {
+            $to_call = $user->wed2;
+        } elseif ($week == 4 && $date >= 12 && $date < 19) {
+            $to_call = $user->thu2;
+        } elseif ($week == 5 && $date >= 12 && $date < 19) {
+            $to_call = $user->fri2;
+        } elseif ($week == 6 && $date >= 12 && $date < 19) {
+            $to_call = $user->sat2;
+        } elseif ($week == 7 &&  $date >= 12 && $date < 19) {
+            $to_call = $user->sun2;
+        } elseif ($week == 1 && $date >= 19 || $date < 6) {
+            $to_call = $user->mon3;
+        } elseif ($week == 2 && $date >= 19 || $date < 6) {
+            $to_call = $user->tue3;
+        } elseif ($week == 3 && $date >= 19 || $date < 6) {
+            $to_call = $user->wed3;
+        } elseif ($week == 4 && $date >= 19 || $date < 6) {
+            $to_call = $user->thu3;
+        } elseif ($week == 5 && $date >= 19 || $date < 6) {
+            $to_call = $user->fri3;
+        } elseif ($week == 6 && $date >= 19 || $date < 6) {
+            $to_call = $user->sat3;
+        } else {
+            $to_call = $user->sun3;
+        }
+        return view('stop', [
+            'user' => $user,
+            'to_call' => $to_call,
+        ]);
+    }
+//一時停止画面表示
+public function suspend_index(Request $request, $id)
+{
+    /*uuidから対象者情報を取得*/
+    $user = Lost::where('uuid', '=', $id)->first();
+
+        /*曜日・時間帯を取得*/
+        $now = Carbon::now();
+        $date = $now->hour;
+        $week = $now->dayOfWeek;
+        if ($week == 1 &&  $date >= 6 && $date < 12) {
+            $to_call = $user->mon1;
+        } elseif ($week == 2 && $date >= 6 && $date < 12) {
+            $to_call = $user->tue1;
+        } elseif ($week == 3 && $date >= 6 && $date < 12) {
+            $to_call = $user->wed1;
+        } elseif ($week == 4 && $date >= 6 && $date < 12) {
+            $to_call = $user->thu1;
+        } elseif ($week == 5 && $date >= 6 && $date < 12) {
+            $to_call = $user->fri1;
+        } elseif ($week == 6 && $date >= 6 && $date < 12) {
+            $to_call = $user->sat1;
+        } elseif ($week == 7 && $date >= 6 && $date < 12) {
+            $to_call = $user->sun1;
+        } elseif ($week == 1 && $date >= 12 && $date < 19) {
+            $to_call = $user->mon2;
+        } elseif ($week == 2 && $date >= 12 && $date < 19) {
+            $to_call = $user->tue2;
+        } elseif ($week == 3 && $date >= 12 && $date < 19) {
+            $to_call = $user->wed2;
+        } elseif ($week == 4 && $date >= 12 && $date < 19) {
+            $to_call = $user->thu2;
+        } elseif ($week == 5 && $date >= 12 && $date < 19) {
+            $to_call = $user->fri2;
+        } elseif ($week == 6 && $date >= 12 && $date < 19) {
+            $to_call = $user->sat2;
+        } elseif ($week == 7 &&  $date >= 12 && $date < 19) {
+            $to_call = $user->sun2;
+        } elseif ($week == 1 && $date >= 19 || $date < 6) {
+            $to_call = $user->mon3;
+        } elseif ($week == 2 && $date >= 19 || $date < 6) {
+            $to_call = $user->tue3;
+        } elseif ($week == 3 && $date >= 19 || $date < 6) {
+            $to_call = $user->wed3;
+        } elseif ($week == 4 && $date >= 19 || $date < 6) {
+            $to_call = $user->thu3;
+        } elseif ($week == 5 && $date >= 19 || $date < 6) {
+            $to_call = $user->fri3;
+        } elseif ($week == 6 && $date >= 19 || $date < 6) {
+            $to_call = $user->sat3;
+        } else {
+            $to_call = $user->sun3;
+        }
+        return view('suspend', [
+            'user' => $user,
+            'to_call' => $to_call,
+        ]);
+}
 }

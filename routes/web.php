@@ -88,9 +88,7 @@ Route::get('/paypay800', function () {
 Route::get('/paypay100', function () {
     return view('paypay100');
 });
-Route::get('/stop', function () {
-    return view('stop');
-});
+
 Route::get('/design', function () {
     return view('design');
 });
@@ -365,6 +363,13 @@ Route::post('lost/stop', [\App\Http\Controllers\ExtraController::class, 'stop_ca
 Route::get('lost/again', [\App\Http\Controllers\ExtraController::class, 'again'])->name('again');
 //お守りを再開する
 Route::post('lost/again', [\App\Http\Controllers\ExtraController::class, 'again_call'])->name('again_call');
+//警察
+Route::get('lost/verify-password/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'verify_index'])->name('verify_index');
+Route::post('lost/verify-password/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'verify'])->name('verify');
+//停止中画面表示
+Route::get('stop/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'stop_index'])->name('stop_index');
+//一時停止画面表示
+Route::get('suspend/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'suspend_index'])->name('suspend_index');
 
 //VS4会員がお守りバッジ申込む
 Route::get('lost/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('lost.register');

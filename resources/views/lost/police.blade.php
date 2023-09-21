@@ -20,29 +20,25 @@
                         <img src="{{asset('img/lost_ad.jpg')}}">
                     </div>
                     <p>
-                        拾われた方へ、
-
-                        この度は、私たちが提供する<a href="{{url('protect')}}">お守りバッジ</a>を拾っていただき、ありがとうございます。残念ながら、利用者が当バッジを紛失した為、現在はサービスが停止しております。<br><br>
-
-                        可能であれば、拾われた方には最寄りの警察機関に届けていただけますよう、お願い申し上げます。ただし、警察機関への届け出が難しい場合や、適切な処分方法が分からない場合は、あなた様ののご判断により、適切な処分方法をお選びいただけますよう、お願いいたします。<br><br>
-
+                        警察関係者様<br>
+                        <br>
+                        現在支援者は個人情報を危惧して機能を停止しております。<br>
+                        ただ、<span style="font:bold;">警察関係者</span>のみ連絡を取れるように、専用パスコードを<span style="font:bold;">警察関係者</span>にのみ配布しております。
+                        <br>
+                        <span style="font:bold;">警察関係者</span>でパスコードをお持ちでない場合は、お手数ですが、当社までご連絡ください。折り返し担当部署に電話させて頂き確認後パスコードをお伝えいたします。
+                        <br><br>
                         また、何かご不明点等ございましたら、以下のメールアドレスまでお気軽にお問い合わせください。私たちは迅速かつ丁寧に対応いたします。<br>
 
-
                     </p>
-                     <form method="GET" action="{{ route('verify_index',['id'=>$user->id,'to_call'=>$to_call])}}">
-                        @csrf
-                        <button class="c-button" type="submit">
-                            <i class="fas fa-phone"></i>警察専用</a>
-                        </button>
-                    </form>
+                  
                     <div class="it2u">
                         <h6>
                             ボランティア団体 IT2U
                             <br>
                             (アイティートゥーユー)
                             <br>
-                            <a href="mailto:info@itcha50.com">メールはこちらへ</a>
+                            <a href="tel:07042250615">直通電話はこちら</a><br>
+                            <a href="mailto:info@itcha50.com">メールはこちら</a>
                             <br>
                             <a href="{{ url('/') }}"> https://itcha50.com</a>
                         </h6>
