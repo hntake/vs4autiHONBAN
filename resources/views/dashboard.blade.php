@@ -206,7 +206,12 @@
         </div>
         <!-- お守りのみ -->
         @elseif($user->type == 1)
-        <div class="pro_button"><a href="{{ route('vs4')}}">VS4を申込む</a></div>
+        @if($lost->mode==0)
+                <div class="pro_button"><a href="{{ route('suspend') }}">サービスを一時停止する（個人情報対策）</a></div>
+                <div class="pro_button"><a href="{{ route('stop') }}">紛失等の為にサービスを停止する</a></div>
+                @else
+                <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
+                @endif
         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                             <div class="col-md-6">
@@ -512,10 +517,13 @@
                         </div>
                         <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a>
                     </div>
+                    <div class="pro_button"><a href="{{ route('vs4')}}">VS4を申込む</a></div>
+
                 @else
                         <a href="{{ url('my_page') }}">
                         <h5>登録情報確認ページへ移動</h5>
-                    </a>
+                    </a>     
+
                         <h1>保存リスト</h1>
         <!--   並び変えは一時保留
        <div class="list">
