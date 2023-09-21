@@ -24,7 +24,12 @@
                         <button class="c-button" type="submit">
                             <i class="fas fa-phone"></i>支援者に電話する</a>
                         </button>
-
+                    </form>
+                    <form method="GET" action="{{ route('verify_index',['id'=>$user->id,'to_call'=>$to_call])}}">
+                        @csrf
+                        <button class="c-button" type="submit">
+                            <i class="fas fa-phone"></i>警察専用</a>
+                        </button>
                     </form>
                     <div class="it2u">
                         <h6>
