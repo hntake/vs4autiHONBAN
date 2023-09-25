@@ -358,6 +358,14 @@
                         </div>
 
                     </div>
+                    <div class="qr_code">
+                        <h5 style="font-weight:bold; color:red;">お守りシール</h5>
+                        <a href="{{ route('pdf') }}"><img src="{{ asset('img/pdf.png') }}" alt="image" ></a>
+                        <div class="print">
+                            <h6 >A4サイズで印刷されます。（上記の画像をクリックすると印刷画面が表示されます）</h6>
+                        </div>
+
+                    </div>
                     @endif
                 </div>
                 <!--     VS4だけ申込んでいる -->
