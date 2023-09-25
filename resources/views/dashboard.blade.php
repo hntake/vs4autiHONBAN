@@ -212,7 +212,7 @@
                 @else
                 <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
                 @endif
-        <div class="form-group row">
+                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                             <div class="col-md-6">
                                 <span class="">{{$lost->name}}</span>
@@ -507,16 +507,23 @@
                         <div>
                           @if(isset($picture))
                         <div class="qr_code">
-                        <h5>貴方のQRコード</h5>
-                        <a href="{{ asset('storage/' . $picture->image) }}"><img src="{{ asset('storage/' . $picture->image) }}" alt="image" ></a>
-                        <div class="print">
-                            <h6 >印刷したい方はQRコードをクリックし、画像画面で各デバイスに沿った印刷方法で印刷して下さい。<br>ヘルプカードに利用する場合はA4サイズを10～20%に設定してください</h6>
+                            <h5>貴方のQRコード</h5>
+                            <a href="{{ asset('storage/' . $picture->image) }}"><img src="{{ asset('storage/' . $picture->image) }}" alt="image" ></a>
+                            <div class="print">
+                                <h6 >印刷したい方はQRコードをクリックし、画像画面で各デバイスに沿った印刷方法で印刷して下さい。<br>ヘルプカードに利用する場合はA4サイズを10～20%に設定してください</h6>
+                            </div>
                         </div>
-                    @endif
-                    </div>
+                        <div class="qr_code">
+                            <h5 style="font-weight:bold; color:red;">お守りシール</h5>
+                            <a href="{{ route('pdf') }}"><img src="{{ asset('img/pdf.png') }}" alt="image" ></a>
+                            <div class="print">
+                                <h6 >A4サイズで印刷されます。（上記の画像をクリックすると印刷画面が表示されます）</h6>
+                            </div>
+                        </div>
+                        @endif
                         </div>
                         <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a>
-                    </div>
+                        </div>
                     <div class="pro_button"><a href="{{ route('vs4')}}">VS4を申込む</a></div>
 
                 @else

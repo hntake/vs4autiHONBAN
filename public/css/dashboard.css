@@ -14,7 +14,7 @@ h2{
 }
 .box{
     background-color: ghostwhite;
-    width: 80%;
+    width: 50%;
     margin: 32px auto;
 }
 .panel-body{
@@ -62,7 +62,7 @@ tr{
     border: 1px solid black;
 }
 .print{
-    text-align: start;
+    text-align: center;
 
 }
 
@@ -150,6 +150,11 @@ tr{
 }
 .gotop:hover{
     opacity: 1;
+}
+.qr_code{
+    margin-top:16px;
+    border: 1px solid lightslategray;
+    padding:16px;
 }
 /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
