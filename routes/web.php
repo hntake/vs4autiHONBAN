@@ -370,6 +370,8 @@ Route::post('lost/verify-password/{id}/to_call/{to_call}', [\App\Http\Controller
 Route::get('stop/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'stop_index'])->name('stop_index');
 //一時停止画面表示
 Route::get('suspend/{id}/to_call/{to_call}', [\App\Http\Controllers\ExtraController::class, 'suspend_index'])->name('suspend_index');
+//お守りシール
+Route::get('lost/pdf', [\App\Http\Controllers\PDFController::class, 'pdf'])->name('pdf');
 
 //VS4会員がお守りバッジ申込む
 Route::get('lost/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('lost.register');
