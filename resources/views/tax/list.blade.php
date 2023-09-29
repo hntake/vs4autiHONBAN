@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/tax.css') }}"> <!-- word.cssと連携 -->
 
@@ -20,6 +22,10 @@
 
             <h2>登録件数</h2>
             <h2>{{$counts}}</h2>
+            <div class="header_nav_itm">
+                                <a href="{{ url('tax/input') }}" class="header_nav_itm_link">他にも入力してみる</a>
+                                <div class="description1">いますぐ減税！</div>
+            </div>
         </div>
         <div class="list">
             <table>
@@ -40,6 +46,7 @@
                         </tr>
                             @endforeach
             </table>
+          
             {{ $taxes->links() }}
         </div>
     </div>
