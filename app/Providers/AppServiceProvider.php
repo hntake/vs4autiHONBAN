@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 use App\Models\Cashier\User;
+use Illuminate\Pagination\Paginator;
+
 
 
 
@@ -32,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
         if(\App::environment(['production'])){
             \URL::forceScheme('https');
         }
+        Paginator::useBootstrap();
+
 
 /*         Cashier::useCustomerModel(User::class);
  */

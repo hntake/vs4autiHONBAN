@@ -439,3 +439,14 @@ Route::get('/home', [App\Http\Controllers\Controller::class, 'index'])->name('ho
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
+
+//消費税廃止アプリ入力画面
+Route::get('tax/input', function () {
+    return view('tax/input');
+});
+//買い控えリスト表示
+Route::get('tax/list', [App\Http\Controllers\TaxController::class, 'list'])->name('tax_list');
+//値をポスト
+Route::post('tax/input', [App\Http\Controllers\TaxController::class, 'tax'])->name('tax');
+
+

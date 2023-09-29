@@ -1,0 +1,162 @@
+body{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;}
+.top{
+    text-align: center;
+}
+.catch {
+    text-align: center;
+    margin:16px auto;
+}
+.description{
+    text-align: center;
+    margin:16px auto;
+}
+.ask{
+    color:#e858b8;
+    background-color: rgb(206, 198, 198);
+    text-align: center;
+    margin:16px auto;
+}
+.wrap{
+    /* overflow: hidden; */
+}
+h2{
+
+}
+.list{
+
+}
+.list table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.input table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.list th{
+    padding: 10px;
+    border-bottom: solid 4px #778ca3;
+    color: #e794cc
+}
+.list td{
+    padding: 10px;
+    border-bottom: solid 1px #778ca3;
+}
+.top, .list {
+    text-align: center;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.input tr{
+    flex-direction: column;
+    display:flex;
+}
+.google{
+    text-align: center;
+    border:solid 1px rgb(138, 130, 130);
+    margin-top:16px;
+}
+.google h3{
+    color:#e794cc;
+}
+
+.google h3::after{
+    content:"\f358";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color:#7791DE;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+.pagination{
+    display: flex;
+    list-style: none;
+}
+  /*iPad*/
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        padding: 30px; /* 余白を追加 */
+        width:60%;
+        margin: 0 auto; /* 水平方向に中央に配置 */
+    }
+    h1, h2, h4{
+        width:80%;
+        margin:0 auto;
+    }
+    p{
+        width:80%;
+        margin:0 auto;
+    }
+    h3{
+        width:85%;
+        margin:0 auto;
+
+    }
+  }
+/* スマートフォンおよびタブレット向けスタイル */
+@media (max-width: 768px) {
+    body {
+        padding: 30px; /* 余白を追加 */
+        width:60%;
+        margin: 0 auto; /* 水平方向に中央に配置 */
+    }
+    h1, h2, h4{
+        width:80%;
+        margin:0 auto;
+    }
+    h3{
+        width:85%;
+        margin:0 auto;
+
+    }
+    .list thead{
+        font-size: 8px;
+    }
+    tr{
+
+    }
+    .list th{
+        white-space: nowrap; /* テキストを折り返さないように設定 */ 
+        writing-mode: horizontal-tb; /* ラベルを横書きに設定 */
+        text-orientation: sideways; /* ラベルのテキスト方向を横に設定 */
+        transform: rotate(0deg); /* テキストを回転させないように設定 */
+    }
+    .list{
+        width:100%;
+        overflow-x: auto; /* 横スクロールを有効にするための設定 */
+
+    }
+    .list table {
+        width:auto;
+    }
+    .input table {
+        /* width:auto; */
+    }
+   
+    @media only screen and (min-width:380px) and (max-width:800px){
+        .list{
+            width:100%;
+            overflow-x: auto; /* 横スクロールを有効にするための設定 */
+    
+        }
+        .list table {
+            width:auto;
+        }
+    }
+}
