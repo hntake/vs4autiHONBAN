@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/tax.css') }}"> <!-- word.cssと連携 -->
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
@@ -17,12 +18,12 @@
             <h2>とっとと減税！<br></h2>
             <h3>私達の買い控えリスト</h3>
         </div>
-    <div class="description">
-            <h4>一時的に消費税が廃止されたり消費税が減税されたら、どれだけ景気が良くなるのでしょうか？<h4>
-    </div>
-    <div class="ask">
-        <h2>買いびかえしているものを入力してみましょう！</h2>
-   </div>
+        <div class="description">
+                <h4>一時的に消費税が廃止されたり消費税が減税されたら、どれだけ景気が良くなるのでしょうか？<h4>
+        </div>
+        <div class="ask">
+            <h2>買いびかえしているものを入力してみましょう！</h2>
+        </div>
 
         <div class="input">
             <form id="myForm" method="POST" action="{{ route('tax') }}" enctype="multipart/form-data">
@@ -42,10 +43,14 @@
                 </table>
                 <input type="submit" value="送信">
             </form>
+            <div class="itm">
+                                <a href="{{ url('tax/list') }}" class="itm_link">入力せずにみんなの買い控えリストを見る</a>
+            <div class="description1">いますぐ減税！</div>
+            </div>
         </div>
   
         <div class="google">
-        <h3>価格がわからなかったらこちらで検索</h3>
+            <h3>価格がわからなかったらこちらで検索</h3>
             <h5>Google検索</h5>
             <form action="https://www.google.com/search" method="GET">
                 <!-- <label for="query">検索語:</label> -->
@@ -72,5 +77,5 @@
             });
         </script>
 
-    </body>
+</body>
 </html>

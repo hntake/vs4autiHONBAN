@@ -5,7 +5,7 @@ body{
     height: 100vh;
     margin: 0;
     flex-direction: column;
-
+    max-width: 100%;
 }
 .top{
     text-align: center;
@@ -23,9 +23,10 @@ body{
     background-color: rgb(206, 198, 198);
     text-align: center;
     margin:16px auto;
+
 }
 .wrap{
-    /* overflow: hidden;  */
+    overflow: hidden; 
 }
 h2{
 
@@ -99,12 +100,32 @@ h2{
     display: inline-block;
     font-weight: bold;
 }
+.itm {
+    position: relative;
+    cursor: pointer;
+    border: 1px solid gray;
+    /* padding: 8px; */
+    display: inline-block;
+    font-weight: bold;
+    background-color: #e794cc;
+    width:65%;
+    margin:0 auto;
+    margin-top:8px;
+}
 a.header_nav_itm_link {
     display: block;
     position: relative;
     color: rgb(236, 107, 225);
     text-decoration: none;
     line-height: 40px;
+    font-size: 16px;
+}
+a.itm_link {
+    display: block;
+    position: relative;
+    color: rgb(241, 232, 240);
+    text-decoration: none;
+    /* line-height: 40px; */
     font-size: 16px;
 }
 .description1 {
@@ -127,16 +148,21 @@ a.header_nav_itm_link {
     border-bottom: 15px solid  rgb(97, 93, 93);
     margin-left: -15px;
 }
+.itm:hover .description1{
+    display: inline-block;
+    bottom: -70px;
+    left: -40px;
+}
 .header_nav_itm:hover .description1{
     display: inline-block;
     bottom: -70px;
-    left: -30px;
+    left: 0px;
 }
   /*iPad*/
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     body {
-        padding: 30px; /* 余白を追加 */
-        width:60%;
+        padding: 0px; /* 余白を追加 */
+        width:100%;
         margin: 0 auto; /* 水平方向に中央に配置 */
     }
     h1, h2, h4{
@@ -161,8 +187,8 @@ a.header_nav_itm_link {
         align-items: center;
         height: 100vh;
         margin: 0;
-        padding: 30px; /* 余白を追加 */
-        width:60%;
+        padding: 0px; /* 余白を追加 */
+        width:65%;
         margin: 0 auto; /* 水平方向に中央に配置 */
     }
     h1, h2, h4{
@@ -197,10 +223,10 @@ a.header_nav_itm_link {
     .input table {
         /* width:auto; */
     }
-   
+}
     @media only screen and (max-width:380px) {
         body{
-            margin-top:160px;
+            /* margin-top:160px; */
         }
         .list{
             width:100%;
@@ -211,4 +237,3 @@ a.header_nav_itm_link {
             width:auto;
         }
     }
-}
