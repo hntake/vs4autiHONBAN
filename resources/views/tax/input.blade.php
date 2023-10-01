@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#">
     <meta charset="UTF-8">
     <title>とっとと減税！〜私達の買い控えリスト</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +8,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="とっとと減税！" />
+    <meta property="og:description" content="〜私達の買い控えリスト" />
+    <meta property="og:image" content="https://itcha50.com/img/tax.JPG" />
+
     <link rel="stylesheet" href="{{ asset('css/tax.css') }}"> <!-- word.cssと連携 -->
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
 
 </head>
 <body>
+    
     <div class="wrap">
         <div class="catch">
             <h2>とっとと減税！<br></h2>
@@ -76,6 +83,11 @@
             }
             });
         </script>
+        <!-- Twitterシェアボタン -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="とっとと減税！〜私達の買い控えリスト" data-url="https://itcha50.com/tax/input">Tweet</a>
+
+        <!-- TwitterのJavaScriptライブラリを読み込む -->
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
 </html>
