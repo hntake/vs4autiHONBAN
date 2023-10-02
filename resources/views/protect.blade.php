@@ -176,10 +176,13 @@
                     </div>
                 </div>
             </header>
-
+          
             <div class="youtube">
                 <div class="elementor-image">
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7261429997682920706" data-video-id="7261429997682920706" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> お守りバッジ アプリリリースの為、再投稿 <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a>  <a title="認知症" target="_blank" href="https://www.tiktok.com/tag/%E8%AA%8D%E7%9F%A5%E7%97%87?refer=embed">#認知症</a>  <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a target="_blank" title="♬ Aesthetic - Tollan Kim" href="https://www.tiktok.com/music/Aesthetic-7072513628145977346?refer=embed">♬ Aesthetic - Tollan Kim</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7284881008644656402" data-video-id="7284881008644656402" style="max-width: 605px;min-width: 325px;">
+                        <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ funky house - Close-Wu" href="https://www.tiktok.com/music/funky-house-6963841260792645668?refer=embed">♬ funky house - Close-Wu</a> </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
                 </div>
             </div>
             <div class="youtube">
@@ -190,7 +193,7 @@
                     <script async src="https://www.tiktok.com/embed.js"></script>
                 </div>
             </div>
-
+           
         </div>
 
         <section>
