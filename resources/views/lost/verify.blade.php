@@ -39,6 +39,10 @@
                         </div>
 
                     </form>
+                    <div class="submit_button">
+                        <a href="{{ url('lost/ask') }}" target="_blank">警察専用番号が分からない警察関係者様</a>
+
+                    </div>
                 </div>
             </div>
        

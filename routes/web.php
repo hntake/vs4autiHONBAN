@@ -95,6 +95,9 @@ Route::get('/design', function () {
 Route::get('/design_original', function () {
     return view('design_original');
 });
+Route::get('/lost/ask', function () {
+    return view('lost/ask');
+});
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 
 Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');

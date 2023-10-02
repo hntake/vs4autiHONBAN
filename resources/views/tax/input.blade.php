@@ -59,10 +59,10 @@
         <div class="google">
             <h3>価格がわからなかったらこちらで検索</h3>
             <h5>Google検索</h5>
-            <form action="https://www.google.com/search" method="GET">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
                 <!-- <label for="query">検索語:</label> -->
                 <input type="text" id="query" name="q" value="価格">
-                <input type="submit" value="検索">
+                <input type="submit" value="検索" >
             </form>
         </div>
     </div>
