@@ -1,0 +1,52 @@
+body{
+    background-color: honeydew;
+}
+.wrap{
+
+}
+.show{
+    margin: 100px auto;
+    text-align: center;
+}
+.input{
+    margin: 100px auto;
+    text-align: center;
+}
+table .show{
+
+}
+.submit_button{
+    color: #1422d1;
+    background-color: #2feb00;
+    text-decoration: none;
+    padding: 3px 10px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.submit_button a{
+    text-decoration: none;
+}
+.feel{
+
+}
+.box{
+    
+}
+.feel img{
+    width:10%;
+}
+footer {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color:darkturquoise;
+    margin: 200px auto;
+
+  }
+/*レスポンシブ対応*/
+@media (max-width: 480px){
+    .feel img{
+        width:30%;
+    }
+}

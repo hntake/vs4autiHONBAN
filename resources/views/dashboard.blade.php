@@ -68,6 +68,9 @@
 
     <div class="dashboard-area">
      <!-- VS4のみ -->
+    @if($user->feel==5)
+    <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
+    @endif
     @if($user->type==0)
             @if($user->type==0)
             <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('lost.register') }}" style="background-color:none; color:#7791DE;">お守りバッジを申込む</a></div>

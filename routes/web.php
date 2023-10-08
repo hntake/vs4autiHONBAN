@@ -448,8 +448,18 @@ Route::get('tax/input', function () {
     return view('tax/input');
 });
 //買い控えリスト表示
-Route::get('tax/list', [App\Http\Controllers\TaxController::class, 'list'])->name('tax_list');
+Route::get('tax/list', [App\Http\Controllers\FeelController::class, 'list'])->name('tax_list');
 //値をポスト
-Route::post('tax/input', [App\Http\Controllers\TaxController::class, 'tax'])->name('tax');
+Route::post('tax/input', [App\Http\Controllers\FeelController::class, 'tax'])->name('tax');
 
-
+//マイフィーリング選択画面
+Route::get('feel/choice', [App\Http\Controllers\FeelController::class, 'choice'])->name('feel_choice');
+//マイフィーリング表示
+Route::get('feel/index1', [App\Http\Controllers\FeelController::class, 'index1'])->name('index1');
+Route::get('feel/index2', [App\Http\Controllers\FeelController::class, 'index2'])->name('index2');
+Route::get('feel/index3', [App\Http\Controllers\FeelController::class, 'index3'])->name('index3');
+Route::get('feel/index4', [App\Http\Controllers\FeelController::class, 'index4'])->name('index4');
+//マイフィーリング設定画面
+Route::get('feel/create', [App\Http\Controllers\FeelController::class, 'input'])->name('feel_input');
+//マイフィーリング登録
+Route::post('feel/create', [App\Http\Controllers\FeelController::class, 'create'])->name('feel_create');

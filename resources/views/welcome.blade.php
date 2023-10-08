@@ -63,6 +63,11 @@
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
 
+                           
+                            <li class="header_nav_itm">
+                                <a href="{{ url('feel/choice') }}" class="header_nav_itm_link"><img src="{{ asset('img/feel.png') }}" alt="feel" style="width:10%;"></a>
+                                <div class="description1">言えないときに！</div>
+                            </li>
                             <li class="header_nav_itm">
                                 <a href="{{ url('protect') }}" class="header_nav_itm_link">お守りバッジ</a>
                                 <div class="description1">迷子対策に！</div>
@@ -258,6 +263,12 @@
                                     <a href="{{ url('protect') }}">
                                         <h3 ontouchstart="">
                                             お守りバッジ（迷子対策）</h3>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('feel/choice') }}">
+                                        <h3 ontouchstart="">
+                                        <img src="{{ asset('img/feel.png') }}" alt="feel" style="width:30%;"></h3>
                                     </a>
                                 </li>
                                 <li>
