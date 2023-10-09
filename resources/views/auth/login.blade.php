@@ -78,6 +78,9 @@
                         <a href="{{ route('register') }}" class="button">新規登録(無料プラン）</a>
                     </li>
                     <li style="list-style: none;">
+                        <a href="{{ url('plan') }}" class="button">無料プランとは？</a>
+                    </li>
+                    <li style="list-style: none;">
                         <a href="{{ route('admin_form') }}" class="button">年額プラン500円を申し込む</a>
                     </li>
                 </ul>

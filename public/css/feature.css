@@ -894,6 +894,7 @@ a.use{
     top:-5rem;
 }
   }
+
 /*スマホ*/
 @media only screen and (max-width: 767px){
 
@@ -1188,6 +1189,7 @@ a.use{
     padding-top: 45rem;
 }
   }
+
   @media only screen and (min-width:380px) and (max-width:800px){
     .main-column{
         margin-top:100px;
@@ -1498,6 +1500,16 @@ a.use{
   }
   /*iPad*/
   @media screen and (max-width: 1024px){
+    .bottom-right{
+        width:100%;
+        margin-top:50px;
+    }
+    .bottom-left{
+        width: 100%;
+    }
+    .bottom-inner{
+        display: block;
+    }
     .tab_wrap{
         width:100%;
     }
@@ -1672,10 +1684,10 @@ margin-left:0.5rem;
 display:none;
 }
 
- }
  .youtube_kv{
      margin-top: 200px;
  }
+}
 /*iPhone12レスポンシブ対応*/
 @media only screen
   and (min-device-width: 390px)
@@ -1701,4 +1713,16 @@ display:none;
 
 }
 
+  }
+  @media only screen and (max-width: 653px){
+    .bottom-right{
+        width:100%;
+        margin-top:50px;
+    }
+    .bottom-left{
+        width:100%;
+    }
+    .bottom-inner{
+        display: block;
+    }
   }

@@ -171,7 +171,7 @@
                             <div class="elementor-heading-tit">完全無料</div>
                         </div>
                         <div class="elementor-widget-container">
-                            <div class="elementor-heading-english">カスタムスケジュール作成<br>(5個まで）、無制限のイラストスケジュールの作成・保存</div>
+                            <div class="elementor-heading-english">カスタムスケジュール作成<br>（5個まで）、無制限のイラストスケジュールの作成・保存</div>
                         </div>
                         <div class="elementor-element">
                             <p class="elementor-heading-dis">
@@ -207,8 +207,10 @@
                                         <span class="elementor-icon">スケジュール作成(5個まで)</span>
                                     </li>
                                     <li class="elementor-icon">
-                                        <span class="elementor-icon">イラストスケジュールの保存（無制限）</span>
-                                        <span class="elementor-icon">歯科スケジュールの保存（無制限）</span>
+                                        <span class="elementor-icon">イラスト、歯科、医療スケジュールの保存（無制限）</span><br>
+                                        <span class="elementor-icon">自立支援スケジュール（共有）の保存（無制限）</span><br>
+                                        <span class="elementor-icon">お守りバッジシステム利用</span><br>
+                                        <span class="elementor-icon">マイリクエスト機能の利用</span><br>
                                     </li>
                                 </ul>
                             </div>

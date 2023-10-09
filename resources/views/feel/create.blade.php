@@ -43,7 +43,9 @@
                         <p><input type="text"size="35" name="message2" value="{{$feel->message2}}"></p>
                         @else
                         <p><input type="text"size="35" name="message2" ></p>
-                        @endif                    </div>
+                        @endif 
+                        <input type="checkbox" name="img1"  value="1" class="form-control">    
+                    </div>
                     <div class="feel">
                         <p><img src="{{ asset('img/pain.png') }}" alt="pain"></p>
                         <p>一行目</p>
@@ -57,7 +59,10 @@
                         <p><input type="text"size="35" name="message4" value="{{$feel->message4}}"></p>
                         @else
                         <p><input type="text"size="35" name="message4" ></p>
-                        @endif                    </div>
+                        @endif 
+                        <input type="checkbox" name="img2"  value="1" class="form-control">    
+
+                    </div>
                     <div class="feel">
                         <p><img src="{{ asset('img/sad.png') }}" alt="sad"></p>
                         <p>一行目</p>
@@ -71,7 +76,10 @@
                         <p><input type="text"size="35" name="message6" value="{{$feel->message6}}"></p>
                         @else
                         <p><input type="text"size="35" name="message6" ></p>
-                        @endif                    </div>
+                        @endif 
+                        <input type="checkbox" name="img3"  value="1" class="form-control">    
+
+                    </div>
                     <div class="feel">
                         <p><img src="{{ asset('img/scare.png') }}" alt="scare"></p>
                         <p>一行目</p>
@@ -85,7 +93,10 @@
                         <p><input type="text"size="35" name="message8" value="{{$feel->message8}}"></p>
                         @else
                         <p><input type="text"size="35" name="message8" ></p>
-                        @endif                    </div>
+                        @endif 
+                        <input type="checkbox" name="img4"  value="1" class="form-control">    
+
+                    </div>
                 
                 </div>
                 <input type="submit" value="保存">

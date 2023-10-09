@@ -65,20 +65,45 @@ class FeelController extends Controller
             if (isset($request->message8)) {
                 $feel->message8 = $request->message8;
             }
+          
             $feel->user_id = User::where('id', '=', Auth::id())->value('id');
             $feel->save();
 
             $old = Feel::where('user_id', '=', Auth::id())->where('created_at','<',$feel->created_at)->first();
             $old->delete();
 
-            $user=Auth::user();
+            $user = Auth::user();
             $new_feel=5;
-            $user
+            
+            $user=User::where('id', '=', Auth::id())
             ->update([
                 'feel'=>$new_feel,
             ]);
-           
-
+            //アイコン非表示にするなら
+            if($request->img1==1){
+                $img1=Feel::where('user_id', '=', Auth::id())
+                ->update([
+                    'img1'=>1,
+                ]);
+            }
+            if($request->img2==1){
+                $img1=Feel::where('user_id', '=', Auth::id())
+                ->update([
+                    'img2'=>1,
+                ]);
+            }
+            if($request->img3==1){
+                $img1=Feel::where('user_id', '=', Auth::id())
+                ->update([
+                    'img3'=>1,
+                ]);
+            }
+            if($request->img1==1){
+                $img4=Feel::where('user_id', '=', Auth::id())
+                ->update([
+                    'img4'=>1,
+                ]);
+            }
             return view('feel/choice', [
                 'feel' => $feel,
             ]);
@@ -95,7 +120,10 @@ class FeelController extends Controller
     public function choice(Request $request)
     {
         if (Auth::user()) {
-        return view('feel/choice');
+            $feel=Feel::where('user_id', '=', Auth::id())->first();
+        return view('feel/choice', [
+            'feel' => $feel,
+        ]);
         }
         else{
             return view('auth/login');

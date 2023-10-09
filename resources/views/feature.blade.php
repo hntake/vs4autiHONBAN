@@ -73,10 +73,17 @@
                                 <a href="#free" class="header_nav_itm_link">スケジュールを利用する</a>
                                 <div class="description1">ヘアカットスケジュールと自立支援スケジュールは誰でも利用できます</div>
                             </li>
-
+                            <li class="header_nav_itm">
+                                <a href="#my" class="header_nav_itm_link">ヘアカットスケジュールとは</a>
+                                <div class="description1">ヘアカットのストレスを軽減</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="#free" class="header_nav_itm_link">マイリクとは</a>
+                                <div class="description1">自分のリクエストを画面で表示できます</div>
+                            </li>
                             <li class="header_nav_itm">
                                 <a href="#monitor-apply" class="header_nav_itm_link">登録方法</a>
-                                <div class="description1">VS4の登録方法</div>
+                                <div class="description1">利用するための登録方法</div>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#useful" class="header_nav_itm_link">登録のメリット</a>
@@ -180,7 +187,16 @@
                                         スケジュールを使う
                                     </a>
                                 </li>
-
+                                <li>
+                                    <a href="#my" class="header_nav_itm_link">
+                                        ヘアカットスケジュールについて
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#free" class="header_nav_itm_link">
+                                        マイリクについて
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="#monitor-apply" class="header_nav_itm_link">
                                         登録方法
@@ -454,6 +470,7 @@
             <input id="tab4" type="radio" name="tab_btn2" checked>
             <input id="tab5" type="radio" name="tab_btn2">
             <input id="tab6" type="radio" name="tab_btn2">
+            <input id="tab11" type="radio" name="tab_btn2">
             <input id="tab7" type="radio" name="tab_btn2">
             <div class="nav-wrap">
                 <div class="scroll-nav">
@@ -461,6 +478,7 @@
                         <label class="tab4_label" for="tab4">リスト保存</label>
                         <label class="tab5_label" for="tab5">チェックマークの表示</label>
                         <label class="tab6_label" for="tab6">自立支援スケジュールの作成</label>
+                        <label class="tab11_label" for="tab11">マイリク</label>
                         <label class="tab7_label" for="tab7">デバイスフリー</label>
                     </div>
                 </div>
@@ -516,6 +534,20 @@
 
                     </div>
                 </div>
+                <div class="panel_area">
+                <div id="panel11" class="tab_panel">
+                    <a href="img/independence2.png" data-lightbox="group"><img src="img/feel.png" alt="feel" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">タップでリクエストを伝える</div>
+                        <div class="slide-description">
+                            <b>マイリク</b>
+                          自分の要求がうまく伝えれない時に、自分特有のリクエストを事前に登録しておくとタップでそれが表示されます。
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <div id="panel7" class="tab_panel">
                     <img src="img/smafo.png" alt="phone" style="width:30%;">
                     <div class="sright">
@@ -538,7 +570,7 @@
             </div>
         </div>
     </div>
-        <a name="free" class="use">
+        <a name="my" class="use">
             <div class="element">
                 <div class="use">
                     <!-- リンク内移動-->
@@ -595,6 +627,7 @@
                     </div>
                 </div>
             </div>
+      
             <div class="panel_area">
                 <div id="panel10" class="tab_panel">
                     <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="list" style="width:30%;"></a>

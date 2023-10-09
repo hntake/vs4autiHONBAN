@@ -259,7 +259,7 @@ a.header_nav_itm_link {
 }
 .hero__lead {
     position: absolute;
-    top: 0;
+    top: 30%;
     left: 0;
     width: 50%;
     height: 50%;
@@ -354,7 +354,7 @@ a.header_nav_itm_link {
         width:50%;
     }
     .hero{
-        margin-top:300px;
+        /* margin-top:300px; */
     }
     .hero__lead{
         width: 85%;

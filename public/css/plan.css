@@ -394,6 +394,7 @@ h2.bottom-element-top{
 .elementor-widget-container{
     margin-top:50px;
     text-align: center;
+    padding: 0 8px;
 }
 .feature{
     color: #222222;
@@ -404,6 +405,7 @@ h2.bottom-element-top{
 }
 .elementor-icon{
     list-style-type: none;
+    display: flow-root;
 }
 /*オプション商品*/
 .option-box{
