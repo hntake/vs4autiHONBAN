@@ -448,9 +448,9 @@ Route::get('tax/input', function () {
     return view('tax/input');
 });
 //買い控えリスト表示
-Route::get('tax/list', [App\Http\Controllers\FeelController::class, 'list'])->name('tax_list');
+Route::get('tax/list', [App\Http\Controllers\TaxController::class, 'list'])->name('tax_list');
 //値をポスト
-Route::post('tax/input', [App\Http\Controllers\FeelController::class, 'tax'])->name('tax');
+Route::post('tax/input', [App\Http\Controllers\TaxController::class, 'tax'])->name('tax');
 
 //マイフィーリング選択画面
 Route::get('feel/choice', [App\Http\Controllers\FeelController::class, 'choice'])->name('feel_choice');
