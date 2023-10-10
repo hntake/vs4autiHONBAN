@@ -190,4 +190,14 @@ and (-webkit-min-device-pixel-ratio: 3) {
     .site-footer .sitemap {
         width: auto;
  }
+
   }
+/*スマホ*/
+@media only screen and (min-width:360px) and (max-width:799px){
+    .site-footer .site-info .widget {
+        width: 12.8rem;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 112px;
+    }
+}

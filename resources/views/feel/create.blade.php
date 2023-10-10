@@ -44,7 +44,11 @@
                         @else
                         <p><input type="text"size="35" name="message2" ></p>
                         @endif 
-                        <input type="checkbox" name="img1"  value="1" class="form-control">    
+                        @if($feel->img1==0)
+                        <input type="checkbox" name="img1"  value="1" class="form-control">表示しない 
+                        @else
+                        <input type="checkbox" name="img1"  checked />表示しない
+                        @endif
                     </div>
                     <div class="feel">
                         <p><img src="{{ asset('img/pain.png') }}" alt="pain"></p>
@@ -60,8 +64,11 @@
                         @else
                         <p><input type="text"size="35" name="message4" ></p>
                         @endif 
-                        <input type="checkbox" name="img2"  value="1" class="form-control">    
-
+                        @if($feel->img2==0)
+                        <input type="checkbox" name="img2"  value="1" class="form-control"> 表示しない 
+                        @else
+                        <input type="checkbox" name="img2"  checked />表示しない
+                        @endif
                     </div>
                     <div class="feel">
                         <p><img src="{{ asset('img/sad.png') }}" alt="sad"></p>
@@ -77,8 +84,11 @@
                         @else
                         <p><input type="text"size="35" name="message6" ></p>
                         @endif 
-                        <input type="checkbox" name="img3"  value="1" class="form-control">    
-
+                        @if($feel->img3==0)
+                        <input type="checkbox" name="img3"  value="1" class="form-control"> 表示しない   
+                        @else
+                        <input type="checkbox" name="img3"  checked />表示しない
+                        @endif
                     </div>
                     <div class="feel">
                         <p><img src="{{ asset('img/scare.png') }}" alt="scare"></p>
@@ -94,8 +104,11 @@
                         @else
                         <p><input type="text"size="35" name="message8" ></p>
                         @endif 
-                        <input type="checkbox" name="img4"  value="1" class="form-control">    
-
+                        @if($feel->img4==0)
+                        <input type="checkbox" name="img4"  value="1" class="form-control"> 表示しない   
+                        @else
+                        <input type="checkbox" name="img4"  checked />表示しない
+                        @endif
                     </div>
                 
                 </div>

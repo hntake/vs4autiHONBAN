@@ -71,14 +71,14 @@ class FeelController extends Controller
 
             $old = Feel::where('user_id', '=', Auth::id())->where('created_at','<',$feel->created_at)->first();
             $old->delete();
-
+            //作成するとログイン後のページ上部に表示されるようにする
             $user = Auth::user();
             $new_feel=5;
-            
             $user=User::where('id', '=', Auth::id())
             ->update([
                 'feel'=>$new_feel,
             ]);
+            
             //アイコン非表示にするなら
             if($request->img1==1){
                 $img1=Feel::where('user_id', '=', Auth::id())
