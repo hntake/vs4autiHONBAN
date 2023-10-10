@@ -78,7 +78,7 @@
                                 <div class="description1">ヘアカットのストレスを軽減</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#free" class="header_nav_itm_link">マイリクとは</a>
+                                <a href="#useful" class="header_nav_itm_link">マイリクとは</a>
                                 <div class="description1">自分のリクエストを画面で表示できます</div>
                             </li>
                             <li class="header_nav_itm">
@@ -193,7 +193,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#free" class="header_nav_itm_link">
+                                    <a href="#useful" class="header_nav_itm_link">
                                         マイリクについて
                                     </a>
                                 </li>
@@ -475,10 +475,10 @@
             <div class="nav-wrap">
                 <div class="scroll-nav">
                     <div class="tab_area">
+                        <label class="tab11_label" for="tab11">マイリク</label>
                         <label class="tab4_label" for="tab4">リスト保存</label>
                         <label class="tab5_label" for="tab5">チェックマークの表示</label>
                         <label class="tab6_label" for="tab6">自立支援スケジュールの作成</label>
-                        <label class="tab11_label" for="tab11">マイリク</label>
                         <label class="tab7_label" for="tab7">デバイスフリー</label>
                     </div>
                 </div>
@@ -536,7 +536,7 @@
                 </div>
                 <div class="panel_area">
                 <div id="panel11" class="tab_panel">
-                    <a href="img/independence2.png" data-lightbox="group"><img src="img/feel.png" alt="feel" style="width:30%;"></a>
+                    <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">タップでリクエストを伝える</div>
                         <div class="slide-description">
