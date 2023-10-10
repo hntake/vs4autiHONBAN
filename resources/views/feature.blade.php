@@ -467,10 +467,10 @@
                     <br>便利な機能
         </a>
         <div class="tab_wrap">
-            <input id="tab4" type="radio" name="tab_btn2" checked>
+            <input id="tab4" type="radio" name="tab_btn2" >
             <input id="tab5" type="radio" name="tab_btn2">
             <input id="tab6" type="radio" name="tab_btn2">
-            <input id="tab11" type="radio" name="tab_btn2">
+            <input id="tab11" type="radio" name="tab_btn2" checked>
             <input id="tab7" type="radio" name="tab_btn2">
             <div class="nav-wrap">
                 <div class="scroll-nav">
@@ -485,6 +485,18 @@
                 <div class="next-btn">＞</div>
             </div>
             <div class="panel_area">
+                <div id="panel11" class="tab_panel">
+                    <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:30%;"></a>
+                    <div class="sright">
+                        <div class="slide-head">タップでリクエストを伝える</div>
+                        <div class="slide-description">
+                            <b>マイリク</b>
+                          自分の要求がうまく伝えれない方向け。自分特有のリクエストを事前に登録しておくとタップでそれが表示され、読み上げられます。
+                            <br>
+                            ※詳細は画像をクリックして拡大してみてください
+                        </div>
+                    </div>
+                </div>
                 <div id="panel4" class="tab_panel">
                     <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
                     <div class="sright">
@@ -535,18 +547,7 @@
                     </div>
                 </div>
                 <div class="panel_area">
-                <div id="panel11" class="tab_panel">
-                    <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:30%;"></a>
-                    <div class="sright">
-                        <div class="slide-head">タップでリクエストを伝える</div>
-                        <div class="slide-description">
-                            <b>マイリク</b>
-                          自分の要求がうまく伝えれない時に、自分特有のリクエストを事前に登録しておくとタップでそれが表示されます。
-                            <br>
-                            ※詳細は画像をクリックして拡大してみてください
-                        </div>
-                    </div>
-                </div>
+             
             </div>
                 <div id="panel7" class="tab_panel">
                     <img src="img/smafo.png" alt="phone" style="width:30%;">
