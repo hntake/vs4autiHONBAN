@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lost;
 use App\Models\User;
+use App\Models\Feel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Exception;
@@ -36,7 +37,8 @@ class AuthController extends Controller
         if($user!='[]' && Hash::check($R->password,$user->password)){
             $token = $user->createToken('authToken')->accessToken;
             $lost=Lost::where('email','=',$user->email)->first();
-            $response = ['status' => 200, 'token' => $token, 'user'=>$user, 'lost' => $lost, 'message' => 'ログインに成功しました'];
+            $feel=Feel::where('user_id','=',$user->id)->first();
+            $response = ['status' => 200, 'token' => $token, 'user'=>$user, 'lost' => $lost, 'feel' => $feel,'message' => 'ログインに成功しました'];
             return response()->json($response);
         }else if($user=='[]'){
             $response = ['status' => 500, 'message' => 'No account found with this email'];
@@ -78,6 +80,10 @@ class AuthController extends Controller
     if (!$lost) {
         return response()->json(['error' => '情報が見つかりません'], 404);
     }
+    $feel = Feel::find($id);
+    if (!$feel) {
+        return response()->json(['error' => '情報が見つかりません'], 404);
+    }
 
     // リクエストからのデータを使ってユーザー情報を更新する
         $lost->email = $request->input('email');
@@ -85,6 +91,17 @@ class AuthController extends Controller
         $lost->tel1 = $request->input('tel1');
         $lost->tel2 = $request->input('tel2');
         $lost->save();
+
+        $feel->message2 = $request->input('message2');
+        $feel->message1 = $request->input('message1');
+        $feel->message3 = $request->input('message3');
+        $feel->message4 = $request->input('message4');
+        $feel->message5 = $request->input('message5');
+        $feel->message6 = $request->input('message6');
+        $feel->message7 = $request->input('message7');
+        $feel->message8 = $request->input('message8');
+        $feel->save();
+        
         $uuid=$lost->uuid;
         $user = User::where('uuid',$uuid)->first();
         $user->email = $request->input('email');
