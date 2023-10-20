@@ -29,6 +29,7 @@
         <div class="input">
             <form id="myForm" method="POST" action="{{ route('feel_create') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
+            @if(isset($feel))
                 <div class="box">
                     <div class="feel">
                         <p><img src="{{ asset('img/angry.png') }}" alt="angry"></p>
@@ -110,8 +111,43 @@
                         <input type="checkbox" name="img4"  checked />表示しない
                         @endif
                     </div>
-                
                 </div>
+                @else
+                <div class="box">
+                    <div class="feel">
+                        <p><img src="{{ asset('img/angry.png') }}" alt="angry"></p>
+                        <p>一行目</p>
+                        <p><input type="text"size="35" name="message1" ></p>
+                        <p>二行目</p>
+                        <p><input type="text"size="35" name="message2" ></p>
+                        <input type="checkbox" name="img1"  value="1" class="form-control">表示しない 
+                        </div>
+                    <div class="feel">
+                        <p><img src="{{ asset('img/pain.png') }}" alt="pain"></p>
+                        <p>一行目</p>
+                        <p><input type="text"size="35" name="message3" ></p>
+                        <p>二行目</p>
+                        <p><input type="text"size="35" name="message4" ></p>
+                        <input type="checkbox" name="img2"  value="1" class="form-control"> 表示しない 
+                        </div>
+                    <div class="feel">
+                        <p><img src="{{ asset('img/sad.png') }}" alt="sad"></p>
+                        <p>一行目</p>
+                        <p><input type="text"size="35" name="message5" ></p>
+                        <p>二行目</p>
+                        <p><input type="text"size="35" name="message6" ></p>
+                        <input type="checkbox" name="img3"  value="1" class="form-control"> 表示しない   
+                        </div>
+                    <div class="feel">
+                        <p><img src="{{ asset('img/scare.png') }}" alt="scare"></p>
+                        <p>一行目</p>
+                        <p><input type="text"size="35" name="message7" ></p>
+                        <p>二行目</p>
+                        <p><input type="text"size="35" name="message8" ></p>
+                        <input type="checkbox" name="img4"  value="1" class="form-control"> 表示しない   
+                        </div>
+                </div>
+                @endif
                 <input type="submit" value="保存">
             </form>
             
