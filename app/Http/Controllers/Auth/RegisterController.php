@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Lost;
+use App\Models\Feel;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -111,6 +112,7 @@ class RegisterController extends Controller
     public function showForm()
     {
         $user=Auth::user();
+        
         return view('auth.main.register');
 
     }
@@ -127,11 +129,14 @@ class RegisterController extends Controller
       //申込種類によって分ける
       $user=Auth::user();
       $user=User::where('id','=',$user->id)->first();
+
       if($user->type==0){
         $user->update([
             'gender'=> $request->gender,
             'image_id'=> $request->image_id,
         ]);
+        return view('auth.main.register_check', compact('user','email_token','lost'));
+
       }
 
       elseif($user->type==1){
@@ -164,10 +169,13 @@ class RegisterController extends Controller
         $lost->sun1=$request->sun1;
         $lost->sun2=$request->sun2;
         $lost->sun3=$request->sun3;
+        $lost->save();
 
-      }
+        return view('auth.main.register_check', compact('user','email_token','lost'));
 
-      return view('auth.main.register_check', compact('user','email_token','lost'));
+
+
     }
 
+    }
 }

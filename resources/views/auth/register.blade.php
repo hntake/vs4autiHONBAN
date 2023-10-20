@@ -45,11 +45,14 @@
 
                         <div class="r-box">
                             ※申込サービスを選択してください<br><br>
-                            <label for="type">
+                            <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                 絵スケジュール<input id="type" type="radio" name="type" value="0" required><br>
                             </label>
-                            <label for="type">
+                            <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                 お守りバッジ<input id="type" type="radio" name="type" value="1"><br>
+                            </label>
+                            <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
+                                マイリク<input id="type" type="radio" name="type" value="2"><br>
                             </label>
                             @error('type')
                             <span class="invalid-feedback" role="alert">

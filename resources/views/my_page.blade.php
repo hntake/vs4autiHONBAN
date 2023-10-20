@@ -8,7 +8,7 @@
 
 <div class="container">
     <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
-    @if($user->feel==5)
+    @if($user->type==2)
     <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
     @endif
 <!--     両方申込んでいる -->

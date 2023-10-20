@@ -20,6 +20,8 @@
                                 絵スケジュール
                                 @elseif($type==1)
                                 お守りグッズ
+                                @else
+                                マイリク
                                 @endif
                                 <input type="hidden" name="type" value="{{$type}}">
                             </div>

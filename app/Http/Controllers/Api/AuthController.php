@@ -14,23 +14,7 @@ use Exception;
 
 class AuthController extends Controller
 {
- /*     public function login(Request $request)
-    {
-        $loginData = $request->validate([
-            'email' => 'email|required',
-            'password' => 'required'
-        ]);
 
-        if (!auth()->attempt($loginData)) {
-            return response(['message' => 'Invalid Credentials']);
-        }
-
-        $accessToken = auth()->user()->createToken('authToken')->accessToken;
-        $user=Auth::user();
-        $lost=Lost::where('email','=',$user->email)->first();
-        return response(['lost' => $lost, 'access_token' => $accessToken]);
-
-    } */
     function login(Request $R){
         $user = User::where('email', $R->email)->first();
 

@@ -129,7 +129,7 @@
                                 @if($user->pm_type==null)
                                 <div class="form-group row">
                                     <label for="address"
-                                           class="col-md-4 col-form-label text-md-right">住所</label>
+                                           class="col-md-4 col-form-label text-md-right">住所(オンライン購入する方のみ入力)</label>
 
                                     <div class="col-md-6">
                                         <p>郵便番号：<input id="zip" type="text" name="zip" size="7">例:1020072（半角数字）</p>
@@ -397,6 +397,17 @@
                                 </button>
                             </div>
                         </div>
+                        </form>
+                        @else
+                        <form method="POST" action="{{ route('register.main.check') }}">
+                                @csrf
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        マイリク作成画面へ
+                                    </button>
+                                </div>
+                            </div>
                         </form>
                         @endif
                 </div>

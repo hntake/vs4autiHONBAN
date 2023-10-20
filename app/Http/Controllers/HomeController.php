@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Lost;
 use App\Models\Design;
 use App\Models\Shop;
+use App\Models\Feel;
 use App\Models\Picture;
 use App\Models\Independence;
 use Illuminate\Support\Facades\Auth;
@@ -131,11 +132,21 @@ class HomeController extends Controller
           //確認前なので渡すだけ
 /*           $lost->save();
  */
-
         return view('auth.main.register_check', compact('email_token','lost','user'));
-
         }
+        else{
+            $new_status=1;
+            $user=User::where('id', '=', Auth::id())
+            ->update([
+                'status'=>$new_status,
+            ]);            //feel
+            $feel=new Feel();
+            $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->save();
+         return view('feel/create',compact('feel'));
+                
       }
+    }
        //バッジ会員のVS4確認画面
       public function vs4Check(Request $request)
       {
@@ -213,6 +224,9 @@ class HomeController extends Controller
                 'gender'=> $request->gender,
             ]);
             $user=User::where('id', '=', Auth::id())->first();
+            $feel=new Feel();
+            $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->save();
         }
         elseif($user->type==1){
             $lost=new Lost;
@@ -245,8 +259,12 @@ class HomeController extends Controller
             $lost->sun2=$request->sun2;
             $lost->sun3=$request->sun3;
             $lost->save();
+            $feel=new Feel();
+            $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->save();
         }
         return view('auth.main.registered', compact('user'));
+
       }
       //バッジ会員のVS4本登録
       public function vs4Register(Request $request)

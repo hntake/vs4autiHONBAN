@@ -33,6 +33,10 @@
                         @if($user->type==3 && $user->pm_type ==! null)
                         <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動</a>
                         @endif
+                        <div class="button"style="margin-top:24px;">
+
+                            <a href="{{ url('/') }}">VS4トップページに戻る</a>
+                        </div>
                     </div>
                 </div>
             </div>

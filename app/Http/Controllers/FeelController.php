@@ -40,7 +40,7 @@ class FeelController extends Controller
 
 
             //feelsテーブルへの受け渡し
-            $feel = new Feel;
+            $feel=Feel::where('user=id','=',$user->id)->first();
             if (isset($request->message1)) {
                 $feel->message1 = $request->message1;
             }
