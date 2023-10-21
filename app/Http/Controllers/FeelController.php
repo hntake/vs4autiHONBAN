@@ -37,97 +37,75 @@ class FeelController extends Controller
      */
     public function create(Request $request)
     {
+        $user = Auth::user();
+        $feel=Feel::where('user_id','=',$user->id)->first();
+        //画像表示設定をリセット
+        $feel->img1=0;
+        $feel->img2=0;
+        $feel->img3=0;
+        $feel->img4=0;
+        $feel->save();
+
         if (isset($feel)) {
 
             //feelsテーブルへの受け渡し
-            $feel=Feel::where('user=id','=',$user->id)->first();
             if (isset($request->message1)) {
-                $feel->message1 = $request->message1;
+                $feel->message1=$request->message1;
             }
             if (isset($request->message2)) {
-                $feel->message2 = $request->message2;
+                $feel->message2=$request->message2;
             }
             if (isset($request->message3)) {
-                $feel->message3 = $request->message3;
+                $feel->message3=$request->message3;
             }
             if (isset($request->message4)) {
-                $feel->message4 = $request->message4;
+                $feel->message4=$request->message4;
             }
             if (isset($request->message5)) {
-                $feel->message5 = $request->message5;
+                $feel->message5=$request->message5;
             }
             if (isset($request->message6)) {
-                $feel->message6 = $request->message6;
+                $feel->message6=$request->message6;
             }
             if (isset($request->message7)) {
-                $feel->message7 = $request->message7;
+                $feel->message7=$request->message7;
             }
             if (isset($request->message8)) {
-                $feel->message8 = $request->message8;
+                $feel->message8=$request->message8;
             }
-          
-            $feel->user_id = User::where('id', '=', Auth::id())->value('id');
             $feel->save();
-
-            $old = Feel::where('user_id', '=', Auth::id())->where('created_at','<',$feel->created_at)->first();
-            $old->delete();
-            //作成するとログイン後のページ上部に表示されるようにする
-            $user = Auth::user();
-            $new_feel=5;
-            $user=User::where('id', '=', Auth::id())
-            ->update([
-                'feel'=>$new_feel,
-            ]);
-            
+              // 古いデータを削除
+              if ($feel) {
+                $old = Feel::where('user_id', '=', Auth::id())->where('created_at','<',$feel->created_at)->first();
+                if ($old) {
+                    $old->delete();
+                }
+            }   
+            // dd($feel);
             //アイコン非表示にするなら
             if($request->img1==1){
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img1'=>1,
-                ]);
+                $feel->img1=$request->img1;
             }
-            else{
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img1'=>0,
-                ]);
+           
+            if(isset($request->img2)){
+                $feel->img2=$request->img2;
+            }   
+            if(isset($request->img3)){
+                $feel->img3=$request->img3;
+            }   
+            if(isset($request->img4)){
+                $feel->img4=$request->img4;
             }
-            if($request->img2==1){
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img2'=>1,
-                ]);
-            }
-            else{
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img2'=>0,
-                ]);
-            }
-            if($request->img3==1){
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img3'=>1,
-                ]);
-            }
-            else{
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img3'=>0,
-                ]);
-            }
-            if($request->img1==1){
-                $img4=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img4'=>1,
-                ]);
-            }
-            else{
-                $img1=Feel::where('user_id', '=', Auth::id())
-                ->update([
-                    'img4'=>0,
-                ]);
-            }
+            $feel->save();
+
+              //作成するとログイン後のページ上部に表示されるようにする
+              $user = Auth::user();
+              $new_feel=5;
+              $user=User::where('id', '=', Auth::id())
+              ->update([
+                  'feel'=>$new_feel,
+              ]);
+          
             return view('feel/choice', [
                 'feel' => $feel,
             ]);
@@ -159,20 +137,20 @@ class FeelController extends Controller
             if (isset($request->message8)) {
                 $feel->message8 = $request->message8;
             }
-                  //アイコン非表示にするなら
-                  if($request->img1==1){
-                 $feel->img1=1;
-                }
-                if($request->img2==1){
-                    $feel->img2=1;
-                }
-                if($request->img3==1){
-                  
-                    $feel->img1=1;
-                }
-                if($request->img1==1){
-                    $feel->img4==1;
-                }
+                //アイコン非表示にするなら
+            if($request->img1==1){
+                $feel->img1=1;
+            }
+            if($request->img2==1){
+                $feel->img2=1;
+            }
+            if($request->img3==1){
+                
+                $feel->img3=1;
+            }
+            if($request->img4==1){
+                $feel->img4=1;
+            }
             $feel->save();
             return view('feel/choice', [
                 'feel' => $feel,
