@@ -1,6 +1,9 @@
 a{
     text-decoration: none;
 }
+h1{
+    color:white;
+}
 a h3{
     color: #111;
 }
@@ -167,7 +170,9 @@ a.header_nav_itm_link {
 }
 .main-column{
     margin-top:200px;
-    background-color: rgb(146, 175, 228);
+    background-image:url(../img/blue.webp);
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 /*背景動画部分*/
 .hero {
@@ -280,7 +285,7 @@ a.header_nav_itm_link {
     background: #fff;
 }
 .vs4nest{
-    width: calc(50% - 40px);
+    width: calc(60% - 40px);
     max-width: 1200px;
     margin: 0 auto;
     padding: 60px 0;
@@ -941,7 +946,7 @@ b{
     display:none;
 }
 .top_four{
-    background-color: rgb(231, 198, 136);
+    background-color: rgb(195, 195, 195);
     border: 1px solid #ccc; /* 枠線を追加 */
     padding: 24px; /* 内側の余白を調整 */
     text-align: center; /* 中央寄せ */
@@ -974,6 +979,9 @@ b{
  }
  /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .top_box {
+        display: block;
+    }
     /* kv */
     .kv{
       min-width: 960px;
@@ -1014,11 +1022,13 @@ b{
         width:200px;
     }
     .vs4nest{
-        display:block;
+        display:flex;
+        width: calc(90% - 16px);
     }
     .tiktok {
         position: absolute;
-        left: 45%;
+        left: 55%;
+        top:100%;
         width:25%;
     }
     .badge{
@@ -1101,6 +1111,7 @@ b{
     }
       .vs4nest{
           display:block;
+          width: calc(80% - 16px);
       }
    /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
    .video video.pc {

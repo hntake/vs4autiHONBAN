@@ -42,12 +42,12 @@
             <header id="header" class="header is-open">
 
                 <div class="tiktok">
-                    <h3 style="margin:0;">
+                    <h5 style="margin:0;">
                         Follow us
-                    </h3>
-                    <h4 style="margin:0;">
+                    </h5>
+                    <h6 style="margin:0;">
                         マニュアル動画や、利用動画投稿中！
-                    </h4>
+                    </h6>
                     <div class="v_content">
                         <a href="https://www.tiktok.com/@llcovs4?lang=ja-JP" target="_blank">
                             <img src="img/tiktok.png" alt="TikTok" width="40" height="auto">
@@ -129,7 +129,7 @@
                         </ul>
                         <div class="news">
                             <ul>
-                                <p style="font-weight:bold;">お知らせ</p>
+                                <p style="font-weight:bold; color: white;">IT2Uからのお知らせ</p>
                                 <li>
                                     <a href="{{ url('news/index')}}">
                                         {{$new->created_at}}
@@ -290,7 +290,7 @@
 
                     <div class="news">
                         <ul>
-                            <p style="font-weight:bold;">お知らせ</p>
+                            <p style="font-weight:bold; color: white;">IT2Uからのお知らせ</p>
                             <li>
                                 <a href="{{ url('news/index')}}">
                                     {{$new->created_at}}
@@ -504,7 +504,6 @@
                     </div>
                 </div>
             </div>
-            <p></p>
 
             <a href="#" class="gotop">トップへ</a>
         </footer>
