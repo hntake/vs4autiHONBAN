@@ -2,7 +2,9 @@
 <html>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#">
     <meta charset="UTF-8">
-    <title>マイフィーリング</title>
+    <meta content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
+
+    <title>マイリク</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">

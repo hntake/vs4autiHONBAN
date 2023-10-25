@@ -63,7 +63,7 @@ body {
 }
 
 .header_inner {
-    display: flex;
+    /* display: flex; */
     margin: 0 auto;
 }
 .mobile-login{
@@ -72,9 +72,7 @@ display:none;
 .mobile-menu{
     display:none;
 }
-.header__nav__inner {
-    display: flex;
-}
+
 .header_nav_list {
     /* display: flex; */
     justify-content: flex-end;
@@ -169,6 +167,7 @@ a.header_nav_itm_link {
 }
 .main-column{
     margin-top:200px;
+    background-color: rgb(146, 175, 228);
 }
 /*背景動画部分*/
 .hero {
@@ -250,12 +249,12 @@ a.header_nav_itm_link {
   .hero__lead-container {
     position: relative;
     z-index: 1;
-    height: 100vh;
+    /* height: 100vh; */
     max-width: 1440px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+    display: block;
+    /*grid-template-columns: repeat(2, 1fr); /* 2列 */
+    /*grid-template-rows: repeat(2, 1fr); /* 2行 */
+    /*gap: 10px; /* セル間の余白 */
 }
 .hero__lead {
     position: absolute;
@@ -281,7 +280,7 @@ a.header_nav_itm_link {
     background: #fff;
 }
 .vs4nest{
-    width: calc(100% - 40px);
+    width: calc(50% - 40px);
     max-width: 1200px;
     margin: 0 auto;
     padding: 60px 0;
@@ -308,159 +307,6 @@ a.header_nav_itm_link {
     color: #03C75A;
         line-height: 1.4;
 }
- /*lenovo*/
- @media only screen and (min-width:800px) and (max-width:1200px){
-     .catch-copy{
-         top:30px;
-         left:50px;
-     }
-     .title{
-         width:50%;
-     }
-     .hero__lead{
-         width: 85%;
-         top: 200px;
-     }
-     .vs4nest{
-        display:block;
-    }
- }
- /*ipad*/
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    /* kv */
-    .kv{
-      min-width: 960px;
-    }
-
-    .kv .main-copy{
-      font-size: 60px;
-    }
-
-    .kv .sub-copy{
-      font-size: 30px;
-    }
-    .header_nav_list{
-        flex-wrap:wrap;
-    }
-    /* video */
-    .video{
-      min-width: 960px;
-    }
-    .catch-copy{
-        top:80px;
-        left:50px;
-    }
-    .title{
-        width:50%;
-    }
-    .hero{
-        /* margin-top:300px; */
-    }
-    .hero__lead{
-        width: 85%;
-        top: 200px;
-    }
-    .elementor-image{
-        right: 0;
-    }
-      .elementor-image img{
-        width:200px;
-    }
-    .vs4nest{
-        display:block;
-    }
-    .tiktok {
-        position: absolute;
-        left: 45%;
-        width:25%;
-    }
-    .badge{
-        position: absolute;
-        left: 70%;
-        top: 50%;
-    }
-    .badge img{
-        width:100%;
-        height:auto;
-    }
-
-
-  }
-/*iPhone12レスポンシブ対応*/
-@media only screen
-  and (min-device-width: 390px)
-  and (max-device-width: 844px)
-  and (-webkit-min-device-pixel-ratio: 3) {
-    .tiktok{
-        width:30%;
-        left:60%;
-        top:400%;
-    }
-
-    .catch-copy{
-        top:30px;
-    }
-    .title{
-        width:50%;
-    }
-    .badge{
-        position: absolute;
-        left: 50%;
-        top: 100%;
-    }
-    .badge img{
-        width:110%;
-        height:auto;
-    }
-    .hero{
-        margin-top: 0;
-    }
-    .hero__lead{
-        width: 85%;
-        top: 200px;
-    }
-    .elementor-image{
-        top: 600px;
-        right: 0;
-    }
-    .vs4nest{
-        display:block;
-    }
-    /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
-    .video video.pc {
-         display: none !important;
-        }
-    .video video.sp {
-         display: block !important;
-         left: unset;
-        }
-}
-@media screen and (max-width: 480px) {
-    .catch-copy{
-        top:50px;
-    }
-    .title{
-        width:50%;
-    }
-    .elementor-image{
-        top: 600px;
-        right: 0;
-    }
-    .elementor-image img{
-        width:200px;
-    }
-      .vs4nest{
-          display:block;
-      }
-   /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
-   .video video.pc {
-     display: none !important;
-    }
-   .video video.sp {
-     display: block !important;
-     left: unset;
-    }
-  }
 /*使い方*/
 .use{
     margin-left:500px;
@@ -631,18 +477,23 @@ input[type="radio"]{
     letter-spacing: -1px;
 }
 .slide-description b{
-    font-size: 40px;
-    line-height: 58px;
+    font-size: 16px;
+    line-height: 24px;
     letter-spacing: -2px;
     margin-bottom: 20px;
     display: block;
 }
 .slide-description {
     color: #222222;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 34px;
+    line-height: 24px;
     letter-spacing: -1px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 48px;
+    text-align: left;
 }
 #panel1 #panel2 #panel3 .panel_area{
     width:50%;
@@ -1089,7 +940,178 @@ b{
 .next-btn{
     display:none;
 }
+.top_four{
+    background-color: rgb(231, 198, 136);
+    border: 1px solid #ccc; /* 枠線を追加 */
+    padding: 24px; /* 内側の余白を調整 */
+    text-align: center; /* 中央寄せ */
+    width:70%;
+    margin:10px auto;
+    border-radius: 10%;
+}
+.top_box{
+    display:flex;
+}
+.top_box a{
+    width:50%;
+}
+ /*lenovo*/
+ @media only screen and (min-width:800px) and (max-width:1200px){
+     .catch-copy{
+         top:30px;
+         left:50px;
+     }
+     .title{
+         width:50%;
+     }
+     .hero__lead{
+         width: 85%;
+         top: 200px;
+     }
+     .vs4nest{
+        display:block;
+    }
+ }
+ /*ipad*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    /* kv */
+    .kv{
+      min-width: 960px;
+    }
 
+    .kv .main-copy{
+      font-size: 60px;
+    }
+
+    .kv .sub-copy{
+      font-size: 30px;
+    }
+    .header_nav_list{
+        flex-wrap:wrap;
+    }
+    /* video */
+    .video{
+      min-width: 960px;
+    }
+    .catch-copy{
+        top:80px;
+        left:50px;
+    }
+    .title{
+        width:50%;
+    }
+    .hero{
+        /* margin-top:300px; */
+    }
+    .hero__lead{
+        width: 85%;
+        top: 200px;
+    }
+    .elementor-image{
+        right: 0;
+    }
+      .elementor-image img{
+        width:200px;
+    }
+    .vs4nest{
+        display:block;
+    }
+    .tiktok {
+        position: absolute;
+        left: 45%;
+        width:25%;
+    }
+    .badge{
+        position: absolute;
+        left: 70%;
+        top: 50%;
+    }
+    .badge img{
+        width:100%;
+        height:auto;
+    }
+
+
+  }
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+    .tiktok{
+        width:30%;
+        left:60%;
+        top:50%;
+    }
+
+    .catch-copy{
+        top:30px;
+    }
+    .title{
+        width:50%;
+    }
+    .badge{
+        position: absolute;
+        left: 50%;
+        top: 150%;
+    }
+    .badge img{
+        width:110%;
+        height:auto;
+    }
+    .hero{
+        margin-top: 0;
+    }
+    .hero__lead{
+        width: 85%;
+        top: 200px;
+    }
+    .elementor-image{
+        top: 600px;
+        right: 0;
+    }
+    .vs4nest{
+        display:block;
+    }
+    /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+    .video video.pc {
+         display: none !important;
+        }
+    .video video.sp {
+         display: block !important;
+         left: unset;
+        }
+    .top_box{
+        display:block;
+    }
+}
+@media screen and (max-width: 480px) {
+    .catch-copy{
+        top:50px;
+    }
+    .title{
+        width:50%;
+    }
+    .elementor-image{
+        top: 600px;
+        right: 0;
+    }
+    .elementor-image img{
+        width:200px;
+    }
+      .vs4nest{
+          display:block;
+      }
+   /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+   .video video.pc {
+     display: none !important;
+    }
+   .video video.sp {
+     display: block !important;
+     left: unset;
+    }
+
+  }
 
  /*lenovo*/
 @media only screen and (min-width:1042px) {

@@ -117,42 +117,21 @@
  -->
                             <!--     @endauth -->
                             @endif
-                            <li class="header_nav_itm">
+                            <!-- PCは動画ボタン入れない  -->
+                            <!-- <li class="header_nav_itm">
                                 <div class="register-button">
                                     <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">VS4説明動画</a>
                                     <div class="description1">マニュアル動画ページへ</div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
 
                     </nav>
                 </div>
                 <div class="mobile">
+                       
+                            <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%;"></a>
                     <ul>
-                        <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:80%;"></a>
-                        </li>
-                        <!--  @if (Route::has('login'))
-                            <li class="header_nav_itm">
-                                @auth
-                                    <div class="home-button">
-                                        <a href="{{ url('//') }}" class=" header_nav_itm_link">Home</a>
-                                        <div class="description1">Myホーム画面へ移動する </div>
-                                    </div>
-                            </li>
-                            <li>
-                                <div class="home-button">
-                                        <a href="{{ url('/dental/list') }}" class=" header_nav_itm_link">歯科</a>
-                                        <div class="description1">歯科リストへ移動する</div>
-                                </div>
-                            </li>
-                            <li class="header_nav_itm">
-                                    @else
-                                    <div class="login-button">
-                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                        <div class="description1">ログイン画面へ移動する </div>
-                                    </div>
-                            </li> -->
                         <li class="header_nav_itm">
                             <div class="register-button">
                                 @if (Route::has('register'))
@@ -160,9 +139,14 @@
                                 <!--   <div class="description1">30日間無料トライアルを試してみる</div> -->
                             </div>
                         </li>
+                        <li class="header_nav_itm">
+                                <div class="register-button">
+                                    <a href="#youtube" class="header_nav_itm_link">VS4説明動画</a>
+                                    <div class="description1">マニュアル動画ページへ</div>
+                                </div>
+                            </li>
 
-                        <!--   @endif
-                                @endauth -->
+                       
                         @endif
                     </ul>
                 </div>
@@ -204,7 +188,7 @@
                                 </li>
                                 <li>
                                     <div class="register-button">
-                                        <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link">VS4説明動画</a>
+                                        <a href="#youtube" class="header_nav_itm_link">VS4説明動画</a>
 
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
@@ -222,124 +206,126 @@
                     </div>
                 </div>
             </header>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="feature">
-                            <img src="img/VS4Auti_2.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/7HUQzYWZe7M" class="video-open"><img src="img/play.png"></a>
+            <div class="youtube_box">
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="feature">
+                                <img src="img/VS4Auti_2.png">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/7HUQzYWZe7M" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="hair">
-                            <img src="img/hair0.jpg">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/7AU83_gtAuM" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="hair">
+                                <img src="img/hair0.jpg">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/7AU83_gtAuM" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="independence">
-                            <img src="img/id1-0.jpg">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/OFXvH-pVCCY" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="independence">
+                                <img src="img/id1-0.jpg">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/OFXvH-pVCCY" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor">
-                            <img src="img/schedule12.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/kjYiP-uOFbQ" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/schedule12.png">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/kjYiP-uOFbQ" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor">
-                            <img src="img/schedule1-1.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/schedule1-1.png">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor">
-                            <img src="img/dentist1.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/pnJWbZraq10" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/dentist1.png">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/pnJWbZraq10" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor">
-                            <img src="img/pay1.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/fdhfWzgwC-I" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/pay1.png">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/fdhfWzgwC-I" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor-apply">
-                            <img src="img/register1.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/yEvhNzkbWJM" class="video-open"><img src="img/play.png"></a>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor-apply">
+                                <img src="img/register1.png">
+                            </a>
                         </div>
-                    </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/yEvhNzkbWJM" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
             <section>
@@ -648,6 +634,130 @@
                 </div>
             </div>
         </div>
+        <a name="youtube" class="youtube">
+
+        <div class="youtube">
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="feature">
+                                <img src="img/VS4Auti_2.png">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/7HUQzYWZe7M" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="hair">
+                                <img src="img/hair0.jpg">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/7AU83_gtAuM" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="independence">
+                                <img src="img/id1-0.jpg">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/OFXvH-pVCCY" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/schedule12.png">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/kjYiP-uOFbQ" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/schedule1-1.png">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/-ZzFDSP-vTU" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/dentist1.png">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/pnJWbZraq10" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/pay1.png">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/fdhfWzgwC-I" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="youtube_kv">
+                    <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor-apply">
+                                <img src="img/register1.png">
+                            </a>
+                        </div>
+                        <div class="youtube">
+                            <div class="elementor-image">
+                                <a href="https://youtube.com/embed/yEvhNzkbWJM" class="video-open"><img src="img/play.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
     </section>
         <div class="bottom">
             <div class="bottom-container">

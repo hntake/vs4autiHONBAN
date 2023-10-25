@@ -28,7 +28,7 @@ body {
 .header_inner {
 /*     display: flex;
  */    margin:0px auto 0 auto;
-    padding: 0px;
+    padding: 0 50px;
 }
 .mobile{
 display:none;
@@ -80,6 +80,21 @@ a.header_nav_itm_link {
     vertical-align: middle;
     border-radius:5px;
 }
+.how_to_buy a{
+    box-sizing: border-box;
+    display: table-cell;
+    height: 0.46rem;
+    padding: 0 0.4rem;
+    border-radius: 0.05rem;
+    color: #fff;
+    background-color: #e20f1a;
+    vertical-align: middle;
+    border-radius:5px;
+}
+.how_to_buy a.header_nav_list{
+    color: #fff;
+
+}
 .description1 {
     display: none;
     position: absolute;
@@ -114,7 +129,7 @@ li.title_image{
     position:relative;
     z-index:5;
     line-height:1;
-    margin:300px  0 50px 0;
+    margin:200px  0 0px 0;
 }
 .elementor-image a img{
     background-color: rgba(34, 34, 34, 0.9);
@@ -128,11 +143,11 @@ li.title_image{
 }
 .elementor-image{
     position:absolute;
-    top:50%;
-    left:50%;
+    top:30%;
+    /* left:50%; */
 }
 .elementor-widget img{
-    width:50%;
+    width:70%;
     height: auto;
 }
 /*mordal*/
@@ -168,7 +183,7 @@ a.use{
     letter-spacing: -2px;
 }
 section{
-    margin-top: 150px;
+    /* margin-top: 150px; */
     margin-bottom: 400px;
     padding: 0px 0px 0px 0px;
     width:auto;
@@ -235,7 +250,7 @@ input[type="radio"]{
 }
 #tab3:checked ~ .panel_area #panel3{
     display:block;
-    width:50%;
+    width:100%;
 }
 #tab4:checked ~ .tab_area .tab4_label{
     background:#fff; color:#000;
@@ -344,7 +359,7 @@ input[type="radio"]{
     width:50%;
 }
 .sright{
-    float: right;
+    float: left;
 }
 /*table*/
 table.company {
@@ -599,9 +614,31 @@ h2.bottom-element-top{
     display:none;
 }
 
-    /*LenovoTab*/
-
-
+/*四列二行で表示*/
+.youtube_box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4列 */
+    grid-template-rows: repeat(2, 1fr); /* 2行 */
+    gap: 10px; /* セル間の余白 */
+  }
+  
+  .youtube_kv {
+    /* それぞれのyoutube_kv要素のスタイリングを設定します */
+    padding: 10px; /* 内側の余白を調整 */
+    text-align: center; /* 中央寄せ */
+  }
+  
+  .movie_cap {
+    /* それぞれのmovie_cap要素のスタイリングを設定します */
+    margin-bottom: 10px; /* 下部の余白を追加 */
+  }
+  
+  .youtube img {
+    /* それぞれのプレビュー画像のスタイリングを設定します */
+    max-width: 100%;
+    height: auto;
+  }
+  
 
 
 /*iPhone12レスポンシブ対応*/
@@ -1188,6 +1225,10 @@ a.use{
 .site-footer .site-info{
     padding-top: 45rem;
 }
+/*説明動画は下部に*/
+.youtube_box{
+    display:none;
+}
   }
 
   @media only screen and (min-width:380px) and (max-width:800px){
@@ -1663,6 +1704,10 @@ border-radius: 5px;
 .header_nav_list a{
 text-decoration:none;
 color:#222222;
+}
+.how_to_buy a.header_nav_itm_link{
+    color: #fff;
+
 }
 .bottom-container{
 display:block;

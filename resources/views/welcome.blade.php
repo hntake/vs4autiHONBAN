@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れます。迷子対策のお守りバッジも販売中" name="description">
+    <meta content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
 
     <title>{{ config('app.name', 'VS4') }} ITで助けたい! IT2U トップページ</title>
 
@@ -63,46 +64,25 @@
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
 
-                           
                             <li class="header_nav_itm">
-                                <a href="{{ url('feel/choice') }}" class="header_nav_itm_link"><img src="{{ asset('img/feel.png') }}" alt="feel" style="width:10%;"></a>
-                                <div class="description1">言えないときに！</div>
+                                <a href="#autism" class="header_nav_itm_link">視覚支援</a>
+                                <div class="description1">手持ちの写真、サイトにある絵をを使ってスケジュールを作れます</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('protect') }}" class="header_nav_itm_link">お守りバッジ</a>
+                                <a href="#hair" class="header_nav_itm_link">ヘアカットスケジュール</a>
+                                <div class="description1">ヘアカットのストレスを軽減</div>
+                            </li>
+                            <li class="header_nav_itm">
+                                <a href="#request" class="header_nav_itm_link">マイリク</a>
+                                <div class="description1">自分のリクエストを画面で表示できます</div>
+                            </li>
+                            <li class="header_nav_itm">
+                            <a href="#protect" class="header_nav_itm_link">お守りバッジ</a>
                                 <div class="description1">迷子対策に！</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="{{ url('create') }}" class="header_nav_itm_link">スケジュール作成</a>
-                                <div class="description1">スケジュールを作ってみる</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('create_sort') }}" class="header_nav_itm_link">イラストケジュール作成</a>
-                                <div class="description1">イラストスケジュールを作ってみる</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('dentist/create') }}" class="header_nav_itm_link">歯科スケジュール作成</a>
-                                <div class="description1">歯科スケジュールを作ってみる</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('medical/create') }}" class="header_nav_itm_link">医療スケジュール作成</a>
-                                <div class="description1">医療スケジュールを作ってみる</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('hair/schedule') }}" class=" header_nav_itm_link">ヘアカット</a>
-                                <div class="description1">ヘアカットスケジュールへ移動する</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('independence/public') }}" class=" header_nav_itm_link">自立支援ツール一覧</a>
-                                <div class="description1">一般公開されている自立支援リストへ</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
-                                <div class="description1">VS4の使い方</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('plan') }}" class="header_nav_itm_link">有料サービス</a>
-                                <div class="description1">保存するなら</div>
+                                <a href="#volunteer" class="header_nav_itm_link">IT2U</a>
+                                <div class="description1">理念・活動内容</div>
                             </li>
                             <li class="header_nav_itm">
                                 @auth
@@ -307,6 +287,7 @@
             </header>
             <div class="main-column">
                 <div class="mobile-login-news">
+
                     <div class="news">
                         <ul>
                             <p style="font-weight:bold;">お知らせ</p>
@@ -321,30 +302,96 @@
                         </ul>
                     </div>
                 </div>
+                <a name="autism" class="autism">
+
                 <div class="hero">
                     <div class="hero__pad">
                         <div class="pin-spacer">
                             <div class="kv">
-                                <div class="catch-copy">
-                                    <picture>
-                                        <source media="(max-width:800px)" srcset="img/VS_white2.png">
-                                        <img class="title" src="img/VS_white2.png" alt="">
-                                    </picture>
-
-                                </div>
+                            
                                 <div class="hero__cover"></div>
                             </div>
-                            <div class="video">
+                            <!-- <div class="video">
                                 <video class="pc" src="img/nagi2.mp4" autoplay loop muted playsinline></video>
                                 <video class="sp" src="img/nagi_sp_short.mp4" autoplay loop muted playsinline></video>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="hero__lead-container">
-                        <picture>
-                            <source media="(max-width:800px)" srcset="img/vs4_top3.png">
-                            <img class="hero__lead" src="img/vs4_top3.png" alt="" loading="lazy">
-                        </picture>
+                    <a name="hair" class="hair" style="display:none;"></a>
+
+                       <div class="top_four">
+                            <h1>VS4 視覚支援</h1>
+                                <div class="top_box">
+                                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:90%;"></a>
+                                        <div class="slide-description">
+                                            <b>簡単作成</b>
+                                            オリジナルスケジュール：ご自分でお持ちの画像を順番にアップロードすれば完成<br>
+                                            歯科・医療・イラストスケジュール： サイトに保存されている画像をスケジュール順に番号を入力するだけ！<br>
+                                            <br>
+                                            ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
+                                            ※詳細は画像をクリックして拡大してみてください
+                                            <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">医療スケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">イラストスケジュール作成ページへ</a></div>
+                                        </div>
+                                </div>
+                        </div>
+                        <a name="protect" class="protect" style="display:none;"></a>
+
+                        <div class="top_four">
+                            <h1>ヘアカットスケジュール</h1>
+                                 <div class="top_box">
+
+                                    <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:90%;"></a>
+                                        <div class="slide-description">
+                                            <b>ヘアカットスケジュール</b>
+                                            理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
+                                            <br>
+                                            ※詳細は画像をクリックして拡大してみてください
+                                                <div class="admin_button">
+                                                    <a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <a name="request" class="request" style="display:none;"></a>
+
+                        <div class="top_four">
+                            <h1>お守りバッジ</h1>
+                                <div class="top_box">
+
+                                    <a href="img/fryer.png" data-lightbox="group"><img src="img/fryer.png" alt="list" style="width:90%;"></a>
+                                        <div class="slide-description">
+                                            <b>お守り代わりに</b>携帯電話を常備できなかったり、ご家族の連絡先を伝えることができない、小さなお子様や障がいのある方が、
+                                            万が一迷子になった時…気付いてくれた方がバッジのQRコードを
+                                            スキャンする事で登録した電話番号につないでくれます。<br>
+                                            また、同時に登録したメールアドレスに通知が届きます。
+                                            ※詳細は画像をクリックして拡大してみてください
+                                            <div class="admin_button">
+                                                <a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
+                                            </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="top_four">
+                            <h1>マイリク</h1>
+                            <div class="top_box">
+
+                                <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:90%;"></a>
+                                    <div class="slide-description">
+                                自分の要求がうまく伝えれない方向け。自分特有のリクエストを事前に登録しておくとタップでそれが表示され、読み上げられます。
+                                    <br>
+                                    ※詳細は画像をクリックして拡大してみてください
+                                        <div class="admin_button">
+                                            <a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
+                                        </div>
+
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                     <!--     <div class="youtube">
                         <div class="elementor-image">
@@ -352,6 +399,8 @@
                         </div>
                     </div> -->
                 </div>
+                <a name="volunteer" class="volunteer">
+
                 <div class="vs4">
                     <div class="vs4nest">
                         <div class="vs4left">

@@ -43,3 +43,6 @@ Route::post('lost/stop/{id}', [\App\Http\Controllers\Api\AuthController::class, 
 
 //お守りを再開する
 Route::post('lost/again/{id}', [\App\Http\Controllers\Api\AuthController::class, 'again_call'])->name('again_call_fl');
+
+/*リクエストを編集する*/
+Route::put('/update_request/{id}', [App\Http\Controllers\Api\AuthController::class, 'update_request'])->name('update_request');

@@ -72,14 +72,17 @@
                                 <div class="description1">の万が一の時の為の準備</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#free" class="header_nav_itm_link">お守りバッジの購入方法</a>
-                                <div class="description1">購入方法は色々あります！</div>
-                            </li>
-
-                            <li class="header_nav_itm">
                                 <a href="#free" class="header_nav_itm_link">料金</a>
                                 <div class="description1">300円～</div>
                             </li>
+                            <li class="header_nav_itm">
+                                <div class="how_to_buy">
+                                    <a href="#free" class="header_nav_itm_link">お守りバッジの購入方法</a>
+                                </div>
+                                <div class="description1">購入方法は色々あります！</div>
+                            </li>
+
+                           
 
                             <!--    <li class="header_nav_itm">
                                     @auth
@@ -147,14 +150,15 @@
                                 </li>
                                 <li>
                                     <a href="#free" class="header_nav_itm_link">
-                                        お守りバッジの購入方法
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#free" class="header_nav_itm_link">
                                         料金
                                     </a>
+                                </li>
+                                <li>
+                                    <div class="how_to_buy">
+                                        <a href="#free" class="header_nav_itm_link">
+                                            お守りバッジの購入方法
+                                        </a>
+                                    </div>
                                 </li>
                                 <li>
                                     <div class="register-button">

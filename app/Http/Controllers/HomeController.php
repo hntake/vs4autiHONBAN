@@ -142,7 +142,10 @@ class HomeController extends Controller
             ]);            //feel
             $feel=new Feel();
             $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->email = User::where('id', '=', Auth::id())->value('email');
+
             $feel->save();
+            dd($feel);
          return view('feel/create',compact('feel'));
                 
       }
@@ -226,6 +229,8 @@ class HomeController extends Controller
             $user=User::where('id', '=', Auth::id())->first();
             $feel=new Feel();
             $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->email = User::where('id', '=', Auth::id())->value('email');
+
             $feel->save();
         }
         elseif($user->type==1){
@@ -261,6 +266,8 @@ class HomeController extends Controller
             $lost->save();
             $feel=new Feel();
             $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->email = User::where('id', '=', Auth::id())->value('email');
+
             $feel->save();
         }
         return view('auth.main.registered', compact('user'));
