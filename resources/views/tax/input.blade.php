@@ -18,7 +18,7 @@
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
 
 </head>
-<body>
+<body style="margin-top:80px;">
     
     <div class="wrap">
         <div class="catch">
