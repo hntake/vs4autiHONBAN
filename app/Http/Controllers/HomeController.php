@@ -145,7 +145,6 @@ class HomeController extends Controller
             $feel->email = User::where('id', '=', Auth::id())->value('email');
 
             $feel->save();
-            dd($feel);
          return view('feel/create',compact('feel'));
                 
       }
