@@ -19,12 +19,19 @@ class FeelController extends Controller
      */
     public function input(Request $request)
     {
-        if (Auth::user()) {
+        Auth::user();
             $feel = Feel::where('user_id', Auth::user()->id)->first();
+            $id = Auth::user()->id;
+            //マイリクで登録した人
+        if(isset($feel)) {
+            return view('feel/create', compact('feel'));
+        }//他で登録した人
+        elseif(isset($id)){
+            $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->email = User::where('id', '=', Auth::id())->value('email');
 
-        return view('feel/create', compact('feel'));
-        }
-        else{
+            return view('feel/create', compact('feel'));
+        }else{
             return view('auth/login');
         }
     }
@@ -39,15 +46,14 @@ class FeelController extends Controller
     {
         $user = Auth::user();
         $feel=Feel::where('user_id','=',$user->id)->first();
-        //画像表示設定をリセット
-        $feel->img1=0;
-        $feel->img2=0;
-        $feel->img3=0;
-        $feel->img4=0;
-        $feel->save();
-
+        //マイリク開始している人
         if (isset($feel)) {
-
+            //画像表示設定をリセット
+            $feel->img1=0;
+            $feel->img2=0;
+            $feel->img3=0;
+            $feel->img4=0;
+            $feel->save();
             //feelsテーブルへの受け渡し
             if (isset($request->message1)) {
                 $feel->message1=$request->message1;
@@ -81,7 +87,6 @@ class FeelController extends Controller
                     $old->delete();
                 }
             }   
-            // dd($feel);
             //アイコン非表示にするなら
             if($request->img1==1){
                 $feel->img1=$request->img1;
@@ -109,10 +114,11 @@ class FeelController extends Controller
             return view('feel/choice', [
                 'feel' => $feel,
             ]);
-        }
+        }//マイリク初の人
         else{
             $feel=new Feel();
             $feel->user_id = User::where('id', '=', Auth::id())->value('id');
+            $feel->email = User::where('id', '=', Auth::id())->value('email');
             if (isset($request->message1)) {
                 $feel->message1 = $request->message1;
             }

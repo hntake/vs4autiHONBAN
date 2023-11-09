@@ -351,9 +351,24 @@ class HomeController extends Controller
           {
             $user=Auth::user();
             $type=$user->type;
-            $lost=Lost::where('email','=',$user->email)->first();
-            $picture=Picture::where('uuid','=',$lost->uuid)->first();
+            if($type==3){
+                $lost=Lost::where('email','=',$user->email)->first();
+                $picture=Picture::where('uuid','=',$lost->uuid)->first();
                 return view('my_page',compact('type','lost','user','picture'));
+            }
+            elseif($type==2){
+                $feel=Feel::where('user_id','=',$user->id)->first();
+                return view('my_page',compact('feel','user','type'));
+            }
+            elseif($type==1){
+                $lost=Lost::where('email','=',$user->email)->first();
+                $picture=Picture::where('uuid','=',$lost->uuid)->first();
+                return view('my_page',compact('type','lost','user','picture'));
+            }
+            else{
+                return view('my_page',compact('user','type'));
+            }
+            
             }
 
         /**

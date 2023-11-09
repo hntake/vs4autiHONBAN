@@ -7,11 +7,16 @@ h1{
 a h3{
     color: #111;
 }
+.banner{
+    position: absolute;
+    left: 90%;
+    top: 20%;
+}
 .tiktok{
     background-color: rgb(238, 140, 21);
     text-align: center;
     padding:10px;
-    width: 20%;
+    /* width: 20%; */
     position: absolute;
     left: 70%;
     top: 60%;
@@ -976,11 +981,25 @@ b{
      .vs4nest{
         display:block;
     }
+    .slide-description {
+        width: inherit;
+        padding-right: 0px;
+        padding-left:36px;
+    }
+    .top_box{
+        display:flex;
+    }
  }
  /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .slide-description {
+        width: inherit;
+        padding-right: 0px;
+        padding-left:36px;
+
+    }
     .top_box {
-        display: block;
+        display: flex;
     }
     /* kv */
     .kv{
@@ -1040,7 +1059,9 @@ b{
         width:100%;
         height:auto;
     }
-
+    .banner{
+        display:none;
+    }
 
   }
 /*iPhone12レスポンシブ対応*/
@@ -1048,6 +1069,11 @@ b{
   and (min-device-width: 390px)
   and (max-device-width: 844px)
   and (-webkit-min-device-pixel-ratio: 3) {
+   
+    .banner{
+        display:none;
+    }
+
     .tiktok{
         width:30%;
         left:60%;
@@ -1911,6 +1937,7 @@ a.use{
     }
     .slide-description{
         width:inherit;
+        padding-right: 0px;
     }
     .sright{
         float:unset;

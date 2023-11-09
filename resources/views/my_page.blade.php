@@ -8,9 +8,9 @@
 
 <div class="container">
     <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
-    @if($user->type==2)
+    <!-- @if($user->type==2) -->
     <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
-    @endif
+    <!-- @endif -->
 <!--     両方申込んでいる -->
     @if($type==3)
 
@@ -373,6 +373,9 @@
                 </div>
                 <!--     VS4だけ申込んでいる -->
                 @elseif($type==0)
+                <a href="{{ url('dashboard') }}">
+                <h3>保存リストへ</h3>
+                </a>
                         <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-label text-md-right">性別</label>
                             <div class="col-md-6">

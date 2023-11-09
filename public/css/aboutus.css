@@ -1,0 +1,116 @@
+h2{
+    text-align: center;
+    color:rgb(246, 35, 179);
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+h3{
+    color:rgb(246, 35, 179);
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+p{
+    color:rgb(246, 35, 179);
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+.aboutus{
+    width:80%;
+    margin:0 auto;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+body{
+    position: relative;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:200%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.video-box {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+/* overlay */
+
+.overlay::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+}
+.banner img{
+    width: 20%;
+    height: 200px;
+}
+ video.pc {
+    display: block !important;
+   }
+ video.sp {
+   display: none !important;
+}
+ /*ipad*/
+ @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    video {
+        position: unset;
+        top: 50%;
+        left: 50%;
+        width:200%;
+        -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    }
+}
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+    /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+    video.pc {
+        display: none !important;
+    }
+    video.sp {
+        display: block !important;
+        left: unset;
+    }
+    .aboutus{
+        width:80%;
+    }
+
+}
+@media screen and (max-width: 480px) {
+       /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+    video.pc {
+        display: none !important;
+    }
+    video.sp {
+        display: block !important;
+        left: unset;
+    }
+    .aboutus{
+        width:80%;
+    }
+}    

@@ -394,7 +394,7 @@ class ScheduleController extends Controller
         if (Auth::user()) {
             $user = Auth::user();
             $stripe = $user->stripe_id;
-            /**stripeがNULLでないなら */
+            /**有料会員 stripeがNULLでないなら */
             if (isset($stripe)) {
                 //schedulesテーブルへの受け渡し
                 $schedule = new Schedule;
@@ -421,7 +421,7 @@ class ScheduleController extends Controller
                     'user_img' => $user_img
                 ]);
             }
-            /*stripeがNULLなら*/ else {
+            /*無料会員 stripeがNULLなら*/ else {
                 $count = Schedule::where('user_id', '=', Auth::user()->id)->where('list', '=', '0')->count();
                 /*scheduleの数が5以下なら*/
                 if ($count < 6) {
@@ -448,6 +448,7 @@ class ScheduleController extends Controller
                         'schedule' => $schedule,
                         'user_img' => $user_img
                     ]);
+                //画像が５を超えたユーザー
                 } else {
                     $schedules = Schedule::where('user_id', '=', Auth::user()->id)->get();
 
@@ -455,6 +456,7 @@ class ScheduleController extends Controller
                     return view('list', ['schedules' => $schedules]);
                 }
             }
+        //非ユーザー
         } else {
 
             //schedulesテーブルへの受け渡し
