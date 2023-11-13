@@ -20,7 +20,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => ['*'],
-    'allowed_origins' => ['http://localhost:60157'], // クライアントのオリジンに応じて変更
+    'allowed_origins' => ['https://itcha50.com'], // クライアントのオリジンに応じて変更
 
 
     'allowed_origins_patterns' => [],
