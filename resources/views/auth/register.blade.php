@@ -44,15 +44,15 @@
 
 
                         <div class="r-box">
-                            ※申込サービスを選択してください<br><br>
+                            ※申込サービスを選択してください Choose your type<br><br>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                                絵スケジュール<input id="type" type="radio" name="type" value="0" required><br>
+                                絵スケジュール Visual Schedule<input id="type" type="radio" name="type" value="0" required><br>
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                                お守りバッジ<input id="type" type="radio" name="type" value="1"><br>
+                                お守りバッジ may_protect<input id="type" type="radio" name="type" value="1"><br>
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                                マイリク<input id="type" type="radio" name="type" value="2"><br>
+                                マイリク my_request<input id="type" type="radio" name="type" value="2"><br>
                             </label>
                             @error('type')
                             <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード ※必須 8桁以上') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード password ※必須 8桁以上 required  at least 8 characters ') }}</label>
 
                             <div>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('パスワードの確認入力 ※必須') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('パスワードの確認入力 confirm password ※必須 required') }}</label>
 
                             <div>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -100,7 +100,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" style="margin-top:30px">
-                                    {{ __('登録する') }}
+                                    {{ __('登録する Register') }}
                                 </button>
                             </div>
                         </div>

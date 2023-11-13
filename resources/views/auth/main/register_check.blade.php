@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">本会員登録確認</div>
+                <div class="card-header">本会員登録確認 confirm your registration</div>
 
                 <div class="card-body">
                 @if($user->type==0)
@@ -17,14 +17,14 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">性別</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">性別 gender</label>
                             <div class="col-md-6">
                                 <span class="">{{$user->gender}}</span>
                                 <input type="hidden" name="gender" value="{{$user->gender}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="image_id" class="col-md-4 col-form-label text-md-right">完了マーク</label>
+                            <label for="image_id" class="col-md-4 col-form-label text-md-right">完了マーク check mark</label>
 
                             <div class="col-md-6">
                                 @if($user->image_id==2)
@@ -40,7 +40,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    本登録
+                                    本登録 confirm
                                 </button>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                     <form method="POST" action="{{ route('register.main.registered') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">名前 name</label>
                             <div class="col-md-6">
                                 <span class="">{{$lost->name}}</span>
                                 <input type="hidden" name="name" value="{{$lost->name}}">
@@ -64,21 +64,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">住所</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">住所 address</label>
                             <div class="col-md-6">
                                 <span class="">{{$lost->address}}</span>
                                 <input type="hidden" name="address" value="{{$lost->address}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="tel1" class="col-md-4 col-form-label text-md-right">連絡先①</label>
+                            <label for="tel1" class="col-md-4 col-form-label text-md-right">連絡先① telephone number①</label>
                             <div class="col-md-6">
                                 <span class="">{{$lost->tel1}}</span>
                                 <input type="hidden" name="tel1" value="{{$lost->tel1}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="tel2" class="col-md-4 col-form-label text-md-right">連絡先②</label>
+                            <label for="tel2" class="col-md-4 col-form-label text-md-right">連絡先② telephone number①</label>
                             <div class="col-md-6">
                                 <span class="">{{$lost->tel2}}</span>
                                 <input type="hidden" name="tel2" value="{{$lost->tel2}}">
@@ -349,10 +349,10 @@
 
                         <div class="">
                             <button type="button" onClick="history.back()">
-                                戻る
+                                戻る back
                             </button>
                             <button type="submit" class="btn btn-primary">
-                                本登録
+                                本登録 submit
                             </button>
                         </div>
                     </form>

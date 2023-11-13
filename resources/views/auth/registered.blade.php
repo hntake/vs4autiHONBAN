@@ -17,6 +17,15 @@
                         そちらに記載されているURLにアクセスし、
                         アカウントの本登録を完了させてください。
                     </p>
+                    <p>
+                    Thank you for registering.
+                    </p>
+                    <p>
+                    To confirm your identity, a confirmation email with registration details will be sent to the email address you provided.
+                    </p>
+                    <p>
+                    Please access the URL specified in the email and complete the account registration process.
+                    </p>
                 </div>
             </div>
         </div>

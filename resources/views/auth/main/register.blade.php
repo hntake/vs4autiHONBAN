@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">本会員登録</div>
+                    <div class="card-header">本会員登録 register</div>
 
                     @isset($message)
                         <div class="card-body">
@@ -23,16 +23,18 @@
                                 @csrf
                                 <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                     ※性別を選択してください<br>
+                                    *Please select your gender<br>
                                     <label for="gender">
-                                        男の子<input id="gender" type="radio" name="gender" value="boy" ><br>
+                                        男の子 boy<input id="gender" type="radio" name="gender" value="boy" ><br>
                                     </label>
                                     <label for="gender">
-                                        女の子<input id="gender" type="radio" name="gender" value="girl"><br>
+                                        女の子 girl<input id="gender" type="radio" name="gender" value="girl"><br>
                                     </label>
                                 </div>
 
                                 <div class="box" style="margin-bottom: 10px; background-color:#ADD8E6 ; padding: 0 20px;">
                                     ※完了マークを選択してください<br>
+                                    *Please select check mark<br>
                                     <label for="image_id2">
                                         1.<img src="{{asset('img/hana.png')}}"><input id="image_id2" type="radio" name="image_id" value="2" ><br>
                                     </label>
@@ -46,10 +48,10 @@
                                 <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                             <button type="button" onClick="history.back()">
-                                戻る
+                                戻る back
                             </button>
                                 <button type="submit" class="btn btn-primary">
-                                    本登録
+                                    本登録 register
                                 </button>
                             </div>
                         </div>
@@ -59,7 +61,7 @@
                                 <form method="POST" action="{{ route('register.main.check') }}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">名前 ※必須</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">名前 name ※必須 required</label>
                                     <div class="col-md-6">
                                         <input
                                             id="name" type="text"
@@ -93,7 +95,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel1"
-                                           class="col-md-4 col-form-label text-md-right">連絡先① ※必須 ハイフン無しで入力</label>
+                                           class="col-md-4 col-form-label text-md-right">連絡先① ※必須 ハイフン無しで入力 TEL①</label>
 
 
                                     <div class="col-md-6">
@@ -111,7 +113,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel2"
-                                           class="col-md-4 col-form-label text-md-right">連絡先② ハイフン無しで入力</label>
+                                           class="col-md-4 col-form-label text-md-right">連絡先② ハイフン無しで入力 TEL②</label>
 
                                     <div class="col-md-6">
                                         <input id="tel2" type="text"
@@ -393,7 +395,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    確認画面へ
+                                    確認画面へ submit
                                 </button>
                             </div>
                         </div>
@@ -404,7 +406,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        マイリク作成画面へ
+                                        マイリク作成画面へ create my_request
                                     </button>
                                 </div>
                             </div>
