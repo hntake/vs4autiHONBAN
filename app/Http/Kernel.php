@@ -40,10 +40,9 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Fruitcake\Cors\HandleCors::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Fruitcake\Cors\HandleCors::class,
 
         ],
     ];
@@ -67,7 +66,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin_auth' => \App\Http\Middleware\AdminAuth::class,
-        'subscribed' => \App\Http\Middleware\Subscribed::class
+        'subscribed' => \App\Http\Middleware\Subscribed::class,
+        'cors' => \App\Http\Middleware\CorsMiddleware::class, // ここを追加!!!!
 
     ];
 }

@@ -21,6 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/address/{zip}', [AddressController::class, 'address']);
 
+Route::group(
+    ['middleware' => ['cors']],
+    function () {
  ///ログイン
 Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 
@@ -46,3 +49,6 @@ Route::post('lost/again/{id}', [\App\Http\Controllers\Api\AuthController::class,
 
 /*リクエストを編集する*/
 Route::put('/update_request/{id}', [App\Http\Controllers\Api\AuthController::class, 'update_request'])->name('update_request');
+
+}
+);

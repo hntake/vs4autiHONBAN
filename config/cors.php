@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    // 'allowed_origins' => ['*'],
     'allowed_origins' => ['https://itcha50.com'], // クライアントのオリジンに応じて変更
 
 
