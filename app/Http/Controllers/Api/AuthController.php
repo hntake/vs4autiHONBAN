@@ -124,6 +124,31 @@ class AuthController extends Controller
      return response()->json(['message' => 'サービスを再開しました']);
  }
 
+        /**
+     * 選択したリクエストの編集画面へ(flutter)
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function edit_request(Request $request, $id)
+    {
+        // アクセストークンの取得
+    $accessToken = $request->header('Authorization');
+
+    // アクセストークンの検証やユーザーの認証を行う（例）
+    if (!validateAccessToken($accessToken)) {
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
+
+        $feel=Feel::where('id','=',$id)->first();
+        return view('edit_request', [
+            'id' => $id,
+            'feel'=>$feel,
+        ]);
+    }
+
+
+
  public function update_request(Request $request, $id)
  {
     $feel = Feel::find($id);

@@ -30,6 +30,8 @@ Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 
 /*選択したユーザーの編集画面へ*/
 Route::middleware('auth:api')-> get('/edit_user_fl/{id}', [App\Http\Controllers\Api\AuthController::class, 'edit_user_fl'])->name('edit_user_fl');
+Route::middleware('auth:api')-> get('/edit_request/{id}', [App\Http\Controllers\Api\AuthController::class, 'edit_request'])->name('edit_request');
+
 /*選択したユーザーを編集する*/
 Route::put('/update_user_fl/{id}', [App\Http\Controllers\Api\AuthController::class, 'update'])->name('update_user_fl');
 /*選択したユーザーのパスワード変更画面へ*/
