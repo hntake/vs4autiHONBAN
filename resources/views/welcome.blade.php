@@ -57,6 +57,7 @@
                 <div class="badge">
                     <a href="{{url('/protect')}}"><img src="img/protect_pop.webp"></a>
                 </div>
+            
                 <div class="header_inner">
                     <nav id="menu" class="header_nav">
 
@@ -318,7 +319,7 @@
                         </div>
                     </div>
                     <div class="hero__lead-container">
-                    <a name="hair" class="hair" style="display:none;"></a>
+                    <a name="hair" class="hair" ></a>
 
                        <div class="top_four">
                             <h1>VS4 視覚支援</h1>
@@ -338,7 +339,7 @@
                                         </div>
                                 </div>
                         </div>
-                        <a name="protect" class="protect" style="display:none;"></a>
+                        <a name="protect" class="protect" ></a>
 
                         <div class="top_four">
                             <h1>ヘアカットスケジュール</h1>
@@ -356,7 +357,7 @@
                                         </div>
                                 </div>
                         </div>
-                        <a name="request" class="request" style="display:none;"></a>
+                        <a name="request" class="request" ></a>
 
                         <div class="top_four">
                             <h1>お守りバッジ</h1>
@@ -375,6 +376,8 @@
                                         </div>
                                 </div>
                         </div>
+                        <a name="volunteer" class="volunteer">
+
 
                         <div class="top_four">
                             <h1>マイリク</h1>
@@ -392,6 +395,13 @@
                                     </div>
                             </div>
                         </div>
+                        <!-- <div class="banner">
+                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="banner" style="width:150%;"></a>
+                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.may_protect><img src="img/protect_banner.png" alt="banner" style="width:150%;"></a>
+                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="banner" style="width:150%;"></a>
+
+                            <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="banner" style="width:150%;"></a>
+                        </div> -->
                     </div>
                     <!--     <div class="youtube">
                         <div class="elementor-image">
@@ -399,7 +409,6 @@
                         </div>
                     </div> -->
                 </div>
-                <a name="volunteer" class="volunteer">
 
                 <div class="vs4">
                     <div class="vs4nest">
