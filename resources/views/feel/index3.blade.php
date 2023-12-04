@@ -25,7 +25,7 @@
                 <table>
                     @if(isset($feel->message5))
                     <tr>
-                        <td>{{ $feel->message5 }}</td>
+                        <h2>{{ $feel->message5 }}</h2>
                     </tr>
                     @endif
                     <tr>
@@ -33,7 +33,7 @@
                     </tr>
                     @if(isset($feel->message6))
                     <tr>
-                    <td>{{ $feel->message6 }}</td>
+                    <h2>{{ $feel->message6 }}</h2>
                     </tr>
                     @endif
 
@@ -51,7 +51,8 @@
       
     </div>
 
-<a href="https://www.freepik.com/search?format=search&last_filter=query&last_value=mad&query=mad&type=icon">Icon by Vitaly Gorbachev</a>
-<a href="https://www.freepik.com/search?format=search&last_filter=query&last_value=mad&query=mad&type=icon">Icon by Freepik</a>
-</body>
+    <footer class="site-footer">
+            <a href="https://www.freepik.com/search?format=search&last_filter=query&last_value=mad&query=mad&type=icon">Icon by Vitaly Gorbachev</a>
+            <a href="https://www.freepik.com/search?format=search&last_filter=query&last_value=mad&query=mad&type=icon">Icon by Freepik</a>
+    </footer></body>
 </html>

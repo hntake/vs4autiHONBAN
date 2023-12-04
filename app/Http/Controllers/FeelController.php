@@ -55,38 +55,16 @@ class FeelController extends Controller
             $feel->img4=0;
             $feel->save();
             //feelsテーブルへの受け渡し
-            if (isset($request->message1)) {
-                $feel->message1=$request->message1;
-            }
-            if (isset($request->message2)) {
-                $feel->message2=$request->message2;
-            }
-            if (isset($request->message3)) {
-                $feel->message3=$request->message3;
-            }
-            if (isset($request->message4)) {
-                $feel->message4=$request->message4;
-            }
-            if (isset($request->message5)) {
-                $feel->message5=$request->message5;
-            }
-            if (isset($request->message6)) {
-                $feel->message6=$request->message6;
-            }
-            if (isset($request->message7)) {
-                $feel->message7=$request->message7;
-            }
-            if (isset($request->message8)) {
-                $feel->message8=$request->message8;
-            }
+            $feel->message2 = $request->input('message2');
+            $feel->message1 = $request->input('message1');
+            $feel->message3 = $request->input('message3');
+            $feel->message4 = $request->input('message4');
+            $feel->message5 = $request->input('message5');
+            $feel->message6 = $request->input('message6');
+            $feel->message7 = $request->input('message7');
+            $feel->message8 = $request->input('message8');
             $feel->save();
-              // 古いデータを削除
-              if ($feel) {
-                $old = Feel::where('user_id', '=', Auth::id())->where('created_at','<',$feel->created_at)->first();
-                if ($old) {
-                    $old->delete();
-                }
-            }   
+            $feel->save();
             //アイコン非表示にするなら
             if($request->img1==1){
                 $feel->img1=$request->img1;
@@ -119,30 +97,14 @@ class FeelController extends Controller
             $feel=new Feel();
             $feel->user_id = User::where('id', '=', Auth::id())->value('id');
             $feel->email = User::where('id', '=', Auth::id())->value('email');
-            if (isset($request->message1)) {
-                $feel->message1 = $request->message1;
-            }
-            if (isset($request->message2)) {
-                $feel->message2 = $request->message2;
-            }
-            if (isset($request->message3)) {
-                $feel->message3 = $request->message3;
-            }
-            if (isset($request->message4)) {
-                $feel->message4 = $request->message4;
-            }
-            if (isset($request->message5)) {
-                $feel->message5 = $request->message5;
-            }
-            if (isset($request->message6)) {
-                $feel->message6 = $request->message6;
-            }
-            if (isset($request->message7)) {
-                $feel->message7 = $request->message7;
-            }
-            if (isset($request->message8)) {
-                $feel->message8 = $request->message8;
-            }
+            $feel->message2 = $request->input('message2');
+            $feel->message1 = $request->input('message1');
+            $feel->message3 = $request->input('message3');
+            $feel->message4 = $request->input('message4');
+            $feel->message5 = $request->input('message5');
+            $feel->message6 = $request->input('message6');
+            $feel->message7 = $request->input('message7');
+            $feel->message8 = $request->input('message8');
                 //アイコン非表示にするなら
             if($request->img1==1){
                 $feel->img1=1;
