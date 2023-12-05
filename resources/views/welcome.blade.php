@@ -371,6 +371,9 @@
                                             また、同時に登録したメールアドレスに通知が届きます。
                                             ※詳細は画像をクリックして拡大してみてください
                                             <div class="admin_button">
+                                                <a href="{{ url('protect') }}" style="background-color:none; color:#7791DE;">お守りバッジとは？</a><br>
+                                            </div>
+                                            <div class="admin_button">
                                                 <a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
                                             </div>
                                         </div>

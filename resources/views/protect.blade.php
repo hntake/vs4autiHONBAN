@@ -239,7 +239,6 @@
 
                             </div>
                         </div>
-
                     </div>
                     <div id="panel2" class="tab_panel">
                         <a href="img/protect-regi16.png" data-lightbox="group"> <img src="img/protect-regi16.png" alt="" style="width:30%;"></a>
@@ -285,91 +284,88 @@
                         <br>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section>
 
-
-                </div>
-            </div>
-    </div>
-    <a name="free" class="use">
-        <div class="element">
-            <div class="use">
-                <!-- リンク内移動-->
-                <br>購入方法は
-                <br>オンライン、ネットショップ、直営店舗
-    </a>
-    <div class="tab_wrap">
-        <input id="tab4" type="radio" name="tab_btn2" checked>
-        <input id="tab5" type="radio" name="tab_btn2">
-        <input id="tab6" type="radio" name="tab_btn2">
-        <div class="nav-wrap">
-            <div class="scroll-nav">
-                <div class="tab_area">
-                    <label class="tab4_label" for="tab4">オンライン購入</label>
-                    <label class="tab5_label" for="tab5">ネットショップで購入</label>
-                    <label class="tab6_label" for="tab6">直営店舗</label>
-                </div>
-            </div>
-            <div class="next-btn"></div>
-        </div>
-        <div class="panel_area">
-            <div id="panel4" class="tab_panel">
-                <a href="img/flow.png" data-lightbox="group"><img src="img/flow.png" alt="list" style="width:40%;"></a>
-                <div class="sright">
-                    <div class="slide-head">自分だけのデザインでも作れます</div>
-                    <div class="slide-description">
-                        <b>登録は10分程度</b>
-                        オンライン購入の場合<br>
-                        1.仮登録はメールアドレスとパスワードのみ入力<br>
-                        2.メール認証<br>3.本登録は名前、住所（郵送を希望の場合）、連絡先、連絡先の時間帯選択<br>4.登録のみかバッジを購入する為のデザイン選択かを選んでください。<br>5.支払い<br>登録のみ料金：<span style="color:red; font-weight:bold;">100円</span><br>バッジ料金（送料込）:<span style="color:red; font-weight:bold;">500円</span><br>(オリジナルデザインは追加料金300円)<br>5.入金確認後速やかに郵送されます。<br>6.受取<br>
-                        <div class="method" style="background-color:#c7fecb;">
-                            支払い方法
-                            <br>1.クレジットカード
-                            <br>2.電子マネー(ApplePay、GooglePay)
-                            <br>3.振込<br>
-                            → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
-                            ※詳細は画像をクリックして拡大してみてください
+                <a name="free" class="use">
+                    <div class="element">
+                        <div class="use">
+                            <!-- リンク内移動-->
+                            <br>購入方法は
+                            <br>オンライン、ネットショップ、直営店舗
+                </a>
+                <div class="tab_wrap">
+                    <input id="tab4" type="radio" name="tab_btn2" checked>
+                    <input id="tab5" type="radio" name="tab_btn2">
+                    <input id="tab6" type="radio" name="tab_btn2">
+                    <div class="nav-wrap">
+                        <div class="scroll-nav">
+                            <div class="tab_area">
+                                <label class="tab4_label" for="tab4">オンライン購入</label>
+                                <label class="tab5_label" for="tab5">ネットショップで購入</label>
+                                <label class="tab6_label" for="tab6">直営店舗</label>
+                            </div>
                         </div>
-                        <h6>※バッジ製品の素材は、アクリルや缶など、その時点で入手可能な素材に変更させていただく場合がございます。お客様にはご迷惑をおかけいたしますが、可能な限り商品の品質や外観に影響のないように配慮し、最高品質の商品を提供できるよう努めてまいります。<br><br>
+                        <div class="next-btn"></div>
+                    </div>
+                    <div class="panel_area">
+                        <div id="panel4" class="tab_panel">
+                            <a href="img/flow.png" data-lightbox="group"><img src="img/flow.png" alt="list" style="width:40%;"></a>
+                            <div class="sright">
+                                <div class="slide-head">自分だけのデザインでも作れます</div>
+                                <div class="slide-description">
+                                    <b>登録は10分程度</b>
+                                    オンライン購入の場合<br>
+                                    1.仮登録はメールアドレスとパスワードのみ入力<br>
+                                    2.メール認証<br>3.本登録は名前、住所（郵送を希望の場合）、連絡先、連絡先の時間帯選択<br>4.登録のみかバッジを購入する為のデザイン選択かを選んでください。<br>5.支払い<br>登録のみ料金：<span style="color:red; font-weight:bold;">100円</span><br>バッジ料金（送料込）:<span style="color:red; font-weight:bold;">500円</span><br>(オリジナルデザインは追加料金300円)<br>5.入金確認後速やかに郵送されます。<br>6.受取<br>
+                                    <div class="method" style="background-color:#c7fecb;">
+                                        支払い方法
+                                        <br>1.クレジットカード
+                                        <br>2.電子マネー(ApplePay、GooglePay)
+                                        <br>3.振込<br>
+                                        → 本登録完了後、支払い選択ページに移動してください。そちらでお支払方法を選び、支払いを済ませてください。<br>お支払いを確認後、作成、発送の流れとなります。
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                    <h6>※バッジ製品の素材は、アクリルや缶など、その時点で入手可能な素材に変更させていただく場合がございます。お客様にはご迷惑をおかけいたしますが、可能な限り商品の品質や外観に影響のないように配慮し、最高品質の商品を提供できるよう努めてまいります。<br><br>
 
-                            何かご不明な点がございましたら、弊社までお気軽にお問い合わせくださいませ。</h6>
-                        <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                                        何かご不明な点がございましたら、弊社までお気軽にお問い合わせくださいませ。</h6>
+                                    <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="panel5" class="tab_panel">
+                            <a href="img/dog-blue.png" data-lightbox="group"> <img src="img/dog-blue.png" alt="check" style="width:30%;"></a>
+                            <div class="sright">
+                                <div class="slide-head">ご自分のアカウントで</div>
+                                <div class="slide-description">
+                                    <b>気軽に購入</b>
+                                    料金はショップ側の手数料・配送料により変動することをご了承ください。
+                                    <br>
+                                    <br>
+                                    <div class="admin_button"><a href="https://mercari-shops.com/shops/ZPUvvAy3oftwnEyEc9SmYU?source=shared_link&utm_source=shared_link" style="background-color:none; color:#7791DE;"> メルカリshopページへ </a></div>
+                                    <div class="admin_button"><a href="https://paypayfleamarket.yahoo.co.jp/user/p9622207" style="background-color:none; color:#7791DE;"> paypayフリマshopページへ </a></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="panel6" class="tab_panel">
+                            <a href="img/store.png" data-lightbox="group"> <img src="img/store.png" alt="check" style="width:30%;"></a>
+                            <div class="sright">
+                                <div class="slide-head">最寄りにあるなら</div>
+                                <div class="slide-description">
+                                    <b>直営店で購入</b>
+                                    直営店で購入したら送料無しの<span style="color:red; font-weight:bold;">300円</span>(税込み)で購入できます。
+                                    <br>※現在、全国各地で販売してくれる施設や店舗を募集しております。
+
+                                    <div class="admin_button"><a href="{{url('/shop_list') }}" style="background-color:none; color:#7791DE;">取り扱い先一覧</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div id="panel5" class="tab_panel">
-                <a href="img/dog-blue.png" data-lightbox="group"> <img src="img/dog-blue.png" alt="check" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">ご自分のアカウントで</div>
-                    <div class="slide-description">
-                        <b>気軽に購入</b>
-                        料金はショップ側の手数料・配送料により変動することをご了承ください。
-                        <br>
-                        <br>
-                        <div class="admin_button"><a href="https://mercari-shops.com/shops/ZPUvvAy3oftwnEyEc9SmYU?source=shared_link&utm_source=shared_link" style="background-color:none; color:#7791DE;"> メルカリshopページへ </a></div>
-                        <div class="admin_button"><a href="https://paypayfleamarket.yahoo.co.jp/user/p9622207" style="background-color:none; color:#7791DE;"> paypayフリマshopページへ </a></div>
-                    </div>
-                </div>
-
-            </div>
-            <div id="panel6" class="tab_panel">
-                <a href="img/store.png" data-lightbox="group"> <img src="img/store.png" alt="check" style="width:30%;"></a>
-                <div class="sright">
-                    <div class="slide-head">最寄りにあるなら</div>
-                    <div class="slide-description">
-                        <b>直営店で購入</b>
-                        直営店で購入したら送料無しの<span style="color:red; font-weight:bold;">300円</span>(税込み)で購入できます。
-                        <br>※現在、全国各地で販売してくれる施設や店舗を募集しております。
-
-                        <div class="admin_button"><a href="{{url('/shop_list') }}" style="background-color:none; color:#7791DE;">取り扱い先一覧</a></div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-    </div>
+            </section>
 
     </div>
     </div>
