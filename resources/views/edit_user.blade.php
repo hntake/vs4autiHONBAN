@@ -72,13 +72,18 @@
                     <tr>
                     <th >名前</th>
                         <td><input type="text" name="name" value="{{ $lost->name}}" class="form-control"></td>
+                        @if ($errors->has('name'))
+                            <p class="text-danger">{{ $errors->first('name') }}</p>
+                        @endif
                     </tr>
                     <th >フリガナ</th>
                         <td><input type="text" name="name_pronunciation" value="{{ $lost->name_pronunciation}}" class="form-control"></td>
                     </tr>
                     <th >連絡先①</th>
                         <td><input type="text" name="tel1" value="{{ $lost->tel1}}" class="form-control"></td>
-                    </tr>
+                        @if ($errors->has('tel1'))
+                            <p class="text-danger">{{ $errors->first('tel1') }}</p>
+                        @endif                    </tr>
                     <th >連絡先②</th>
                         <td><input type="text" name="tel2" value="{{ $lost->tel2}}" class="form-control"></td>
                     </tr>
@@ -363,12 +368,18 @@
                     <tr>
                     <th >名前</th>
                         <td><input type="text" name="name" value="{{ $lost->name}}" class="form-control"></td>
+                        @if ($errors->has('name'))
+                            <p class="text-danger">{{ $errors->first('name') }}</p>
+                        @endif
                     </tr>
                     <th >フリガナ</th>
                         <td><input type="text" name="name_pronunciation" value="{{ $lost->name_pronunciation}}" class="form-control"></td>
                     </tr>
                     <th >連絡先①</th>
                         <td><input type="text" name="tel1" value="{{ $lost->tel1}}" class="form-control"></td>
+                        @if ($errors->has('tel1'))
+                            <p class="text-danger">{{ $errors->first('tel1') }}</p>
+                        @endif
                     </tr>
                     <th >連絡先②</th>
                         <td><input type="text" name="tel2" value="{{ $lost->tel2}}" class="form-control"></td>

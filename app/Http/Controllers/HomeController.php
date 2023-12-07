@@ -406,6 +406,8 @@ class HomeController extends Controller
         }
         else{
 
+
+           
         $lost=Lost::where('uuid','=',$user->uuid)->first();
         $lost->email = $request->input('email');
         $lost->name = $request->input('name');
@@ -438,9 +440,20 @@ class HomeController extends Controller
         $user = User::where('uuid',$uuid)->first();
         $user->email = $request->input('email');
         $user->save();
-
+        $type=$user->type;
+         // もし空欄の場合はエラーメッセージを表示
+         if (empty($request->input('name')) || empty($request->input('tel1'))) {
+            return back()->withErrors([
+                'name' => '名前は必須です',
+                'tel1' => '連絡先①は必須です'
+            ])->withInput();
+        }
     }
-        return redirect('my_page');
+        return view('my_page',[
+            'user'=>$user,
+            'lost'=>$lost,
+            'type'=>$type
+        ]);
     }
   
             /**
