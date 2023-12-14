@@ -7,7 +7,7 @@
 <h2>デザインを一つ選んでください</h2>
 
   <label>
-    <input type="radio" name="design" value="1">
+    <input type="radio" name="design" value="1" checked>
     <img src="img/bird-black.png" alt="Choice 1" >
   </label>
   <label>

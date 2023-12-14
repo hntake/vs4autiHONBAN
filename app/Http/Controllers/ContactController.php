@@ -21,7 +21,7 @@ class ContactController extends Controller
         $request->validate([
             'email' => 'required|email',
             'title' => 'required',
-            'body'  => 'required',
+            'name'  => 'required',
         ]);
 
         //フォームから受け取ったすべてのinputの値を取得

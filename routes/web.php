@@ -463,3 +463,49 @@ Route::get('feel/index4', [App\Http\Controllers\FeelController::class, 'index4']
 Route::get('feel/create', [App\Http\Controllers\FeelController::class, 'input'])->name('feel_input');
 //マイフィーリング登録
 Route::post('feel/create', [App\Http\Controllers\FeelController::class, 'create'])->name('feel_create');
+
+//掲示板トップページ
+Route::get('bbs/list', [App\Http\Controllers\BbsController::class, 'list'])->name('bbs_list');
+
+//掲示コメント入力ページ
+Route::get('bbs/input/{id}', [App\Http\Controllers\BbsController::class, 'input'])->name('bbs_input');
+Route::post('bbs/input/{id}', [App\Http\Controllers\BbsController::class, 'post'])->name('bbs_post');
+
+//新規スレッド作成ページへ
+Route::get('bbs/create', [App\Http\Controllers\BbsController::class, 'thread'])->name('bbs_thread');
+Route::post('bbs/create', [App\Http\Controllers\BbsController::class, 'create'])->name('bbs_create');
+
+
+//掲示板各スレッド表示
+Route::get('bbs/index/{id}', [App\Http\Controllers\BbsController::class, 'index'])->name('bbs_index');
+
+//掲示板スレッド削除ページ表示
+Route::get('bbs/edit', [App\Http\Controllers\BbsController::class, 'update_index'])->name('bbs_update_index');
+//掲示板コメント削除ページ表示
+Route::get('bbs/delete', [App\Http\Controllers\BbsController::class, 'update_comment']);
+//掲示板修正
+Route::patch('bbs/edit', [App\Http\Controllers\BbsController::class, 'update'])->name('bbs_update');
+
+//掲示板スレッド削除
+Route::get('bbs/delete/{id}', [App\Http\Controllers\BbsController::class, 'delete'])->name('bbs_delete');
+//掲示板コメント削除
+Route::get('bbs/delete_comment/{id}', [App\Http\Controllers\BbsController::class, 'delete_comment'])->name('bbs_delete_comment');
+//掲示板コメント削除
+Route::get('bbs/delete_reply/{id}', [App\Http\Controllers\BbsController::class, 'delete_reply'])->name('bbs_delete_reply');
+
+//返信ポストページへ
+Route::get('bbs/reply/{id}', [App\Http\Controllers\BbsController::class, 'reply'])->name('bbs_reply');
+Route::post('bbs/reply/{id}', [App\Http\Controllers\BbsController::class, 'reply_post'])->name('bbs_reply_post');
+
+//掲示板スレッド並び替え
+Route::get('bbs/sort', [App\Http\Controllers\BbsController::class, 'sort'])->name('bbs_sort');
+//掲示板スレッド検索
+Route::get('bbs/search', [App\Http\Controllers\BbsController::class, 'search'])->name('bbs_search');
+//掲示板違反報告
+Route::get('bbs/thread_alert/{id}', [App\Http\Controllers\BbsController::class, 'thread_alert'])->name('thread_alert');
+Route::post('bbs/thread_alert/{id}', [App\Http\Controllers\BbsController::class, 'thread_alert_post'])->name('thread_alert_post');
+Route::get('bbs/comment_alert/{id}', [App\Http\Controllers\BbsController::class, 'comment_alert'])->name('comment_alert');
+Route::post('bbs/comment_alert/{id}', [App\Http\Controllers\BbsController::class, 'comment_alert_post'])->name('comment_alert_post');
+Route::get('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 'reply_alert'])->name('reply_alert');
+Route::post('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 'reply_alert_post'])->name('reply_alert_post');
+

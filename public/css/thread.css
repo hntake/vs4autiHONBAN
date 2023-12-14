@@ -1,0 +1,329 @@
+body {
+    font-family: 'YuGothic', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #5c92bd;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.wrap {
+    overflow: hidden;
+}
+h1 {
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position:relative;
+}
+
+.thread {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.thread h2 {
+    margin: 5px 0;
+    color: #333;
+}
+
+.thread p {
+    color: #666;
+}
+
+a {
+    color: #5c92bd;
+    text-decoration: none;
+    word-break: break-all;
+}
+h2{
+    word-break: break-all;
+}
+a:hover {
+    text-decoration: underline;
+}
+.button{
+    display: flex;
+    /* justify-content: space-around; */
+}
+.description {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: rgb(97, 93, 93);
+    width:max-content;
+}
+.description:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: 15px solid transparent;
+    border-bottom: 15px solid  rgb(97, 93, 93);
+    margin-left: -15px;
+}
+.header_nav_itm:hover .description{
+    display: inline-block;
+    bottom: -70px;
+    left: -30px;
+}
+.new_itm{
+
+}
+.header_nav_itm {
+    /* margin-left: 60px; */
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    /* width:25%; */
+}
+.sort{
+    display: flex;
+    margin:24px 0;
+}
+.list{
+    border:#a09c9c 1px solid;
+    padding:8px;
+}
+table{
+    border: solid 1px darkgray;
+    width: 100%;
+}
+thead{
+    background-color: rgb(206, 198, 198);
+}
+td{
+    text-align: started; /* 横方向の中央寄せ */
+    vertical-align: middle; /* 縦方向の中央寄せ */
+    /* height: 50px;  */
+}
+.category{
+    margin: 0 auto;
+    text-align: start;
+    list-style-type: none;
+    border: 1px solid black;
+    width: 30%;
+    background-color: lightgoldenrodyellow;
+    width:80%;
+    padding:16px;
+}
+.reply{
+    background-color: #dae3eb;
+    display: block;
+}
+td.reply{
+    text-align: start;
+    height:auto;
+}
+textarea{
+    width:80%;
+}
+.reply-container {
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: larger;
+}
+table td a{
+    font-size: xx-small;
+}
+.number{
+    font-size: xx-small;
+    width:10%;
+    text-align: center;
+}
+.comment{
+    background-color: #666;
+}
+.reply{
+    word-break: break-all;
+}
+.left-banner{
+    width:20%;
+    position:absolute;
+    left:0%;
+    top:40%;
+}
+.right-banner{
+    width:20%;
+    position:absolute;
+    right:0%;
+    top:40%;
+}
+.banner{
+    margin:0 auto;
+    text-align: center;
+    width:50%;
+    display: flex;
+}
+.gotop{
+    display: block;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    background: rgb(98, 96, 96);
+    border: 1px solid #999;
+    padding-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    font-size: 85%;
+    text-decoration: none;
+    color: #333;
+    opacity: 0.5;
+    position:absolute;
+    top:-12rem;
+    right: 1.34rem;
+    color:rgb(247, 244, 244);
+}
+.gotop::before{
+    content: "";
+    display: block;
+    border-top: 2px solid rgb(247, 244, 244);
+    border-right: 2px solid rgb(247, 244, 244);
+    width: 25%;
+    height: 25%;
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    transform: rotate(-45deg);
+}
+.gotop:hover{
+    opacity: 1;
+}
+.site-footer{
+    position: relative;
+}
+.site-footer .bc-sitemap-wrapper {
+    /* background: #343434; */
+}
+.site-footer .sitemap {
+    width: 65rem;
+    margin: 0 auto;
+    padding: 0.6rem 0;
+    /* font-size: .14rem; */
+}
+.site-footer .sitemap .widget_nav_menu {
+    width: 15rem;
+    margin-right: 0.16rem;
+    float: left;
+}
+.site-footer .sitemap h2 {
+/*     font-size: .14rem;
+ */    line-height: .2rem;
+    color: #888;
+    font-weight: 400;
+}
+.site-footer .sitemap ul {
+    margin-top: 0.1rem;
+    list-style-type: none;
+    list-style-image: none;
+}
+.site-footer .sitemap ul a {
+    line-height: 2;
+    color: #fff;
+    display: inline-block;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.site-footer .site-info .widget {
+    width: 24.8rem;
+    margin: 0 auto;
+    position: relative;
+}
+.site-footer .site-info .copy-right {
+    line-height: .8rem;
+    padding-top: 0.16rem;
+    text-align: center;
+}
+.site-footer .site-info .copy-right-txt {
+    padding-right: 0.24rem;
+    font-size: 1.14rem;
+}
+.pagetop {
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: .3s;
+    color: #00A6C4;
+    background: #c5eba8;
+    opacity: 1;
+  }
+  .pagetop:hover {
+      box-shadow: 0 0 10px #00A6C4;
+  }
+/*ipad*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .left-banner{
+        width:30%;
+        position:unset;
+    }
+    .right-banner{
+        width:30%;
+        position:unset;
+    }
+    .banner{
+        width:30%;
+    }
+    .all_banner{
+        display: flex;
+    }
+}
+/*スマホ*/
+@media only screen and (min-width:360px) and (max-width:799px){
+table{
+    width:100%;
+}
+.left-banner{
+    width:30%;
+    position:unset;
+}
+.right-banner{
+    width:30%;
+    position:unset;
+}
+.banner{
+    width:30%;
+    display: block;
+}
+.all_banner{
+    display: flex;
+}
+.site-footer .sitemap {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.6rem 0;
+}
+}
