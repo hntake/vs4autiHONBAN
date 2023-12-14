@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta content="出雲のボランティア団体IT2Uによる掲示板コミュニティサイト。自閉症や、発達障害などの障がいを持つ方、家族に持つ方向けの専門掲示板 育児や暮らしの中の悩み・情報を共有してみませんか？会員登録なしで利用できます。" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
+    <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+
     <link rel="stylesheet" href="{{ asset('css/thread.css') }}">
 </head>
 <body>

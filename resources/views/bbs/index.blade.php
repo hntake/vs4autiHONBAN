@@ -10,6 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
+    <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+
     <link rel="stylesheet" href="{{ asset('css/thread.css') }}">
 
     <script>

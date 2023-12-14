@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+database/migrations/2023_03_20_093821_create_categories_table.php
