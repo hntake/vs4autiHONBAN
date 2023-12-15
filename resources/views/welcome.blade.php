@@ -7,7 +7,7 @@
     <meta content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れます。迷子対策のお守りバッジも販売中" name="description">
     <meta content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
 
-    <title>{{ config('app.name', 'VS4') }} ITで助けたい! IT2U トップページ</title>
+    <title>{{ config('app.name', 'VS4') }} ボランティア団体IT2U | 自閉症サポート</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -80,6 +80,10 @@
                             <li class="header_nav_itm">
                             <a href="#protect" class="header_nav_itm_link">お守りバッジ</a>
                                 <div class="description1">迷子対策に！</div>
+                            </li>
+                            <li class="header_nav_itm">
+                            <a href="{{ url('/bbs/list') }}" class="header_nav_itm_link">掲示板</a>
+                                <div class="description1">悩みや愚痴など自由に書き込もう！</div>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#volunteer" class="header_nav_itm_link">IT2U</a>
@@ -253,6 +257,12 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{ url('/bbs/list') }}">
+                                        <h3 ontouchstart="">
+                                            自閉症発達障害専用掲示板</h3>
+                                    </a>
+                                </li>
+                                <li>
                                     <div class="register-button" style="margin-bottom:10px;">
                                         <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link" ontouchstart="">VS4説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
@@ -322,7 +332,7 @@
                     <a name="hair" class="hair" ></a>
 
                        <div class="top_four">
-                            <h1>VS4 視覚支援</h1>
+                            <h1>VS4 自閉症向き視覚支援</h1>
                                 <div class="top_box">
                                     <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:90%;"></a>
                                         <div class="slide-description">
@@ -342,7 +352,7 @@
                         <a name="protect" class="protect" ></a>
 
                         <div class="top_four">
-                            <h1>ヘアカットスケジュール</h1>
+                            <h1>自閉症向きヘアカットスケジュール</h1>
                                  <div class="top_box">
 
                                     <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:90%;"></a>
@@ -383,7 +393,7 @@
 
 
                         <div class="top_four">
-                            <h1>マイリク</h1>
+                            <h1>自閉症向き マイリク</h1>
                             <div class="top_box">
 
                                 <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:90%;"></a>
@@ -417,7 +427,7 @@
                     <div class="vs4nest">
                         <div class="vs4left">
                             <div class="vs4Up">
-                                <p>ボランティア団体<br>IT2U</p>
+                                <h1 style="color:#03C75A;">ボランティア団体<br>IT2U 自閉症サポート</h2>
                             </div>
                         </div>
                         <div class="vs4right">
