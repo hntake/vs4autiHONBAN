@@ -22,10 +22,10 @@
    @csrf
    <p>
 
-	<label for="inq1"><input type="radio" id="inq1" name="category" value="7" >サービス</label>
-	<label for="inq2"><input type="radio" id="inq2" name="category" value="8">メンテナンス</label>
-	<label for="inq3"><input type="radio" id="inq3" name="category" value="9">リリース</label>
-	<label for="inq4"><input type="radio" id="inq4" name="category" value="6">その他</label>
+	<label for="inq1"><input type="radio" id="inq1" name="category" value="4" >サービス</label>
+	<label for="inq2"><input type="radio" id="inq2" name="category" value="5">メンテナンス</label>
+	<label for="inq3"><input type="radio" id="inq3" name="category" value="6">リリース</label>
+	<label for="inq4"><input type="radio" id="inq4" name="category" value="3">その他</label>
 </p>
    <p>タイトル</p>
    <input type="text" name="title" class="formtitle">
