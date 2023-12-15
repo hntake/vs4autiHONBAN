@@ -334,7 +334,7 @@
                        <div class="top_four">
                             <h1>VS4 自閉症向き視覚支援</h1>
                                 <div class="top_box">
-                                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:90%;"></a>
+                                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症向き視覚支援使用例" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>簡単作成</b>
                                             オリジナルスケジュール：ご自分でお持ちの画像を順番にアップロードすれば完成<br>
@@ -355,7 +355,7 @@
                             <h1>自閉症向きヘアカットスケジュール</h1>
                                  <div class="top_box">
 
-                                    <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:90%;"></a>
+                                    <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="自閉症向きヘアカットスケジュール" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>ヘアカットスケジュール</b>
                                             理美容室やご自宅でのヘアカットに便利なヘアカットスケジュールは、視覚タイマー付きで誰でも使えます
@@ -373,7 +373,7 @@
                             <h1>お守りバッジ</h1>
                                 <div class="top_box">
 
-                                    <a href="img/fryer.png" data-lightbox="group"><img src="img/fryer.png" alt="list" style="width:90%;"></a>
+                                    <a href="img/fryer.png" data-lightbox="group"><img src="img/fryer.png" alt="お守りバッジ" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>お守り代わりに</b>携帯電話を常備できなかったり、ご家族の連絡先を伝えることができない、小さなお子様や障がいのある方が、
                                             万が一迷子になった時…気付いてくれた方がバッジのQRコードを
@@ -396,7 +396,7 @@
                             <h1>自閉症向き マイリク</h1>
                             <div class="top_box">
 
-                                <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:90%;"></a>
+                                <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="自閉症向きマイリクイメージ" style="width:90%;"></a>
                                     <div class="slide-description">
                                 自分の要求がうまく伝えれない方向け。自分特有のリクエストを事前に登録しておくとタップでそれが表示され、読み上げられます。
                                     <br>

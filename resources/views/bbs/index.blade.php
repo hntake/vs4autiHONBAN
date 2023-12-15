@@ -55,7 +55,8 @@
             <div class="top">
                 <a href="{{url('aboutus')}}"><h6>presented by IT2U</h6></a>
                 <a href="{{route('bbs_list')}}"><h1>自閉症・発達障害専門掲示板</h1></a>
-                <a href="{{route('bbs_index',['id'=>$thread]) }}" class="header_nav_itm_link"><h4>スレッド名:{{$title}}</h4></a>
+                <p>スレッド名:</P>
+                <a href="{{route('bbs_index',['id'=>$thread]) }}" class="header_nav_itm_link"><h2>{{$title}}</h2></a>
                 <div class="button">
                     <li class="header_nav_itm">
                         <a href="{{route('bbs_input',['id'=>$thread]) }}" class="header_nav_itm_link">コメントする</a>
