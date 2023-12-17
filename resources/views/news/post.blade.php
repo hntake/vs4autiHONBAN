@@ -34,7 +34,7 @@
 
                         <li class="header_nav_itm">
                             @auth
-                            <a href="{{ url('//') }}" class=" header_nav_itm_link">Home</a>
+                            <a href="{{ url('/') }}" class=" header_nav_itm_link">Home</a>
                             <div class="description1">Myホーム画面へ移動する </div>
                         </li>
                         <li class="header_nav_itm">
@@ -55,12 +55,7 @@
                         @endif
                         @endauth
                         @endif
-                        <li class="header_nav_itm">
-                            <div class="register-button">
-                                <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
-                                <div class="description1">マニュアル動画ページへ</div>
-                            </div>
-                        </li>
+                   
                     </ul>
                 </nav>
             </div>

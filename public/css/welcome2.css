@@ -11,6 +11,13 @@ a h3{
     position: absolute;
     left: 90%;
     top: 20%;
+    margin-right:80px;
+}
+.banner img{
+    width:150%;
+}
+.sm-banner{
+    display:none;
 }
 .tiktok{
     background-color: rgb(238, 140, 21);
@@ -184,6 +191,7 @@ a.header_nav_itm_link {
     position: relative;
     margin-top: calc(-1 * var(--header-height));
     background-size: cover;
+    padding: 50px
 }
 .hero__pad {
     height: 10vh;
@@ -655,7 +663,7 @@ h2.bottom-element-top{
     width:50%;
 }
 .bottom-left{
-    width:50%;
+    width:60%;
 }
 .bottom-right{
     width:50%;
@@ -1029,6 +1037,7 @@ b{
     }
     .hero{
         /* margin-top:300px; */
+        padding: 50px;
     }
     .hero__lead{
         width: 85%;
@@ -1060,6 +1069,12 @@ b{
         height:auto;
     }
     .banner{
+        margin-right:50px;
+    }
+    .banner img{
+        width:200%;
+    }
+    .sm-banner{
         display:none;
     }
 
@@ -1069,9 +1084,16 @@ b{
   and (min-device-width: 390px)
   and (max-device-width: 844px)
   and (-webkit-min-device-pixel-ratio: 3) {
-   
+
     .banner{
-        display:none;
+         display:none;
+    }
+    .sm-banner{
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .sm-banner img{
+        width:50%;
     }
 
     .tiktok{
@@ -1097,6 +1119,7 @@ b{
     }
     .hero{
         margin-top: 0;
+        padding:0;
     }
     .hero__lead{
         width: 85%;

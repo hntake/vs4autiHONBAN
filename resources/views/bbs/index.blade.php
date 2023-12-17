@@ -46,9 +46,18 @@
         }
         }
     </script>
-  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
+     crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Twitterシェアボタン -->
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
+        <!-- <a href="https://t.co/ffKnsVKwG4"></a> -->
+        <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="新スレッド：{{$title}}" data-url="{{url('bbs_index/'.$thread)}}">Tweet</a>
+    </blockquote>
+     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="wrap">
     
         <main style="max-width:100%;">
@@ -78,7 +87,7 @@
                     </thead> -->
                 @foreach ($comments as $comment)
                             <tr >
-                                <td class="number" style="text-align:start;">{{ $comment->id }}</td>
+                                <td class="number" style="text-align:start;">{{ $loop->iteration }}</td>
                                 <td class="number">{{ $comment->created_at }}</td>
                                 <td class="number">{{ $comment->name }}</td>
                             </tr>
@@ -132,5 +141,6 @@
         <div class="pagetop">Top</div>
 
     </div>
+       
 </body>
 </html>

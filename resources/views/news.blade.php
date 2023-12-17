@@ -32,12 +32,7 @@
                             <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon.png" style="width:30%; height:auto;"></a>
                         </li>
 
-                        <li class="header_nav_itm">
-                            <div class="register-button">
-                                <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
-                                <div class="description1">マニュアル動画ページへ</div>
-                            </div>
-                        </li>
+                    
                     </ul>
                 </nav>
             </div>

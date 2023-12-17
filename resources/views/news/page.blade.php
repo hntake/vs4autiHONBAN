@@ -28,17 +28,11 @@
 
 
                     <ul class="header_nav_list">
-                        <li class="header_nav_itm">
-                            <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon.png" style="width:30%; height:auto;"></a>
+                    <li class="header_nav_itm">
+                            <a href="{{url('/')}}" class=""><img src="../img/vs4auti2.png" style="width:30%; height:auto;"></a>
                         </li>
 
 
-                        <li class="header_nav_itm">
-                            <div class="register-button">
-                                <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
-                                <div class="description1">マニュアル動画ページへ</div>
-                            </div>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -50,17 +44,12 @@
                     <label id="nav-open" for="nav-input"><span></span></label>
                     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                     <div id="nav-content">
-                        <ul class="header_nav_list">
-                            <li><a href="{{ url('feature') }}">
-                                    <h3>便利な機能</h3>
-                                </a></li>
-                            <li class="header_nav_itm">
-                                <div class="register-button">
-                                    <a href="{{url('feature')}}" class="header_nav_itm_link">VS4説明動画</a>
-                                    <div class="description1">マニュアル動画ページへ</div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="home-button">
+                                        <a href="{{ url('/') }}">
+                                            <h3 ontouchstart="">IT2Uトップページ</h3>
+                                        </a>
+                                        <div class="description1">IT2Uトップページへ移動する</div>
+                                    </div>
                     </div>
                     <script>
                         $(function() {
