@@ -410,7 +410,6 @@
                         </div>
                          <div class="banner">
                             <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="ヘアカットスケジュール" ></a>
-                            <!-- <a target="_blank" href=https://play.google.com/store/apps/details?id=com.may_protect><img src="img/protect_banner.png" alt="banner" style="width:150%;"></a> -->
                             <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="マイリク" ></a>
                             <a target="_blank" href=https://itcha50.com/bbs/list><img src="img/bbs_ad2.png" alt="自閉症発達障害向け掲示板" ></a>
 
@@ -467,7 +466,6 @@
                             </div>
                             <div class="sm-banner">
                                 <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="ヘアカットスケジュール" ></a>
-                                <!-- <a target="_blank" href=https://play.google.com/store/apps/details?id=com.may_protect><img src="img/protect_banner.png" alt="banner" style="width:150%;"></a> -->
                                 <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="マイリク" ></a>
                                 <a target="_blank" href=https://itcha50.com/bbs/list><img src="img/bbs_ad2.png" alt="自閉症発達障害向け掲示板" ></a>
 
