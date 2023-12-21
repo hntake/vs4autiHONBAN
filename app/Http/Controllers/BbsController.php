@@ -23,7 +23,10 @@ class BbsController extends Controller
     {
         $role = User::where('id', '=', Auth::id())
         ->value('role');
-        $comments=Comment::where('thread_id','=',$id)->orderBy('created_at', 'desc')->paginate(30);
+        $comments=Comment::where('thread_id','=',$id)->orderBy('created_at', 'asc')->paginate(30);
+        $pattern = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+        $replace = '<a href="$1">$1</a>';
+    
         $title=Thread::where('id','=',$id)->value('title');
         $posts=Reply::where('thread_id',"=",$id)->orderBy('created_at', 'asc')->get();
         $thread=$id;
@@ -34,6 +37,8 @@ class BbsController extends Controller
             'thread'=>$thread,
             'id'=>$id,
             'role'=>$role,
+            'pattern'=>$pattern,
+            'replace'=>$replace,
         ]);
     }
 
@@ -50,7 +55,7 @@ class BbsController extends Controller
         $request->session()->regenerateToken();
 
           //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
-          $request->validate([
+        $request->validate([
             'category'  => 'required',
             'name'  => 'required',
             'title' => 'required',
@@ -119,9 +124,10 @@ class BbsController extends Controller
             'count' => $count->count + 1,
             ]);
 
+        $pattern = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+        $replace = '<a href="$1">$1</a>';
 
-
-        $comments=Comment::where('thread_id','=',$comment->thread_id)->orderBy('created_at', 'desc')->paginate(30);
+        $comments=Comment::where('thread_id','=',$comment->thread_id)->orderBy('created_at', 'asc')->paginate(30);
         $title=$comment->title;
         $thread=$comment->thread_id;
         $posts=Reply::where('comment_id',"=",$id)->orderBy('created_at', 'asc')->get();
@@ -132,6 +138,8 @@ class BbsController extends Controller
             'title'=>$title,
             'posts'=>$posts,
             'role'=>$role,
+            'pattern'=>$pattern,
+            'replace'=>$replace,
 
         ]);
 
@@ -340,6 +348,9 @@ class BbsController extends Controller
         $title=Comment::where('id',"=",$id)->value('title');
         $thread=$reply->thread_id;
 
+        $pattern = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+        $replace = '<a href="$1">$1</a>';
+
         $posts=Reply::where('comment_id',"=",$id)->orderBy('created_at', 'asc')->get();
         return view('bbs/index',[
             'comments'=>$comments,
@@ -347,7 +358,8 @@ class BbsController extends Controller
             'title'=>$title,
             'posts'=>$posts,
             'role'=>$role,
-
+            'pattern'=>$pattern,
+            'replace'=>$replace,
         ]);
     }
 

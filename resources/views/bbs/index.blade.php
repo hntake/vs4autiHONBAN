@@ -10,6 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LLco1118">
+    <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
+    <meta name="twitter:description" content="自閉症や、発達障害などの障がいを持つ方、家族に持つ方向けの専門掲示板 育児や暮らしの中の悩みを共有してみませんか？">
+    <meta name="twitter:image" content="https://itcha50.com/img/bbs_ad2.png">
     <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
@@ -92,7 +97,8 @@
                                 <td class="number">{{ $comment->name }}</td>
                             </tr>
                             <tr >
-                                <td style="width:80%; word-break: break-all;">{{ $comment->comment }}</td>
+
+                                <td style="width:80%; word-break: break-all;">{!! preg_replace($pattern, $replace, $comment->comment) !!}</td>
                             </tr>
                             <tr>
                                 <td><a href="{{route('bbs_reply',['id'=>$comment->id])}}">返信する</a></td>
@@ -114,7 +120,7 @@
                                                     <td class="reply">{{ $loop->iteration }}</td>
                                                     <td class="reply">{{ $post->name }}</td>
                                                     <td class="reply">{{ $post->created_at }}</td>
-                                                    <td class="reply">{{ $post->comment }}</td>
+                                                    <td class="reply">{!! preg_replace($pattern, $replace, $post->comment) !!}</td>
                                                     @if($post->alert==0)
                                                     <td><a href="{{route('reply_alert',['id'=>$post->id])}}" class="header_nav_itm_link">違反報告する</a></td>
                                                     @else
@@ -131,8 +137,8 @@
                                     </tr>
                                     @endif
                                     <tr>
-                                         <td colspan="5"><hr></td> <!-- 水平線を挿入 -->
-                                     </tr>
+                                        <td colspan="5"><hr></td> <!-- 水平線を挿入 -->
+                                    </tr>
                 @endforeach
                 {{ $comments->links() }}
 
@@ -141,6 +147,5 @@
         <div class="pagetop">Top</div>
 
     </div>
-       
 </body>
 </html>
