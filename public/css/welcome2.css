@@ -1075,7 +1075,15 @@ b{
         width:200%;
     }
     .sm-banner{
-        display:none;
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .sm-banner img{
+        width:30%;
+    }
+    .hero{
+        margin-top: 0;
+        padding: 0;
     }
 
   }
