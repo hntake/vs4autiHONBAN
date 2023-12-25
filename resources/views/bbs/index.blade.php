@@ -60,7 +60,7 @@
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
         <!-- <a href="https://t.co/ffKnsVKwG4"></a> -->
         <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="新スレッド：{{$title}}" data-url="{{url('bbs_index/'.$thread)}}">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="新スレッド：{{$title}}" data-url="{{url('bbs/index/'.$thread)}}">Tweet</a>
     </blockquote>
      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="wrap">
