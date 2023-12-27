@@ -2,12 +2,17 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>自閉症・発達障害専門掲示板トップページ</title>
+    <title>自閉症・発達障害専門掲示板トップページ- 悩みや相談、情報交換の場</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta content="出雲のボランティア団体IT2Uによる掲示板コミュニティサイト。自閉症や、発達障害などの障がいを持つ方、家族に持つ方向けの専門掲示板 育児や暮らしの中の悩み・情報を共有してみませんか？会員登録なしで利用できます。" name="description">
+    <meta content="出雲のボランティア団体IT2Uによる掲示板コミュニティサイト。自閉症や、発達障害などの障がいを持つ方、
+    家族に持つ方向けの専門掲示板 育児や暮らしの中の悩み・情報を共有してみませんか？会員登録なしで利用できます。" name="description">
+    <meta name="description" content="自閉症の方やそのご家族向けのサポートコミュニティ。悩みや相談、有益な情報の共有ができる安心の掲示板サイトです">
+
+    <meta name="keywords" content="自閉症, 自閉症スペクトラム, 自閉症サポート, 自閉症相談, 情報交換, 掲示板, サポートコミュニティ, 自閉症の家族">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:image" content="https://itcha50.com/img/bbs_ad2.png">
 
