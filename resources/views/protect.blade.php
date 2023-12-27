@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" name="description">
-
+    <meta name="keywords" content="自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 行方不明防止, 認知症サポート, 安全サービス">
     <title>お守りバッジとは？迷子対策 </title>
 
     <!-- Fonts -->
