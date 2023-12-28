@@ -442,11 +442,10 @@ class BbsController extends Controller
                 $thread = Thread::where('id', $id)->first();
     
                 $data = ['スレッドID' => $thread->id];
-    
                 \Mail::to('info@itcha50.com')->send(new Reported($data));
     
                 return view(
-                    'reported',
+                    'bbs/reported',
                     [
                         'thread' => $thread,
                     ]
@@ -454,7 +453,7 @@ class BbsController extends Controller
             } else {
                 $thread = Thread::where('id', $id)->first();
                 return view(
-                    'reported',
+                    'bbs/reported',
                     [
                         'thread' => $thread,
                     ]
@@ -478,7 +477,7 @@ class BbsController extends Controller
                 \Mail::to('info@itcha50.com')->send(new Reported($data));
     
                 return view(
-                    'reported',
+                    'bbs/reported',
                     [
                         'comment' => $comment,
                     ]
