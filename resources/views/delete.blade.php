@@ -22,9 +22,15 @@
         </form>
         <br>
             <div class="button">
+                @if($user->type==10)
+                <a href="{{ url('design/my_sheet') }}">
+                            <i class="fa fa-plus"></i> 削除しない(マイシートに戻る)
+                </a>
+                @else
                 <a href="{{ url('my_page') }}">
                             <i class="fa fa-plus"></i> 削除しない(マイページに戻る)
                 </a>
+                @endif
             </div>
     </div>
 

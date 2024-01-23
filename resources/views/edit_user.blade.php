@@ -70,24 +70,29 @@
                 </div>
                     @elseif($user->type==1)
                     <tr>
-                    <th >名前</th>
+                        <th >名前</th>
                         <td><input type="text" name="name" value="{{ $lost->name}}" class="form-control"></td>
                         @if ($errors->has('name'))
                             <p class="text-danger">{{ $errors->first('name') }}</p>
                         @endif
                     </tr>
-                    <th >フリガナ</th>
+                    <tr>
+                        <th >フリガナ</th>
                         <td><input type="text" name="name_pronunciation" value="{{ $lost->name_pronunciation}}" class="form-control"></td>
                     </tr>
-                    <th >連絡先①</th>
-                        <td><input type="text" name="tel1" value="{{ $lost->tel1}}" class="form-control"></td>
-                        @if ($errors->has('tel1'))
-                            <p class="text-danger">{{ $errors->first('tel1') }}</p>
-                        @endif                    </tr>
-                    <th >連絡先②</th>
+                    <tr>
+                        <th >連絡先①</th>
+                            <td><input type="text" name="tel1" value="{{ $lost->tel1}}" class="form-control"></td>
+                            @if ($errors->has('tel1'))
+                                <p class="text-danger">{{ $errors->first('tel1') }}</p>
+                            @endif                   
+                    </tr>
+                    <tr>
+                        <th >連絡先②</th>
                         <td><input type="text" name="tel2" value="{{ $lost->tel2}}" class="form-control"></td>
                     </tr>
-                    <th >住所</th>
+                    <tr>
+                        <th >住所</th>
                         <td><input type="text" name="address" value="{{ $lost->address}}" class="form-control"></td>
                     </tr>
 
@@ -327,6 +332,42 @@
                     <div class="button"><input type="submit" value="更新">
                     <h4>更新ボタンを押さないと変更されません</h4>
                 </div>
+                <!-- アーティスト -->
+                @elseif($user->type==10)
+
+                <tr>
+                        <th >名前</th>
+                        <td><input type="text" name="name" value="{{ $artist->name}}" class="form-control"></td>
+                        @if ($errors->has('name'))
+                            <p class="text-danger">{{ $errors->first('name') }}</p>
+                        @endif
+                    </tr>
+                    <tr>
+                        <th >フリガナ</th>
+                        <td><input type="text" name="name_pronunciation" value="{{ $artist->name_pronunciation}}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th >連絡先①</th>
+                            <td><input type="text" name="tel1" value="{{ $artist->tel1}}" class="form-control"></td>
+                            @if ($errors->has('tel1'))
+                                <p class="text-danger">{{ $errors->first('tel1') }}</p>
+                            @endif                   
+                    </tr>
+                    <tr>
+                        <th >アーティスト名</th>
+                        <td><input type="text" name="artist_name" value="{{ $artist->artist_name}}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th >住所</th>
+                        <td><input type="text" name="address" value="{{ $artist->address}}" class="form-control"></td>
+                    </tr>
+
+                </table>
+                </div>
+                    <div class="button"><input type="submit" value="更新">
+                    <h4>更新ボタンを押さないと変更されません</h4>
+                </div>
+               <!-- VS4とお守り両方申込  -->
                 @else
                 <tr>
                         <th >性別</th>

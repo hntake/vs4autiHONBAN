@@ -10,6 +10,6 @@ class Design extends Model
     use HasFactory;
     protected $fillable = [
 
-        'email','image',
+        'email','image','name'.'price','downloaded'
         ];
 }

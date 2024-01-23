@@ -11,10 +11,11 @@
 </head>
 
 <body>
-    <div class="pt-4 bg-gray-100">
-        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
+    <div class="wrap">
+        <div class="content">
 
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
+            <div class="section">
+            <h1>プライバシーポリシー</h1>
                 <p>{{'llco及びIT2U'}}（以下，「当サイト」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
                 <h2>第1条（個人情報）</h2>
                 <p>「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。</p>

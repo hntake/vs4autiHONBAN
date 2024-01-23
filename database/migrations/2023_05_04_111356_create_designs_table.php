@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('designs', function (Blueprint $table) {
             $table->id();
             $table->string('email')->charset("utf8");
-            $table->string('image');
+            $table->string('image')->unique();
             $table->timestamps();
         });
     }

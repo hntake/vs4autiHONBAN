@@ -330,6 +330,7 @@
                                         </div>
                                     </td>
                                     <td>
+                                </tr>
                                         <div class="">
                                         @if($lost->sun3==0)
                                         連絡先①
@@ -344,9 +345,56 @@
                         <div>
 
                         </div>
+                        <div class="">
+                            <button type="button" onClick="history.back()">
+                                戻る back
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                本登録 submit
+                            </button>
+                        </div>
+                    </form>
+                    @elseif($user->type==10)
+                    <form method="POST" action="{{ route('register.main.registered') }}">
+                        @csrf
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">名前 name</label>
+                            <div class="col-md-6">
+                                <span class="">{{$artist->name}}</span>
+                                <input type="hidden" name="name" value="{{$artist->name}}">
+                            </div>
+                        </div>
 
+                        <div class="form-group row">
+                            <label for="name_pronunciation" class="col-md-4 col-form-label text-md-right">フリガナ</label>
+                            <div class="col-md-6">
+                                <span class="">{{$artist->name_pronunciation}}</span>
+                                <input type="hidden" name="name_pronunciation" value="{{$artist->name_pronunciation}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="artist_name" class="col-md-4 col-form-label text-md-right">アーティスト名</label>
+                            <div class="col-md-6">
+                                <span class="">{{$artist->artist_name}}</span>
+                                <input type="hidden" name="artist_name" value="{{$artist->artist_name}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">住所 address</label>
+                            <div class="col-md-6">
+                                <span class="">{{$artist->address}}</span>
+                                <input type="hidden" name="address" value="{{$artist->address}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="tel1" class="col-md-4 col-form-label text-md-right">電話番号 telephone number①</label>
+                            <div class="col-md-6">
+                                <span class="">{{$artist->tel1}}</span>
+                                <input type="hidden" name="tel1" value="{{$artist->tel1}}">
+                            </div>
+                        </div>
 
-
+                        </div>
                         <div class="">
                             <button type="button" onClick="history.back()">
                                 戻る back

@@ -42,7 +42,7 @@ return [
             'username' => env('MAIL_USERNAME','info@itcha50.com'),
             'password' => env('MAIL_PASSWORD','EtCejcGhe0bX'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            // 'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
 
         'ses' => [

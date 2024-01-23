@@ -19,7 +19,7 @@
                     @empty($message)
                         <div class="card-body">
                             @if($user->type==0)
-                            <form method="POST" action="{{ route('register.main.registered') }}">
+                            <form method="POST" action="{{ route('register.main.check') }}">
                                 @csrf
                                 <div class="box" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                     ※性別を選択してください<br>
@@ -78,13 +78,13 @@
 
                                 <div class="form-group row">
                                     <label for="name_pronunciation"
-                                           class="col-md-4 col-form-label text-md-right">フリガナ ※必須</label>
+                                        class="col-md-4 col-form-label text-md-right">フリガナ ※必須</label>
 
                                     <div class="col-md-6">
                                         <input id="name_pronunciation" type="text"
-                                               class="form-control{{ $errors->has('name_pronunciation') ? ' is-invalid' : '' }}"
-                                               name="name_pronunciation" value="{{ old('name_pronunciation') }}"
-                                               >
+                                            class="form-control{{ $errors->has('name_pronunciation') ? ' is-invalid' : '' }}"
+                                            name="name_pronunciation" value="{{ old('name_pronunciation') }}"
+                                            >
 
                                         @if ($errors->has('name_pronunciation'))
                                             <span class="invalid-feedback">
@@ -95,14 +95,14 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel1"
-                                           class="col-md-4 col-form-label text-md-right">連絡先① ※必須 ハイフン無しで入力 TEL①</label>
+                                        class="col-md-4 col-form-label text-md-right">連絡先① ※必須 ハイフン無しで入力 TEL①</label>
 
 
                                     <div class="col-md-6">
                                         <input id="tel1" type="text"
-                                               class="form-control{{ $errors->has('tel1') ? ' is-invalid' : '' }}"
-                                               name="tel1" value="{{ old('tel1') }}"
-                                               required>
+                                            class="form-control{{ $errors->has('tel1') ? ' is-invalid' : '' }}"
+                                            name="tel1" value="{{ old('tel1') }}"
+                                            required>
 
                                         @if ($errors->has('tel1'))
                                             <span class="invalid-feedback">
@@ -113,13 +113,13 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="tel2"
-                                           class="col-md-4 col-form-label text-md-right">連絡先② ハイフン無しで入力 TEL②</label>
+                                        class="col-md-4 col-form-label text-md-right">連絡先② ハイフン無しで入力 TEL②</label>
 
                                     <div class="col-md-6">
                                         <input id="tel2" type="text"
-                                               class="form-control{{ $errors->has('tel2') ? ' is-invalid' : '' }}"
-                                               name="tel2" value="{{ old('tel2') }}"
-                                               >
+                                            class="form-control{{ $errors->has('tel2') ? ' is-invalid' : '' }}"
+                                            name="tel2" value="{{ old('tel2') }}"
+                                            >
 
                                         @if ($errors->has('tel2'))
                                             <span class="invalid-feedback">
@@ -131,16 +131,16 @@
                                 @if($user->pm_type==null)
                                 <div class="form-group row">
                                     <label for="address"
-                                           class="col-md-4 col-form-label text-md-right">住所(オンライン購入する方のみ入力)</label>
+                                        class="col-md-4 col-form-label text-md-right">住所(オンライン購入する方のみ入力)</label>
 
                                     <div class="col-md-6">
                                         <p>郵便番号：<input id="zip" type="text" name="zip" size="7">例:1020072（半角数字）</p>
                                         <button class="api-address" type="button">住所を自動入力</button>
                                         <p>住所:
                                         <input id="address" type="text"
-                                               class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                               name="address" value="{{ old('address') }}"
-                                               >
+                                            class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
+                                            name="address" value="{{ old('address') }}"
+                                            >
 
                                         @if ($errors->has('address'))
                                             <span class="invalid-feedback">
@@ -393,6 +393,99 @@
 
 
                         <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    確認画面へ submit
+                                </button>
+                            </div>
+                        </div>
+                        </form>
+                        @elseif($user->type==10)
+                        <form method="POST" action="{{ route('register.main.check') }}">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">名前 name ※必須 required</label>
+                                    <div class="col-md-6">
+                                        <input
+                                            id="name" type="text"
+                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                            name="name" value="{{ old('name') }}" required>
+
+                                        @if ($errors->has('name'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="name_pronunciation"
+                                        class="col-md-4 col-form-label text-md-right">フリガナ ※必須</label>
+
+                                    <div class="col-md-6">
+                                        <input id="name_pronunciation" type="text"
+                                            class="form-control{{ $errors->has('name_pronunciation') ? ' is-invalid' : '' }}"
+                                            name="name_pronunciation" value="{{ old('name_pronunciation') }}"
+                                            >
+
+                                        @if ($errors->has('name_pronunciation'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('name_pronunciation') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="artist_name"
+                                        class="col-md-4 col-form-label text-md-right">アーティスト名</label>
+
+                                    <div class="col-md-6">
+                                        <input id="artist_name" type="text"
+                                            class="form-control{{ $errors->has('artist_name') ? ' is-invalid' : '' }}"
+                                            name="artist_name" value="{{ old('artist_name') }}"
+                                            >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tel1"
+                                        class="col-md-4 col-form-label text-md-right">電話番号 ※必須 ハイフン無しで入力 TEL①</label>
+
+
+                                    <div class="col-md-6">
+                                        <input id="tel1" type="text"
+                                            class="form-control{{ $errors->has('tel1') ? ' is-invalid' : '' }}"
+                                            name="tel1" value="{{ old('tel1') }}"
+                                            required>
+
+                                        @if ($errors->has('tel1'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('tel1') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="address"
+                                        class="col-md-4 col-form-label text-md-right">住所</label>
+
+                                    <div class="col-md-6">
+                                        <p>郵便番号：<input id="zip" type="text" name="zip" size="7">例:1020072（半角数字）</p>
+                                        <button class="api-address" type="button">住所を自動入力</button>
+                                        <p>住所:
+                                        <input id="address" type="text"
+                                            class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
+                                            name="address" value="{{ old('address') }}"
+                                            >
+
+                                        @if ($errors->has('address'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('address') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     確認画面へ submit

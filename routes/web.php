@@ -98,6 +98,9 @@ Route::get('/design_original', function () {
 Route::get('/lost/ask', function () {
     return view('lost/ask');
 });
+Route::get('/design/policy', function () {
+    return view('design/policy');
+});
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 
 Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');
@@ -304,8 +307,8 @@ Route::get('/selectpicture/{id}', [App\Http\Controllers\HomeController::class,'s
 //入力ページ
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact.index');
 
-//確認ページ
 Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class, 'confirm'])->name('contact.confirm');
+//確認ページ
 
 //送信完了ページ
 Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
@@ -419,9 +422,8 @@ Route::get('inspect_list/{id}', [App\Http\Controllers\InspectController::class, 
 //納入表表示
 Route::get('inspect_complete', [App\Http\Controllers\InspectController::class, 'index_complete'])->name('inspect_complete');
 //登録削除画面へ
-Route::get('delete', function () {
-    return view('delete');
-});
+Route::get('delete', [App\Http\Controllers\HomeController::class, 'delete_index'])->name('delete_account');
+
 Route::post('delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('account_delete');
 
 //キャンセル後遷移
@@ -509,3 +511,80 @@ Route::post('bbs/comment_alert/{id}', [App\Http\Controllers\BbsController::class
 Route::get('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 'reply_alert'])->name('reply_alert');
 Route::post('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 'reply_alert_post'])->name('reply_alert_post');
 
+//障がい者アート関連
+//募集ページ
+Route::get('design/poster', [App\Http\Controllers\DesignController::class, 'poster'])->name('design_poster');
+//障がい者アートTOP
+Route::get('design/list', [App\Http\Controllers\DesignController::class, 'list'])->name('design_list');
+
+//登録ページ
+Route::get('design/register', [App\Http\Controllers\DesignController::class, 'register'])->name('design_register');
+Route::post('design/register', [App\Http\Controllers\DesignController::class, 'registered'])->name('design_registered');
+
+//プロフィール画像編集ページへ
+Route::get('design/edit_image', [App\Http\Controllers\DesignController::class, 'image'])->name('edit_image');
+Route::post('design/edit_image', [App\Http\Controllers\DesignController::class, 'update_image'])->name('update_image');
+//プロフィール画像確認ページへ
+Route::get('design/image_confirm', [App\Http\Controllers\DesignController::class, 'image_confirm'])->name('image_confirm');
+Route::post('design/image_confirm/{id}', [App\Http\Controllers\DesignController::class, 'image_send'])->name('image_send');
+
+//画像ポストページ
+Route::get('design/post', [App\Http\Controllers\DesignController::class, 'post'])->name('design_post');
+Route::post('design/post', [App\Http\Controllers\DesignController::class, 'posted'])->name('design_posted');
+//画像確認〜アップロード
+Route::get('design/confirm', [App\Http\Controllers\DesignController::class, 'confirm'])->name('design_confirm');
+Route::post('design/confirm/{id}', [App\Http\Controllers\DesignController::class, 'upload'])->name('design_upload');
+
+//画像ダウンロードページ
+Route::get('design/list/{id}', [App\Http\Controllers\DesignController::class, 'to_download'])->name('design_download');
+Route::post('design/list/{id}', [App\Http\Controllers\DesignController::class, 'download'])->name('design_downloaded');
+//カートに入れる
+Route::post('design/download/{id}', [App\Http\Controllers\StripeController::class, 'design_cart'])->name('design_cart');
+//カートページ
+Route::get('design/cart', [App\Http\Controllers\StripeController::class, 'index_cart'])->name('index_cart');
+Route::post('design/cart', [App\Http\Controllers\StripeController::class, 'post_cart'])->name('post_cart');
+//非ユーザーのカートでの支払い
+Route::get('design/cart_un', [App\Http\Controllers\StripeController::class, 'index_cart_un'])->name('index_cart_un');
+Route::post('design/cart_un/{id}', [App\Http\Controllers\StripeController::class, 'post_cart_un'])->name('post_cart_un');
+//カート内の削除
+Route::get('design/cart_delete/{id}', [App\Http\Controllers\StripeController::class, 'delete_cart'])->name('delete_cart');
+//カートを空にする
+Route::get('design/empty', [App\Http\Controllers\StripeController::class, 'empty_cart'])->name('empty_cart');
+
+//購入画面
+Route::get('design/stripe/{id}', [App\Http\Controllers\StripeController::class, 'design_stripe'])->name('design_stripe');
+//支払いボタン(ログインユーザー)
+Route::post('design/stripe/{id}', [App\Http\Controllers\StripeController::class, 'design_stripePost'])->name('design_stripe.post');
+//支払いボタン(非ユーザー)
+Route::get('design/once/{id}', [App\Http\Controllers\StripeController::class, 'design_once'])->name('design_once');
+Route::post('design/once/{id}', [App\Http\Controllers\StripeController::class, 'design_oncePost'])->name('design_once.post');
+//支払い完了画面
+Route::get('design/receipt/{user}', [App\Http\Controllers\StripeController::class, 'design_receipt'])->name('design_receipt');
+//マイシート
+Route::get('design/my_sheet', [App\Http\Controllers\DesignController::class, 'my_sheet'])->name('design_my_sheet');
+Route::patch('design/my_sheet', [App\Http\Controllers\DesignController::class, 'edit'])->name('design_edit');
+//画像削除
+Route::get('design/delete/{id}', [App\Http\Controllers\HomeController::class, 'design_delete_index'])->name('design_delete_index');
+Route::post('design/delete/{id}', [App\Http\Controllers\DesignController::class, 'design_deleted'])->name('design_deleted');
+
+//アーティストページ
+Route::get('design/artist/{id}', [App\Http\Controllers\DesignController::class, 'artist'])->name('design_artist');
+//送金申込
+Route::get('design/pay', [App\Http\Controllers\DesignController::class, 'design_pay'])->name('design_pay');
+Route::post('design/pay', [App\Http\Controllers\DesignController::class, 'design_order'])->name('design_order');
+//送金完了
+Route::get('design/paid', [App\Http\Controllers\DesignController::class, 'paid'])->name('design_register');
+//バイヤー登録
+Route::get('design/register', [App\Http\Controllers\DesignController::class, 'register'])->name('buyer_register');
+Route::post('design/register', [App\Http\Controllers\DesignController::class, 'registered'])->name('registered');
+//バイヤーログイン
+Route::get('design/login', [App\Http\Controllers\DesignController::class, 'login'])->name('buyer_login');
+Route::post('design/login', [App\Http\Controllers\DesignController::class, 'log'])->name('buyer_log');
+//支払失敗
+Route::get('design/fail', function () {
+    return view('design.failed')->name('payment.failed');
+});
+//ダウンロード完了
+Route::get('design/complete', function () {
+    return view('design.complete')->name('download.complete');
+});

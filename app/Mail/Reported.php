@@ -34,11 +34,9 @@ class Reported extends Mailable
      */
     public function build()
     {
-        $emails = config('report.emails');
-        $from = config('report.from');
+    
 
-        return $this->to($emails)
-        ->from($from)
+        return  $this
         ->subject('違反報告がありました')
         ->view('emails.reported')
         ->with('data', $this->data);

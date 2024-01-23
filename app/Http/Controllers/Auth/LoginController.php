@@ -31,7 +31,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/my_page';
+    protected $redirectTo ;
+
+    public function redirectTo() {
+        $user=Auth::user();
+
+        if ($user->type==10) {
+            $this->redirectTo = '/design/my_sheet';
+        } else {
+            $this->redirectTo = '/my_page';
+        }
+    
+        return $this->redirectTo;
+    }
 
     /**
      * Create a new controller instance.

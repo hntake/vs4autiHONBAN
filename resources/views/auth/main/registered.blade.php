@@ -18,7 +18,7 @@
                         @endif
                         <!--VS4のみ-->
                         @if($user->type==0)
-                        <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動 to your page</a>
+                        <a href="{{url('/my_page')}}" class="sg-btn">保存リストへ移動 to your page</a>
                         @endif
                         <!--お守りバッジのみ申込＆販売店より購入:基本使わない-->
                         @if($user->type==1 && $user->pm_type == 10)
@@ -37,9 +37,13 @@
                         @if($user->type==3 && $user->pm_type ==! null)
                         <a href="{{url('/dashboard')}}" class="sg-btn">保存リストへ移動 to my page</a>
                         @endif
+                        @if($user->type==10)
+                        <a href="{{url('/design/my_sheet')}}" class="sg-btn">マイシートページへ移動 to design</a>
+                        @endif
+
                         <div class="button"style="margin-top:24px;">
 
-                            <a href="{{ url('/') }}">VS4トップページに戻る to top page</a>
+                            <a href="{{ url('/') }}">IT2Uトップページに戻る to top page</a>
                         </div>
                     </div>
                 </div>

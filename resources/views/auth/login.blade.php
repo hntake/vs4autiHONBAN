@@ -9,7 +9,12 @@
                 <div class="card-header" style="font:bold; color:darkgray;">{{ __('ログインする login') }}</div>
 
                 <div class="card-body">
+                    @if(isset($design->id))
+                    <form method="POST" action="{{ route('buyer_login',['id'=> $design->id]) }}">
+
+                    @else
                     <form method="POST" action="{{ route('login') }}">
+                    @endif
                         @csrf
 
                         <div class="row mb-3">

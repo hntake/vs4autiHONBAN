@@ -11,8 +11,6 @@
     <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
 <!--     両方申込んでいる -->
     @if($type==3)
-
-
             <a href="{{ url('dashboard') }}">
                 <h3>保存リストへ</h3>
             </a>
@@ -36,7 +34,7 @@
                             <input type="hidden" name="email" value="{{$user->email}}">
                         </div>
                     </div>
-                     <div class="form-group row">
+                    <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-label text-md-right">性別</label>
                             <div class="col-md-6">
                                 <span class="">{{$user->gender}}</span>
