@@ -4,6 +4,6 @@
 {!! $total !!} 円<br>
 請求書は添付されております。
 <br>
-ダウンロードページへ移動
-[{{ route('design_download',['id'=> $email]) }}]( {{ route('design_download',['id'=> $email]) }} )
+マイページへ移動
+[{{ route('my_page') }}]
 

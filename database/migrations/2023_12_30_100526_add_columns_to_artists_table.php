@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('artists', function (Blueprint $table) {
-            $table->string('bank_name');
-            $table->string('account_number');
-            $table->string('bank_branch');
+            $table->string('bank_name')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('bank_branch')->nullable();
         });
     }
 

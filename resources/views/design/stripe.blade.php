@@ -1,7 +1,7 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
-<title>支払い申込画面 </title>
+<title>支払い申込画面 (ユーザー用)</title>
 
 
 @section('content')
@@ -11,6 +11,21 @@
             <button class="button"><a href="{{ url('/design/list') }}">トップページに戻る</a></button>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('card-button').addEventListener('click', function () {
+                // ボタンの表示を「処理中...」に変更
+                this.innerHTML = '処理中...';
+
+                // 60秒後にボタンの表示を「完了しました」に変更
+                setTimeout(function () {
+                    document.getElementById('card-button').innerHTML = '完了しました';
+                }, 60000);
+                
+                // ここに実際の処理を追加する（例: stripePaymentHandler(setupIntent);）
+            });
+        });
+    </script>
 </header>
 <div class="card_container py-3">
     {{-- フォーム部分 --}}
@@ -26,8 +41,17 @@
         </span>
         @enderror
         <label for="price">{{ $design->price }}円</label>
-        <label for="exampleInputPassword1"></label>
-        <div class="form-group MyCardElement " id="card-element"></div>
+                    <select name="paymentMethod" id="paymentMethod">
+                            <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
+                            @if(isset($filteredPaymentMethods))
+                            @foreach($filteredPaymentMethods as $paymentMethod)
+                            <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
+                            @endforeach
+                            @endif
+                    </select>
+                    <div class="add"> 
+                        <button class="btn btn-primary"><a href="{{ route('add_payment_once') }}">別の支払いを追加</a></button>
+                    </div>
 
         <div id="card-errors" role="alert" style='color:red'></div>
         <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">送信する</button>
@@ -38,7 +62,6 @@
         <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
         何かご不明点がありましたら、お気軽にお問い合わせください。</p>
     </form>
-    <button class="btn btn-primary" id="save-payment-button">決済情報を保存する</button>
 
     <div class="try">
         <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>

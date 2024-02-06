@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('designs', function (Blueprint $table) {
-            $table->string('real_image')->unique();
+            $table->string('real_image');
         });
     }
 

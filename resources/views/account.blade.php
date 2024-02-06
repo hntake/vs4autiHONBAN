@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>VS4視覚支援ツール</title>
+    <title>IT2U視覚支援ツール</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>支払い情報 VS4</title>
+    <title>支払い情報 IT2U</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->

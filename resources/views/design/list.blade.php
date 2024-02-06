@@ -24,6 +24,8 @@
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
      crossorigin="anonymous"></script>
 </head>
@@ -47,40 +49,28 @@
         @elseif(isset($tempCart))
         <td><a href="{{ route('index_cart_un') }}">マイカート</a></td>
         @else
+        @if($user->type==8)
+        <td><a href="{{ route('my_page') }}">マイカート</a></td>
+        @endif
         @endauth
         <h2>作品一覧</h2>
-        <div class="card">
+        <div class="">
                 <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; width:fit-content;">
                     <table>
-                    <thead>
-                            <th></th>
-                            <th>作品名</th>
-                            <th>アーティスト名</th>
-                            <th>金額</th>
-                            <th>登録日</th>
-                    </thead>
                         <tr>
                         @foreach ($designs as $design)
 
-                        <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
-                        <td>{{$design->name}}</td>
-                        <td><a href="{{route('design_artist',['id'=>$design->artist_id])}}">{{$design->artist_name}}</a></td>
-                        <td>{{ number_format($design->price) }}円</td>
-                        <td>{{ $design->created_at->format('Y-m-d') }}</td>
-
-                        <td><a href="{{ route('design_download',['id'=>$design->id]) }}">ダウンロード</a></td>
-                        <td></td>
-
+                        @if($design->license==0)
+                        <td><a href="{{route('design_select',['id'=>$design->id])}}"><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></a></td>
+                        @else
+                        <td><a href="{{route('design_select',['id'=>$design->id])}}"><img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" ></a></td>
+                        @endif
                         </tr>
+                        @endforeach
+
                     </table>
                 </div>
-        @endforeach
         </div>
-       
-    </section>
-  
-    <section>
-       
     </section>
     
     <section>

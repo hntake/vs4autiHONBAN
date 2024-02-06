@@ -1,7 +1,7 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
-<title>支払い申込画面 </title>
+<title>支払い申込画面(非ユーザー) </title>
 
 
 @section('content')
@@ -11,13 +11,35 @@
             <button class="button"><a href="{{ url('/design/list') }}">トップページに戻る</a></button>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('card-button').addEventListener('click', function () {
+                // ボタンの表示を「処理中...」に変更
+                this.innerHTML = '処理中...';
+
+                // 60秒後にボタンの表示を「完了しました」に変更
+                setTimeout(function () {
+                    document.getElementById('card-button').innerHTML = '完了しました';
+                }, 60000);
+                
+                // ここに実際の処理を追加する（例: stripePaymentHandler(setupIntent);）
+            });
+        });
+    </script>
 </header>
 <div class="card_container py-3">
 {{-- フォーム部分 --}}
     <form action="{{route('design_once.post',['id'=> $design->id])}}" method="post" id="payment-form">
         @csrf
+        @foreach($tempCart as $downloadId => $downloadDetails)
+        <tr>
+        @php
+            $design = \App\Models\Design::find($downloadDetails['design_id']);
+        @endphp
         <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
-        <td>{{ $design->name }}</td>
+        <td>{{ $downloadDetails['designName'] }}</td>
+        <td>{{ $downloadDetails['price'] }}</td>   
+        @endforeach
         <label for="email">メールアドレス</label>
         <input type="text" class="form-control" id="email" name="email" required>
 

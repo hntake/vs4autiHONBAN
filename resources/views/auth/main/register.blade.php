@@ -493,6 +493,17 @@
                             </div>
                         </div>
                         </form>
+                        @elseif($user->type==8)
+                        <form method="POST" action="{{ route('register.main.check') }}">
+                                @csrf
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        登録が完了しました。
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                         @else
                         <form method="POST" action="{{ route('register.main.check') }}">
                                 @csrf

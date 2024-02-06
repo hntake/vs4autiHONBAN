@@ -8,8 +8,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
+use App\Models\Design;
 use App\Models\Schedule;
 use Illuminate\Support\Facades\Auth;
+use Session;
+
 
 class LoginController extends Controller
 {
@@ -38,6 +41,15 @@ class LoginController extends Controller
 
         if ($user->type==10) {
             $this->redirectTo = '/design/my_sheet';
+        }elseif ($user->type == 8) {
+         // ログイン後に $design->id を取得する
+        $designId = Session::get('design_id');
+            if ($designId) {
+            $this->redirectTo = '/design/list/' . $designId;
+            } else {
+             // デフォルトのリダイレクト先
+            $this->redirectTo = '/design/list';  
+            }  
         } else {
             $this->redirectTo = '/my_page';
         }
@@ -54,7 +66,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-   
 
 
     protected function loggedOut(Request $request)

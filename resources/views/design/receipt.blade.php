@@ -13,12 +13,7 @@
 <body>
 <form method="GET" action="{{ route('design_download',['id'=> $email]) }}">
 @csrf
-@if(isset($user))
-    <p class="text-center mt-5">{{ $user->name }}様 決済が完了しました！</p>
-@else
     <p class="text-center mt-5"> 決済が完了しました！</p>
-
-@endif
     <button type="submit_button" name="action" value="submit">
             画像をダウンロードする
     </button>

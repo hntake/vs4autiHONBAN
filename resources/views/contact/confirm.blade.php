@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>VS4視覚支援ツール お問い合わせページ</title>
+    <title>IT2U お問い合わせページ</title>
 
 
     <!-- Fonts -->

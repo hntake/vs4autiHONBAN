@@ -10,7 +10,7 @@ class Download extends Model
     use HasFactory;
     protected $fillable = [
 
-        'artist_id','design_id','user_id','payment_status','price',
+        'artist_id','design_id','user_id','payment_status','price','designName','email',
         ];
         public function Design() {
             return $this->belongsTo(Design::class, 'design_id', 'id');

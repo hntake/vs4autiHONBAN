@@ -12,6 +12,9 @@ use App\Mail\Pay;
 use Intervention\Image\Facades\Image;
 use File;
 use Session;
+use Illuminate\Support\Facades\Response;
+use ZipArchive;
+
 
 
 
@@ -32,6 +35,7 @@ class DesignController extends Controller
         $designs=Design::orderBy('id', 'asc')->paginate(50);
         return view('design/list',[
             'designs'=>$designs,
+            'user'=>$user,
         ]);
     }else{
         $tempCart = Session::get('tempCart', []);
@@ -121,6 +125,13 @@ class DesignController extends Controller
             'designs'=>$designs
         ]);
     }
+      //アーティストリストページ（閲覧用）
+    public function artist_list(){
+        $artists=Artist::orderBy('id', 'asc')->paginate(50);
+        return view('design/artist_list',[
+            'artists'=>$artists,
+        ]);
+    }
     //作品登録ページへ
     public function post(){
         return view('design/post');
@@ -132,16 +143,61 @@ class DesignController extends Controller
         $design_price=$request->price;
         $validate = $request->validate(
             [
-                'image' => 'required|file|image:jpeg,png,jpg|max:5000',
+                'image' => 'required|file|image:jpeg,png,jpg|max:500000',
             ],
             [
                 'image' => '画像を選んでください',
+
                 ]
         );
         $path = $request->file('image')->store('public');
-        $new_image = str_replace('public/', '', $path);
+        $imagePath = str_replace('public/', '', $path);
 
-    
+        // 元の画像のパス
+        $originalImagePath = storage_path('app/public/') . $imagePath;
+
+        // コピー先のディレクトリ
+        $copyDirectory = storage_path('app/public/');
+
+        // 新しい名前の画像ファイル
+        $processedImageName =  uniqid() . '.' . pathinfo($imagePath, PATHINFO_EXTENSION);
+
+        // 画像を読み込み
+        $image = Image::make($originalImagePath);
+
+        // 縮小するための幅と高さを決定
+        $maxWidth = 800;
+        $maxHeight = 600;
+
+        // 元の画像サイズを取得
+        $originalWidth = $image->getWidth();
+        $originalHeight = $image->getHeight();
+        // 元の画像が指定した最大サイズより小さい場合は、縮小せずにそのまま保存
+        if ($originalWidth <= $maxWidth && $originalHeight <= $maxHeight) {
+            $newWidth = $originalWidth;
+            $newHeight = $originalHeight;
+        } else {
+            // 縮小後の画像サイズを計算
+            $ratioWidth = $maxWidth / $originalWidth;
+            $ratioHeight = $maxHeight / $originalHeight;
+
+            // 幅と高さの比率を比較し、小さい方の比率で縮小する
+            $ratio = min($ratioWidth, $ratioHeight);
+            $newWidth = $originalWidth * $ratio;
+            $newHeight = $originalHeight * $ratio;
+
+             // 画像をリサイズ
+            $image->resize($newWidth, $newHeight);
+        }
+        // リサイズされた画像を保存
+        $new_image = str_replace('public/', '', $imagePath);
+        $image->save(storage_path('app/public/' .$new_image));
+
+
+        // 画像のメモリを解放
+        $image->destroy();
+
+        $isChecked = $request->input('checkbox');
 
 
 
@@ -149,6 +205,7 @@ class DesignController extends Controller
             'design_name'=>$design_name,
             'design_price'=>$design_price,
             'new_image'=>$new_image,
+            'isChecked'=>$isChecked,
         ]);
 
     }
@@ -169,6 +226,13 @@ class DesignController extends Controller
         $design->artist_name=Artist::where('email','=',$user->email)->value('artist_name');
         $design->artist_id=Artist::where('email','=',$user->email)->value('id');
 
+        $isChecked = $request->input('checkbox');
+
+        // チェックされた場合の処理
+        if ($isChecked) {
+        $design->license = 1 ;
+        } 
+
         // 元の画像のパス
         $originalImagePath = storage_path('app/public/') . $new_image;
 
@@ -182,10 +246,10 @@ class DesignController extends Controller
         $image = Image::make($originalImagePath);
 
         // ウォーターマークのパス
-        $watermarkPath = public_path('img/mask.png');
+        $watermarkPath = public_path('img/maskCenter.png');
 
         // ウォーターマークを載せる
-        $image->insert($watermarkPath, 'bottom-right', 10, 10);
+        $image->insert($watermarkPath, 'center', 0, 0);
 
          // 加工後の画像を保存
         $processedImagePath = $copyDirectory . $processedImageName;
@@ -194,7 +258,41 @@ class DesignController extends Controller
         // デザインに元の画像と加工後の画像のパスを保存
         $design->real_image = $new_image; // 元の画像のパス
         $design->image = $processedImageName; // 加工後の画像のパス
+
+        $fontPath = storage_path('fonts/Pacifico-Regular.ttf');
+
+        $imageWidth = $image->getWidth(); // 画像の幅
+        $imageHeight = $image->getHeight(); // 画像の高さ
+
+        $fontSize = 12;
+
+        // GDライブラリを使用
+        $textInfo = imagettfbbox($fontSize, 0, $fontPath, $design->artist_name);
+        $textWidth = $textInfo[2] - $textInfo[0]; // テキストの幅
+        $textHeight = $textInfo[1] - $textInfo[7]; // テキストの高さ
+
+
+        // 右下にテキストを配置するための座標を計算する
+        $textX = $imageWidth - $textWidth;
+        $textY = $imageHeight - $textHeight;
+
+        // 画像にテキストを追加する
+        $imageWithArtistName = $image->text('©' . $design->artist_name, $textX, $textY, function($font) use ($fontPath) {
+        $font->file($fontPath); // フォントのパスを指定
+        $font->size(24);
+        $font->color('#777777'); // 文字の色を指定
+        $font->align('right');
+        $font->valign('bottom');
+    });
+        // アーティスト名を含む水印を追加した画像を保存
+        $processedImageWithArtistName = uniqid() . '_with_artist_name_' . $processedImageName;
+        $imageWithArtistName->save($copyDirectory . $processedImageWithArtistName);
+
+        // デザインにアーティスト名を含む水印を追加した画像のパスを保存
+        $design->image_with_artist_name = $processedImageWithArtistName;
         $design->save();
+
+
 
 
 
@@ -266,42 +364,59 @@ class DesignController extends Controller
             'price'=>$price,
         ]);
     }
-    //ダウンロード開始画面
+    //ダウンロードかカートか選択画面
+    public function select_download($id)
+    {
+        $user=Auth::user();
+        $design=Design::where('id','=',$id)->first();
+
+        if ($user) {
+
+            return view('design/download',[
+                'design'=>$design,
+                'user'=>$user,
+            ]);
+            }else{
+                Session::put('design_id', $design->id);
+                $designId = Session::get('design_id');
+            return view('design/download',[
+                'design'=>$design,
+            ]);
+            }
+    }
     public function to_download($id)
     {
         $user=Auth::user();
         if ($user) {
 
             $downloads=Download::where('email','=',$user->email)->where('payment_status','=','1')->where('download_status','=','0') ->get();
-            return view('design/download',[
+            return view('design/to_download',[
                 'downloads'=>$downloads,
                 'user'=>$user,
+                'email'=>$id,
             ]);
             }else{
                 $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
-
             return view('design/to_download',[
                 'downloads'=>$downloads,
+                'email'=>$id,
+
             ]);
             }
-
     }
     //ダウンロードポスト
     public function download($id)
     {
         $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
 
-        //ダウンロードが始まる
-        $downloadFilePaths = [];
-
+        $zip = new ZipArchive;
+        $zipFileName = 'downloads.zip';
+        if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
         foreach($downloads as $download){
             $design=Design::where('id','=',$download->design_id)->first();
             //designのdownloadedに加算
             $design->downloaded += 1;
             $design->save();
-
-            $filePath = storage_path("app/public/{$design->real_image}");
-            Response::download($filePath);
 
             //download_statusの変更0->1
             $download->download_status = 1;
@@ -309,8 +424,69 @@ class DesignController extends Controller
 
             //artistのunpaidに加算
             $artist = Artist::find($download->artist_id);
-            $artist->increment('unpaid', $download->price);       
+            $artist->increment('unpaid', $download->price);    
+            
+            $filePath = storage_path("app/public/{$design->real_image}");
+            $zip->addFile($filePath, $design->real_image);
         }
+
+        $zip->close();
+
+         // ZIPファイルを生成し、セッションに保存
+        session(['zipFilePath' => $zipFileName]);
+        // 画面遷移
+        return redirect('design/complete')->with('success', 'ダウンロード準備が完了しました');
+    }
+
+    return view('design/error')->with('error', 'ダウンロードに失敗しました');
+}
+
+// 別のアクションでダウンロードを実行する
+public function executeDownload()
+{
+    $zipFilePath = session('zipFilePath');
+   if (isset($zipFilePath) && file_exists($zipFilePath)) {
+        return response()->download($zipFilePath)->deleteFileAfterSend();
+    }
+
+    return redirect('design/error')->with('error', 'ダウンロードに失敗しました');
+}
+
+    //個々ダウンロード開始画面(my_pageでしてる？)
+    // public function to_download_each($id)
+    // {
+
+    //         $download=Download::where('id','=',$id)->first();
+    //         return view('design/to_download_each',[
+    //             'downloads'=>$downloads,
+    //         ]);
+    // }
+    //個々ダウンロードポスト
+    public function download_each($id)
+    {
+        $download=Download::where('id','=',$id)->first();
+
+        //ダウンロードが始まる
+        $downloadFilePaths = [];
+
+            $design=Design::where('id','=',$download->design_id)->first();
+            //designのdownloadedに加算
+            $design->downloaded += 1;
+            $design->save();
+
+            $filePath = storage_path("app/public/{$design->real_image}");
+            return response()->download($filePath);
+
+            //status=0つまり、初めてのダウンロードの場合のみ行う
+            if( $download->download_status = 0){
+            //download_statusの変更0->1
+            $download->download_status = 1;
+            $download->save();
+
+            //artistのunpaidに加算
+            $artist = Artist::find($download->artist_id);
+            $artist->increment('unpaid', $download->price); 
+            }      
 
         return redirect('design/to_download')->with('success','ダウンロード完了しました');
     }

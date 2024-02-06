@@ -23,7 +23,7 @@ h5{
 }
 .container{
    /*  width:max-content; */
-   margin-top: 100px;
+    margin-top: 100px;
 }
 .col-md-8{
     max-width: 100%;
@@ -38,7 +38,48 @@ h3{
 .button{
     margin: 20px auto;
 }
+header{
+    text-align: center;
+    width:70%;
+    margin:0 auto;
+}
+header img{
+    width:100%;
+}
+nav {
+    text-align: center; /* ボタンを中央寄せ */
+}
 
+nav button {
+    margin: 0 10px; /* ボタン間の余白を設定 */
+    width: 100px; /* ボタンの幅 */
+    height: 100px; /* ボタンの高さ */
+    border-radius: 50%; /* 楕円形にする */
+    background-color: #E2942B;
+    border: none; /* 枠線をなくす */
+    vertical-align: top; /* ボタンを上揃えにする */
+}
+section{
+    text-align:left; 
+    width:70%;
+    margin:0 auto;
+}
+a{
+    text-decoration: none;
+    color:rgb(66, 124, 233);
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+table, th, td, tr {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width: 2px;
+    margin:0 auto;
+}
+
+footer{
+    text-align: center;
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 2){
     .absolute {
         position:absolute;
@@ -78,5 +119,5 @@ h3{
 input#image.form-control {
     /* width:30%; */
 }
-  }
+}
 

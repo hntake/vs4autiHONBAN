@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>障がい者アート募集ページ</title>
+    <title>障がい者アーティストページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。">
@@ -24,6 +24,8 @@
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
      crossorigin="anonymous"></script>
 </head>
@@ -36,9 +38,21 @@
     <section>
         <h2>障がい者アーティスト紹介</h2>
         <table>
-            <td>アーティスト名:{{$artist->name}}</td>
-            <td><img src="{{ asset('storage/' . $artist->image) }}" alt="profile" ></td>
-        </table>
+            <thead>
+                <th>アーティスト名</th>
+                <th>障がいタイプ</th>
+                <th>作品数</th>
+                <th></th>
+            </thead>
+            <td>{{$artist->artist_name}}</td>
+            <td>{{$artist->type}}</td>
+            <td>{{$artist->design}}</td>
+            @if(isset($artist->image))
+            <td><img src="{{asset('storage/' . $artist->image)}}"></td>
+            @else
+            <td><img src="{{asset('img/icon_man.png')}}" style="width:30%;"></td>
+            @endif
+            </table>
     </section>
 
     <section>
@@ -54,7 +68,11 @@
 
                 <tr>
                     <td>{{ $design->name }}</td>
+                    @if($design->license==0)
                     <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
+                    @else
+                    <td><img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" ></td>
+                    @endif
                     <td>{{ $design->price }}</td>
                     <td><a href="{{route('design_download',['id'=>$design->id])}}">ダウンロードする</a></td>
                 </tr>

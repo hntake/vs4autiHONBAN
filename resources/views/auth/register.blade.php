@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>仮登録画面 VS4</title>
+<title>仮登録画面 IT2U</title>
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
@@ -53,6 +53,12 @@
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                 マイリク my_request<input id="type" type="radio" name="type" value="2"><br>
+                            </label>
+                            <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
+                                障がいアート登録<input id="type" type="radio" name="type" value="10"><br>
+                            </label>
+                            <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
+                                障がいアートバイヤー登録<input id="type" type="radio" name="type" value="8"><br>
                             </label>
                             @error('type')
                             <span class="invalid-feedback" role="alert">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>仮登録画面 VS4</title>
+<title>仮登録画面 アーティスト登録</title>
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">

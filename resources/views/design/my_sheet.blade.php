@@ -24,6 +24,8 @@
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
      crossorigin="anonymous"></script>
 </head>
@@ -97,6 +99,8 @@
                 <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; width:fit-content;">
                     <tr>
                     <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
+                    <td><img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" ></td>
+
                     <td>ダウンロード数:{{$design->downloaded}}</td>
                     <td><a href="{{ route('design_delete_index',['id'=>$design->id]) }}">画像削除</a></td>
                     <td></td>

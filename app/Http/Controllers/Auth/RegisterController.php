@@ -78,14 +78,14 @@ class RegisterController extends Controller
     {
         $user= User::create([
 
-           'email' => $data['email'],
+            'email' => $data['email'],
             'type' => $data['type'],
             'password' => Hash::make($data['password']),
             'uuid'=>(string) Str::uuid(),
             'email_verify_token' => base64_encode($data['email']),
         ]);
 
-       /*  $email = new EmailVerification($user);
+        /*  $email = new EmailVerification($user);
         \Mail::to($user->email)->send($email); *///二通になるのでコメントアウト
         return $user;
 
@@ -119,27 +119,27 @@ class RegisterController extends Controller
      //確認画面
     public function mainCheck(Request $request)
     {
-      $request->validate([
+    $request->validate([
         'name' => 'required|string',
 
-      ]);
+    ]);
       //データ保持用
-      $email_token = $request->email_token;
+    $email_token = $request->email_token;
 
       //申込種類によって分ける
-      $user=Auth::user();
-      $user=User::where('id','=',$user->id)->first();
+    $user=Auth::user();
+    $user=User::where('id','=',$user->id)->first();
 
-      if($user->type==0){
+    if($user->type==0){
         $user->update([
             'gender'=> $request->gender,
             'image_id'=> $request->image_id,
         ]);
         return view('auth.main.register_check', compact('user','email_token','lost'));
 
-      }
+    }
 
-      elseif($user->type==1){
+    elseif($user->type==1){
         $lost=new Lost();
         $lost->name=$request->name;
         $lost->name_pronunciation = $request->name_pronunciation;

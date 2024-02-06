@@ -24,29 +24,40 @@
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
      crossorigin="anonymous"></script>
 </head>
 <body>
-
     <header>
+        <img src="{{asset('img/design_banner.png')}}" alt="artist" >
         <h1>障がい者アート募集</h1>
         <p>障がいを抱える方々のアート作品を募集しています。ご応募お待ちしています！</p>
+
+    </header>
+    <nav>
+        <button><a href="{{url('design/list')}}">障がいアート共有サイト</a></button>
+        <button><a href="{{url('design/artist_list')}}">障がいアーティスト一覧</a></button>
+        <button><a href="{{url('aboutus')}}">AboutUs</a></button>
+        </nav>
+    <section>
         <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります
             <span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください)</span>
             有償の場合、販売価格から手数料（5%）を差し引いた金額が支払われます。</p>
         <p>(その金額が5万円以上の場合は10.21%の源泉徴収税も差し引かれます。)</p>
-        <p>また、当サイトで販売されるグッズへのデザイン提供にご参加いただくと、売り上げごとに50円が支払われるシステムとなっております。</p>    
-    </header>
+        <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに50円が支払われるシステムとなっております。</p>    
+</section>
 
     <section>
         <h2>募集要項</h2>
-        <ul>
+        <ol>
             <li>応募資格：障がいをお持ちの方々</li>
+            <li>アーティストページにてご自身の障がいを公表する</li>
             <li>以下の規約に同意していただける方</li>
-            <a href="{{url('design_policy')}}" target="_blank" rel="noopener noreferrer"><p>利用規約</p></a>
+            <a href="{{url('design/policy')}}" target="_blank" rel="noopener noreferrer"><p>利用規約</p></a>
             <!-- その他の募集要項を追加 -->
-        </ul>
+        </ol>
     </section>
 
     <section>
@@ -54,8 +65,9 @@
         <p>アート作品を応募する際は、以下の手順に従ってください。</p>
         <ol>
             <li>以下のページからアーティスト登録</li>
-            <a href="{{url('design/register')}}" target="_blank" rel="noopener noreferrer"><p>アーティスト登録画面</p></a>
-            <li>作品をデジタルデータに変換する。</li>
+            <a href="{{route('register')}}" target="_blank" rel="noopener noreferrer"><p>アーティスト登録画面</p></a>
+            <li>作品をデジタルデータに変換する(ファイル形式:JPEG,PNG 容量5MBまで)</li>
+            <li>作品をサイトにアップロードする</li>
             <!-- フォームのコードや応募手順の詳細を追加 -->
         </ol>
     </section>

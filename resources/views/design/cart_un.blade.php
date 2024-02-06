@@ -14,6 +14,15 @@
             <button class="button" id="returnButton"><a href="{{ url('/design/list') }}">トップページに戻る</a></button>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('card-button').addEventListener('click', function () {
+                // ボタンの表示を「処理中...」に変更
+                this.innerHTML = '処理中...';
+
+            });
+        });
+    </script>
 </header>
 @if($total !== null && $total > 0)
 <div class="card_container py-3">
@@ -102,6 +111,24 @@
         const cardHolderName = document.getElementById('card-holder-name');
         const cardButton = document.getElementById('card-button');
         const clientSecret = cardButton.dataset.secret;
+
+                // セットアップインテントの確認
+        stripe.confirmCardSetup(
+        clientSecret,
+        {
+            payment_method: {
+            card: cardElement,
+            },
+        }
+        ).then(function(result) {
+        if (result.error) {
+            // エラー処理
+            console.error(result.error);
+        } else {
+            // 成功時の処理
+            console.log(result.setupIntent);
+        }
+});
 
 
         cardButton.addEventListener('click', async (e) => {

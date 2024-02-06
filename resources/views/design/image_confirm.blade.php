@@ -3,6 +3,7 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/design.css') }}"> <!-- home.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
     <div class="row justify-content-center">
         <div class="col-md-8">

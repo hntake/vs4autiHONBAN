@@ -36,7 +36,7 @@ class AdminForm extends Mailable
         return $this
             ->from('info@itcha50.com')
             ->to('hntake@gmail.com')
-            ->subject('VS4より自動送信メールです')
+            ->subject('IT2Uより自動送信メールです')
             ->view('admin_mail')
             ->with([
                 'email' => $this->email,

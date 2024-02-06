@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\User;
 use App\Models\Lost;
 use App\Models\Design;
+use App\Models\Download;
 use App\Models\Shop;
 use App\Models\Feel;
 use App\Models\Picture;
@@ -142,13 +143,24 @@ class HomeController extends Controller
             $artist->email=$user->email;
             $artist->tel1=$request->tel1;
             $artist->address=$request->address;
-           
               //確認前なので渡すだけ
     /*           $lost->save();
      */
             return view('auth.main.register_check', compact('email_token','artist','user'));
         }
-        else{
+        //バイヤー登録
+        elseif($user->type==8){
+            $new_status=1;
+            $user=User::where('id', '=', Auth::id())
+            ->update([
+                'status'=>$new_status,
+            ]);          
+            $user=Auth::user();
+            $type=$user->type;
+            $downloads=Download::where('user_id','=',$user->id)->orderBy('created_at','asc')->get();
+            return view('my_page',compact('type','downloads','user'));
+        //マイりく
+        }else{
             $new_status=1;
             $user=User::where('id', '=', Auth::id())
             ->update([
@@ -292,7 +304,6 @@ class HomeController extends Controller
             $artist->tel1=$request->tel1;
             $artist->address=$request->address;
             $artist->save();
-           
         }
         return view('auth.main.registered', compact('user'));
 
@@ -390,6 +401,11 @@ class HomeController extends Controller
                 $picture=Picture::where('uuid','=',$lost->uuid)->first();
                 return view('my_page',compact('type','lost','user','picture'));
             }
+            elseif($type==8){
+                $downloads=Download::where('email','=',$user->email)->get();
+                return view('my_page',compact('user','type','downloads'));
+
+            }    
             else{
                 return view('my_page',compact('user','type'));
             }

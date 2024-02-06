@@ -40,10 +40,10 @@ class DownloadUnMail extends Mailable
         return  $this
         ->from('info@itcha50.com')
         ->subject('ダウンドードが完了しました')
-        ->view('emails.download')
+        ->view('emails.download_un')
         ->with([
             'total' => $this->total,
-            
+            'email' => $this->email,
             ])
             // 一時的なファイルを添付
         ->attach($tempFilePath, [
@@ -72,7 +72,7 @@ class DownloadUnMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.download',
+            view: 'emails.download_un',
         );
     }
 

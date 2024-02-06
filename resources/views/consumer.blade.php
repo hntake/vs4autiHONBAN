@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/policy.css') }}"> <!-- word.cssと連携 -->
 
-    <title>特定商取引 ”VS4視覚支援ツール”</title>
+    <title>特定商取引 ”IT2U視覚支援ツール”</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
                 </p>
 
                 <div class="back">
-                    <button class="btn btn-primary" id="card-button"><a href="{{ url('/') }}">VS4トップページに戻る</a></button>
+                    <button class="btn btn-primary" id="card-button"><a href="{{ url('/') }}">IT2Uトップページに戻る</a></button>
                 </div>
             </div>
         </div>

@@ -517,10 +517,6 @@ Route::get('design/poster', [App\Http\Controllers\DesignController::class, 'post
 //障がい者アートTOP
 Route::get('design/list', [App\Http\Controllers\DesignController::class, 'list'])->name('design_list');
 
-//登録ページ
-Route::get('design/register', [App\Http\Controllers\DesignController::class, 'register'])->name('design_register');
-Route::post('design/register', [App\Http\Controllers\DesignController::class, 'registered'])->name('design_registered');
-
 //プロフィール画像編集ページへ
 Route::get('design/edit_image', [App\Http\Controllers\DesignController::class, 'image'])->name('edit_image');
 Route::post('design/edit_image', [App\Http\Controllers\DesignController::class, 'update_image'])->name('update_image');
@@ -535,14 +531,27 @@ Route::post('design/post', [App\Http\Controllers\DesignController::class, 'poste
 Route::get('design/confirm', [App\Http\Controllers\DesignController::class, 'confirm'])->name('design_confirm');
 Route::post('design/confirm/{id}', [App\Http\Controllers\DesignController::class, 'upload'])->name('design_upload');
 
-//画像ダウンロードページ
-Route::get('design/list/{id}', [App\Http\Controllers\DesignController::class, 'to_download'])->name('design_download');
-Route::post('design/list/{id}', [App\Http\Controllers\DesignController::class, 'download'])->name('design_downloaded');
+Route::get('design/list/{id}', [App\Http\Controllers\DesignController::class, 'select_download'])->name('design_select');
+
+//画像ダウンロード準備ページ
+Route::get('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'to_download'])->name('design_download');
+Route::post('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'download'])->name('design_downloaded');
+//画像ダウンロード実行ページ
+Route::post('design/execute', [App\Http\Controllers\DesignController::class, 'executeDownload'])->name('executeDownload');
+//画像個々ダウンロードページ
+Route::get('design/download_each/{id}', [App\Http\Controllers\DesignController::class, 'to_download_each'])->name('design_download_each');
+Route::post('design/download_each/{id}', [App\Http\Controllers\DesignController::class, 'download_each'])->name('design_downloaded_each');
 //カートに入れる
-Route::post('design/download/{id}', [App\Http\Controllers\StripeController::class, 'design_cart'])->name('design_cart');
+Route::post('design/to_cart/{id}', [App\Http\Controllers\StripeController::class, 'design_cart'])->name('design_cart');
 //カートページ
 Route::get('design/cart', [App\Http\Controllers\StripeController::class, 'index_cart'])->name('index_cart');
 Route::post('design/cart', [App\Http\Controllers\StripeController::class, 'post_cart'])->name('post_cart');
+//支払い方法追加
+Route::get('design/add_payment', [App\Http\Controllers\StripeController::class, 'add_index'])->name('add_payment');
+Route::post('design/add_payment', [App\Http\Controllers\StripeController::class, 'add_payment'])->name('post_add_payment');
+//支払い方法追加(ダウンロードから)
+Route::get('design/add_payment_once', [App\Http\Controllers\StripeController::class, 'add_index_once'])->name('add_payment_once');
+Route::post('design/add_payment_once', [App\Http\Controllers\StripeController::class, 'add_payment_once'])->name('post_add_payment_once');
 //非ユーザーのカートでの支払い
 Route::get('design/cart_un', [App\Http\Controllers\StripeController::class, 'index_cart_un'])->name('index_cart_un');
 Route::post('design/cart_un/{id}', [App\Http\Controllers\StripeController::class, 'post_cart_un'])->name('post_cart_un');
@@ -569,6 +578,8 @@ Route::post('design/delete/{id}', [App\Http\Controllers\DesignController::class,
 
 //アーティストページ
 Route::get('design/artist/{id}', [App\Http\Controllers\DesignController::class, 'artist'])->name('design_artist');
+//アーティストリストページ
+Route::get('design/artist_list', [App\Http\Controllers\DesignController::class, 'artist_list'])->name('design_artist_list');
 //送金申込
 Route::get('design/pay', [App\Http\Controllers\DesignController::class, 'design_pay'])->name('design_pay');
 Route::post('design/pay', [App\Http\Controllers\DesignController::class, 'design_order'])->name('design_order');
@@ -577,14 +588,18 @@ Route::get('design/paid', [App\Http\Controllers\DesignController::class, 'paid']
 //バイヤー登録
 Route::get('design/register', [App\Http\Controllers\DesignController::class, 'register'])->name('buyer_register');
 Route::post('design/register', [App\Http\Controllers\DesignController::class, 'registered'])->name('registered');
-//バイヤーログイン
-Route::get('design/login', [App\Http\Controllers\DesignController::class, 'login'])->name('buyer_login');
-Route::post('design/login', [App\Http\Controllers\DesignController::class, 'log'])->name('buyer_log');
+//ダウンロードページからのログイン
+Route::get('design/login/{id}', [App\Http\Controllers\Auth\LoginController::class, 'log'])->name('buyer_login');
+
 //支払失敗
 Route::get('design/fail', function () {
-    return view('design.failed')->name('payment.failed');
-});
+    return view('design/failed');
+})->name('design.fail');
 //ダウンロード完了
 Route::get('design/complete', function () {
-    return view('design.complete')->name('download.complete');
+    return view('design/complete');
+});
+//ダウンロード失敗
+Route::get('design/error', function () {
+    return view('design/error');
 });

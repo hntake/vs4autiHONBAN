@@ -22,10 +22,10 @@ class DownloadMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user,$total, $pdf)
+    public function __construct($user,$total, $pdf,$email)
     {
         $this->total = $total;
-        $this->email = $user['email'];
+        $this->email = $email;
         $this->pdf = $pdf;
 
     }
@@ -48,7 +48,7 @@ class DownloadMail extends Mailable
         ->view('emails.download')
         ->with([
             'total' => $this->total,
-            
+            'email' => $this->email,
             ])
             // 一時的なファイルを添付
         ->attach($tempFilePath, [

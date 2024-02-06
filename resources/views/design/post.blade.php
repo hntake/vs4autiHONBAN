@@ -24,6 +24,8 @@
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
      crossorigin="anonymous"></script>
 </head>
@@ -66,6 +68,9 @@
                             </div>
                         </div>  
                         <input type="file" name="image" id="image" class="form-control">
+                        <!-- コピーライセンスの表示方法選択 -->
+                        <input type="checkbox" id="checkbox" name="checkbox" value="1">
+                        <label for="checkbox">コピーライセンスを画像に表記する</label><br>
                         <div class="create-button">
                             <div class="button">
                                 <button type="submit">
@@ -73,18 +78,23 @@
                                 </button>
                             </div>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
     </form>
-                       
 
                         </tr>
                     </table>
                 </div>
         </div>
-       
     </section>
-  
     <section>
-       
     </section>
     
     <section>

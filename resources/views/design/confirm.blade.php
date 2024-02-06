@@ -18,6 +18,10 @@
                     </tr>
                     <th >金額</th>
                         <td><input type="text" name="price" value="{{ $design_price}}" class="form-control"></td>
+                    @if(isset($isChecked))
+                    <th >コピーライトを表記する</th>
+                        <td><input type="checkbox" id="checkbox" name="checkbox" value="1" checked></td>
+                    @endif
                     </tr>
                         <p>こちらのイメージで宜しいですか？</p>
                         <div class="">

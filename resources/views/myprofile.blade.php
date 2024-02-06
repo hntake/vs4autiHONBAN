@@ -1,5 +1,5 @@
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-<title>AboutME VS4視覚支援ツール”</title>
+<title>AboutME IT2U”</title>
 
 <body style="background-image: url(../img/grad.jpg); position: relative;">
     <div class="aboutus">

@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             ['category' => 'エイゴメ'],
-            ['category' => 'VS4'],
+            ['category' => 'IT2U'],
             ['category' => 'etc'],
             ['category' => 'サービス'],
             ['category' => 'メンテナンス'],

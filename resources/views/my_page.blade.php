@@ -7,10 +7,11 @@
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}"> <!-- schedule.cssと連携 -->
 
 <div class="container">
-    <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
-    <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
 <!--     両方申込んでいる -->
     @if($type==3)
+    <a href="{{url('/')}}" class=""><img src="{{ asset('img/vs4auti2.png') }}" style="width:30%; height:auto;"></a>
+    <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
+
             <a href="{{ url('dashboard') }}">
                 <h3>保存リストへ</h3>
             </a>
@@ -369,6 +370,9 @@
                 </div>
                 <!--     VS4だけ申込んでいる -->
                 @elseif($type==0)
+                <a href="{{url('/')}}" class=""><img src="{{ asset('img/vs4auti2.png') }}" style="width:30%; height:auto;"></a>
+                <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
+
                 <a href="{{ url('dashboard') }}">
                 <h3>保存リストへ</h3>
                 </a>
@@ -395,6 +399,9 @@
                         </div>
             <!--     お守りバッジだけ申込んでいる -->
             @elseif($type==1 )
+            <a href="{{url('/')}}" class=""><img src="{{ asset('img/vs4auti2.png') }}" style="width:30%; height:auto;"></a>
+            <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
+
                 <div class="card-header">登録情報</div>
                 @if($lost->mode==0)
                 <div class="pro_button"><a href="{{ route('suspend') }}">サービスを一時停止する（個人情報対策）</a></div>
@@ -715,7 +722,54 @@
                         </div>
                             @endif
                     </div>
-                    @endif
+            <!--     バイヤー -->
+            @elseif($type==8)
+            <div class="card-body">
+            <button class="button"><a href="{{ url('/design/list') }}">障がいアートトップページに戻る</a></button>
+                <div class="">
+                    <p>購入履歴</p>
+                    @foreach($downloads as $download)
+                    <div class="card-body" style="text-align:start;">
+                        <th >作品名</th>
+                            <tr>
+                                <td>{{ $download->name}}</td>
+                            </tr>
+                        <th >金額</th>
+                            <tr>
+                                <td>{{ $download->price}}</td>
+                            </tr>
+                
+                        <div class="">
+                                <img src="{{ asset('storage/' . $download->Design->image) }}" alt="image" >
+                            </div>
+                        </div>
+                        <div class="">
+                            @if($download->download_status==0)
+                            未ダウンロード
+                            <form method="POST" action="{{ route('design_downloaded_each',['id'=> $download->id]) }}">
+                                <button type="submit">
+                                    <i class="fa fa-plus"></i> ダウンロードする
+                                </button>
+                            </form>
+                            @else
+                            ダウンロード済
+                            @if($download->created_at >= now()->subMonths(3))
+                            <form method="POST" action="{{ route('design_downloaded_each',['id'=> $download->id]) }}">
+                                <button type="submit">
+                                    <i class="fa fa-plus"></i> ダウンロードする
+                                </button>
+                            </form>
+                            @endif
+                            @endif
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>    
+            </div>
+            @else
+            <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
+            @endif
                     <div class="pro_button"><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a></div>
                     <div class="pro_button"><a href="{{ route('password') }}">パスワード変更画面へ</a></div>
                     <div class="pro_button"><a href="{{ url('delete') }}">登録削除画面へ</a></div>
