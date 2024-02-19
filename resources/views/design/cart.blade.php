@@ -3,6 +3,8 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
 <title>支払い申込画面(リピーター)</title>
 
 
@@ -42,19 +44,23 @@
                 <label for="price">合計金額  {{$total}}円</label>
                 <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
                 <input type="text" class="form-control" id="card-holder-name" name="name" required>
-                    <select name="paymentMethod" id="paymentMethod">
-                            <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
-                            @if(isset($filteredPaymentMethods))
-                            @foreach($filteredPaymentMethods as $paymentMethod)
-                            <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
-                            @endforeach
-                            @endif
-                    </select>
+                <div class="choice">
+                    <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
+                    <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+                </div>
+                @if(isset($filteredPaymentMethods))
+                @foreach($filteredPaymentMethods as $paymentMethod)
+                <div class="choice">
+                    <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
+                    <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+                </div>
+        @endforeach
+        @endif
                     <div class="add"> 
                         <button class="btn btn-primary"><a href="{{ route('add_payment') }}">別の支払いを追加</a></button>
                     </div>
 
-        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">送信する</button>
+        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
         <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
         お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
 

@@ -426,8 +426,7 @@
                                     <div class="col-md-6">
                                         <input id="name_pronunciation" type="text"
                                             class="form-control{{ $errors->has('name_pronunciation') ? ' is-invalid' : '' }}"
-                                            name="name_pronunciation" value="{{ old('name_pronunciation') }}"
-                                            >
+                                            name="name_pronunciation" value="{{ old('name_pronunciation') }}"required>
 
                                         @if ($errors->has('name_pronunciation'))
                                             <span class="invalid-feedback">
@@ -437,26 +436,45 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="artist_name"
-                                        class="col-md-4 col-form-label text-md-right">アーティスト名</label>
+                                    <label for="disability"
+                                        class="col-md-4 col-form-label">障がいの種類 ※必須</label>
 
                                     <div class="col-md-6">
-                                        <input id="artist_name" type="text"
-                                            class="form-control{{ $errors->has('artist_name') ? ' is-invalid' : '' }}"
-                                            name="artist_name" value="{{ old('artist_name') }}"
-                                            >
+                                        <input id="disability" type="text"
+                                            class="form-control{{ $errors->has('disability') ? ' is-invalid' : '' }}"
+                                            name="disability" value="{{ old('disability') }}"required>
+
+                                        @if ($errors->has('disability'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('disability') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label for="artist_name"
+                                        class="col-md-4 col-form-label" >アーティスト名 ※必須</label>
+                                    <p>(<span style="color:red;">著作権表記</span>に使用します。本名を利用される場合は本名を記入して下さい)</p>
+                                    <div class="col-md-6">
+                                        <input id="artist_name" type="text"
+                                            class="form-control{{ $errors->has('artist_name') ? ' is-invalid' : '' }}"
+                                            name="artist_name" value="{{ old('artist_name') }}"required>
+                                    </div>
+                                    @if ($errors->has('artist_name'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('artist_name') }}</strong>
+                                            </span>
+                                        @endif
+                                </div>
+                                <!-- <div class="form-group row">
                                     <label for="tel1"
-                                        class="col-md-4 col-form-label text-md-right">電話番号 ※必須 ハイフン無しで入力 TEL①</label>
+                                        class="col-md-4 col-form-label text-md-right">電話番号 ※必須 ハイフン無しで入力 TEL</label>
 
 
                                     <div class="col-md-6">
                                         <input id="tel1" type="text"
                                             class="form-control{{ $errors->has('tel1') ? ' is-invalid' : '' }}"
-                                            name="tel1" value="{{ old('tel1') }}"
-                                            required>
+                                            name="tel1" value="{{ old('tel1') }}"required>
 
                                         @if ($errors->has('tel1'))
                                             <span class="invalid-feedback">
@@ -464,8 +482,8 @@
                                             </span>
                                         @endif
                                     </div>
-                                </div>
-                                <div class="form-group row">
+                                </div> -->
+                                <!-- <div class="form-group row">
                                     <label for="address"
                                         class="col-md-4 col-form-label text-md-right">住所</label>
 
@@ -475,8 +493,7 @@
                                         <p>住所:
                                         <input id="address" type="text"
                                             class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                            name="address" value="{{ old('address') }}"
-                                            >
+                                            name="address" value="{{ old('address') }}">
 
                                         @if ($errors->has('address'))
                                             <span class="invalid-feedback">
@@ -484,7 +501,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

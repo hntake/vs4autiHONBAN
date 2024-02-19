@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('downloads', function (Blueprint $table) {
-            $table->string('email')->nullable();
+        Schema::create('genres', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('genre')->index();
+
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('downloads', function (Blueprint $table) {
-            $table->dropColumn('email');
-        });
+        Schema::dropIfExists('genres');
     }
 };

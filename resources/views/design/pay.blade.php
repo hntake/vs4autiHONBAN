@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
     <meta name="twitter:image" content="https://itcha50.com/img/design_poster.png">
 
-    <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">

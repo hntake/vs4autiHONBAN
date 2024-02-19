@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
     <meta name="twitter:image" content="https://itcha50.com/img/design_poster.png">
 
-    <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
@@ -32,28 +32,29 @@
 <body>
 
     <header>
-        <h1>障がい者アーティストページ｜プロフィール画像編集ページ</h1>
+        <h1>障がい者アーティスト <br>プロフィール画像編集ページ</h1>
     </header>
-
-    <div class="my_image">
-            プロフィール画像
-            @if(isset($image))
-            <img src="{{asset('storage/' . $image)}}">
-            @else
-            <img src="{{asset('img/icon_man.png')}}">
-            @endif
-    </div>
-    <form method="POST" action="{{ route('update_image') }}" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <input type="file" name="image" id="image" class="form-control">
-                <div class="create-button">
-                    <div class="button">
-                        <button type="submit">
-                            <i class="fa fa-plus"></i> 送信する
-                        </button>
+    <section class="profile">
+        <div class="my_image">
+                @if(isset($image))
+                <img src="{{asset('storage/' . $image)}}">
+                @else
+                <img src="{{asset('img/icon_man.png')}}">
+                @endif
+        </div>
+    </section>
+    <section>
+        <form method="POST" action="{{ route('update_image') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="file" name="image" id="image" class="form-control">
+                    <div class="create-button">
+                        <div class="button">
+                            <button type="submit">
+                                <i class="fa fa-plus"></i> 送信する
+                            </button>
+                        </div>
                     </div>
-                </div>
-    </form>
-                <button style="width:40%;"><a href="{{ url('/design/my_sheet') }}">プロフィール画像登録・変更をやめる</a></button>
-   
+        </form>
+        <button><a href="{{ url('/design/my_sheet') }}">プロフィール画像登録・変更をやめる</a></button>
+    </section>
 </body>

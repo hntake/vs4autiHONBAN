@@ -55,7 +55,7 @@
                                 マイリク my_request<input id="type" type="radio" name="type" value="2"><br>
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                                障がいアート登録<input id="type" type="radio" name="type" value="10"><br>
+                                障がい者アーティスト登録<input id="type" type="radio" name="type" value="10"><br>
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
                                 障がいアートバイヤー登録<input id="type" type="radio" name="type" value="8"><br>

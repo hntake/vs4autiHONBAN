@@ -1,6 +1,219 @@
 .py-4{
     display:block;
 }
+header{
+    margin-bottom: 16px;
+}
+.card{
+    text-align: center;
+    background: beige;
+    border-radius: 10%;
+}
+table, th, td, tr {
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.artist-body table, th, td, tr{
+    /* border-style: none; */
+}
+.card-header table {
+    width: 100%; /* もしくは適切な幅を設定 */
+    border-style: none;
+
+}
+.card-header tbody {
+    display:flex;
+    flex-wrap: wrap;
+}
+.card-header td {
+    border: 1px solid #ccc;
+    width:250px;
+    height:250px;
+}
+
+.card-header tr {
+    width:250px;
+    height:250px;
+    margin:24px 0;
+}
+.card-header img {
+    max-width: 100%; /* 画像が親要素の幅を超えないようにする */
+    height: auto;
+}
+.list img {
+    width:auto;
+    height:200px;
+}
+.card img{
+    width:auto;
+    height:200px;
+}
+.free-mark {
+    position: relative; /* 相対位置指定 */
+}
+
+.free-icon {
+    position: absolute; /* 絶対位置指定 */
+}
+.free-icon img{
+    width:100px;
+    height:auto;
+}
+.my_image{
+    width: 200px; /* 画像の幅 */
+    height: 200px; /* 画像の高さ */
+    border-radius: 50%; /* 50%のborder-radiusを設定して円形にする */
+    overflow: hidden; /* 余分な部分を切り取る */                 
+}
+.my_image img{
+    width: 200px; /* 画像を親要素にフィットさせる */
+    height: 200px; /* 高さを自動調整 */
+}
+.profile{
+    display:flex;
+    justify-content: center;
+    padding:16px;
+    background-color: rgb(238, 235, 235);
+    margin:8px auto;
+    border-radius: 2%;
+    width:70%;
+}
+h2{
+    text-align: center;
+}
+.pro_button{
+    text-align: center;
+}
+.download_list table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #ccc;
+}
+.download_list th, .download_list td {
+    border: 1px solid #ccc;
+    text-align: left;
+
+}
+
+.download_list th, .download_list td {
+    padding: 8px; /* セルの余白を調整する場合 */
+}
+
+.download_list{
+    text-align: left;
+}
+.dl_sp{
+    display:none;
+}
+.category{
+    display: flex;
+    justify-content: center;
+}
+.confirm{
+    margin-top: 16px;
+}
+.copy{
+    justify-content: center;
+    margin-top: 16px;
+}
+input#checkbox{
+    width:10%;
+}
+.header_nav{
+    list-style: none;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+}
+.horizontal-table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.horizontal-table th, .horizontal-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* 横並びにするための追加スタイル */
+.horizontal-table thead th, .horizontal-table tbody td {
+    /* display: inline-block; */
+    width: 25%; /* 4つの列なので、25%ずつの幅を指定 */
+}
+label{
+    font-weight: bold;
+}
+.racoon img{
+    width:5%;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 他の要素よりも前面に表示 */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.popup-content p{
+    font-weight: bold;
+}
+.dropdown-menu {
+    background-color: white; /* 例: 白色 */
+}
+/* クリック時の背景色 */
+.dropdown-menu.active {
+    background-color: lightblue; /* 例: 水色 */
+}
+ul{
+    list-style: none;
+}
+.pagination ul{
+    display: flex;
+    justify-content: center;
+}
+.mine{
+    display: flex;
+    flex-direction: column;
+}
+.artist-body{
+    display: contents;
+}
+a{
+    text-decoration: none;
+    color:rgb(66, 124, 233);
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+section {
+    text-align: left;
+    width: 70%;
+    margin: 0 auto;
+}
+footer {
+    text-align: center;
+}
+header{
+    text-align: center;
+    width:70%;
+    margin:0 auto;
+}
 @media screen and (max-width: 844px){
     h3{
         font-size: 20px;
@@ -11,4 +224,71 @@
     img{
         width:70%;
     }
+    .card-header tbody {
+        display:block;
+    }
+}
+    @media (max-width: 480px) {
+        .card-header tbody {
+            display: block;
+        }
+        .artist-body table, th, td, tr{
+            border-style: none; 
+        }
+        table{
+        width: 100%;
+        border-style: none;
+
+        }
+        table th,
+        table td{
+        display: block;
+        }
+        table th,
+        table td{
+        border-top: none;    
+        }
+        table, th, td, tr {
+        text-align:center;
+        /* border-style: none;  */
+        }
+        table tr:first-child th{
+        /* border-top: 1px solid #999; */
+        }
+        .detail{
+            display: none;
+        }
+        h1{
+            overflow-wrap:  break-word;
+        }
+        h2{
+            text-align: left;
+            padding:0 24px;
+        }
+        .dl_web{
+            display: none;
+        }
+        .dl_sp{
+            display: block;
+        }
+        .horizontal-table {
+            width: 100%;
+        }
+        .horizontal-table thead th, .horizontal-table tbody td {
+            display: inline-block; 
+        }
+        .horizontal-table th, .horizontal-table td {
+            border-style: none;         
+            text-align: center;
+            padding: 8px;
+        }
+        .card{
+            text-align: left;
+        }
+        .racoon img{
+            width:20%;
+        }
+        .artist-body{
+            display: block;
+        }
 }

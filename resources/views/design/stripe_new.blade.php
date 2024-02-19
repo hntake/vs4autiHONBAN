@@ -1,6 +1,8 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
 <title>支払い申込(初回)画面 </title>
 
 
@@ -32,7 +34,7 @@
     <form action="{{route('design_stripe.post',['id'=> $design->id])}}" method="post" id="payment-form">
         @csrf
         <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
-        <td>{{ $design->name }}</td>
+        <td>作品名:{{ $design->name }}</td><br>
         <label for="exampleInputEmail1">カード名義人(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
         <input type="text" class="form-control" id="card-holder-name" name="name" required>
         @error('name')
@@ -40,12 +42,12 @@
             <strong>{{ $message }}</strong>
         </span>
         @enderror
-        <label for="price">{{ $design->price }}円</label>
+        <label for="price">¥{{ $design->price }}</label>
         <label for="exampleInputPassword1"></label>
         <div class="form-group MyCardElement " id="card-element"></div>
 
         <div id="card-errors" role="alert" style='color:red'></div>
-        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">送信する</button>
+        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
 
         <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
         お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>

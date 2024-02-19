@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
     <meta name="twitter:image" content="https://itcha50.com/img/design_poster.png">
 
-    <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
@@ -55,7 +55,7 @@
                             </div>
                     </div>
                     <div class="r-box">
-                            <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('金額 ※必須') }}</label>
+                            <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('金額 ※必須 半角数字') }}</label>
 
                             <div>
                                 <input id="price" type="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
@@ -66,11 +66,26 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>  
+                    </div>  
+                    <div class="r-box">
+                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('カテゴリ ※必須・複数可・最大三個まで') }}</label>
+                                <br>
+                                @foreach ($genres as $genre)
+                                <input type="checkbox" name="genre[]" value="{{ $genre->id }}" >
+                                {{ $genre->genre }} 
+                                @endforeach
+                                @error('genre')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                    </div> 
+                    <div class="copy">
                         <input type="file" name="image" id="image" class="form-control">
                         <!-- コピーライセンスの表示方法選択 -->
                         <input type="checkbox" id="checkbox" name="checkbox" value="1">
                         <label for="checkbox">コピーライセンスを画像に表記する</label><br>
+                    </div>
                         <div class="create-button">
                             <div class="button">
                                 <button type="submit">
@@ -112,4 +127,24 @@
     </footer>
 
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][name="genre[]"]');
+        let checkedCount = 0;
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    checkedCount++;
+                } else {
+                    checkedCount--;
+                }
+                if (checkedCount > 3) {
+                    alert('最大3つまで選択できます');
+                    this.checked = false;
+                    checkedCount--;
+                }
+            });
+        });
+    });
+</script>
 </html>

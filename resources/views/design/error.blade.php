@@ -1,6 +1,8 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
 <title>ダウンロード失敗画面 </title>
 
 

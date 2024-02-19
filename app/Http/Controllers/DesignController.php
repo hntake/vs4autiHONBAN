@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Artist;
 use App\Models\Design;
 use App\Models\Download;
+use App\Models\Genre;
 use App\Mail\Pay;
 use Intervention\Image\Facades\Image;
 use File;
@@ -32,14 +33,14 @@ class DesignController extends Controller
     public function list(){
         if (Auth::user()) {
         $user=Auth::user();
-        $designs=Design::orderBy('id', 'asc')->paginate(50);
+        $designs=Design::orderBy('id', 'asc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'user'=>$user,
         ]);
     }else{
         $tempCart = Session::get('tempCart', []);
-        $designs=Design::orderBy('id', 'asc')->paginate(50);
+        $designs=Design::orderBy('id', 'asc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
@@ -118,35 +119,72 @@ class DesignController extends Controller
 
     //アーティストページ（閲覧用）
     public function artist(Request $request,$id){
+        $user=Auth::user();
         $artist=Artist::find($id);
         $designs=Design::where('email','=',$artist->email)->orderBy('id', 'desc')->paginate(10);
         return view('design/artist',[
             'artist'=>$artist,
-            'designs'=>$designs
+            'designs'=>$designs,
+            'user'=>$user
         ]);
     }
       //アーティストリストページ（閲覧用）
     public function artist_list(){
-        $artists=Artist::orderBy('id', 'asc')->paginate(50);
+        $artists=Artist::orderBy('id', 'asc')->paginate(10);
         return view('design/artist_list',[
             'artists'=>$artists,
         ]);
     }
     //作品登録ページへ
     public function post(){
-        return view('design/post');
+
+        $genres= Genre::all();
+        return view('design/post', compact('genres'));
     }
     //作品ポスト
     public function posted(Request $request){
         $user=Auth::user();
-        $design_name=$request->name;
-        $design_price=$request->price;
+
         $validate = $request->validate(
             [
                 'image' => 'required|file|image:jpeg,png,jpg|max:500000',
+                'genre' => 'required',
             ],
             [
                 'image' => '画像を選んでください',
+                'genre' => 'カテゴリを選んでください',
+
+                ]
+        );
+        $design_name=$request->name;
+        $design_price=$request->price;
+        $design_genre=$request->genre[0];
+        if(isset($request->genre[1])) {
+            $design_genre1=$request->genre[1];
+            $genreName2 = Genre::find($design_genre1)->genre;
+        }else{
+            $design_genre1=0;
+            $genreName2=null;
+        }
+        if(isset($request->genre[2])) {
+            $design_genre2=$request->genre[2];
+            $genreName3 = Genre::find($design_genre2)->genre;
+
+        }else{
+            $design_genre2=0;
+            $genreName3=null;
+
+        }
+        $genreName1 = Genre::find($design_genre)->genre;
+
+        $validate = $request->validate(
+            [
+                'image' => 'required|file|image:jpeg,png,jpg|max:500000',
+                'genre' => 'required',
+            ],
+            [
+                'image' => '画像を選んでください',
+                'genre' => 'カテゴリを選んでください',
 
                 ]
         );
@@ -200,18 +238,19 @@ class DesignController extends Controller
         $isChecked = $request->input('checkbox');
 
 
-
         return view('design/confirm',[
             'design_name'=>$design_name,
             'design_price'=>$design_price,
+            'design_genre'=>$design_genre,
+            'design_genre1'=>$design_genre1,
+            'design_genre2'=>$design_genre2,
+            'genreName1'=>$genreName1,
+            'genreName2'=>$genreName2,
+            'genreName3'=>$genreName3,
             'new_image'=>$new_image,
             'isChecked'=>$isChecked,
         ]);
 
-    }
-    //作品ポスト完了
-    public function confirm($design_name,$design_price,$new_image){
-        return view('design/confirm');
     }
 
      //作品登録ページへ
@@ -223,6 +262,9 @@ class DesignController extends Controller
         $design->image=$new_image;
         $design->name=$request->name;
         $design->price=$request->price;
+        $design->genre1=$request->genre1;
+        $design->genre2=$request->genre2;
+        $design->genre3=$request->genre3;
         $design->artist_name=Artist::where('email','=',$user->email)->value('artist_name');
         $design->artist_id=Artist::where('email','=',$user->email)->value('id');
 
@@ -298,6 +340,10 @@ class DesignController extends Controller
 
 
         $artist=Artist::where('email','=',$user->email)->first();
+        //登録したのでデザイン数が増える
+        $artist->update([
+            'design' => $artist->design + 1,
+        ]);
         $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
         $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->get();
@@ -317,6 +363,10 @@ class DesignController extends Controller
     $user=Auth::user();
     $design=Design::where('id','=',$id)->delete();
     $artist=Artist::where('email','=',$user->email)->first();
+    //削除したのでデザイン数が減る
+    $artist->update([
+        'design' => $artist->design - 1,
+    ]);
     $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
     $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
     $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->get();
@@ -369,7 +419,6 @@ class DesignController extends Controller
     {
         $user=Auth::user();
         $design=Design::where('id','=',$id)->first();
-
         if ($user) {
 
             return view('design/download',[
@@ -403,6 +452,50 @@ class DesignController extends Controller
 
             ]);
             }
+    }
+    //無料画像の場合ダウンロードページへ
+    public function to_download_free($id)
+    {
+        $user=Auth::user();
+        $design=Design::where('id','=',$id)->first();
+
+        if ($user) {
+        $download=new Download();
+        $download->artist_id=$design->artist_id;
+        $download->design_id=$design->id;
+        $download->user_id=$user->id;
+        $download->price=$design->price;
+        $download->designName=$design->name;
+        $download->name=null;
+        $download->payment_status=1;
+        $download->email=$user->email;
+        $download->save();
+        $artist=Artist::where('id','=',$download->artist_id)->value('artist_name');
+
+        return view('design/download_each',[
+            'download'=>$download,
+            'artist'=>$artist,
+        ]);
+
+        }else{
+        $download=new Download();
+        $download->artist_id=$design->artist_id;
+        $download->design_id=$design->id;
+        $download->user_id=null;
+        $download->price=$design->price;
+        $download->designName=$design->name;
+        $download->name=null;
+        $download->payment_status=1;
+        $download->email=null;
+        $download->save();
+        $artist=Artist::where('id','=',$download->artist_id)->value('artist_name');
+
+
+        return view('design/download_each',[
+            'download'=>$download,
+            'artist'=>$artist,
+        ]);
+        }
     }
     //ダウンロードポスト
     public function download($id)
@@ -489,5 +582,96 @@ public function executeDownload()
             }      
 
         return redirect('design/to_download')->with('success','ダウンロード完了しました');
+    }
+    //検索
+    public function search(Request $request)
+    {
+        $user=Auth::user();
+
+        $keyword = $request->input('keyword');
+        $query = Design::query();
+        
+        if(!empty($keyword)) {
+            $query->where(function($query) use ($keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%")
+                    ->orWhere('name_en', 'LIKE', "%{$keyword}%")
+                    ->orWhereHas('Genre1', function($query) use ($keyword) {
+                        $query->where('genre', 'LIKE', "%{$keyword}%");
+                    })->orWhereHas('Genre2', function($query) use ($keyword) {
+                        $query->where('genre', 'LIKE', "%{$keyword}%");
+                    })->orWhereHas('Genre3', function($query) use ($keyword) {
+                        $query->where('genre', 'LIKE', "%{$keyword}%");
+                    });
+            });
+            
+
+        }
+    
+
+        $designs = $query->paginate(10);
+        return view('design/list', compact('designs', 'keyword','user'));
+    }
+
+    //アーティスト検索
+    public function artist_search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        $query = Artist::query();
+        
+        if(!empty($keyword)) {
+            $query->where(function($query) use ($keyword) {
+                $query->where('artist_name', 'LIKE', "%{$keyword}%");
+                    
+            } );
+        };
+        $artists = $query->paginate(10);
+        return view('design/artist_list', compact('artists', 'keyword'));
+    }
+    /*リスト並び替え機能*/
+    public function list_sort(Request $request)
+    {
+        $user=Auth::user();
+
+        $select = $request->narabi;
+
+    if ($select == 'asc') {
+        $sorts=Design::orderBy('created_at', 'asc'); // 2. 条件に基づいて並べ替え
+    } elseif ($select == 'desc') {
+        $sorts=Design::orderBy('created_at', 'desc');
+    } elseif ($select == 'up') {
+        $sorts=Design::orderBy('downloaded', 'desc');
+    } elseif ($select == 'down') {
+        $sorts=Design::orderBy('price', 'desc');
+    } else {
+        $sorts=Design::orderBy('downloaded', 'asc');
+    }
+
+    $designs = $sorts->paginate(10); // ページネーションを適切な数に調整
+    return view('design/list', compact('designs','user','select'));
+    }
+
+    /*並び替え機能*/
+    public function sort(Request $request,$id)
+    {
+        $user=Auth::user();
+        $artist=Artist::find($id);
+
+        $sorts = Design::where('artist_id', $id); // 1. クエリビルダーを初期化
+
+        $select = $request->narabi;
+
+    if ($select == 'asc') {
+        $sorts->orderBy('created_at', 'asc'); // 2. 条件に基づいて並べ替え
+    } elseif ($select == 'desc') {
+        $sorts->orderBy('created_at', 'desc');
+    } elseif ($select == 'up') {
+        $sorts->orderBy('downloaded', 'desc');
+    } elseif ($select == 'down') {
+        $sorts->orderBy('price', 'desc');
+    } else {
+        $sorts->orderBy('downloaded', 'asc');
+    }
+    $designs = $sorts->paginate(10); // ページネーションを適切な数に調整
+    return view('design/artist', compact('designs','user','artist','select'));
     }
 }

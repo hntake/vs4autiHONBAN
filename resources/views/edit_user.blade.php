@@ -10,7 +10,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            @if($user->type <= 5)    
             <a href="{{url('/')}}" class="">トップページに戻る</a>
+            @else
+            <a href="{{ route('design_my_sheet') }}">マイページに戻る</a>
+            @endif
             <form method="POST" action="{{route('update_user',['id'=> $user->id])}}" enctype="multipart/form-data">
             @csrf
             @method('patch')

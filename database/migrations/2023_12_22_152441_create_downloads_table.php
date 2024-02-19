@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('design_id');
             $table->string('artist_id');
-            $table->string('user_id');
+            $table->string('user_id')->nullable;
             $table->string('payment_status')->default('0');
             $table->timestamps();
         });

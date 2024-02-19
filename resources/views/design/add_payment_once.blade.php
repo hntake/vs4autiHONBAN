@@ -4,6 +4,8 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
 <title>新しい支払い方法の追加画面(一回ダウンロード用)</title>
 
 

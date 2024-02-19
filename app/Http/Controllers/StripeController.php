@@ -61,16 +61,16 @@ class StripeController extends Controller
 
     if ($user) {
         // ログインしている場合
-    //Downloadに新規保存
-    $download=new Download();
-    $download->artist_id=$design->artist_id;
-    $download->design_id=$design->id;
-    $download->user_id=$user->id;
-    $download->price=$design->price;
-    $download->payment_status=1;
-    $download->designName=$design->name;
-    $download->email=$user->email;
-    $download->save();    
+    //Downloadに新規保存は支払い後にするので削除
+    // $download=new Download();
+    // $download->artist_id=$design->artist_id;
+    // $download->design_id=$design->id;
+    // $download->user_id=$user->id;
+    // $download->price=$design->price;
+    // $download->payment_status=1;
+    // $download->designName=$design->name;
+    // $download->email=$user->email;
+    // $download->save();    
 
     $setupIntent = $user->createSetupIntent();
     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -376,7 +376,7 @@ public function post_cart(Request $request)
         //支払が今行われたものでダウンロードがまだ起きていないもの
             $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
             //pdf作成
-            $pdf = \PDF::loadView('design.pdf', compact('total','download'));
+            $pdf = \PDF::loadView('design.pdf', compact('total','downloads'));
             $email = $user->email;
             \Mail::to($user['email'])->send(new DownloadMail($user,$total, $pdf,$email));
 
@@ -588,16 +588,11 @@ public function post_cart_un(Request $request,$id){
             $download->payment_status=1;
             $download->designName=$downloadDetails['designName'];
             $download->email=$request->email;
+            $download->name = $request->name;
             $download->save();    
             }
 
-            $downloads=Download::where('email','=',$request->email)->where('payment_status','=','0')->get();
-            foreach($downloads as $download){
-                //payment_statusの変更0->1
-                $download->payment_status = 1;
-                $download->name = $request->name;
-                $download->save();
-            }
+        
         //支払が今行われたものでダウンロードがまだ起きていないもの
             $downloads=Download::where('email','=',$request->email)->where('payment_status','=','1')->where('download_status','=','0') ->get();
             //pdf作成

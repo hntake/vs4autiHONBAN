@@ -380,6 +380,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="disability" class="col-md-4 col-form-label text-md-right">障がいの種類</label>
+                            <div class="col-md-6">
+                                <span class="">{{$artist->type}}</span>
+                                <input type="hidden" name="disability" value="{{$artist->type}}">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">住所 address</label>
                             <div class="col-md-6">
                                 <span class="">{{$artist->address}}</span>
@@ -392,7 +399,7 @@
                                 <span class="">{{$artist->tel1}}</span>
                                 <input type="hidden" name="tel1" value="{{$artist->tel1}}">
                             </div>
-                        </div>
+                        </div> -->
 
                         </div>
                         <div class="">

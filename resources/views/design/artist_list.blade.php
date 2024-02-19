@@ -20,10 +20,9 @@
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
     <meta name="twitter:image" content="https://itcha50.com/img/design_poster.png">
 
-    <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
-    <link rel="stylesheet" href="{{ asset('css/design.css') }}">
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
@@ -35,28 +34,56 @@
         <h1>障がい者アーティスト一覧</h1>
         <td><a href="{{route('design_list')}}">障がい者アートトップページへ</a></td>
     </header>
-
+    <div>
+            <form action="{{ route('artist_search') }}" method="GET">
+                <input type="text" name="keyword" >
+                <input type="submit" value="検索">
+            </form>
+        </div>
+        @if(isset($keyword))
+        <h2>検索結果</h2>
+        @else
+        @endif
     @foreach ($artists as $artist)
-    <section>
+    <section class="profile">
+        <div class="artist-body">
         <table>
-            <thead>
-                <th>アーティスト名</th>
-                <th>障がいタイプ</th>
-                <th>作品数</th>
-                <th></th>
-            </thead>
-            <td><a href="{{url('design/artist', $artist->id)}}">{{$artist->artist_name}}</a></td>
-            <td>{{$artist->type}}</td>
-            <td>{{$artist->design}}</td>
-            @if(isset($artist->image))
-            <td><img src="{{asset('storage/' . $artist->image)}}"></td>
-            @else
-            <td><img src="{{asset('img/icon_man.png')}}" style="width:30%;"></td>
-            @endif
-        </table>
+                <tr style="display: flex;">
+                    <thead style="flex: 1;">
+                        <th>アーティスト名</th>
+                    </thead>
+                    <tr style="display: flex;">
+                        <td style="flex: 1;"><a href="{{url('design/artist', $artist->id)}}">{{$artist->artist_name}}</a></td>
+                    </tr>
+                    <thead style="flex: 1;">
+                        <th>障がいタイプ</th>
+                    </thead>
+                    <tr style="display: flex;">
+                        <td style="flex: 1;">{{$artist->type}}</td>
+                    </tr>
+                    <thead style="flex: 1;">
+                        <th>作品数</th>
+                    </thead>
+                    <tr style="display: flex;">
+                        <td style="flex: 1;">{{$artist->design}}</td>
+                    </tr>
+                </tr>
+            </table>
+
+                <div class="my_image">
+                    @if(isset($artist->image))
+                    <img src="{{asset('storage/' . $artist->image)}}">
+                    @else
+                    <img src="{{asset('img/icon_man.png')}}">
+                    @endif
+                </div>
+        </div>
     </section>
 
     @endforeach
+    <div class="pagination">
+        {{ $artists->links() }}
+    </div>
     <section>
         <h2>お問い合わせ</h2>
         <p>ご質問やお問い合わせがあれば、以下の連絡先までお気軽にご連絡ください。</p>

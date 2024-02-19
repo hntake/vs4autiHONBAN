@@ -516,7 +516,10 @@ Route::post('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 
 Route::get('design/poster', [App\Http\Controllers\DesignController::class, 'poster'])->name('design_poster');
 //障がい者アートTOP
 Route::get('design/list', [App\Http\Controllers\DesignController::class, 'list'])->name('design_list');
-
+//アート検索
+Route::get('design/search', [App\Http\Controllers\DesignController::class, 'search'])->name('art_search');
+//アーティスト検索
+Route::get('design/artist_search', [App\Http\Controllers\DesignController::class, 'artist_search'])->name('artist_search');
 //プロフィール画像編集ページへ
 Route::get('design/edit_image', [App\Http\Controllers\DesignController::class, 'image'])->name('edit_image');
 Route::post('design/edit_image', [App\Http\Controllers\DesignController::class, 'update_image'])->name('update_image');
@@ -536,6 +539,9 @@ Route::get('design/list/{id}', [App\Http\Controllers\DesignController::class, 's
 //画像ダウンロード準備ページ
 Route::get('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'to_download'])->name('design_download');
 Route::post('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'download'])->name('design_downloaded');
+//無料画像ダウンロード準備ページ
+Route::get('design/to_download_free/{id}', [App\Http\Controllers\DesignController::class, 'to_download_free'])->name('design_download_free');
+
 //画像ダウンロード実行ページ
 Route::post('design/execute', [App\Http\Controllers\DesignController::class, 'executeDownload'])->name('executeDownload');
 //画像個々ダウンロードページ
@@ -591,6 +597,10 @@ Route::post('design/register', [App\Http\Controllers\DesignController::class, 'r
 //ダウンロードページからのログイン
 Route::get('design/login/{id}', [App\Http\Controllers\Auth\LoginController::class, 'log'])->name('buyer_login');
 
+//アーティストページ内並び替え
+Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');
+//リストページ内並び替え
+Route::get('design/sort', [App\Http\Controllers\DesignController::class, 'list_sort'])->name('design_list_sort');
 //支払失敗
 Route::get('design/fail', function () {
     return view('design/failed');

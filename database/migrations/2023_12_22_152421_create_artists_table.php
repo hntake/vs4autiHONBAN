@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name'); 
             $table->string('artist_name')->unique();
             $table->string('email')->charset("utf8");
-            $table->string('tel1');
-            $table->string('address');
+            $table->string('tel1')->nullable;
+            $table->string('address')->nullable;
             $table->tinyInteger('design')->default(0);
             $table->tinyInteger('paid')->default(0);
             $table->tinyInteger('unpaid')->default(0);

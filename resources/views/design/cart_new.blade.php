@@ -3,6 +3,8 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
 <title>支払い申込画面(初回)</title>
 
 
@@ -46,7 +48,7 @@
                 <div class="form-group MyCardElement " id="card-element"></div>
                 <div id="card-errors" role="alert" style='color:red'></div>
 
-        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">送信する</button>
+        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
         <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
         お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
 

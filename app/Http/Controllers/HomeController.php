@@ -141,8 +141,7 @@ class HomeController extends Controller
             $artist->name_pronunciation = $request->name_pronunciation;
             $artist->artist_name = $request->artist_name;
             $artist->email=$user->email;
-            $artist->tel1=$request->tel1;
-            $artist->address=$request->address;
+            $artist->type=$request->disability;
               //確認前なので渡すだけ
     /*           $lost->save();
      */
@@ -301,8 +300,7 @@ class HomeController extends Controller
             $artist->name_pronunciation = $request->name_pronunciation;
             $artist->artist_name = $request->artist_name;
             $artist->email=$user->email;
-            $artist->tel1=$request->tel1;
-            $artist->address=$request->address;
+            $artist->type=$request->disability;
             $artist->save();
         }
         return view('auth.main.registered', compact('user'));

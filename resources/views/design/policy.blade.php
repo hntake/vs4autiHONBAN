@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/policy.css') }}"> <!-- word.cssと連携 -->
+    <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
     <title>利用規約|IT2U</title>
 
 </head>

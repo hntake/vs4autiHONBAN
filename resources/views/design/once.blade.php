@@ -9,6 +9,8 @@
     <div class="wrapper">
         <div class="back">
             <button class="button"><a href="{{ url('/design/list') }}">トップページに戻る</a></button>
+            <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
         </div>
     </div>
     <script>
@@ -55,13 +57,13 @@
             <strong>{{ $message }}</strong>
         </span>
         @enderror
-        <label for="price">{{ $design->price }}円</label>
+        <label for="price">¥{{ $design->price }}</label>
         <label for="exampleInputPassword1"></label>
         <div class="form-group MyCardElement " id="card-element"></div>
 
         <div id="card-errors" role="alert" style='color:red'></div>
 
-        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">送信する</button>
+        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
         <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
         お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
 

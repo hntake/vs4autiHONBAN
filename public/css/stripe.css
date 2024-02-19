@@ -173,8 +173,8 @@ section{
 /*アコーディオンで現れるエリア*/
 .box {
     display: none;/*はじめは非表示*/
-    background: #f3f3f3;
-  margin:0 3% 3% 3%;
+    background: #f1ecec;
+    margin:0 3% 3% 3%;
     padding: 3%;
 }
 
@@ -188,7 +188,22 @@ h2{
 }
 
 button a{
-  color:#5bef82
+  color:#eb9696;
+}
+#paymentMethod {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 200px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+input{
+  width:100px;
+}
+.choice{
+  display: flex;
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){

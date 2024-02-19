@@ -1,10 +1,10 @@
-{{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+
 <title>支払い申込画面 (ユーザー用)</title>
+<link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
 
 
-@section('content')
 <header id="header">
     <div class="wrapper">
         <div class="back">
@@ -32,7 +32,7 @@
     <form action="{{route('design_stripe.post',['id'=> $design->id])}}" method="post" id="payment-form">
         @csrf
         <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
-        <td>{{ $design->name }}</td>
+        <td>作品名:{{ $design->name }}</td><br>
         <label for="exampleInputEmail1">カード名義人(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
         <input type="text" class="form-control" id="card-holder-name" name="name" required>
         @error('name')
@@ -40,21 +40,34 @@
             <strong>{{ $message }}</strong>
         </span>
         @enderror
-        <label for="price">{{ $design->price }}円</label>
-                    <select name="paymentMethod" id="paymentMethod">
-                            <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
-                            @if(isset($filteredPaymentMethods))
-                            @foreach($filteredPaymentMethods as $paymentMethod)
-                            <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
-                            @endforeach
-                            @endif
-                    </select>
-                    <div class="add"> 
-                        <button class="btn btn-primary"><a href="{{ route('add_payment_once') }}">別の支払いを追加</a></button>
-                    </div>
+        <label for="price">¥{{ $design->price }}</label><br>
+        <div class="choice">
+            <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
+            <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+        </div>
+        @if(isset($filteredPaymentMethods))
+        @foreach($filteredPaymentMethods as $paymentMethod)
+        <div class="choice">
+            <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
+            <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+        </div>
+        @endforeach
+        @endif
+        <!-- <select name="paymentMethod" id="paymentMethod" >
+                <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
+                @if(isset($filteredPaymentMethods))
+                @foreach($filteredPaymentMethods as $paymentMethod)
+                <option class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</option>
+                @endforeach
+                @endif
+        </select> -->
+
+        <div class="add"> 
+            <button class="btn btn-primary"><a href="{{ route('add_payment_once') }}">別の支払いを追加</a></button>
+        </div>
 
         <div id="card-errors" role="alert" style='color:red'></div>
-        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">送信する</button>
+        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
 
         <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
         お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
@@ -67,6 +80,7 @@
         <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
     </div>
 </div>
+
 <script>
     // HTMLの読み込み完了後に実行するようにする
     window.onload = my_init;
@@ -82,7 +96,7 @@
                 color: "#32325d",
                 fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
                 fontSmoothing: "antialiased",
-                fontSize: "16px",
+                fontSize: "1em",
                 "::placeholder": {
                     color: "#aab7c4"
                 }
@@ -144,4 +158,6 @@
         form.submit();
     }
 </script>
+
+
 

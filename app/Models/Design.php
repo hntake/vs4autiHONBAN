@@ -4,12 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+
 
 class Design extends Model
 {
     use HasFactory;
     protected $fillable = [
 
-        'email','image','name'.'price','downloaded'
-        ];
+        'email','image','name'.'price','downloaded','genre1','genre2' ,'genre3','name_en'    
+    ];
+    public function Genre1() {
+        return $this->hasOne(Genre::class, 'id','genre1');
+    }
+    public function Genre2() {
+        return $this->hasOne(Genre::class, 'id','genre2');
+    }
+    public function Genre3() {
+        return $this->hasOne(Genre::class, 'id','genre3');
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($work) {
+            $translator = new GoogleTranslate('en');
+            $translator->setSource('ja');
+            $work->name_en = $translator->translate($work->name);
+        });
+    }
 }
