@@ -33,7 +33,8 @@ class DesignController extends Controller
     public function list(){
         if (Auth::user()) {
         $user=Auth::user();
-        $designs=Design::orderBy('id', 'asc')->paginate(10);
+        $designs=Design::whereNotNull('name')
+        ->orderBy('id', 'asc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'user'=>$user,
