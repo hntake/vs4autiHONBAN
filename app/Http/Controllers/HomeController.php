@@ -624,6 +624,11 @@ public function design_original(Request $request)
     $lost=Lost::where('email','=',$user->email)->first();
     $design=new Design();
     $design->email=$user->email;
+    $design->name=0;
+    $design->artist_id=0;
+    $design->real_image=0;
+    $design->image_with_artist_name=0;
+
     $design->image = str_replace('public/', '', $path);
     $design->save();
 

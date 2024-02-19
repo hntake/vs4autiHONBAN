@@ -34,11 +34,12 @@
     <input type="radio" name="design" value="7" >
     <img src="img/plain-black.png" alt="Choice 7" >
   </label>
-  <label style="display:flex;">
-    <input type="radio" name="design" value="8"style="margin-top:80px;">
-    <h2>オリジナル画像で作る<br>（追加料金:300円）</h2>
-  </label>
+  
   <div class="button">
       <button type="submit">選択する</button>
   </div>
 </form>
+<a href="{{route('design_original')}}">
+    <input type="hidden" name="design" value="8"style="margin-top:80px;">
+    <h2>オリジナル画像で作る<br>（追加料金:300円）</h2>
+</a>

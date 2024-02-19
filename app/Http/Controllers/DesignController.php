@@ -41,7 +41,8 @@ class DesignController extends Controller
         ]);
     }else{
         $tempCart = Session::get('tempCart', []);
-        $designs=Design::orderBy('id', 'asc')->paginate(10);
+        $designs=Design::whereNotNull('name')
+        ->orderBy('id', 'asc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
