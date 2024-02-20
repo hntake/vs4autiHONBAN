@@ -158,7 +158,7 @@ table td a{
 .left-banner{
     width:20%;
     position:absolute;
-    left:0%;
+    left:5%;
     top:40%;
 }
 .right-banner{
@@ -280,10 +280,13 @@ table td a{
     color: #00A6C4;
     background: #c5eba8;
     opacity: 1;
-  }
-  .pagetop:hover {
-      box-shadow: 0 0 10px #00A6C4;
-  }
+}
+.pagetop:hover {
+    box-shadow: 0 0 10px #00A6C4;
+}
+.all_banner_sp{
+    display:none;
+}
 /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .left-banner{
@@ -309,6 +312,7 @@ table{
 .left-banner{
     width:30%;
     position:unset;
+    margin-left: 24px;
 }
 .right-banner{
     width:30%;
@@ -316,7 +320,7 @@ table{
 }
 .banner{
     width:30%;
-    display: block;
+    display: none;
 }
 .all_banner{
     display: flex;
@@ -325,5 +329,9 @@ table{
     width: 100%;
     margin: 0 auto;
     padding: 0.6rem 0;
+}
+.all_banner_sp{
+    display:flex;
+    margin-left:24px;
 }
 }

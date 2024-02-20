@@ -117,17 +117,23 @@
         </footer>
         <div class="all_banner">
             <div class="left-banner">
-                <a target="_blank" href=https://itcha50.com><img src="../img/itcha50white.png" alt="banner" style="width:100%;"></a>
+                <a target="_blank" href=https://itcha50.com><img src="../img/itcha50white.png" alt="banner" style="width:50%;"></a>
             </div>
             <div class="right-banner">
-                <a target="_blank" href=https://eng50cha.com><img src="../img/banner.png" alt="banner" style="width:100%;"></a>
+                <a target="_blank" href="{{ route('design_list') }}"><img src="../img/design_top_icon.png" alt="障がい者アート普及" style="width:100%;"></a>
             </div>
             <div class="banner">
                 <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="../img/hair_banner.png" alt="banner" style="width:100%;"></a>
                 <!-- <a target="_blank" href=https://play.google.com/store/apps/details?id=com.may_protect><img src="../img/protect_banner.png" alt="banner" style="width:30%;"></a> -->
                 <a target="_blank" href=https://play.google.com/store/apps/details?id=com.tmp.my_request&pcampaignid=web_share><img src="../img/request_banner.png" alt="banner" style="width:100%;"></a>
-
+                <a target="_blank" href=https://eng50cha.com><img src="../img/banner.png" alt="banner" style="width:50%;"></a>
             </div> 
+        </div>
+        <div class="all_banner_sp">
+                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="../img/hair_banner.png" alt="banner" style="width:100%;"></a>
+                <!-- <a target="_blank" href=https://play.google.com/store/apps/details?id=com.may_protect><img src="../img/protect_banner.png" alt="banner" style="width:30%;"></a> -->
+                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.tmp.my_request&pcampaignid=web_share><img src="../img/request_banner.png" alt="banner" style="width:100%;"></a>
+                <a target="_blank" href=https://eng50cha.com><img src="../img/banner.png" alt="banner" style="width:50%;"></a>
         </div>
     </div>
 </body>
