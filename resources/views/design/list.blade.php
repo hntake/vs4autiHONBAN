@@ -30,7 +30,7 @@
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
         <!-- <a href="https://t.co/ffKnsVKwG4"></a> -->
         <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="障がい者アート使って支援買って支援 障がい者アート普及・共有サイト" data-url="{{url('design/list/')}}">X</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="障がい者アート使って支援!買って支援! 【障がい者アート普及・共有サイト】" data-url="{{url('design/list/')}}">X</a>
     </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
