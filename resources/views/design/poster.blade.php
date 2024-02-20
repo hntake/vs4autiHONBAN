@@ -9,16 +9,11 @@
     <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
-    <meta property="og:description" content="アーティストの感動的な作品やストーリーを通じて、障がい者アートの魅力を広めるプラットフォーム。">
-    <meta property="og:image" content="https://itcha50.com/img/design_poster.png">
-    <meta property="og:url" content="https://itcha50.com/design/poster">
-    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@LLco1118">
     <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
-    <meta name="twitter:image" content="https://itcha50.com/img/design_poster.png">
+    <meta name="twitter:image" content="https://itcha50.com/img/design_top_icon.png">
 
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
@@ -30,6 +25,14 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Twitterシェアボタン -->
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
+        <!-- <a href="https://t.co/ffKnsVKwG4"></a> -->
+        <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="【障がい者アート普及・共有サイト】にて障がい者アート募集中です！登録無料 障がい者アートの普及にご協力ください" data-url="{{url('design/poster/')}}" data-hashtags="IT2U">X</a>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
         <img src="{{asset('img/design_banner.png')}}" alt="artist" >
         <h1>障がい者アート募集</h1>

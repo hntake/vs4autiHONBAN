@@ -32,7 +32,7 @@
         <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
         <a href="https://twitter.com/share" class="twitter-share-button" data-text="障がい者アート使って支援!買って支援! 【障がい者アート普及・共有サイト】" data-url="{{url('design/list/')}}" data-hashtags="IT2U">X</a>
     </blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
         <img src="{{asset('img/design_top_banner.png')}}" alt="artist" >
         <h1>障がい者アートトップページ</h1>
