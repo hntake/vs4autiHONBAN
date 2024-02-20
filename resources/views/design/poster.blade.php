@@ -13,7 +13,7 @@
     <meta name="twitter:site" content="@LLco1118">
     <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
-    <meta name="twitter:image" content="https://itcha50.com/img/design_top_icon.png">
+    <meta name="twitter:image" content="https://itcha50.com/img/design_top_icon.png?436298437">
 
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
