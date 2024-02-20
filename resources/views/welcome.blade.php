@@ -268,6 +268,12 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{ url('/design/list') }}">
+                                        <h3 ontouchstart="">
+                                            障がい者アート普及・共有サイト</h3>
+                                    </a>
+                                </li>
+                                <li>
                                     <div class="register-button" style="margin-bottom:10px;">
                                         <a href="https://youtube.com/embed/7HUQzYWZe7M" class="header_nav_itm_link" ontouchstart="">VS4説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>

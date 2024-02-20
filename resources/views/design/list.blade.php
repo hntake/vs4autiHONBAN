@@ -13,7 +13,7 @@
     <meta name="twitter:site" content="@LLco1118">
     <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
-    <meta name="twitter:image" content="https://itcha50.com/img/design_top_icon.png">
+    <meta name="twitter:image" content="https://itcha50.com/img/design_top_icon.png?4362984378">
 
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
@@ -30,7 +30,7 @@
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
         <!-- <a href="https://t.co/ffKnsVKwG4"></a> -->
         <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="障がい者アート使って支援!買って支援! 【障がい者アート普及・共有サイト】" data-url="{{url('design/list/')}}">X</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="障がい者アート使って支援!買って支援! 【障がい者アート普及・共有サイト】" data-url="{{url('design/list/')}}" data-hashtags="IT2U">X</a>
     </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
@@ -52,6 +52,7 @@
             @endif
             <div class="racoon">
                 <button><a target="_blank" href="{{ url('design/artist_list') }}" class="header_nav_itm_link">障がい者アーティスト一覧</a></button>
+                <button><a target="_blank" href="{{ url('design/poster') }}" class="header_nav_itm_link">障がい者アーティスト募集ページ</a></button>
                 <a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a>
             </div>
     </nav>

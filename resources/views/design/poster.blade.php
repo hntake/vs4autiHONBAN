@@ -42,12 +42,21 @@
         <button><a href="{{url('aboutus')}}">AboutUs</a></button>
     </nav>
     <section>
+        <h2>著作権について</h2>
+            <p>ダウンロードする利用者には、画像利用の際には、<span style="font-weight:bold;">有償であろうと無償であろうと、ダウンロードした作品を利用する際には、コピーライセンスの表記または併記を義務付けています</span></p>
+            <p>登録された作品は、IT2Uのスタンプが加工されたものがサイトに記載されます。ユーザーが作品を選択すると、その加工が外されたオリジナルの作品がダウンロードされます。
+                (画像①参照)</p>
+            <p>また、アーティスト名をコピーライセンスとして表記した作品のみしかダウンロードできない選択も可能です。(画像②参照)</p>
+            <img src="{{asset('img/sample.png')}}" alt="copy_license"  style="width:200px; height:auto;">
+            <img src="{{asset('img/sample_2.png')}}" alt="copy_license"  style="width:200px; height:auto;">
+    </section>
+    <section>
         <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります
             <span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください)</span>
             有償の場合、販売価格から手数料（8%）と振込手数料を差し引いた金額が支払われます。</p>
         <p>(その金額が5万円以上の場合は10.21%の源泉徴収税も差し引かれます。)</p>
         <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに50円が支払われるシステムとなっております。</p>    
-</section>
+    </section>
 
     <section>
         <h2>募集要項</h2>
