@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" name="description">
-    <meta name="keywords" content="自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 行方不明防止, 認知症サポート, 安全サービス">
+    <meta name="description" content="お守りバッジの説明ページ 幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" >
+    <meta name="keywords" content="お守りバッジ,見守りバッジ,自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 行方不明防止, 認知症サポート, 安全サービス">
     <title>お守りバッジとは？迷子対策 </title>
 
     <!-- Fonts -->
@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="shortcut icon" href="{{ asset('/favicon2.ico') }}">
     <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
 
 
@@ -60,7 +61,6 @@
                 <div class="header_inner">
                     <nav id="menu" class="header_nav">
 
-
                         @if (Route::has('login'))
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
@@ -82,7 +82,6 @@
                                 <div class="description1">購入方法は色々あります！</div>
                             </li>
 
-                           
 
                             <!--    <li class="header_nav_itm">
                                     @auth
@@ -180,9 +179,12 @@
                     </div>
                 </div>
             </header>
-          
+
             <div class="youtube">
+
                 <div class="elementor-image">
+            <h1 style="text-align:center;">お守りバッジ</h1>
+
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@llcovs4/video/7284881008644656402" data-video-id="7284881008644656402" style="max-width: 605px;min-width: 325px;">
                         <section> <a target="_blank" title="@llcovs4" href="https://www.tiktok.com/@llcovs4?refer=embed">@llcovs4</a> <a title="迷子対策" target="_blank" href="https://www.tiktok.com/tag/%E8%BF%B7%E5%AD%90%E5%AF%BE%E7%AD%96?refer=embed">#迷子対策</a> <a title="自閉症" target="_blank" href="https://www.tiktok.com/tag/%E8%87%AA%E9%96%89%E7%97%87?refer=embed">#自閉症</a> <a title="発達障害" target="_blank" href="https://www.tiktok.com/tag/%E7%99%BA%E9%81%94%E9%9A%9C%E5%AE%B3?refer=embed">#発達障害</a> <a title="お守りバッジ" target="_blank" href="https://www.tiktok.com/tag/%E3%81%8A%E5%AE%88%E3%82%8A%E3%83%90%E3%83%83%E3%82%B8?refer=embed">#お守りバッジ</a> <a target="_blank" title="♬ funky house - Close-Wu" href="https://www.tiktok.com/music/funky-house-6963841260792645668?refer=embed">♬ funky house - Close-Wu</a> </section>
                     </blockquote>
@@ -226,7 +228,7 @@
                 </div>
                 <div class="panel_area">
                     <div id="panel1" class="tab_panel">
-                        <a href="img/turtle-orange.png" data-lightbox="group"> <img src="img/turtle-orange.png" alt="create" style="width:30%;"></a>
+                        <a href="img/turtle-orange.png" data-lightbox="group"> <img src="img/turtle-orange.png" alt="お守りバッジ" style="width:30%;"></a>
                         <div class="sright">
                             <div class="slide-head">万が一の時の準備</div>
                             <div class="slide-description">
@@ -329,12 +331,12 @@
                                     <h6>※バッジ製品の素材は、アクリルや缶など、その時点で入手可能な素材に変更させていただく場合がございます。お客様にはご迷惑をおかけいたしますが、可能な限り商品の品質や外観に影響のないように配慮し、最高品質の商品を提供できるよう努めてまいります。<br><br>
 
                                         何かご不明な点がございましたら、弊社までお気軽にお問い合わせくださいませ。</h6>
-                                    <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                                    <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">購入ページへ</a>(登録後、購入となります)</div>
                                 </div>
                             </div>
                         </div>
                         <div id="panel5" class="tab_panel">
-                            <a href="img/dog-blue.png" data-lightbox="group"> <img src="img/dog-blue.png" alt="check" style="width:30%;"></a>
+                            <a href="img/dog-blue.png" data-lightbox="group"> <img src="img/dog-blue.png" alt="お守りバッジ" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">ご自分のアカウントで</div>
                                 <div class="slide-description">
