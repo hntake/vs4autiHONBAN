@@ -53,7 +53,8 @@
             <div class="racoon">
                 <button><a target="_blank" href="{{ url('design/artist_list') }}" class="header_nav_itm_link">障がい者アーティスト一覧</a></button>
                 <button><a target="_blank" href="{{ url('design/recruit') }}" class="header_nav_itm_link">障がい者アーティスト募集ページ</a></button>
-                <a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a>
+                <button><a href="{{url('design/policy')}}">利用規約</a></button>
+                <button><a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a></button>
             </div>
     </nav>
     <section class="">
@@ -118,8 +119,8 @@
                 <form action="{{ route('design_list_sort') }}" method="GET">
                             @csrf
                             <select name="narabi">
-                                <option value="asc">古い順</option>
                                 <option value="desc">最新順</option>
+                                <option value="asc">古い順</option>
                                 <option value="up">人気順</option>
                                 <option value="down">価格が高い順</option>
                             </select>

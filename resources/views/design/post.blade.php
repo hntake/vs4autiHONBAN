@@ -76,6 +76,11 @@
                         <input type="checkbox" id="checkbox" name="checkbox" value="1">
                         <label for="checkbox">コピーライセンスを画像に表記する</label><br>
                     </div>
+                    <div class="protect">
+                        <!-- バッジへの利用の有無選択 -->
+                        <input type="checkbox" id="protect" name="protect" value="2">
+                        <label for="checkbox">お守りバッジへのデザイン付与を許可する</label><br>
+                    </div>
                         <div class="create-button">
                             <div class="button">
                                 <button type="submit">

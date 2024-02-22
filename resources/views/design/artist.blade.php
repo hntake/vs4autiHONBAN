@@ -33,9 +33,11 @@
 <header>
         <h1>障がい者アーティストページ</h1>
     </header>
+    @auth
     @if($user->type==10)
     <button><a target="_blank" href="{{ route('design_my_sheet') }}" class="header_nav_itm_link">マイページ</a></button>
     @endif
+    @endauth
     <h2>障がい者アーティスト紹介</h2>
 
     <section class="profile">

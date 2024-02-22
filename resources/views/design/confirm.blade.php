@@ -63,6 +63,12 @@
                             <td><input type="checkbox" id="checkbox" name="checkbox" value="1" checked></td>
                         @endif
                     </div>
+                    <div class="protect">
+                        @if(isset($isProtect))
+                        <th >お守りバッジのデザイン提供を許可する</th>
+                            <td><input type="checkbox" id="protect" name="protect" value="1" checked></td>
+                        @endif
+                    </div>
                         <button type="button"onclick="history.back()">
                             変更する
                         </button>
@@ -78,6 +84,9 @@
                     </a>
             
                 @endif
+            </div>
+            <div class="policy">
+                アップロードした画像が<a href="{{url('design/policy')}}">利用規約</a>に反している場合は事前の通告なしに削除することがありますことをご了承ください。
             </div>
         </div>
 </div>

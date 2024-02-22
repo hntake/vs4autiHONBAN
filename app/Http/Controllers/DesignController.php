@@ -10,6 +10,7 @@ use App\Models\Design;
 use App\Models\Download;
 use App\Models\Genre;
 use App\Mail\Pay;
+use App\Mail\Protect;
 use Intervention\Image\Facades\Image;
 use File;
 use Session;
@@ -34,7 +35,7 @@ class DesignController extends Controller
         if (Auth::user()) {
         $user=Auth::user();
         $designs=Design::whereNotNull('name')
-        ->orderBy('id', 'asc')->paginate(10);
+        ->orderBy('id', 'desc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'user'=>$user,
@@ -42,7 +43,7 @@ class DesignController extends Controller
     }else{
         $tempCart = Session::get('tempCart', []);
         $designs=Design::whereNotNull('name')
-        ->orderBy('id', 'asc')->paginate(10);
+        ->orderBy('id', 'desc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
@@ -238,6 +239,7 @@ class DesignController extends Controller
         $image->destroy();
 
         $isChecked = $request->input('checkbox');
+        $isProtect = $request->input('protect');
 
 
         return view('design/confirm',[
@@ -251,6 +253,7 @@ class DesignController extends Controller
             'genreName3'=>$genreName3,
             'new_image'=>$new_image,
             'isChecked'=>$isChecked,
+            'isProtect'=>$isProtect,
         ]);
 
     }
@@ -271,12 +274,16 @@ class DesignController extends Controller
         $design->artist_id=Artist::where('email','=',$user->email)->value('id');
 
         $isChecked = $request->input('checkbox');
+        $isProtect = $request->input('protect');
+
 
         // チェックされた場合の処理
         if ($isChecked) {
         $design->license = 1 ;
         } 
-
+        if ($isProtect) {
+        $design->protect = 1 ;
+        } 
         // 元の画像のパス
         $originalImagePath = storage_path('app/public/') . $new_image;
 
@@ -336,9 +343,8 @@ class DesignController extends Controller
         $design->image_with_artist_name = $processedImageWithArtistName;
         $design->save();
 
-
-
-
+        //お守りバッジへの連絡
+        \Mail::to(env('MAIL_USERNAME'))->send(new Protect($design));
 
 
         $artist=Artist::where('email','=',$user->email)->first();

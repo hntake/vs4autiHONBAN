@@ -42,6 +42,7 @@
     <nav>
         <button><a href="{{url('design/list')}}">障がいアート共有サイト</a></button>
         <button><a href="{{url('design/artist_list')}}">障がい者アーティスト一覧</a></button>
+        <button><a href="{{url('design/policy')}}">利用規約</a></button>
         <button><a href="{{url('aboutus')}}">AboutUs</a></button>
     </nav>
     <section>
