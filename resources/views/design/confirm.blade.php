@@ -4,23 +4,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>障がい者アートトップページ</title>
+    <title>障がい者アート作品確認ページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。">
     <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性,{{$design_genre}},{{$design_genre1}},{{$design_genre2}},">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
-    <meta property="og:description" content="アーティストの感動的な作品やストーリーを通じて、障がい者アートの魅力を広めるプラットフォーム。">
-    <meta property="og:image" content="https://itcha50.com/img/design_poster.png">
-    <meta property="og:url" content="https://itcha50.com/design/poster">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@LLco1118">
-    <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
-    <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
-    <meta name="twitter:image" content="https://itcha50.com/img/design_poster.png">
 
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
