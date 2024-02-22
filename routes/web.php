@@ -513,7 +513,7 @@ Route::post('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 
 
 //障がい者アート関連
 //募集ページ
-Route::get('design/poster', [App\Http\Controllers\DesignController::class, 'poster'])->name('design_poster');
+Route::get('design/recruit', [App\Http\Controllers\DesignController::class, 'poster'])->name('design_recruit');
 //障がい者アートTOP
 Route::get('design/list', [App\Http\Controllers\DesignController::class, 'list'])->name('design_list');
 //アート検索

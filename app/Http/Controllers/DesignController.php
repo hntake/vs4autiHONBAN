@@ -23,7 +23,7 @@ class DesignController extends Controller
 {
     //アーティスト募集ページ
     public function poster(Request $request){
-        return view('design/poster');
+        return view('design/recruit');
     }
     //アーティスト登録ページ
     public function register(Request $request){

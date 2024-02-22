@@ -52,7 +52,7 @@
             @endif
             <div class="racoon">
                 <button><a target="_blank" href="{{ url('design/artist_list') }}" class="header_nav_itm_link">障がい者アーティスト一覧</a></button>
-                <button><a target="_blank" href="{{ url('design/poster') }}" class="header_nav_itm_link">障がい者アーティスト募集ページ</a></button>
+                <button><a target="_blank" href="{{ url('design/recruit') }}" class="header_nav_itm_link">障がい者アーティスト募集ページ</a></button>
                 <a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a>
             </div>
     </nav>

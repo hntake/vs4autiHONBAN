@@ -282,7 +282,7 @@
                 <p>本ポリシーに関するお問い合わせは，下記の窓口までお願いいたします。</p>
                 <button class="p_button" style="margin-bottom:10px;"><a href="{{ route('contact.index') }}" style="text-decoration:none;">Contact us</a></button>
                 <div class="back">
-                    <button class="p_button"><a href="{{ url('design/poster') }}" style="text-decoration:none;">アーティスト募集ページへ戻る</a></button>
+                    <button class="p_button"><a href="{{ url('design/recruit') }}" style="text-decoration:none;">アーティスト募集ページへ戻る</a></button>
                 </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 <div class="top">
-    <a href="{{ url('design/poster') }}">
+    <a href="{{ url('design/recruit') }}">
         <h3>トップページに戻る</h3>
     </a>
 </div>
