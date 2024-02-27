@@ -13,7 +13,7 @@
 {!! $account_number !!}<br>
 
 ■金額<br>
-{!! $price !!}<br>
+¥{!! number_format($price) !!}<br>
 <br>
 IT2U 障がい者アート共有サイト
 <br>

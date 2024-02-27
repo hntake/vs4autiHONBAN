@@ -1,6 +1,7 @@
 @extends('layouts.app')
+   
 @section('content')
-<link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
+
 <link rel="stylesheet" href="{{ asset('css/design.css') }}"> <!-- home.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/artist.css') }}"> <!-- home.cssと連携 -->
 
@@ -75,5 +76,7 @@
         }
     }
 </script>
+
+    </script>
 
 @endsection

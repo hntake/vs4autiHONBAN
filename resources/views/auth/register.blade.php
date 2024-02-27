@@ -23,26 +23,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register.pre_check') }}" enctype="multipart/form-data">
                         @csrf
-
-                        <!--      <div >
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前 ※必須') }}</label>
-
-                            <div >
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> -->
-
-
-
-
-
-
                         <div class="r-box">
                             ※申込サービスを選択してください Choose your type<br><br>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
@@ -55,10 +35,10 @@
                                 マイリク my_request<input id="type" type="radio" name="type" value="2"><br>
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                                障がい者アーティスト登録<input id="type" type="radio" name="type" value="10"><br>
+                                障がい者アーティスト登録 artist<input id="type" type="radio" name="type" value="10"><br>
                             </label>
                             <label for="type" style="margin-bottom: 10px; background-color:#87CEFA ;padding: 0 20px;">
-                                障がいアートバイヤー登録<input id="type" type="radio" name="type" value="8"><br>
+                                障がいアートバイヤー登録 art_buyer<input id="type" type="radio" name="type" value="8"><br>
                             </label>
                             @error('type')
                             <span class="invalid-feedback" role="alert">

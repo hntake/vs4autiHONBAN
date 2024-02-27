@@ -26,16 +26,16 @@
     </header>
 
     <section class="profile">
-    <form method="POST" action="{{ route('design_order') }}" enctype="multipart/form-data">
-                {{ csrf_field() }}
         <div class="card-body">
-        <div class="card">
-                <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; width:fit-content;">
-                @if($artist->unpaid >0)
-                <p>売り上げ残高:{{$artist->unpaid}}円</p>
-                @else
-                <p>売り上げ残高:0円 </p>
-@endif
+            <form method="POST" action="{{ route('design_order') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="card">
+                    <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; border-radius:10%; padding:8px;">
+                    @if($artist->unpaid >0)
+                    <p>売り上げ残高:{{number_format(round($total * 0.96))}}円</p>
+                    @else
+                    <p>売り上げ残高:0円 </p>
+                    @endif
                         @if($artist->unpaid>=2000)
                     <div class="r-box">
                             <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('送金希望金額 ※必須') }}</label>
@@ -99,14 +99,9 @@
                         @else
                         <p>売り上げ金額が2000円以上から申請可能です。</p>
                         @endif
-    </form>
-                       
-
-                        </tr>
-                    </table>
                 </div>
+            </form>
         </div>
-       
     </section>
   
     <section>

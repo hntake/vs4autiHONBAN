@@ -143,9 +143,9 @@
                         @foreach ($designs as $design)
 
                         @if($design->license==0)
-                        <td><a href="{{route('design_select',['id'=>$design->id])}}">
+                        <td><a href="{{route('design_select',['id'=>$design->id])}}" >
                             <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image) }}" alt="image" >
+                                <img src="{{ asset('storage/' . $design->image) }}" alt="image" onclick="openPopup()">
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
@@ -155,9 +155,9 @@
                             </a>
                         </td>
                         @else
-                        <td><a href="{{route('design_select',['id'=>$design->id])}}">
+                        <td><a href="{{route('design_select',['id'=>$design->id])}}" >
                             <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" >
+                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" onclick="openPopup()">
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
@@ -190,6 +190,31 @@
     <footer>
         <p>&copy; IT2U 障がい者アート募集</p>
     </footer>
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content" id="popupContent">
+            <p>有償であろうと無償であろうと、ダウンロードした作品を利用する際には、コピーライセンスの表記または併記が義務付けられます。</p>
+            <div class="popup-buttons">
+                <button onclick="closePopup(event)">了解する</button>
+            </div>
+        </div>
+    </div>
+<script>
+    function agreeToUseCookies() {
+    document.getElementById("popupContainer").style.display = "none";
+    }
+    window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("popupContainer").style.display = "block";
+    }, 1000);
+    });
+    function closePopup(event) {
+  // ボタンクリックのイベント伝播を阻止
+  event.stopPropagation();
+  // ポップアップを非表示にする
+  document.getElementById("popupContainer").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>

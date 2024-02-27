@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Pay extends Mailable
+class Unpaid extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,37 +18,10 @@ class Pay extends Mailable
      *
      * @return void
      */
-    public function __construct($artist,$price)
+    public function __construct($artist)
     {
         $this->name = $artist['name'];
-        $this->price = $price;
-        $this->bank_name  = $artist['bank_name'];    
-        $this->bank_branch  = $artist['bank_branch'];    
-        $this->account_number  = $artist['account_number'];    
-
-    }
-  /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function build()
-    {
-        
-
-        return  $this
-        ->from('info@itcha50.com')
-        ->to('hntake@gmail.com')
-        ->subject('送金申請がありました')
-        ->view('emails.pay')
-        ->with([
-            'name' => $this->name,
-            'price' => $this->price,
-            'bank_name'  => $this->bank_name,
-            'bank_branch'  => $this->bank_branch,
-            'account_number'  => $this->account_number,
-
-        ]);
+        $this->price = $artist['unpaid'];
     }
 
     /**
@@ -59,10 +32,28 @@ class Pay extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Pay',
+            subject: '送金申請可能となりました',
         );
     }
 
+    /**
+     * Get the message content definition.
+     *
+     * @return \Illuminate\Mail\Mailables\Content
+     */
+    public function build()
+    {
+        
+
+        return  $this
+        ->from('info@itcha50.com')
+        ->subject('送金申請可能となりました')
+        ->view('emails.unpaid')
+        ->with([
+            'name' => $this->name,
+            'price' => $this->price,
+        ]);
+    }
 
     /**
      * Get the attachments for the message.

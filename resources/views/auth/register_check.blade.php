@@ -20,8 +20,10 @@
                                 絵スケジュール visual schedule
                                 @elseif($type==1)
                                 お守りグッズ may_protect
+                                @elseif($type==8)
+                                障がい者アートバイヤー登録 art_buyer
                                 @elseif($type==10)
-                                障がい者アーティスト登録
+                                障がい者アーティスト登録 artist
                                 @else
                                 マイリク my_request
                                 @endif

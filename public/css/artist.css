@@ -68,7 +68,7 @@ table, th, td, tr {
     width: 200px; /* 画像の幅 */
     height: 200px; /* 画像の高さ */
     border-radius: 50%; /* 50%のborder-radiusを設定して円形にする */
-    overflow: hidden; /* 余分な部分を切り取る */                 
+    /*overflow: hidden; /* 余分な部分を切り取る */                 
 }
 .my_image img{
     width: 200px; /* 画像を親要素にフィットさせる */
@@ -217,6 +217,49 @@ header{
     width:70%;
     margin:0 auto;
 }
+.consent{
+    display: flex;
+}
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card-body{
+    width:100%;
+}
+.form-group{
+    text-align: center;
+}
 @media screen and (max-width: 844px){
     h3{
         font-size: 20px;
@@ -293,5 +336,8 @@ header{
         }
         .artist-body{
             display: block;
+        }
+        .profile{
+            width:90%;
         }
 }

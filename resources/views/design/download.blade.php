@@ -46,7 +46,7 @@
                             @if($design->license==0)
                             <img src="{{ asset('storage/' . $design->image) }}" alt="image" >
                             @else
-                            <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" >
+                            <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif"" >
                             <p>こちらの作品はコピーライセンス(©アーティスト名)を右下に表記した作品のみのダウンロードとなります。</p>
                             @endif
                             <p>IT2Uのマークはダウンロード時には消えます。</p>
@@ -85,7 +85,11 @@
                         <button type="button"onclick="history.back()">
                                 キャンセルする
                             </button>
-                            <button type="submit">
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="agreement-checkbox" onchange="toggleDownloadButton()">
+                            </div>
+                            <button type="submit" id="download-button" disabled>
                                 <i class="fa fa-plus"></i> ダウンロードする
                             </button>
                     </div>
@@ -93,8 +97,12 @@
                 <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
                 @csrf
                 @if($design->price>0)
-                <button type="submit">
-                                <i class="fa fa-plus"></i> カートに入れる
+                <div class="consent">
+                    <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                    <input type="checkbox" id="okay-checkbox" onchange="toggleCartButton()">
+                </div>
+                <button type="submit"id="cart-button" disabled>
+                    <i class="fa fa-plus"></i> カートに入れる
                 </button>
                 @endif
                 </form>
@@ -137,7 +145,11 @@
                         <button type="button"onclick="history.back()">
                                 キャンセルする
                             </button>
-                            <button type="submit">
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="agreement-checkbox" onchange="toggleDownloadButton()">
+                            </div>
+                            <button type="submit" id="download-button" disabled>
                                 <i class="fa fa-plus"></i> ダウンロードする
                             </button>
                     </div>
@@ -145,8 +157,12 @@
                 <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
                 @csrf
                 @if($design->price>0)
-                <button type="submit">
-                                <i class="fa fa-plus"></i> カートに入れる
+                <div class="consent">
+                    <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                    <input type="checkbox" id="okay-checkbox" onchange="toggleCartButton()">
+                </div>
+                <button type="submit"id="cart-button" disabled>
+                    <i class="fa fa-plus"></i> カートに入れる
                 </button>
                 @endif
                 </form>
@@ -164,4 +180,54 @@
             </div>
         </div>
         </body>
+        <div class="popup-container" id="popupContainer">
+        <div class="popup-content" id="popupContent">
+            <p>有償であろうと無償であろうと、ダウンロードした作品を利用する際には、コピーライセンスの表記または併記が義務付けられます。</p>
+            <div class="popup-buttons">
+                <button onclick="closePopup(event)">了解する</button>
+            </div>
+        </div>
+    </div>
+<script>
+    function agreeToUseCookies() {
+    document.getElementById("popupContainer").style.display = "none";
+    }
+    window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("popupContainer").style.display = "block";
+    }, 1000);
+    });
+    function closePopup(event) {
+  // ボタンクリックのイベント伝播を阻止
+  event.stopPropagation();
+  // ポップアップを非表示にする
+  document.getElementById("popupContainer").style.display = "none";
+}
+
+</script>
+
+        <script>
+            function toggleDownloadButton() {
+                var agreementCheckbox = document.getElementById("agreement-checkbox");
+                var downloadButton = document.getElementById("download-button");
+
+                if (agreementCheckbox.checked) {
+                    downloadButton.disabled = false;
+                } else {
+                    downloadButton.disabled = true;
+                }
+            }
+        </script>
+        <script>
+            function toggleCartButton() {
+                var okayCheckbox = document.getElementById("okay-checkbox");
+                var cartButton = document.getElementById("cart-button");
+
+                if (okayCheckbox.checked) {
+                    cartButton.disabled = false;
+                } else {
+                    cartButton.disabled = true;
+                }
+            }
+        </script>
 </html>

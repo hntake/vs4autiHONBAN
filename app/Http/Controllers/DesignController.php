@@ -10,6 +10,7 @@ use App\Models\Design;
 use App\Models\Download;
 use App\Models\Genre;
 use App\Mail\Pay;
+use App\Mail\Unpaid;
 use App\Mail\Protect;
 use Intervention\Image\Facades\Image;
 use File;
@@ -58,7 +59,7 @@ class DesignController extends Controller
         $artist=Artist::where('email','=',$user->email)->first();
         $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-        $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->get();
+        $total = $artist->unpaid;
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
@@ -391,9 +392,12 @@ class DesignController extends Controller
     {
         $user=Auth::user();
         $artist=Artist::where('email','=',$user->email)->first();
+        $total = $artist->unpaid;
+        $artist=Artist::where('email','=',$user->email)->first();
 
         return view('design/pay',[
             'artist'=>$artist,
+            'total'=>$total,
         ]);}
 
     //送金申請post
@@ -401,17 +405,19 @@ class DesignController extends Controller
     {
         $user=Auth::user();
         $price=$request->price;
+        $paid=round(($request->price)/0.96);
         $artist = Artist::where('email', '=', $user->email)->first();
             $artist->update([        
             'paid'=>$artist->paid + $request->price,
-            'unpaid'=>$artist->unpaid - $request->price,
+            'unpaid'=>$artist->unpaid - $paid,
             'bank_name'=>$request->bank_name,
             'bank_branch'=>$request->bank_branch,
             'account_number'=>$request->account_number,
         ]);
         //入力されたメールアドレスにメールを送信
         //   \Mail::to($artist['email'])->send(new Paymail($artist));
-        \Mail::to($user['email'])->send(new Pay($user, $artist,$price));
+        \Mail::to($user['email'])->send(new Pay($artist,$price));
+        \Mail::to(env('MAIL_USERNAME'))->send(new Pay($artist,$price));
 
           //再送信を防ぐためにトークンを再発行
         $request->session()->regenerateToken();
@@ -508,6 +514,7 @@ class DesignController extends Controller
     //ダウンロードポスト
     public function download($id)
     {
+
         $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
 
         $zip = new ZipArchive;
@@ -525,7 +532,11 @@ class DesignController extends Controller
 
             //artistのunpaidに加算
             $artist = Artist::find($download->artist_id);
-            $artist->increment('unpaid', $download->price);    
+            $artist->increment('unpaid', $download->price);  
+            //unpaidが2000円超えたらメール送信
+            if($artist->unpaid >= 2000){
+                \Mail::to($artist['email'])->send(new Unpaid($artist));
+            }
             
             $filePath = storage_path("app/public/{$design->real_image}");
             $zip->addFile($filePath, $design->real_image);
@@ -565,6 +576,7 @@ public function executeDownload()
     //個々ダウンロードポスト
     public function download_each($id)
     {
+        
         $download=Download::where('id','=',$id)->first();
 
         //ダウンロードが始まる
@@ -587,6 +599,10 @@ public function executeDownload()
             //artistのunpaidに加算
             $artist = Artist::find($download->artist_id);
             $artist->increment('unpaid', $download->price); 
+            //unpaidが2000円超えたらメール送信
+            if($artist->unpaid >= 2000){
+                \Mail::to($artist['email'])->send(new Unpaid($artist));
+            }
             }      
 
         return redirect('design/to_download')->with('success','ダウンロード完了しました');

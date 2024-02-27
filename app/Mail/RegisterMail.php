@@ -31,6 +31,7 @@ class RegisterMail extends Mailable
     {
         $user = Auth::user();
         return $this->to($user->email)  // 送信先アドレス
+            ->from('info@itcha50.com')
             ->subject('IT2U登録完了しました。')          // 件名
             ->view('register_mail')   // 本文
             ->with(['email' => $user->email]);    // 本文に送る値    }

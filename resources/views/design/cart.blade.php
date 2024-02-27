@@ -15,6 +15,15 @@
             <button class="button"><a href="{{ url('/design/list') }}">トップページに戻る</a></button>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('card-button').addEventListener('click', function () {
+                // ボタンの表示を「処理中...」に変更
+                this.innerHTML = '処理中...';
+
+            });
+        });
+    </script>
 </header>
 @if(isset($downloads)&& count($downloads) > 0)
 <div class="card_container py-3">

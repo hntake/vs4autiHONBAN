@@ -12,8 +12,8 @@
             <div class="card">
             @if($user->type <= 5)    
             <a href="{{url('/')}}" class="">トップページに戻る</a>
-            @else
-            <a href="{{ route('design_my_sheet') }}">マイページに戻る</a>
+            @elseif($user->type = 8)
+            <a href="{{ route('my_page') }}">マイページに戻る</a>
             @endif
             <form method="POST" action="{{route('update_user',['id'=> $user->id])}}" enctype="multipart/form-data">
             @csrf
@@ -332,6 +332,14 @@
                         <input type="radio" name="sun3"  value="1"checked>連絡先②
                         @endif
                     </div>
+                </div>
+                    <div class="button"><input type="submit" value="更新">
+                    <h4>更新ボタンを押さないと変更されません</h4>
+                </div>
+                <!-- バイヤー -->
+                @elseif($user->type==8)
+
+                </table>
                 </div>
                     <div class="button"><input type="submit" value="更新">
                     <h4>更新ボタンを押さないと変更されません</h4>

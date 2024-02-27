@@ -163,7 +163,7 @@
                     @endif
                     </tr>
                     <tr>
-                    <td>受取総額(残高より販売手数料8%を引いたもの)<span style="font-weight:bold; color:red;">{{ round($total[0]->total_price * 0.92) }}円</span><br>こちらから振込手数料0もしくは145円が引かれます（金融機関により異なります）</td>
+                    <td>受取総額(残高より販売手数料4%を引いたもの)<span style="font-weight:bold; color:red;">{{ number_format(round($total * 0.96)) }}円</span><br>こちらから振込手数料52円もしくは150円が引かれます（金融機関により異なります）</td>
                     </tr>
                     <td><a href="{{route('design_pay')}}">送金申込 (受取総額が2000円以上になったら申し込めます)</a></td>
                     </tr>

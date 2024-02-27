@@ -57,9 +57,13 @@
     <section>
         <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります
             <span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください)</span>
-            有償の場合、販売価格から手数料（8%）と振込手数料を差し引いた金額が支払われます。</p>
+            有償の場合、販売価格からクレジットカード利用手数料(3%)、サーバー利用料(<span style="font-weight:bold;">サイトオープンプロモーションとして2025年3月まで<span style="color:red;">1%</span>。以降変更の可能性有り</span>)と振込手数料を差し引いた金額が支払われます。</p>
         <p>(その金額が5万円以上の場合は10.21%の源泉徴収税も差し引かれます。)</p>
-        <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに50円が支払われるシステムとなっております。</p>    
+        <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに50円が支払われるシステムとなっております。</p>  
+        <a href="{{asset('img/turtle-orange.png')}}" data-lightbox="group"><img src="{{asset('img/turtle-orange.png')}}" alt="お守りバッジ 亀 黄色" style="width:20%;"></a>
+
+        <a href="{{asset('img/fryer.png')}}" data-lightbox="group"><img src="{{asset('img/fryer.png')}}" alt="お守りバッジ 説明" style="width:20%;"></a>
+
     </section>
 
     <section>

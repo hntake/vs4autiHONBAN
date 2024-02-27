@@ -99,7 +99,6 @@ class RegisterController extends Controller
         $bridge_request = $request->all();
         // password マスキング
         $bridge_request['password_mask'] = '******';
-        
         return view('auth.register_check')->with($bridge_request);
     }
 

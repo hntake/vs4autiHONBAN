@@ -333,16 +333,12 @@
                             
                                 <div class="hero__cover"></div>
                             </div>
-                            <!-- <div class="video">
-                                <video class="pc" src="img/nagi2.mp4" autoplay loop muted playsinline></video>
-                                <video class="sp" src="img/nagi_sp_short.mp4" autoplay loop muted playsinline></video>
-                            </div> -->
                         </div>
                     </div>
                     <div class="hero__lead-container">
                     <a name="hair" class="hair" ></a>
 
-                       <div class="top_four">
+                    <div class="top_four">
                             <h1>VS4 自閉症向き視覚支援</h1>
                                 <div class="top_box">
                                     <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症向き視覚支援使用例" style="width:90%;"></a>
@@ -365,7 +361,6 @@
                         <div class="top_four">
                             <h1>自閉症向きヘアカットスケジュール</h1>
                                  <div class="top_box">
-
                                     <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="自閉症向きヘアカットスケジュール" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>ヘアカットスケジュール</b>
