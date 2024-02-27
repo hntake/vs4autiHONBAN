@@ -355,7 +355,7 @@ class DesignController extends Controller
         ]);
         $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-        $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->get();
+        $total =$artist->unpaid;;
 
         return view('design/my_sheet',[
             'user'=>$user,
@@ -378,7 +378,7 @@ class DesignController extends Controller
     ]);
     $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
     $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-    $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->get();
+    $total = $artist->unpaid;;
 
     return view('design/my_sheet',[
         'user'=>$user,
