@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('designs', function (Blueprint $table) {
-            $table->string('protect')->default('0');
+            $table->string('real_image_with_name');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('designs', function (Blueprint $table) {
-            $table->dropColumn('protect');
+            $table->dropColumn('real_image_with_name');
         });
     }
 };

@@ -284,6 +284,8 @@ class DesignController extends Controller
         } 
         if ($isProtect) {
         $design->protect = 1 ;
+        //お守りバッジへの連絡
+        \Mail::to(env('MAIL_USERNAME'))->send(new Protect($design));
         } 
         // 元の画像のパス
         $originalImagePath = storage_path('app/public/') . $new_image;
@@ -296,6 +298,7 @@ class DesignController extends Controller
 
         // 画像を読み込み
         $image = Image::make($originalImagePath);
+        $real_image = Image::make($originalImagePath);
 
         // ウォーターマークのパス
         $watermarkPath = public_path('img/maskCenter.png');
@@ -306,6 +309,7 @@ class DesignController extends Controller
          // 加工後の画像を保存
         $processedImagePath = $copyDirectory . $processedImageName;
         $image->save($processedImagePath);
+        $real_image->save($originalImagePath);
 
         // デザインに元の画像と加工後の画像のパスを保存
         $design->real_image = $new_image; // 元の画像のパス
@@ -336,16 +340,30 @@ class DesignController extends Controller
         $font->align('right');
         $font->valign('bottom');
     });
+        // original画像にテキストを追加する
+        $realImageWithArtistName = $real_image->text('©' . $design->artist_name, $textX, $textY, function($font) use ($fontPath) {
+            $font->file($fontPath); // フォントのパスを指定
+            $font->size(24);
+            $font->color('#777777'); // 文字の色を指定
+            $font->align('right');
+            $font->valign('bottom');
+        });
         // アーティスト名を含む水印を追加した画像を保存
         $processedImageWithArtistName = uniqid() . '_with_artist_name_' . $processedImageName;
         $imageWithArtistName->save($copyDirectory . $processedImageWithArtistName);
 
+        // アーティスト名を含むオリジナル画像を保存
+        $processedRealImageWithArtistName = uniqid() . '_with_artist_name_' . $new_image;
+        $realImageWithArtistName->save($copyDirectory . $processedRealImageWithArtistName);
+
         // デザインにアーティスト名を含む水印を追加した画像のパスを保存
         $design->image_with_artist_name = $processedImageWithArtistName;
+
+        // デザインにアーティスト名を含むオリジナル画像のパスを保存
+        $design->real_image_with_name = $processedRealImageWithArtistName;
         $design->save();
 
-        //お守りバッジへの連絡
-        \Mail::to(env('MAIL_USERNAME'))->send(new Protect($design));
+        
 
 
         $artist=Artist::where('email','=',$user->email)->first();
@@ -537,9 +555,14 @@ class DesignController extends Controller
             if($artist->unpaid >= 2000){
                 \Mail::to($artist['email'])->send(new Unpaid($artist));
             }
-            
-            $filePath = storage_path("app/public/{$design->real_image}");
+            //コピーライセンスの有無
+            if($design->license==0){
+                $filePath = storage_path("app/public/{$design->real_image}");
             $zip->addFile($filePath, $design->real_image);
+            }else{
+                $filePath = storage_path("app/public/{$design->real_image_with_name}");
+                $zip->addFile($filePath, $design->real_image_with_name);
+            }
         }
 
         $zip->close();
@@ -586,8 +609,11 @@ public function executeDownload()
             //designのdownloadedに加算
             $design->downloaded += 1;
             $design->save();
-
+            if($design->license==0){
             $filePath = storage_path("app/public/{$design->real_image}");
+            }else{
+            $filePath = storage_path("app/public/{$design->real_image_with_name}");
+            }
             return response()->download($filePath);
 
             //status=0つまり、初めてのダウンロードの場合のみ行う
