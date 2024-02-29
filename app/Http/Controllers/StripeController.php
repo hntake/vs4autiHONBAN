@@ -764,7 +764,7 @@ public function post_cart_un(Request $request,$id){
         // カートを空にする処理
         session()->forget('tempCart');
         //ダウンロードが始まる
-        $filePath = storage_path("app/public/{$design->real_image}");
+        $filePath = storage_path("app/public/{$design->real_image_with_name}");
         return Response::download($filePath);
 
         // 処理後に'ルート設定'にページ移行(機能せず)

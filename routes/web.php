@@ -516,6 +516,8 @@ Route::post('bbs/reply_alert/{id}', [App\Http\Controllers\BbsController::class, 
 Route::get('design/recruit', [App\Http\Controllers\DesignController::class, 'poster'])->name('design_recruit');
 //障がい者アートTOP
 Route::get('design/list', [App\Http\Controllers\DesignController::class, 'list'])->name('design_list');
+//カテゴリ毎ページ
+Route::get('design/genre/{id}', [App\Http\Controllers\DesignController::class, 'genre'])->name('genre');
 //アート検索
 Route::get('design/search', [App\Http\Controllers\DesignController::class, 'search'])->name('art_search');
 //アーティスト検索
@@ -613,3 +615,5 @@ Route::get('design/complete', function () {
 Route::get('design/error', function () {
     return view('design/error');
 });
+//サイトマップ
+Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="お守りバッジの説明ページ 幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" >
+    <meta name="description" content="公式サイト お守りバッジの説明ページ 幼児や高齢者、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" >
     <meta name="keywords" content="お守りバッジ,見守りバッジ,自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 行方不明防止, 認知症サポート, 安全サービス">
     <title>お守りバッジとは？迷子対策 </title>
 

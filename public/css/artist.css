@@ -260,6 +260,23 @@ header{
 .form-group{
     text-align: center;
 }
+.category-list {
+    display: none;
+    padding:10px;
+    column-count: 3;
+}
+.category-list a{
+    border:1px solid;
+    padding:2px;
+
+}
+.category-item {
+    display: block; /* ブロックレベル要素に変更 */
+    margin-bottom: 5px; /* 各要素の下に余白を追加 */
+    border: 1px solid black; /* 枠線を追加 */
+    padding: 5px; /* 各要素の内側に余白を追加 */
+    text-decoration: none; /* リンクの下線を削除 */
+}
 @media screen and (max-width: 844px){
     h3{
         font-size: 20px;

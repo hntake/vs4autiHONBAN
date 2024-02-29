@@ -17,7 +17,7 @@ class GenreSeeder extends Seeder
     public function run()
     {
         $genres = [
-            ['genre' => '花・植物　flower plant '],
+            ['genre' => '花・植物 flower plant '],
             ['genre' => 'ビジネス business'],
             ['genre' => '人物 people'],
             ['genre' => '動物・生き物 animal fish'],

@@ -12,6 +12,7 @@ use App\Models\Genre;
 use App\Mail\Pay;
 use App\Mail\Unpaid;
 use App\Mail\Protect;
+use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 use File;
 use Session;
@@ -45,6 +46,28 @@ class DesignController extends Controller
         $tempCart = Session::get('tempCart', []);
         $designs=Design::whereNotNull('name')
         ->orderBy('id', 'desc')->paginate(10);
+        return view('design/list',[
+            'designs'=>$designs,
+            'tempCart'=>$tempCart,
+        ]);
+    }
+}
+       //カテゴリー毎ページ
+    public function genre($id){
+        if (Auth::user()) {
+        $user=Auth::user();
+        $genre=Genre::where('id','=',$id)->value('genre');
+        $designs=Design::orWhere('genre1',$id)->orWhere('genre2',$id)->orWhere('genre3',$id)->orderBy('id', 'desc')->paginate(10);
+        return view('design/genre',[
+            'designs'=>$designs,
+            'user'=>$user,
+            'genre'=>$genre,
+
+        ]);
+    }else{
+        $tempCart = Session::get('tempCart', []);
+        $designs=Design::whereNotNull('name')
+        ->orWhere('genre1',$id)->orWhere('genre2',$id)->orWhere('genre3',$id)->orderBy('id', 'desc')->paginate(10);
         return view('design/list',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
@@ -148,6 +171,8 @@ class DesignController extends Controller
     //作品ポスト
     public function posted(Request $request){
         $user=Auth::user();
+        $now = Carbon::now();
+        $now_format = $now->format('Y-m-d');
 
         $validate = $request->validate(
             [
@@ -192,7 +217,8 @@ class DesignController extends Controller
 
                 ]
         );
-        $path = $request->file('image')->store('public');
+        $newFileName = "{$design_name}_{$now_format}.png"; // 新しいファイル名
+        $path = $request->file('image')->storeAs('public', $newFileName);
         $imagePath = str_replace('public/', '', $path);
 
         // 元の画像のパス
@@ -202,7 +228,7 @@ class DesignController extends Controller
         $copyDirectory = storage_path('app/public/');
 
         // 新しい名前の画像ファイル
-        $processedImageName =  uniqid() . '.' . pathinfo($imagePath, PATHINFO_EXTENSION);
+        $processedImageName = "{$design_name}_{$now_format}.". pathinfo($imagePath, PATHINFO_EXTENSION);
 
         // 画像を読み込み
         $image = Image::make($originalImagePath);
@@ -262,6 +288,8 @@ class DesignController extends Controller
      //作品登録ページへ
     public function upload(Request $request,$new_image){
         $user=Auth::user();
+        $now = Carbon::now();
+        $now_format = $now->format('Y-m-d');
 
         $design=new Design();
         $design->email=$user->email;
@@ -293,8 +321,8 @@ class DesignController extends Controller
         // コピー先のディレクトリ
         $copyDirectory = storage_path('app/public/');
 
-        // 新しい名前の画像ファイル
-        $processedImageName =  uniqid() . '.' . pathinfo($new_image, PATHINFO_EXTENSION);
+        // 加工された新しい名前の画像ファイル
+        $processedImageName = "{$design->name}_{$now_format}_with_processed."  . pathinfo($new_image, PATHINFO_EXTENSION);
 
         // 画像を読み込み
         $image = Image::make($originalImagePath);
@@ -349,11 +377,11 @@ class DesignController extends Controller
             $font->valign('bottom');
         });
         // アーティスト名を含む水印を追加した画像を保存
-        $processedImageWithArtistName = uniqid() . '_with_artist_name_' . $processedImageName;
+        $processedImageWithArtistName =  '_with_artist_name_' . $processedImageName;
         $imageWithArtistName->save($copyDirectory . $processedImageWithArtistName);
 
         // アーティスト名を含むオリジナル画像を保存
-        $processedRealImageWithArtistName = uniqid() . '_with_artist_name_' . $new_image;
+        $processedRealImageWithArtistName =  '_with_artist_name_' . $new_image;
         $realImageWithArtistName->save($copyDirectory . $processedRealImageWithArtistName);
 
         // デザインにアーティスト名を含む水印を追加した画像のパスを保存
