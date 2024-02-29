@@ -381,7 +381,7 @@ class DesignController extends Controller
         $imageWithArtistName->save($copyDirectory . $processedImageWithArtistName);
 
         // アーティスト名を含むオリジナル画像を保存
-        $processedRealImageWithArtistName =  '_with_artist_name_' . $new_image;
+        $processedRealImageWithArtistName =  "{$design->artist_name}." . $new_image;
         $realImageWithArtistName->save($copyDirectory . $processedRealImageWithArtistName);
 
         // デザインにアーティスト名を含む水印を追加した画像のパスを保存
