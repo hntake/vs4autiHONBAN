@@ -127,24 +127,24 @@
             <a class="category-item" href="{{ route('genre',['id' => '12']) }}">背景・壁紙 wallpaper</a>               
             <a class="category-item" href="{{ route('genre',['id' => '13']) }}">アイコン icon</a>               
             <a class="category-item" href="{{ route('genre',['id' => '14']) }}">文字 letter</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '15']) }}">行事 event</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '16']) }}">その他 etc</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '17']) }}">犬 dog</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '18']) }}">猫 cat</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '19']) }}">可愛い動物 cute animals</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '20']) }}">鳥 bird</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '21']) }}">学校 school</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '22']) }}">おやつ snack candy</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '23']) }}">家庭 home</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '24']) }}">家族 family</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '25']) }}">桜 cherryblossom</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '26']) }}">車 car</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '27']) }}">車 car</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '28']) }}">船 ship</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '29']) }}">顔 face</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '30']) }}">笑顔 smile</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '31']) }}">怒る angry</a>               
-            <a class="category-item" href="{{ route('genre',['id' => '32']) }}">泣く cry</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '15']) }}">犬 dog</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '16']) }}">猫 cat</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '17']) }}">可愛い動物 cute animals</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '18']) }}">鳥 bird</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '19']) }}">学校 school</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '20']) }}">おやつ snack candy</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '21']) }}">家庭 home</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '22']) }}">家族 family</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '23']) }}">桜 cherryblossom</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '24']) }}">車 car</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '25']) }}">電車 train</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '26']) }}">船 ship</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '27']) }}">顔 face</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '28']) }}">笑顔 smile</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '29']) }}">怒る angry</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '30']) }}">泣く cry</a>     
+            <a class="category-item" href="{{ route('genre',['id' => '31']) }}">その他 etc</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '32']) }}">行事 event</a>               
         </div>
         @if(isset($keyword))
         <h2>検索結果</h2>
