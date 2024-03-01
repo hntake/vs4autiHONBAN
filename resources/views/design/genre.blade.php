@@ -14,7 +14,9 @@
     <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
     <meta name="twitter:image" content="https://itcha50.com/img/design_top_icon.png?4362984378">
-
+    @if($preload)
+    <link rel="preload" href="https://itcha50.com/storage/{{$preload->image}}.png" as="image">
+    @endif
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
@@ -58,7 +60,7 @@
                 <button><a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a></button>
             </div>
     </nav>
-    <section class="">
+    <!-- <section class="">
         <h2>障がい者アートの世界へようこそ！</h2>
         <p>当サイトにある作品は全てダウンロード可能です。
         価格は全て、障がい者アーティストが決めた金額です。
@@ -74,7 +76,7 @@
         Depending on the work, you may only be able to download works that display the artist's name.
         Please agree to the above before downloading.</p>
 
-    </section>
+    </section> -->
     <section>
         <div class="mine">
             @auth
@@ -97,6 +99,45 @@
                 <input type="text" name="keyword" >
                 <input type="submit" value="検索">
             </form>
+        </div>
+
+        <!-- カテゴリボタン -->
+        <button id="categoryButton">カテゴリ選択</button>
+
+        <!-- カテゴリリスト -->
+        <div class="category-list" id="categoryList">
+            <a class="category-item" href="{{ route('genre',['id' => '1']) }}">花・植物 flower plant</a>  
+            <a class="category-item" href="{{ route('genre',['id' => '2']) }}">ビジネス business</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '3']) }}">人物 people</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '4']) }}">動物・生き物 animal </a>               
+            <a class="category-item" href="{{ route('genre',['id' => '5']) }}">乗り物 vehicle</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '6']) }}">生活 life</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '7']) }}">食べ物 food</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '8']) }}">春 spring</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '9']) }}">夏 summer</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '10']) }}">秋 fall</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '11']) }}">冬 winter</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '12']) }}">背景・壁紙 wallpaper</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '13']) }}">アイコン icon</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '14']) }}">文字 letter</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '15']) }}">犬 dog</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '16']) }}">猫 cat</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '17']) }}">可愛い動物 cute animals</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '18']) }}">鳥 bird</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '19']) }}">学校 school</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '20']) }}">おやつ snack candy</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '21']) }}">家庭 home</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '22']) }}">家族 family</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '23']) }}">桜 cherryblossom</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '24']) }}">車 car</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '25']) }}">電車 train</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '26']) }}">船 ship</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '27']) }}">顔 face</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '28']) }}">笑顔 smile</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '29']) }}">怒る angry</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '30']) }}">泣く cry</a>     
+            <a class="category-item" href="{{ route('genre',['id' => '31']) }}">その他 etc</a>               
+            <a class="category-item" href="{{ route('genre',['id' => '32']) }}">行事 event</a>               
         </div>
         @if(isset($keyword))
         <h2>検索結果</h2>
@@ -199,23 +240,41 @@
             </div>
         </div>
     </div>
-<script>
-    function agreeToUseCookies() {
+    <script>
+        // カテゴリボタンの要素を取得
+        const categoryButton = document.getElementById('categoryButton');
+        // カテゴリリストの要素を取得
+        const categoryList = document.getElementById('categoryList');
+
+        // カテゴリボタンがクリックされたときの処理
+        categoryButton.addEventListener('click', function() {
+            // カテゴリリストが表示されている場合
+            if (categoryList.style.display === 'block') {
+                // リストを非表示にする
+                categoryList.style.display = 'none';
+            } else {
+                // リストを表示する
+                categoryList.style.display = 'block';
+            }
+        });
+    </script>
+    <script>
+        function agreeToUseCookies() {
+        document.getElementById("popupContainer").style.display = "none";
+        }
+        window.addEventListener("load", function () {
+        setTimeout(function () {
+            document.getElementById("popupContainer").style.display = "block";
+        }, 1000);
+        });
+        function closePopup(event) {
+    // ボタンクリックのイベント伝播を阻止
+    event.stopPropagation();
+    // ポップアップを非表示にする
     document.getElementById("popupContainer").style.display = "none";
     }
-    window.addEventListener("load", function () {
-    setTimeout(function () {
-        document.getElementById("popupContainer").style.display = "block";
-    }, 1000);
-    });
-    function closePopup(event) {
-  // ボタンクリックのイベント伝播を阻止
-  event.stopPropagation();
-  // ポップアップを非表示にする
-  document.getElementById("popupContainer").style.display = "none";
-}
 
-</script>
+    </script>
 
 </body>
 </html>

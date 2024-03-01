@@ -56,21 +56,45 @@ class DesignController extends Controller
     public function genre($id){
         if (Auth::user()) {
         $user=Auth::user();
+        //ジャンル名を渡す
         $genre=Genre::where('id','=',$id)->value('genre');
         $designs=Design::orWhere('genre1',$id)->orWhere('genre2',$id)->orWhere('genre3',$id)->orderBy('id', 'desc')->paginate(10);
+        //ジャンルに該当するデザインがあったら
+        if($designs){
+            $preload = Design::where('genre1', $id)
+            ->orWhere('genre2', $id)
+            ->orWhere('genre3', $id)
+            ->inRandomOrder() // ランダムに並べ替え
+            ->first(); // 最初のレコードを取得
+            }else{
+            $preload=0;
+        }
         return view('design/genre',[
             'designs'=>$designs,
             'user'=>$user,
             'genre'=>$genre,
-
+            'preload'=>$preload,
         ]);
     }else{
         $tempCart = Session::get('tempCart', []);
-        $designs=Design::whereNotNull('name')
-        ->orWhere('genre1',$id)->orWhere('genre2',$id)->orWhere('genre3',$id)->orderBy('id', 'desc')->paginate(10);
-        return view('design/list',[
+        $genre=Genre::where('id','=',$id)->value('genre');
+
+        $designs=Design::orWhere('genre1',$id)->orWhere('genre2',$id)->orWhere('genre3',$id)->orderBy('id', 'desc')->paginate(10);
+        //ジャンルに該当するデザインがあったら
+        if($designs){
+            $preload = Design::where('genre1', $id)
+            ->orWhere('genre2', $id)
+            ->orWhere('genre3', $id)
+            ->inRandomOrder() // ランダムに並べ替え
+            ->first(); // 最初のレコードを取得
+            }else{
+            $preload=0;
+        }
+        return view('design/genre',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
+            'genre'=>$genre,
+            'preload'=>$preload,
         ]);
     }
     }
