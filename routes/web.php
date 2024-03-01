@@ -536,7 +536,7 @@ Route::post('design/post', [App\Http\Controllers\DesignController::class, 'poste
 Route::get('design/confirm', [App\Http\Controllers\DesignController::class, 'confirm'])->name('design_confirm');
 Route::post('design/confirm/{id}', [App\Http\Controllers\DesignController::class, 'upload'])->name('design_upload');
 
-Route::get('design/list/{id}', [App\Http\Controllers\DesignController::class, 'select_download'])->name('design_select');
+Route::get('design/download/{id}', [App\Http\Controllers\DesignController::class, 'select_download'])->name('design_select');
 
 //画像ダウンロード準備ページ
 Route::get('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'to_download'])->name('design_download');
