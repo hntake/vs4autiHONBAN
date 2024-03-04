@@ -187,7 +187,7 @@
                         @if($design->license==0)
                         <td><a href="{{route('design_select',['id'=>$design->id])}}" >
                             <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image) }}" alt="image" onclick="openPopup()">
+                                <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
@@ -199,7 +199,7 @@
                         @else
                         <td><a href="{{route('design_select',['id'=>$design->id])}}" >
                             <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" onclick="openPopup()">
+                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">

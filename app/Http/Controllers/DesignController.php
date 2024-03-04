@@ -475,7 +475,7 @@ class DesignController extends Controller
     {
         $user=Auth::user();
         $price=$request->price;
-        $paid=round(($request->price)/0.96);
+        $paid=round(($request->price)/0.954);
         $artist = Artist::where('email', '=', $user->email)->first();
             $artist->update([        
             'paid'=>$artist->paid + $request->price,

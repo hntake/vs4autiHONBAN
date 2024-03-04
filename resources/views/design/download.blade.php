@@ -44,9 +44,9 @@
                     <h1>作品詳細<br>{{$design->name}}</h1>
                         <div class="card-body" >
                             @if($design->license==0)
-                            <img src="{{ asset('storage/' . $design->image) }}" alt="image" >
+                            <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
                             @else
-                            <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif"" >
+                            <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
                             <p>こちらの作品はコピーライセンス(©アーティスト名)を右下に表記した作品のみのダウンロードとなります。</p>
                             @endif
                             <p>IT2Uのマークはダウンロード時には消えます。</p>

@@ -12,8 +12,8 @@
     <title>障がい者アートトップページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。障がい者アートを使って支援買って支援しよう！">
-    <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
+    <meta name="description" content="イラスト ダウンロード download 障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。障がい者アートを使って支援買って支援しよう！">
+    <meta name="keywords" content="ダウンロード download 障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
     <meta name="twitter:card" content="summary_large_image">
@@ -49,24 +49,27 @@
         <h1>障がい者アートトップページ</h1>
     </header>
     <nav id="menu" class="header_nav">
-
-        @if (Route::has('login'))
+        <div class="racoon">
+            <button><a target="_blank" href="{{ url('design/artist_list') }}" class="header_nav_itm_link">障がい者アーティスト一覧</a></button>
+            <button><a target="_blank" href="{{ url('design/recruit') }}" class="header_nav_itm_link">障がい者アーティスト募集ページ</a></button>
+            <button><a href="{{url('design/policy')}}">利用規約</a></button>
+            <button><a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a></button>
+        </div>
+            @if (Route::has('login'))
         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
         @auth
-                @else
-                <button><a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a></button>
-                @if (Route::has('register'))
-                <button><a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a></button>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <input type="submit" value="ログアウト">
+            </form>
+            @else
+            <button><a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a></button>
+            @if (Route::has('register'))
+            <button><a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a></button>
 
-            @endif
-            @endauth
-            @endif
-            <div class="racoon">
-                <button><a target="_blank" href="{{ url('design/artist_list') }}" class="header_nav_itm_link">障がい者アーティスト一覧</a></button>
-                <button><a target="_blank" href="{{ url('design/recruit') }}" class="header_nav_itm_link">障がい者アーティスト募集ページ</a></button>
-                <button><a href="{{url('design/policy')}}">利用規約</a></button>
-                <button><a target="_blank" href="{{ url('aboutus') }}" class="header_nav_itm_link"><img src="{{asset('img/racoon_square.png')}}" alt="racoon"  ></a></button>
-            </div>
+        @endif
+        @endauth
+        @endif
     </nav>
     <section class="">
         <h2>障がい者アートの世界へようこそ！</h2>
@@ -194,7 +197,8 @@
                         @if($design->license==0)
                         <td><a href="{{route('design_select',['id'=>$design->id])}}" >
                             <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image) }}" alt="image" onclick="openPopup()">
+                                <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
+
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
@@ -206,7 +210,7 @@
                         @else
                         <td><a href="{{route('design_select',['id'=>$design->id])}}" >
                             <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" onclick="openPopup()">
+                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
