@@ -23,7 +23,6 @@
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
-    <link rel="stylesheet" href="{{ asset('css/design.css') }}">
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
@@ -52,34 +51,41 @@
                             <p>IT2Uのマークはダウンロード時には消えます。</p>
 
                         </div>
-
-                    <table class="horizontal-table">
-                        <thead>
-                        <tr>
-                            <th>アーティスト名</th>
-                            <td><a href="{{url('design/artist', $design->artist_id)}}">{{$design->artist_name}}</a></td>
-                        </tr>
-                        <tr>
-                            <th>作品名</th>
-                            <td>{{ $design->name}}</td>
-                        </tr>
-                        <tr>
-                            <th>金額</th>
-                            <td>¥{{ $design->price}}</td>
-                        </tr>
-                        <tr>
-                            <th>カテゴリ</th>
-                            <td>{{ $design->Genre1->genre}}
-                                    @if($design->genre2==!0)
-                                    ,{{ $design->Genre2->genre}}
-                                    @endif
-                                    @if($design->genre3==!0)
-                                    ,{{ $design->Genre3->genre}}
-                                    @endif
-                            </td>
-                        </tr>
-                    </table>
+                            <table class="horizontal-table">
+                                <thead style="flex: 1;">
+                                    <th>アーティスト名</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td><a href="{{url('design/artist', $design->artist_id)}}">{{$design->artist_name}}</a></td>
+                                </tr>
+                                <thead style="flex: 1;">
+                                    <th>作品名</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td>{{ $design->name}}</td>
+                                </tr>
+                                <thead style="flex: 1;">
+                                    <th>金額(税込)(税込)</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td>¥{{ $design->price}}</td>
+                                </tr>
+                                <thead style="flex: 1;">
+                                    <th>カテゴリ</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td>{{ $design->Genre1->genre}}
+                                            @if($design->genre2==!0)
+                                            ,{{ $design->Genre2->genre}}
+                                            @endif
+                                            @if($design->genre3==!0)
+                                            ,{{ $design->Genre3->genre}}
+                                            @endif
+                                    </td>
+                                </tr>
+                            </table>
             </div>
+                    <div class="permission">
                     <div class="">
                         <p>こちらの作品をダウンロードしますか？</p>
                         <button type="button"onclick="history.back()">
@@ -123,24 +129,40 @@
                             <p>※IT2Uのマークはダウンロード時には消えます。</p>
 
                     </div>
-                    <table>
-                            <thead>
-                                <th >作品名</th>
-                                <th >金額</th>
-                                <th>カテゴリ</th>
-                            </thead>
-                            <td>{{ $design->name}}</td>
-                            <td>¥{{ $design->price}}</td>
-                            <td>{{ $design->Genre1->genre}}
-                                    @if($design->genre2==!0)
-                                    ,{{ $design->Genre2->genre}}
-                                    @endif
-                                    @if($design->genre3==!0)
-                                    ,{{ $design->Genre3->genre}}
-                                    @endif
-                            </td>                        
-                    </table>
-                    <div class="">
+                    <table class="horizontal-table">
+                                <thead style="flex: 1;">
+                                    <th>アーティスト名</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td><a href="{{url('design/artist', $design->artist_id)}}">{{$design->artist_name}}</a></td>
+                                </tr>
+                                <thead style="flex: 1;">
+                                    <th>作品名</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td>{{ $design->name}}</td>
+                                </tr>
+                                <thead style="flex: 1;">
+                                    <th>金額(税込)</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td>¥{{ $design->price}}</td>
+                                </tr>
+                                <thead style="flex: 1;">
+                                    <th>カテゴリ</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    <td>{{ $design->Genre1->genre}}
+                                            @if($design->genre2==!0)
+                                            ,{{ $design->Genre2->genre}}
+                                            @endif
+                                            @if($design->genre3==!0)
+                                            ,{{ $design->Genre3->genre}}
+                                            @endif
+                                    </td>
+                                </tr>
+                            </table>
+                    <div class="permission">
                         <p>登録せずにダウンロードしますか？</p>
                         <button type="button"onclick="history.back()">
                                 キャンセルする
@@ -152,25 +174,25 @@
                             <button type="submit" id="download-button" disabled>
                                 <i class="fa fa-plus"></i> ダウンロードする
                             </button>
+                        </form>
+                        <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
+                        @csrf
+                        @if($design->price>0)
+                        <div class="consent">
+                            <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                            <input type="checkbox" id="okay-checkbox" onchange="toggleCartButton()">
+                        </div>
+                        <button type="submit"id="cart-button" disabled>
+                            <i class="fa fa-plus"></i> カートに入れる
+                        </button>
                     </div>
-                </form>
-                <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
-                @csrf
-                @if($design->price>0)
-                <div class="consent">
-                    <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
-                    <input type="checkbox" id="okay-checkbox" onchange="toggleCartButton()">
-                </div>
-                <button type="submit"id="cart-button" disabled>
-                    <i class="fa fa-plus"></i> カートに入れる
-                </button>
                 @endif
                 </form>
-                    <div class="">
+                    <div class="permission">
                         <p>ログインしてダウンロードしますか？</p>
                         <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
                     </div>
-                    <div class="">
+                    <div class="permission">
                         <p>バイヤー登録してダウンロードしますか？</p>
                         <a href="{{ route('register') }}" class="header_nav_itm_link" target="_blank" >登録する</a>
                     </div>

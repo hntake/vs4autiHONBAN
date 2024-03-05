@@ -29,7 +29,13 @@
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
+
+    <script>
+    function showText() {
+    document.getElementById('infoText').style.display = 'block';
+    }
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -73,19 +79,23 @@
     </nav>
     <section class="">
         <h2>障がい者アートの世界へようこそ！</h2>
-        <p>当サイトにある作品は全てダウンロード可能です。
+        <h6>当サイトにある作品は全てダウンロード可能です。
         価格は全て、障がい者アーティストが決めた金額です。
         当サイトの主な目的は、障がい者アートの普及です。したがって、
         <span style="color:red;">有償であろうと無償であろうと、ダウンロードした作品を利用する際には、コピーライセンスの表記または併記が義務付けられます。</span>
         作品によってはアーティスト名が表示された作品のみしかダウンロードができないものもあります。
-        上記の内容に同意いただいた上で、ダウンロードしてください。</p>
-
-        <p>All works on this site can be downloaded.
-        All prices are determined by disabled artists.
-        The main purpose of this site is to popularize art by people with disabilities.
-        <span style="color:red;">Therefore, regardless of whether it is paid or free, when using a downloaded work, it is mandatory to include or include a copy license.</span>
-        Depending on the work, you may only be able to download works that display the artist's name.
-        Please agree to the above before downloading.</p>
+        上記の内容に同意いただいた上で、ダウンロードしてください。</h6>
+        <div class="english">
+            <button onclick="showText()">For English speaker</button>
+        </div>
+        <div id="infoText" style="display:none;">
+            <h6>All works on this site can be downloaded.<br>
+            All prices are determined by disabled artists.<br>
+            The main purpose of this site is to popularize art by people with disabilities.<br>
+            <span style="color:red;">Therefore, regardless of whether it is paid or free, when using a downloaded work, it is mandatory to include or include a copy license.</span><br>
+            Depending on the work, you may only be able to download works that display the artist's name.<br>
+            Please agree to the above before downloading.</h6>
+        </div>
 
     </section>
     <section>

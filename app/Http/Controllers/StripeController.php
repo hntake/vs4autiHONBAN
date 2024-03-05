@@ -763,10 +763,19 @@ public function post_cart_un(Request $request,$id){
         $tempCart = session('tempCart', []);
         // カートを空にする処理
         session()->forget('tempCart');
-        //ダウンロードが始まる
-        $filePath = storage_path("app/public/{$design->real_image_with_name}");
-        return Response::download($filePath);
 
+        return view('design/receipt',[
+            'email'=>$email,
+        ]);
+        //ダウンロードが始まる
+        //コピーライセンスの有無
+        if($design->license==0){
+            $filePath = storage_path("app/public/{$design->real_image}");
+            return Response::download($filePath);
+        }else{
+            $filePath = storage_path("app/public/{$design->real_image_with_name}");
+            return Response::download($filePath);
+        }
         // 処理後に'ルート設定'にページ移行(機能せず)
         // return redirect()->route('design_receipt', $design)->withHeaders($response->headers->all());
     }
@@ -817,30 +826,30 @@ public function post_cart_un(Request $request,$id){
         $user->subscription('basic_plan')->cancelNow();
         $user->delete();
         return view('cancel');
-     }
+    }
 
     public function cancel(Request $request){
         return view('cancel');
     }
-     public function portalsubscription(User $user, Request $request){
+    public function portalsubscription(User $user, Request $request){
         return $request->user()->redirectToBillingPortal();
-     }
+    }
 
-     public function account(Request $request){
+    public function account(Request $request){
         $user = Auth::user();
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->format('Y-m-d');
         $subscription = Subscription::where('user_id',$user->id)->first();
         $trial = Carbon::createFromFormat('Y-m-d H:i:s', $subscription->trial_ends_at)->format('Y-m-d');
         $now=Carbon::now();
         return view('account',compact('user','date','trial','now'));
-     }
-     public function profile_edit(Request $request){
+    }
+    public function profile_edit(Request $request){
         $user = Auth::user();
         return view('profile_edit', [
             'user' => $user,
         ]);
-     }
-     public function update_profile(Request $request){
+    }
+    public function update_profile(Request $request){
         $id = Auth::id();
         $users = User::find($id);
         /* $users->name = $request->input('name'); */
@@ -848,5 +857,5 @@ public function post_cart_un(Request $request,$id){
         $users->save();
 
         return redirect('account');
-     }
+    }
 }

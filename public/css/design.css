@@ -80,6 +80,7 @@ table, th, td, tr {
 footer{
     text-align: center;
 }
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2){
     .absolute {
         position:absolute;
@@ -119,5 +120,6 @@ h3{
 input#image.form-control {
     /* width:30%; */
 }
+
 }
 

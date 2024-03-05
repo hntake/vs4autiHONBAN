@@ -33,7 +33,7 @@
                                     </tr>
                                 <th >金額</th>
                                     <tr>
-                                        <td>{{ $download->price}}</td>
+                                        <td>¥{{ $download->price}}</td>
                                     </tr>
                         
                                     <div class="">

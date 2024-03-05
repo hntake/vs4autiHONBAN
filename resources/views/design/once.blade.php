@@ -1,6 +1,7 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
+
 <title>支払い申込画面(非ユーザー) </title>
 
 
@@ -33,16 +34,17 @@
 {{-- フォーム部分 --}}
     <form action="{{route('design_once.post',['id'=> $design->id])}}" method="post" id="payment-form">
         @csrf
-        @foreach($tempCart as $downloadId => $downloadDetails)
-        <tr>
-        @php
-            $design = \App\Models\Design::find($downloadDetails['design_id']);
-        @endphp
-        <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
-        <td>{{ $downloadDetails['designName'] }}</td>
-        <td>{{ $downloadDetails['price'] }}</td>   
-        @endforeach
-        <label for="email">メールアドレス</label>
+        <table>
+            @foreach($tempCart as $downloadId => $downloadDetails)
+            <tr>
+            @php
+                $design = \App\Models\Design::find($downloadDetails['design_id']);
+            @endphp
+            <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
+            <td>デザイン名：{{ $downloadDetails['designName'] }}  </td>
+            @endforeach
+        </table>
+        <label for="email">メールアドレス(領収書を送付いたします)</label>
         <input type="text" class="form-control" id="email" name="email" required>
 
         @error('email')
@@ -57,18 +59,17 @@
             <strong>{{ $message }}</strong>
         </span>
         @enderror
-        <label for="price">¥{{ $design->price }}</label>
         <label for="exampleInputPassword1"></label>
         <div class="form-group MyCardElement " id="card-element"></div>
 
         <div id="card-errors" role="alert" style='color:red'></div>
-
+        <label for="price">領収金額(税込) ¥{{ $design->price }}</label>
         <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
-        <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
-        お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
+        <h6 style="font-size:smaller;">当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
+        お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</h6>
 
-        <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
-        何かご不明点がありましたら、お気軽にお問い合わせください。</p>
+        <h6 style="font-size:smaller;">安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
+        何かご不明点がありましたら、お気軽にお問い合わせください。</h6>
     </form>
     <div class="try">
         <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>

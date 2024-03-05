@@ -7,10 +7,15 @@ header{
 .card{
     text-align: center;
     background: beige;
+    width:80%;
+    margin:16px auto;
     border-radius: 10%;
+    padding:8px;
 }
 table, th, td, tr {
     text-align: center;
+    padding: 8px;
+    margin:0 auto;
 }
 
 .list {
@@ -138,15 +143,16 @@ input#protect{
 }
 
 .horizontal-table th, .horizontal-table td {
-    border: 1px solid #dddddd;
+    /* border: 1px solid #dddddd; */
     text-align: left;
     padding: 8px;
 }
 
 /* 横並びにするための追加スタイル */
 .horizontal-table thead th, .horizontal-table tbody td {
-    /* display: inline-block; */
-    width: 25%; /* 4つの列なので、25%ずつの幅を指定 */
+    width: 50%;
+    border-style: none;
+    text-align: center;
 }
 label{
     font-weight: bold;
@@ -217,9 +223,6 @@ header{
     width:70%;
     margin:0 auto;
 }
-.consent{
-    display: flex;
-}
 .popup-container {
     display: none;
     position: fixed;
@@ -276,6 +279,41 @@ header{
     border: 1px solid black; /* 枠線を追加 */
     padding: 5px; /* 各要素の内側に余白を追加 */
     text-decoration: none; /* リンクの下線を削除 */
+}
+.permission{
+    text-align: center;
+    background-color: rgb(197, 233, 235);
+    width:50%;
+    margin:16px auto;
+    border-radius: 50%;
+    padding:8px;
+}
+.consent{
+    text-align: center;
+}
+nav {
+    text-align: center; /* ボタンを中央寄せ */
+}
+nav button {
+    margin: 0 10px; /* ボタン間の余白を設定 */
+    width: 100px; /* ボタンの幅 */
+    height: 100px; /* ボタンの高さ */
+    border-radius: 50%; /* 楕円形にする */
+    background-color: #E2942B;
+    border: none; /* 枠線をなくす */
+    vertical-align: top; /* ボタンを上揃えにする */
+}
+.english{
+    text-align: center;
+    margin-bottom: 24px;
+}
+.english button{
+    background-color: rgb(240, 240, 151);
+    padding:8px;
+}
+.sort{
+    display: flex;
+    justify-content: center;
 }
 @media screen and (max-width: 844px){
     h3{
@@ -356,5 +394,12 @@ header{
         }
         .profile{
             width:90%;
+        }
+        .horizontal-table thead th, .horizontal-table tbody td {
+            /* display: inline-block; */
+            width: 100%; /* 4つの列なので、25%ずつの幅を指定 */
+        }
+        .permission{
+            width:80%;
         }
 }

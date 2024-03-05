@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
-    <link rel="stylesheet" href="{{ asset('css/design.css') }}">
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
@@ -163,7 +162,7 @@
                     @endif
                     </tr>
                     <tr>
-                    <td>受取総額(残高より販売手数料4%を引いたもの)<span style="font-weight:bold; color:red;">{{ number_format(round($total * 0.96)) }}円</span><br>こちらから振込手数料52円もしくは150円が引かれます（金融機関により異なります）</td>
+                    <td>受取総額(残高より販売手数料4.6%を引いたもの)<span style="font-weight:bold; color:red;">{{ number_format(round($total * 0.96)) }}円</span><br>こちらから振込手数料52円もしくは150円が引かれます（金融機関により異なります）</td>
                     </tr>
                     <td><a href="{{route('design_pay')}}">送金申込 (受取総額が2000円以上になったら申し込めます)</a></td>
                     </tr>
