@@ -230,7 +230,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート募集</p>
+        <p>&copy; IT2U 障がい者アート共有サイト</p>
     </footer>
     <div class="popup-container" id="popupContainer">
         <div class="popup-content" id="popupContent">

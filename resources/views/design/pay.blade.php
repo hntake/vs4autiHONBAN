@@ -32,9 +32,9 @@
                 <div class="card">
                     <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; border-radius:10%; padding:8px;">
                     @if($artist->unpaid >0)
-                    <p>売り上げ残高:{{number_format(round($total * 0.96))}}円</p>
+                    <p>未払い済み残高:{{$total}}円</p>
                     @else
-                    <p>売り上げ残高:0円 </p>
+                    <p>未払い済み残高:0円 </p>
                     @endif
                         @if($artist->unpaid>=2000)
                     <div class="r-box">

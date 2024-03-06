@@ -106,13 +106,15 @@ class DesignController extends Controller
         $artist=Artist::where('email','=',$user->email)->first();
         $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-        $total = $artist->unpaid;
+        $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
+        $cost = round(($total->total_price)*0.046);
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
             'artist'=>$artist,
             'downloads'=>$downloads,
             'total'=>$total,
+            'cost'=>$cost,
         ]);
     
     }
@@ -158,13 +160,15 @@ class DesignController extends Controller
         $artist->save();
         $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-        $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->get();
+        $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
+        $cost = round(($total->total_price)*0.046);
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
             'artist'=>$artist,
             'downloads'=>$downloads,
             'total'=>$total,
+            'cost'=>$cost,
         ]);
     }
 
@@ -425,14 +429,15 @@ class DesignController extends Controller
         ]);
         $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-        $total =$artist->unpaid;;
-
+        $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
+        $cost = round(($total->total_price)*0.046);
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
             'artist'=>$artist,
             'downloads'=>$downloads,
             'total'=>$total,
+            'cost'=>$cost,
         ]);
 
     }
@@ -448,14 +453,15 @@ class DesignController extends Controller
     ]);
     $designs=Design::where('email','=',$user->email)->orderBy('id', 'desc')->paginate(10);
     $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
-    $total = $artist->unpaid;;
-
+    $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
+    $cost = round(($total->total_price)*0.046);
     return view('design/my_sheet',[
         'user'=>$user,
         'designs'=>$designs,
         'artist'=>$artist,
         'downloads'=>$downloads,
         'total'=>$total,
+        'cost'=>$cost,
     ]);}
     //送金申請ページ
     public function design_pay(Request $request)
@@ -602,7 +608,7 @@ class DesignController extends Controller
 
             //artistのunpaidに加算
             $artist = Artist::find($download->artist_id);
-            $artist->increment('unpaid', $download->price);  
+            $artist->increment('unpaid', round($design->price * 0.954));
             //unpaidが2000円超えたらメール送信
             if($artist->unpaid >= 2000){
                 \Mail::to($artist['email'])->send(new Unpaid($artist));

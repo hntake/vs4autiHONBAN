@@ -152,17 +152,26 @@
             </div>
                 <table>
                     <tr>
-                    <td>支払済総額 <span style="font-weight:bold;">{{ $artist->paid }}円</span></td>
+                        @if(isset( $total->total_price))
+                        <td>これまで購入された総額 :<span style="font-weight:bold;">{{ $total->total_price }}円</span></td>
+                        @else
+                        <td>これまで購入された総額 :<span style="font-weight:bold;">0円</span></td>
+                        @endif
                     </tr>
                     <tr>
-                    @if($artist->unpaid >0)
-                    <td>未払い売上額<span style="font-weight:bold;">{{ $artist->unpaid }}円</span></td>
-                    @else
-                    <td>未払い売上額<span style="font-weight:bold;">0円</span></td>
-                    @endif
+                        <td>手数料総額 :<span style="font-weight:bold;">{{ $cost }}円</span></td>
                     </tr>
                     <tr>
-                    <td>受取総額(残高より販売手数料4.6%を引いたもの)<span style="font-weight:bold; color:red;">{{ number_format(round($total * 0.96)) }}円</span><br>こちらから振込手数料52円もしくは150円が引かれます（金融機関により異なります）</td>
+                        <td>売上総額 :<span style="font-weight:bold;">{{ $artist->paid + $artist->unpaid }}円</span></td>
+                    </tr>
+                    <tr>
+                        <td>送金申請済み総額 :<span style="font-weight:bold;">{{ $artist->paid }}円</span></td>
+                    </tr>
+                    <tr>
+                        <td>未払い済み残高 :<span style="font-weight:bold;">{{ $artist->unpaid }}円</span></td>
+                    </tr>
+                    <tr>
+                        <td>受取総額(売上総額より送金申請済み総額を引いたもの)<span style="font-weight:bold; color:red;">{{ $artist->unpaid}}円</span><br>こちらから振込手数料52円もしくは150円が引かれます（金融機関により異なります）</td>
                     </tr>
                     <td><a href="{{route('design_pay')}}">送金申込 (受取総額が2000円以上になったら申し込めます)</a></td>
                     </tr>
@@ -181,7 +190,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート募集</p>
+        <p>&copy; IT2U 障がい者アート共有サイト</p>
     </footer>
 
 </body>

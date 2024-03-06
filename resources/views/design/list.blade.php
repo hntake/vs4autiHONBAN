@@ -36,6 +36,9 @@
     document.getElementById('infoText').style.display = 'block';
     }
     </script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -251,7 +254,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート募集</p>
+        <p>&copy; IT2U 障がい者アート共有サイト</p>
     </footer>
     <div class="popup-container" id="popupContainer">
         <div class="popup-content" id="popupContent">
