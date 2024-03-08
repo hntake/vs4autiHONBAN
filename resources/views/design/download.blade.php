@@ -25,8 +25,13 @@
 
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
+    <script>
+    function showText() {
+    document.getElementById('infoText').style.display = 'block';
+    }
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 </head>
 
 
@@ -197,10 +202,44 @@
                         <a href="{{ route('register') }}" class="header_nav_itm_link" target="_blank" >登録する</a>
                     </div>
                     @endauth
-                    
+                    <section class="">
+        <h6>
+        価格は全て、障がい者アーティストが決めた金額です。アーティストが決めた金額から<span style="color:red;">手数料4.6%</span>を引いた金額がアーティストに支払われます。(この作品の場合¥{{round($design->price* 0.954)}}がアーティストの受取額です)
+        当サイトの主な目的は、障がい者アートの普及です。したがって、
+        <span style="color:red;">有償であろうと無償であろうと、ダウンロードした作品を利用する際には、コピーライセンスの表記または併記が義務付けられます。</span>
+        作品によってはアーティスト名が表示された作品のみしかダウンロードができないものもあります。
+        上記の内容に同意いただいた上で、ダウンロードしてください。</h6>
+        <div class="english">
+            <button onclick="showText()">For English speaker</button>
+        </div>
+        <div id="infoText" style="display:none;">
+            <h6>All works on this site can be downloaded.<br>
+            All prices are determined by disabled artists.<br>
+            The main purpose of this site is to popularize art by people with disabilities.<br>
+            <span style="color:red;">Therefore, regardless of whether it is paid or free, when using a downloaded work, it is mandatory to include or include a copy license.</span><br>
+            Depending on the work, you may only be able to download works that display the artist's name.<br>
+            Please agree to the above before downloading.</h6>
+        </div>
+
+    </section>
 
             </div>
         </div>
+        <section>
+        <h2>お問い合わせ</h2>
+        <p>ご質問やお問い合わせがあれば、以下の連絡先までお気軽にご連絡ください。</p>
+        <address>
+            ボランティア団体IT2U<br>
+            電話：[連絡先電話番号070-4225-0615]<br>
+            メール：[info@itcha50.com]
+            <a href="{{route('design_list')}}">障がい者アートトップページへ</a>
+        </address>
+    </section>
+
+    <footer>
+        <p>&copy; IT2U 障がい者アート共有サイト</p>
+    </footer>
+
         </body>
         <div class="popup-container" id="popupContainer">
         <div class="popup-content" id="popupContent">

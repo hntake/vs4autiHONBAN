@@ -4,6 +4,14 @@
 header{
     margin-bottom: 16px;
 }
+header{
+    text-align: center;
+    width:70%;
+    margin:0 auto;
+}
+header img{
+    width:100%;
+}
 .card{
     text-align: center;
     background: beige;
@@ -26,6 +34,7 @@ table, th, td, tr {
 .artist-body table, th, td, tr{
     /* border-style: none; */
 }
+
 .card-header table {
     width: 100%; /* もしくは適切な幅を設定 */
     border-style: none;
@@ -331,8 +340,25 @@ nav button {
 }
     @media (max-width: 480px) {
         .card-header tbody {
-            display: block;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
+        .card-header tr, td {
+            border-style: none;
+            width:100px;
+            height:100px;
+            margin:16px;
+            padding:0px;
+        }
+        .list img{
+            width:auto;
+            height:100px;
+        }
+        .free-icon img{
+            width:auto;
+            height:30px;
+        };
         .artist-body table, th, td, tr{
             border-style: none; 
         }
@@ -401,5 +427,10 @@ nav button {
         }
         .permission{
             width:80%;
+        }
+        .card-header td {
+            border: none;
+            width:100px;
+            height:100px;
         }
 }

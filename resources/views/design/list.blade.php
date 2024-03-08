@@ -12,7 +12,7 @@
     <title>障がい者アートトップページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="イラスト ダウンロード download 障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。障がい者アートを使って支援買って支援しよう！">
+    <meta name="description" content="イラスト ダウンロード download 障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。障がい者アートをダウンロードて支援、買って支援しよう！">
     <meta name="keywords" content="ダウンロード download 障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
@@ -25,7 +25,6 @@
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
-    <link rel="stylesheet" href="{{ asset('css/design.css') }}">
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
@@ -83,7 +82,7 @@
     <section class="">
         <h2>障がい者アートの世界へようこそ！</h2>
         <h6>当サイトにある作品は全てダウンロード可能です。
-        価格は全て、障がい者アーティストが決めた金額です。
+        価格は全て、障がい者アーティストが決めた金額です。(アーティストが決めた金額から<span style="color:red;">手数料4.6%</span>を引いた金額がアーティストに支払われます)
         当サイトの主な目的は、障がい者アートの普及です。したがって、
         <span style="color:red;">有償であろうと無償であろうと、ダウンロードした作品を利用する際には、コピーライセンスの表記または併記が義務付けられます。</span>
         作品によってはアーティスト名が表示された作品のみしかダウンロードができないものもあります。

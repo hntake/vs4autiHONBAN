@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れるアプリです。迷子対策のお守りバッジも販売中" >
+    <meta name="description" content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れるアプリです。迷子対策のお守りバッジも販売中" >
     <meta name="description" content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
     <meta name="keywords" content="自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール, 絵スケジュール, 迷子">
 
@@ -341,7 +341,7 @@
                     <div class="top_four">
                             <h1>VS4 自閉症向き視覚支援</h1>
                                 <div class="top_box">
-                                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症向き視覚支援使用例" style="width:90%;"></a>
+                                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症 絵カード" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>簡単作成</b>
                                             オリジナルスケジュール：ご自分でお持ちの画像を順番にアップロードすれば完成<br>
@@ -379,7 +379,7 @@
                             <h1>お守りバッジ</h1>
                                 <div class="top_box">
 
-                                    <a href="img/fryer.png" data-lightbox="group"><img src="img/fryer.png" alt="お守りバッジ" style="width:90%;"></a>
+                                    <a href="img/fryer.png" data-lightbox="group"><img src="img/fryer.png" alt="お守りバッジ 迷子" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>お守り代わりに</b>携帯電話を常備できなかったり、ご家族の連絡先を伝えることができない、小さなお子様や障がいのある方が、
                                             万が一迷子になった時…気付いてくれた方がバッジのQRコードを
