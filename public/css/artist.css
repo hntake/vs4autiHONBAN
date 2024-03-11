@@ -69,6 +69,7 @@ table, th, td, tr {
 }
 .free-mark {
     position: relative; /* 相対位置指定 */
+    background-image: url(../img/skelton.jpeg);
 }
 
 .free-icon {
