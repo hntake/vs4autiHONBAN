@@ -603,6 +603,10 @@ Route::get('design/login/{id}', [App\Http\Controllers\Auth\LoginController::clas
 Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');
 //リストページ内並び替え
 Route::get('design/sort', [App\Http\Controllers\DesignController::class, 'list_sort'])->name('design_list_sort');
+//バッジ売り上げ報告ページへ
+Route::get('design/badge', [App\Http\Controllers\DesignController::class, 'badge'])->name('badge');
+//バッジ売り上げ報告ポスト
+Route::post('design/badge', [App\Http\Controllers\DesignController::class, 'badge_post'])->name('badge_post');
 //支払失敗
 Route::get('design/fail', function () {
     return view('design/failed');

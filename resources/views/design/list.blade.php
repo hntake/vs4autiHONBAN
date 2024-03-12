@@ -53,7 +53,7 @@
     </blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
-        <img src="{{asset('img/design_top_banner.png')}}" alt="artist" >
+        <img src="{{asset('img/design_top_banner.png')}}" alt="障がい者アート ダウンロード" >
         <h1>障がい者アートトップページ</h1>
     </header>
     <nav id="menu" class="header_nav">

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Artist;
 use App\Models\Design;
 use App\Models\Download;
+use App\Models\Badge;
 use App\Models\Genre;
 use App\Mail\Pay;
 use App\Mail\Unpaid;
@@ -108,6 +109,7 @@ class DesignController extends Controller
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
         $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
         $cost = round(($total->total_price)*0.046);
+        $badges=Badge::where('artist_id','=',$artist->id)->paginate(10);
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
@@ -115,6 +117,7 @@ class DesignController extends Controller
             'downloads'=>$downloads,
             'total'=>$total,
             'cost'=>$cost,
+            'badges'=>$badges,
         ]);
     
     }
@@ -162,6 +165,8 @@ class DesignController extends Controller
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
         $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
         $cost = round(($total->total_price)*0.046);
+        $badges=Badge::where('artist_id','=',$artist->id)->paginate(10);
+
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
@@ -169,6 +174,8 @@ class DesignController extends Controller
             'downloads'=>$downloads,
             'total'=>$total,
             'cost'=>$cost,
+            'badges'=>$badges,
+
         ]);
     }
 
@@ -431,6 +438,8 @@ class DesignController extends Controller
         $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
         $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
         $cost = round(($total->total_price)*0.046);
+        $badges=Badge::where('artist_id','=',$artist->id)->paginate(10);
+
         return view('design/my_sheet',[
             'user'=>$user,
             'designs'=>$designs,
@@ -438,6 +447,8 @@ class DesignController extends Controller
             'downloads'=>$downloads,
             'total'=>$total,
             'cost'=>$cost,
+            'badges'=>$badges,
+
         ]);
 
     }
@@ -455,6 +466,8 @@ class DesignController extends Controller
     $downloads=Download::where('artist_id','=',$artist->id)->paginate(10);
     $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
     $cost = round(($total->total_price)*0.046);
+    $badges=Badge::where('artist_id','=',$artist->id)->paginate(10);
+
     return view('design/my_sheet',[
         'user'=>$user,
         'designs'=>$designs,
@@ -462,6 +475,8 @@ class DesignController extends Controller
         'downloads'=>$downloads,
         'total'=>$total,
         'cost'=>$cost,
+        'badges'=>$badges,
+
     ]);}
     //送金申請ページ
     public function design_pay(Request $request)
@@ -781,5 +796,34 @@ public function executeDownload()
     }
     $designs = $sorts->paginate(10); // ページネーションを適切な数に調整
     return view('design/artist', compact('designs','user','artist','select'));
+    }
+
+    //バッジ売り上げ報告ページへ
+    public function badge(){
+        $user=Auth::user();
+        if($user->role==10){
+            return view('design/badge');
+        }
+    }
+    //バッジ売り上げ報告ポスト
+    public function badge_post(Request $request){
+        $id=$request->id;
+        $design=Design::find($id);
+        $artist_id=$design->artist_id;
+        $badge=new Badge();
+        $badge->design_id=$id;
+        $badge->artist_id=$artist_id;
+        $badge->designName=$design->name;
+        $badge->save();
+
+        //アーティストに付与
+        $artist = Artist::find($artist_id);
+        $artist->increment('unpaid',50);
+        //unpaidが2000円超えたらメール送信
+        if($artist->unpaid >= 2000){
+            \Mail::to($artist['email'])->send(new Unpaid($artist));
+        }
+
+        return view('design/badge');
     }
 }

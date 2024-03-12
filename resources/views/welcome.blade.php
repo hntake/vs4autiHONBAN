@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れるアプリです。迷子対策のお守りバッジも販売中" >
+    <meta name="description" content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツール（絵カード）をスマホで作れるアプリです。迷子対策のお守りバッジも販売中" >
     <meta name="description" content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
     <meta name="keywords" content="自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール, 絵スケジュール, 迷子">
 

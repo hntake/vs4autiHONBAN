@@ -395,6 +395,9 @@ class HomeController extends Controller
                 return view('my_page',compact('feel','user','type'));
             }
             elseif($type==1){
+                if($user->status==0){
+                    return view('lost.register', compact('user'));
+                }
                 $lost=Lost::where('email','=',$user->email)->first();
                 $picture=Picture::where('uuid','=',$lost->uuid)->first();
                 return view('my_page',compact('type','lost','user','picture'));

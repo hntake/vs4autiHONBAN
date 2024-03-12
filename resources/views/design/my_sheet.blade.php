@@ -112,9 +112,9 @@
         </div>
     </section>
     <section>
-        <h2>ダウンロード情報</h2>
         <div class="download_list">
             <div class="dl_web">
+                <h2>ダウンロード情報</h2>
                 <table>
                     <thead>
                             <th>作品名</th>
@@ -133,8 +133,30 @@
                         {{ $downloads->links() }}
                     </div>
                 </table>
+                @if(isset($badges) && count($badges) > 0)
+                <h2>バッジ売り上げ</h2>
+                <table>
+                    <thead>
+                            <th>作品名</th>
+                            <th>金額</th>
+                            <th>日時</th>
+                    </thead>
+                    @foreach ($badges as $badge)
+                        <tr>
+                            <td>{{ $badge->designName }}</td>
+                            <td>¥50</td>
+                            <td>{{ $badge->created_at }}</td>
+                        </tr>
+                    @endforeach
+                    <div class="pagination">
+                        {{ $badges->links('pagination::simple-bootstrap-4', ['prev_text' => '前へ', 'next_text' => '次へ']) }}
+                        {{ $badges->links() }}
+                    </div>
+                </table>
+                @endif
             </div>
             <div class="dl_sp">
+                <h2>ダウンロード情報</h2>
                 <table>
                     @foreach ($downloads as $download)
                         <tr>
@@ -149,6 +171,23 @@
 
                     </div>
                 </table>
+                @if(isset($badges) && count($badges) > 0)
+                <h2>バッジ売り上げ</h2>
+                <table>
+                    @foreach ($badges as $badge)
+                        <tr>
+                            <td>作品名:{{ $badge->designName }}</td>
+                            <td>金額:50円</td>
+                            <td>購入日時:{{ $badge->created_at->format('Y/m/d') }}</td>
+                        </tr>
+                    @endforeach
+                    <div class="pagination">
+                    {{ $badges->links('pagination::simple-bootstrap-4', ['prev_text' => '前へ', 'next_text' => '次へ']) }}
+                    {{ $badges->links() }}
+
+                    </div>
+                </table>
+                @endif
             </div>
                 <table>
                     <tr>
