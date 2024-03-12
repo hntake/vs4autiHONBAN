@@ -396,7 +396,7 @@ class HomeController extends Controller
             }
             elseif($type==1){
                 if($user->status==0){
-                    return view('lost.register', compact('user'));
+                    return view('auth.main.register');
                 }
                 $lost=Lost::where('email','=',$user->email)->first();
                 $picture=Picture::where('uuid','=',$lost->uuid)->first();
