@@ -41,7 +41,7 @@
                             <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('送金希望金額 ※必須') }}</label>
 
                             <div>
-                                <input id="price" type="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
+                                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
 
                                 @error('price')
                                 <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                             <label for="bank_name" class="col-md-4 col-form-label text-md-end">{{ __('銀行名 ※必須') }}</label>
 
                             <div>
-                                <input id="bank_name" type="bank_name" class="form-control @error('bank_name') is-invalid @enderror" name="bank_name" value="{{ old('bank_name') }}" required autocomplete="bank_name">
+                                <input id="bank_name" type="text" class="form-control @error('bank_name') is-invalid @enderror" name="bank_name" value="{{ old('bank_name') }}" required autocomplete="bank_name">
 
                                 @error('bank_name')
                                 <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                             <label for="account_number" class="col-md-4 col-form-label text-md-end">{{ __('口座番号 ※必須') }}</label>
 
                             <div>
-                                <input id="account_number" type="account_number" class="form-control @error('account_number') is-invalid @enderror" name="account_number" value="{{ old('account_number') }}" required autocomplete="account_number">
+                                <input id="account_number" type="text" class="form-control @error('account_number') is-invalid @enderror" name="account_number" value="{{ old('account_number') }}" required autocomplete="account_number">
 
                                 @error('account_number')
                                 <span class="invalid-feedback" role="alert">
@@ -80,9 +80,32 @@
                             <label for="bank_branch" class="col-md-4 col-form-label text-md-end">{{ __('支店名 ※必須') }}</label>
 
                             <div>
-                                <input id="bank_branch" type="bank_branch" class="form-control @error('bank_branch') is-invalid @enderror" name="bank_branch" value="{{ old('bank_branch') }}" required autocomplete="bank_branch">
+                                <input id="bank_branch" type="text" class="form-control @error('bank_branch') is-invalid @enderror" name="bank_branch" value="{{ old('bank_branch') }}" required autocomplete="bank_branch">
 
                                 @error('bank_branch')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                    </div> 
+                    <div class="r-box">
+                            <label for="bank_type" class="col-md-4 col-form-label text-md-end">{{ __('口座の種類 ※必須') }}</label>
+
+                            <div>
+                                <input id="bank_type1" type="radio" class="form-control @error('bank_type') is-invalid @enderror" name="bank_type" value="普通預金口座"  checked>
+                                <label for="bank_type1">普通預金口座</label><br>
+                                <input id="bank_type2" type="radio" class="form-control @error('bank_type') is-invalid @enderror" name="bank_type" value="普通預金口座" >
+                                <label for="bank_type2">普通預金口座</label><br>
+                            </div>
+                    </div> 
+                    <div class="r-box">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('口座名義 ※必須') }}</label>
+
+                            <div>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+
+                                @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

@@ -25,6 +25,8 @@ class Pay extends Mailable
         $this->bank_name  = $artist['bank_name'];    
         $this->bank_branch  = $artist['bank_branch'];    
         $this->account_number  = $artist['account_number'];    
+        $this->bank_type  = $artist['bank_type'];    
+        $this->account_name  = $artist['account_name'];    
 
     }
   /**
@@ -47,6 +49,8 @@ class Pay extends Mailable
             'bank_name'  => $this->bank_name,
             'bank_branch'  => $this->bank_branch,
             'account_number'  => $this->account_number,
+            'account_name'  => $this->account_name,
+            'bank_type'  => $this->bank_type,
 
         ]);
     }

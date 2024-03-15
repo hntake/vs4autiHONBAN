@@ -13,7 +13,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/feel.css') }}"> <!-- word.cssと連携 -->
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('/favicon2.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/my_req.ico') }}">
+    <link rel=”apple-touch-icon” href=”./my_req_icon.png” sizes=”180×180″>
+
 
 
 

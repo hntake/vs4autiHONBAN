@@ -478,7 +478,7 @@ class DesignController extends Controller
         'badges'=>$badges,
 
     ]);}
-    //送金申請ページ
+    //送金申請ページへ遷移
     public function design_pay(Request $request)
     {
         $user=Auth::user();
@@ -496,14 +496,16 @@ class DesignController extends Controller
     {
         $user=Auth::user();
         $price=$request->price;
-        $paid=round(($request->price)/0.954);
+        // $paid=round(($request->price)/0.954);
         $artist = Artist::where('email', '=', $user->email)->first();
             $artist->update([        
             'paid'=>$artist->paid + $request->price,
-            'unpaid'=>$artist->unpaid - $paid,
+            'unpaid'=>$artist->unpaid - $price,
             'bank_name'=>$request->bank_name,
             'bank_branch'=>$request->bank_branch,
             'account_number'=>$request->account_number,
+            'account_name'=>$request->name,
+            'bank_type'=>$request->bank_type,
         ]);
         //入力されたメールアドレスにメールを送信
         //   \Mail::to($artist['email'])->send(new Paymail($artist));

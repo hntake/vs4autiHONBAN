@@ -9,8 +9,14 @@
 ■支店名<br>
 {!! $bank_branch !!}<br>
 
+■口座の種類<br>
+{!! $bank_type !!}<br>
+
 ■口座番号<br>
 {!! $account_number !!}<br>
+
+■口座名義<br>
+{!! $account_name!!}<br>
 
 ■金額<br>
 ¥{!! number_format($price) !!}<br>
