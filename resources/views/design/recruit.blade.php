@@ -5,7 +5,7 @@
     <title>障がい者アート募集ページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。アーティストの作品を通じて、多様性と創造性を称賛します。当サイトでご自身の作品を共有してみませんか？作品をダウンロード販売できます。">
+    <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。当サイトでご自身の作品を共有してみませんか？作品をダウンロード販売できます。">
     <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
@@ -89,6 +89,9 @@
             <li>作品をサイトにアップロードする</li>
             <!-- フォームのコードや応募手順の詳細を追加 -->
         </ol>
+        <div class="youtube_box">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8YhNQRpVhxw?si=KGzfYXQfDLL4urd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
     </section>
 
     <section>

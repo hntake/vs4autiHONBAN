@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="自閉症や発達障害などの障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
 
     <link rel="stylesheet" href="{{ asset('css/feel.css') }}"> <!-- word.cssと連携 -->
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">

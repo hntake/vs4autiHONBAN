@@ -12,6 +12,9 @@
     <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ヘアカットスケジュールは絵カードと視覚タイマーを組み合わせた視覚支援アプリです。ヘアカット（美容院、理容店）時に、絵カードアプリを利用して、視覚的サポートを体験しましょう。
+    ダウンロードせずに使えます。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。" >
+
     <title>ヘアカットスケジュール画面 VS4</title>
 </head>
 

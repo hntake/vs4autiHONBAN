@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<meta name="description" content="。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。
+歯医者さん訪問時の視覚支援ツール（絵カード）をスマホで作れるアプリです。歯医者で役立つ絵カードを利用してスケジュールを作成し、視覚的サポートを体験しましょう。無料でダウンロードもなく利用できます" >
 <title>歯科スケジュール新規作成画面 "VS4視覚支援ツール”</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/dentist.css') }}"> <!-- schedule.cssと連携 -->
