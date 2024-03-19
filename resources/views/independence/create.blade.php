@@ -65,7 +65,7 @@
 
     <h1>新規自立支援スケジュール作成</h1>
     <p>画像は最低でも2枚以上は選んでください</p>
-    <p>画像のサイズは可能なら<span style="color:red;"> 小サイズ</span>を選択してください。</p>
+    <p>画像のサイズは可能な限り<span style="color:red;"> 小サイズ</span>(2MB以下 JPEG PNG)を選択してください。</p>
     <h6>※画像は暗号化されて保存されるので、ログインしたユーザーのみしか写真を見ることはできません</h6>
     <form action="{{ url('independence/create') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}

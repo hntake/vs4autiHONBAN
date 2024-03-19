@@ -1,7 +1,18 @@
 .card img{
-    width:100%;
+    /* width:100%; */
 }
-
+.foo img{
+  width:350px;
+  height: auto;
+}
+.foo2 img{
+  width:350px;
+  height: auto;
+}
+.foo3 img{
+  width:350px;
+  height: auto;
+}
 .one_box_list img{
     width:80%;
 }

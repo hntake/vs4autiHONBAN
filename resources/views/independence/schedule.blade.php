@@ -10,7 +10,10 @@
     <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自立支援スケジュール画面 VS4</title>
+    <meta name="description" content="{{ $schedule->schedule_name }}。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。
+    自立支援視覚支援ツール（絵カード）をスマホで作れるアプリです。音声も入力できる、絵カードアプリを作成して利用して、視覚的サポートを体験しましょう。" >
+
+    <title>自立支援スケジュール画面 {{ $schedule->schedule_name }}</title>
 </head>
 
 <div class="container">
@@ -19,7 +22,7 @@
             <div class="card">
                 <div class="card-header" style="display:flex; flex-direction: column;">
                     <tr>
-                        <td>{{ $schedule->schedule_name }}</td><br>
+                        <td><h1>{{ $schedule->schedule_name }}</h1></td><br>
                         <td>
                             <div id="img_button1">
                                 <button style="float:unset;"><a href="{{ route('independence_one',['id'=> $schedule->id]) }}"><img src="{{asset('storage/' . $schedule->image1)}}" alt="image" name="area1"></a></button>

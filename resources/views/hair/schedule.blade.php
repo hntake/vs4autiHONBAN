@@ -1,20 +1,18 @@
-@extends('layouts.app')
-<title>ヘアカットスケジュール画面 "VS4視覚支援ツール”</title>
-@section('content')
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- home.cssと連携 -->
-    <link rel="stylesheet" href="{{ asset('css/hair.css') }}"> <!-- home.cssと連携 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!-- jQueryのライブラリを読み込み -->
-    <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ヘアカットスケジュールは絵カードと視覚タイマーを組み合わせた視覚支援アプリです。ヘアカット（美容院、理容店）時に、絵カードアプリを利用して、視覚的サポートを体験しましょう。
     ダウンロードせずに使えます。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。" >
 
+    <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- home.cssと連携 -->
+    <link rel="stylesheet" href="{{ asset('css/hair.css') }}"> <!-- home.cssと連携 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script> <!-- jQueryのライブラリを読み込み -->
+    <script src="{{ asset('/js/home.js') }}"></script> <!-- home.jsと連携 -->
+    
     <title>ヘアカットスケジュール画面 VS4</title>
 </head>
 
@@ -81,10 +79,10 @@
                         <tr>
                             <td>ヘアカットスケジュール</td><br>
                             <div class="foo">
-                                <ul style="display:flex; flex-direction: row;">
+                                <ul >
                                     <li>
                                         @if($user_img==1 || $user_img==null)
-                                        <td><img src="{{asset('img/shampoo.jpeg')}}" alt="image" onclick="this.src='/img/check.png'" style="margin-top:20px;width:100%"></td>
+                                        <td><img src="{{asset('img/shampoo.jpeg')}}" alt="image" onclick="this.src='/img/check.png'" ></td>
                                         @elseif($user_img==2)
                                         <td><img src="{{asset('img/shampoo.jpeg')}}" alt="image" onclick="this.src='/img/hana.png'"></td>
                                         @else
@@ -144,7 +142,7 @@
                             </p>
                             </td>
                             <div class="foo2">
-                                <ul style="display:flex; flex-direction: row;">
+                                <ul >
                                     <li>
                                         @if($user_img==1 || $user_img==null)
                                         <td><img src="{{asset('img/shampoo.jpeg')}}" alt="image" onclick="this.src='/img/check.png'"></td>
@@ -165,7 +163,7 @@
                                 </td>
                             </div>
                             <div class="foo3">
-                                <ul style="display:flex; flex-direction: row;">
+                                <ul >
                                     <li>
                                         @if($user_img==1 || $user_img==null)
                                         <td><img src="{{asset('img/dry.jpeg')}}" alt="image" onclick="this.src='/img/check.png'"></td>
@@ -225,4 +223,3 @@
 </body>
 
 </html>
-@endsection

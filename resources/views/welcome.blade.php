@@ -71,6 +71,10 @@
                                 <div class="description1">手持ちの写真、サイトにある絵をを使ってスケジュールを作れます</div>
                             </li>
                             <li class="header_nav_itm">
+                                <a href="#independence" class="header_nav_itm_link">自立支援スケジュール</a>
+                                <div class="description1">手持ちの写真、サイトにある絵をを使って音声付きマニュアルや手順を作れます</div>
+                            </li>
+                            <li class="header_nav_itm">
                                 <a href="#hair" class="header_nav_itm_link">ヘアカット</a>
                                 <div class="description1">ヘアカットのストレスを軽減</div>
                             </li>
@@ -258,7 +262,7 @@
                                 <li>
                                     <a href="{{ url('feel/choice') }}">
                                         <h3 ontouchstart="">
-                                        <img src="{{ asset('img/feel.png') }}" alt="feel" style="width:30%;"></h3>
+                                        <img src="{{ asset('img/feel.png') }}" alt="自閉症 マイリク" style="width:30%;"></h3>
                                     </a>
                                 </li>
                                 <li>
@@ -336,16 +340,16 @@
                         </div>
                     </div>
                     <div class="hero__lead-container">
-                    <a name="hair" class="hair" ></a>
+                    <a name="independence" class="independence" ></a>
 
                     <div class="top_four">
                             <h1>VS4 自閉症向き視覚支援</h1>
                                 <div class="top_box">
                                     <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症 絵カード" style="width:90%;"></a>
                                         <div class="slide-description">
-                                            <b>簡単作成</b>
-                                            オリジナルスケジュール：ご自分でお持ちの画像を順番にアップロードすれば完成<br>
-                                            歯科・医療・イラストスケジュール： サイトに保存されている画像をスケジュール順に番号を入力するだけ！<br>
+                                            <b>" 簡単に作成 "</b>
+                                            <h4>オリジナルスケジュール</h4>→ご自分でお持ちの画像を順番にアップロードすれば完成<br>
+                                            <h4>歯科・医療・イラストスケジュール</h4>→サイトに保存されている画像をスケジュール順に番号を入力するだけ！<br>
                                             <br>
                                             ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
                                             ※詳細は画像をクリックして拡大してみてください
@@ -356,11 +360,28 @@
                                         </div>
                                 </div>
                         </div>
+                        <a name="hair" class="hair" ></a>
+
+                    <div class="top_four">
+                            <h1>自立支援スケジュール</h1>
+                                <div class="top_box">
+                                    <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="自閉症 絵カード 自立支援" style="width:50%;"></a>
+                                        <div class="slide-description">
+                                            <b>" 簡単に作成 "</b>
+                                            <h4>自立支援スケジュール</h4>→ご自分でお持ちの画像を順番にアップロード、説明をテキスト入力すれば完成<br>
+                                            <br>
+                                            ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
+                                            ※詳細は画像をクリックして拡大してみてください
+                                            <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール公開リストへ</a></div>
+                                            <a href="https://www.tiktok.com/@llcovs4/video/7208804310459698434?is_from_webapp=1&sender_device=pc&web_id=7272642022656263681">説明動画</a>
+                                        </div>
+                                </div>
+                        </div>
                         <a name="protect" class="protect" ></a>
 
                         <div class="top_four">
                             <h1>自閉症向きヘアカットスケジュール</h1>
-                                 <div class="top_box">
+                                <div class="top_box">
                                     <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="自閉症向きヘアカットスケジュール" style="width:90%;"></a>
                                         <div class="slide-description">
                                             <b>ヘアカットスケジュール</b>
@@ -370,6 +391,7 @@
                                                 <div class="admin_button">
                                                     <a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
                                                 </div>
+                                                    <a href="https://www.tiktok.com/@llcovs4/video/7203248999728418049?is_from_webapp=1&sender_device=pc&web_id=7272642022656263681">説明動画</a>
                                         </div>
                                 </div>
                         </div>
@@ -387,11 +409,13 @@
                                             また、同時に登録したメールアドレスに通知が届きます。
                                             ※詳細は画像をクリックして拡大してみてください
                                             <div class="admin_button">
-                                                <a href="{{ url('protect') }}" style="background-color:none; color:#7791DE;">お守りバッジとは？</a><br>
+                                                <a href="{{ url('protect') }}" style="background-color:none; color:#7791DE;">お守りバッジとは？</a>
                                             </div>
                                             <div class="admin_button">
                                                 <a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a>
                                             </div>
+                                            <a href="https://www.tiktok.com/@llcovs4/video/7284881008644656402?is_from_webapp=1&sender_device=pc&web_id=7272642022656263681">説明動画</a>
+
                                         </div>
                                 </div>
                         </div>

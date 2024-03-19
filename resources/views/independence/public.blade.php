@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<meta name="description" content="。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。
+自立支援視覚支援ツール（絵カード）をスマホで作れるアプリです。音声も入力できる、絵カードアプリを作成して利用して、視覚的サポートを体験しましょう。" >
 <title>自立支援一般公開リスト画面 VS4</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/schedule.css') }}"> <!-- schedule.cssと連携 -->
