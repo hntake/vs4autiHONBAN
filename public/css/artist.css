@@ -325,6 +325,11 @@ nav button {
     display: flex;
     justify-content: center;
 }
+.form{
+    margin:24px;
+    border:5px rgb(101, 149, 191) solid;
+    padding:8px;
+}
 @media screen and (max-width: 844px){
     h3{
         font-size: 20px;

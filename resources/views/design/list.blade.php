@@ -9,11 +9,11 @@
     })(window,document,'script','dataLayer','GTM-PFPXC78X');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
-    <title>障がい者アートトップページ</title>
+    <title>障がい者アーティスト募集ページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="イラスト ダウンロード download 障がい者アートの魅力を探求するプラットフォーム。障がい者アーティストの感動的な作品やストーリーを通じて、
-    多様性と創造性を称賛します。障がい者アートをダウンロードて支援！買って支援しよう！">
+    <meta name="description" content="障がい者アートをダウンロードて支援！買って支援しよう！ IT2Uは障がい者アートの魅力を探求するプラットフォーム。障がい者アーティストの感動的な作品やストーリーを通じて、
+    多様性と創造性を称賛します。イラスト ダウンロード 素材 download">
     <meta name="keywords" content="ダウンロード download 素材 障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
@@ -55,7 +55,7 @@
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
         <img src="{{asset('img/design_top_banner.png')}}" alt="障がい者アート ダウンロード" >
-        <h1>障がい者アートトップページ</h1>
+        <h1>障がい者アート共有サイトトップページ</h1>
     </header>
     <nav id="menu" class="header_nav">
         <div class="racoon">
@@ -254,7 +254,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート共有サイト</p>
+    <p><a href="https://itcha50.com/design/list">&copy; IT2U 障がい者アート共有サイト</a></p>
     </footer>
     <div class="popup-container" id="popupContainer">
         <div class="popup-content" id="popupContent">

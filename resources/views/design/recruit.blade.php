@@ -5,7 +5,7 @@
     <title>障がい者アート募集ページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。当サイトでご自身の作品を共有してみませんか？作品をダウンロード販売できます。">
+    <meta name="description" content="障がい者アートの作品を募集しています。当サイトでご自身の作品を共有してみませんか？作品をダウンロード販売することもできます。障がい者アーティスト登録しませんか？">
     <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
@@ -89,9 +89,13 @@
             <li>作品をサイトにアップロードする</li>
             <!-- フォームのコードや応募手順の詳細を追加 -->
         </ol>
+        <div class="form">
+            <h4>始め方や登録方法などに不慣れな方には、無料でサポートさせていただきます。ご予約は以下からお願いいたします。</h4>
+            <button type=""><a href="https://docs.google.com/forms/d/e/1FAIpQLSfAzOWgu7ryt8Xeir8W9SlvTacqeCebV6tw2iGSK7qkJxT33A/viewform?usp=sf_link">無料サポート予約する</button>
+        </div>
         <div class="youtube_box">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/8YhNQRpVhxw?si=KGzfYXQfDLL4urd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8YhNQRpVhxw?si=KGzfYXQfDLL4urd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
     </section>
 
     <section>
@@ -105,7 +109,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート共有サイト</p>
+    <p><a href="https://itcha50.com/design/list">&copy; IT2U 障がい者アート共有サイト</a></p>
     </footer>
 
 </body>

@@ -5,7 +5,7 @@
     <title>障がい者アート カテゴリー:{{$genre}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{$genre}} イラスト 障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。">
+    <meta name="description" content="{{$genre}} イラスト IT2Uは障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。">
     <meta name="keywords" content="イラスト、ダウンロード download 障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
@@ -230,7 +230,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート共有サイト</p>
+        <p><a href="https://itcha50.com/design/list">&copy; IT2U 障がい者アート共有サイト</a></p>
     </footer>
     <div class="popup-container" id="popupContainer">
         <div class="popup-content" id="popupContent">

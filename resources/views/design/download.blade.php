@@ -5,7 +5,7 @@
     <title>選択作品詳細ページ{{$design->name}} {{$design->name_en}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。{{$design->name}}, {{$design->name_en}}">
+    <meta name="description" content="IT2Uは障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。{{$design->name}}, {{$design->name_en}}">
     <meta name="keywords" content="イラスト, ダウンロード,素材,download,障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性,イラスト,
     {{$design->name}} ,{{$design->name_en}},{{$design->Genre1->genre}}, @if($design->genre2==!0),{{$design->Genre2->genre}},
     @endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif">
@@ -239,7 +239,7 @@
     </section>
 
     <footer>
-        <p>&copy; IT2U 障がい者アート共有サイト</p>
+        <p><a href="https://itcha50.com/design/list">&copy; IT2U 障がい者アート共有サイト</a></p>
     </footer>
 
         </body>
