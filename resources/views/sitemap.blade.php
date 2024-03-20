@@ -6,6 +6,10 @@
         <lastmod>{{ $design->created_at->tz('UTC')->toAtomString() }}</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
+        <image:image>
+        <image:loc>{{ url($design->image) }}</image:loc>
+        <image:title>{{ $design->name }}</image:title>
+    </image:image>
     </url>
     @endforeach
 
