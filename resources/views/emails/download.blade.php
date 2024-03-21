@@ -9,7 +9,7 @@
 
 <br>
 マイページへ移動 Go to my page
-[{{ route('my_page') }}]
+{{ route('my_page') }}
 <br>
 IT2U 障がい者アート共有サイト
 <br>
