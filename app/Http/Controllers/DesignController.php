@@ -627,7 +627,8 @@ class DesignController extends Controller
 
         $zip = new ZipArchive;
         $zipFileName = 'downloads.zip';
-        if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
+
+        if ($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
         foreach($downloads as $download){
             $design=Design::where('id','=',$download->design_id)->first();
             //designのdownloadedに加算
@@ -648,10 +649,12 @@ class DesignController extends Controller
             //コピーライセンスの有無
             if($design->license==0){
                 $filePath = storage_path("app/public/{$design->real_image}");
-            $zip->addFile($filePath, $design->real_image);
+                $fileContents = file_get_contents($filePath);
+                $zip->addFromString($design->real_image, $fileContents);
             }else{
                 $filePath = storage_path("app/public/{$design->real_image_with_name}");
-                $zip->addFile($filePath, $design->real_image_with_name);
+                $fileContents = file_get_contents($filePath);
+                $zip->addFromString($design->real_image_with_name, $fileContents);
             }
         }
 
