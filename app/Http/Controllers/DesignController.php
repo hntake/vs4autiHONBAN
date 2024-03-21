@@ -627,10 +627,6 @@ class DesignController extends Controller
 
         //本番用のzipの置き場用意
         $tempDir = '/var/www/html/vs4auti/storage/temp';
-        // 一時ディレクトリの所有者とパーミッションの設定
-        chmod($tempDir, 0750); // 書き込み、実行、読み取り権限を所有者にのみ付与
-
-
 
 
         $zip = new ZipArchive;
