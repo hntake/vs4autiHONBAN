@@ -625,10 +625,23 @@ class DesignController extends Controller
 
         $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
 
+        //本番用のzipの置き場用意
+        $tempDir = '/var/www/html/vs4auti/storage/temp';
+        // 一時ディレクトリの所有者とパーミッションの設定
+        chmod($tempDir, 0750); // 書き込み、実行、読み取り権限を所有者にのみ付与
+
+
+
+
         $zip = new ZipArchive;
         $zipFileName = 'downloads.zip';
 
-        if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
+        // 一時ファイルの場所を設定
+        $zip->setTempFile($tempDir);
+
+        // if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
+        if ($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+
             foreach($downloads as $download){
             $design=Design::where('id','=',$download->design_id)->first();
             //designのdownloadedに加算
