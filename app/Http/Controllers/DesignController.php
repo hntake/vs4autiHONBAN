@@ -13,6 +13,7 @@ use App\Models\Genre;
 use App\Mail\Pay;
 use App\Mail\Unpaid;
 use App\Mail\Protect;
+use App\Mail\DownloadMail;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 use File;
@@ -579,6 +580,16 @@ class DesignController extends Controller
         $download->save();
         $artist=Artist::where('id','=',$download->artist_id)->value('artist_name');
 
+        //エラー確認のため（始め）確認できたら削除
+        $total=0;
+             //pdf作成
+            $pdf = \PDF::loadView('design.pdf', compact('total','download'));
+             // 一回での支払い完了メール送信
+            $email = $user->email;
+            \Mail::to($user['email'])->send(new DownloadMail($user, $total, $pdf, $email)
+        );
+        //エラー確認の為(終わり）
+
         return view('design/download_each',[
             'download'=>$download,
             'artist'=>$artist,
@@ -588,7 +599,7 @@ class DesignController extends Controller
         $download=new Download();
         $download->artist_id=$design->artist_id;
         $download->design_id=$design->id;
-        $download->user_id=null;
+        $download->user_id=0;
         $download->price=$design->price;
         $download->designName=$design->name;
         $download->name=null;
