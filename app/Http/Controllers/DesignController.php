@@ -40,7 +40,7 @@ class DesignController extends Controller
         $user=Auth::user();
         $designs=Design::whereNotNull('name')
         ->orderBy('id', 'desc')->paginate(10);
-        return view('design/list',[
+        return view('unable',[
             'designs'=>$designs,
             'user'=>$user,
         ]);
@@ -48,7 +48,7 @@ class DesignController extends Controller
         $tempCart = Session::get('tempCart', []);
         $designs=Design::whereNotNull('name')
         ->orderBy('id', 'desc')->paginate(10);
-        return view('design/list',[
+        return view('unable',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
         ]);
@@ -760,7 +760,7 @@ public function executeDownload()
     
 
         $designs = $query->paginate(10);
-        return view('design/list', compact('designs', 'keyword','user'));
+        return view('unable', compact('designs', 'keyword','user'));
     }
 
     //アーティスト検索
@@ -798,7 +798,7 @@ public function executeDownload()
     }
 
     $designs = $sorts->paginate(10); // ページネーションを適切な数に調整
-    return view('design/list', compact('designs','user','select'));
+    return view('unable', compact('designs','user','select'));
     }
 
     /*並び替え機能*/
