@@ -46,7 +46,7 @@
                     </div>
                     <div class="r-box">
                             <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('金額 ※必須 半角数字') }}</label>
-
+                            <h4 style="color:red;">無料提供の場合は0を入力、販売したい場合の最低金額は50円からとなります。</h4>
                             <div>
                                 <input id="price" type="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
 

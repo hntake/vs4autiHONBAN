@@ -12,7 +12,8 @@ class Design extends Model
     use HasFactory;
     protected $fillable = [
 
-        'email','image','name'.'price','downloaded','genre1','genre2' ,'genre3','name_en'    
+        'email','image','name'.'price','downloaded','genre1','genre2' ,'genre3','name_en','artist_name','artist_id','real_image',
+        'image_with_artist_name','license','protect','real_image_with_name'    
     ];
     public function Genre1() {
         return $this->hasOne(Genre::class, 'id','genre1');

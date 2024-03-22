@@ -626,17 +626,18 @@ class DesignController extends Controller
         $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
 
         //本番用のzipの置き場用意
-        $tempDir = '/var/www/html/vs4auti/storage/temp';
-
-
-        $zip = new ZipArchive;
+        $tempDir = storage_path('temp');
         $zipFileName = 'downloads.zip';
 
-        // 一時ファイルの場所を設定
-        $zip->setTempFile($tempDir);
+        // ZipArchiveオブジェクトを作成
+        $zip = new ZipArchive;
 
-        // if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
-        if ($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+        // 一時ファイルを作成（一時ファイルのパスとZIPファイル名を結合してパスを作成）
+        $tempZipFilePath = $tempDir . '/' . $zipFileName;
+
+
+        // ZIPファイルを作成
+        if ($zip->open($tempZipFilePath, ZipArchive::CREATE) === TRUE) {
 
             foreach($downloads as $download){
             $design=Design::where('id','=',$download->design_id)->first();
@@ -669,20 +670,22 @@ class DesignController extends Controller
         $zip->close();
 
          // ZIPファイルを生成し、セッションに保存
-        session(['zipFilePath' => $zipFileName]);
+        session(['tempZipFilePath' => $tempZipFilePath]);
         // 画面遷移
         return redirect('design/complete')->with('success', 'ダウンロード準備が完了しました');
     }
-
+    if ($downloads->isEmpty()) {
     return view('design/error')->with('error', 'ダウンロードに失敗しました');
+    }
 }
+
 
 // 別のアクションでダウンロードを実行する
 public function executeDownload()
 {
-    $zipFilePath = session('zipFilePath');
-   if (isset($zipFilePath) && file_exists($zipFilePath)) {
-        return response()->download($zipFilePath)->deleteFileAfterSend();
+    $tempZipFilePath = session('tempZipFilePath');
+   if (isset($tempZipFilePath) && file_exists($tempZipFilePath)) {
+        return response()->download($tempZipFilePath)->deleteFileAfterSend();
     }
 
     return redirect('design/error')->with('error', 'ダウンロードに失敗しました');
