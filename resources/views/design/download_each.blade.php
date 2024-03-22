@@ -22,7 +22,7 @@
                             </tr>
                 
                         <div class="">
-                                <img src="{{ asset('storage/' . $download->Design->real_image) }}" alt="image" >
+                                <img src="{{ asset('storage/' . $design->real_image) }}" alt="image" >
                             </div>
                         </div>
                         <div class="attribution">

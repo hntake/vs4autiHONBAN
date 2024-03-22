@@ -547,15 +547,39 @@ class DesignController extends Controller
         if ($user) {
 
             $downloads=Download::where('email','=',$user->email)->where('payment_status','=','1')->where('download_status','=','0') ->get();
-            return view('design/to_download',[
+            $designs = collect(); // 空のコレクションを作成
+
+            foreach ($downloads as $download) {
+                // $download から design_id を取得し、それを使用して Design モデルを取得
+                $design = Design::find($download->design_id);
+                
+                // Design モデルが存在する場合はコレクションに追加
+                if ($design) {
+                    $designs->push($design);
+                }
+            }
+                return view('design/to_download',[
                 'downloads'=>$downloads,
+                'designs'=>$designs,
                 'user'=>$user,
                 'email'=>$id,
             ]);
             }else{
                 $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
+                $designs = collect(); // 空のコレクションを作成
+
+                foreach ($downloads as $download) {
+                    // $download から design_id を取得し、それを使用して Design モデルを取得
+                    $design = Design::find($download->design_id);
+                    
+                    // Design モデルが存在する場合はコレクションに追加
+                    if ($design) {
+                        $designs->push($design);
+                    }
+                }
             return view('design/to_download',[
                 'downloads'=>$downloads,
+                'designs'=>$designs,
                 'email'=>$id,
 
             ]);
@@ -597,6 +621,8 @@ class DesignController extends Controller
         return view('design/download_each',[
             'download'=>$download,
             'artist'=>$artist,
+            'design'=>$design,
+
         ]);
 
         }else{
@@ -616,6 +642,7 @@ class DesignController extends Controller
         return view('design/download_each',[
             'download'=>$download,
             'artist'=>$artist,
+            'design'=>$design,
         ]);
         }
     }
