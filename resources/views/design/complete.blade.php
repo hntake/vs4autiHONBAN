@@ -29,7 +29,7 @@
 </header>
 
     <div>
-    @if(session()->has('zipFilePath'))
+    @if(session()->has('tempZipFilePath'))
 
     <form id="downloadForm" action="{{ route('executeDownload') }}" method="post">
         @csrf
