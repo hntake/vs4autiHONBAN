@@ -605,16 +605,16 @@ class DesignController extends Controller
         $artist=Artist::where('id','=',$download->artist_id)->value('artist_name');
 
         //エラー確認のため（始め）確認できたら削除->隠しておく
-        $total=0;
-             //pdf作成
-            $pdf = \PDF::loadView('design.pdf', compact('total','download'));
-             // 一回での支払い完了メール送信
-            $email = $user->email;
-            \Mail::to($user['email'])->send(new DownloadMail($user, $total, $pdf, $email)
-        );
-        return view('design/receipt',[
-            'email'=>$email,
-        ]);
+        // $total=0;
+        //      //pdf作成
+        //     $pdf = \PDF::loadView('design.pdf', compact('total','download'));
+        //      // 一回での支払い完了メール送信
+        //     $email = $user->email;
+        //     \Mail::to($user['email'])->send(new DownloadMail($user, $total, $pdf, $email)
+        // );
+        // return view('design/receipt',[
+        //     'email'=>$email,
+        // ]);
 
         //エラー確認の為(終わり）
 
@@ -652,7 +652,7 @@ class DesignController extends Controller
 
         $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
 
-        //本番用のzipの置き場用意
+        //本番用のzipの置き場ディレクトリー用意/storage/tempって意味
         $tempDir = storage_path('temp');
         $zipFileName = 'downloads.zip';
 
