@@ -5,8 +5,9 @@
     <title>障がい者アート募集ページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="障がい者アートの作品を募集しています。当サイトでご自身の作品を共有してみませんか？作品をダウンロード販売することもできます。障がい者アーティスト登録しませんか？">
-    <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
+    <meta name="description" content="障がい者アートの作品を募集しています。当サイトでご自身の作品を共有してみませんか？障がい者アーティストの皆様、ぜひご応募ください。
+    作品をダウンロード販売することもできます。障がい者アーティスト登録しませんか？障がい者アーティストの皆様、ぜひご応募ください。">
+    <meta name="keywords" content="障がい者アート, 募集, アートプロジェクト, アートコミュニティ, アート募集, 障がい者アート作品応募 ">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
     <meta name="twitter:card" content="summary_large_image">
@@ -51,21 +52,29 @@
             <p>登録された作品は、IT2Uのスタンプが加工されたものがサイトに記載されます。ユーザーが作品を選択すると、その加工が外されたオリジナルの作品がダウンロードされます。
                 (画像①参照)</p>
             <p>また、アーティスト名をコピーライセンスとして表記した作品のみしかダウンロードできない選択も可能です。(画像②参照)</p>
-            <img src="{{asset('img/sample.png')}}" alt="copy_license"  style="width:200px; height:auto;">
-            <img src="{{asset('img/sample_2.png')}}" alt="copy_license"  style="width:200px; height:auto;">
+            <div class="center">
+                <img src="{{asset('img/sample.png')}}" alt="copy_license"  style="width:200px; height:auto;">
+                <img src="{{asset('img/sample_2.png')}}" alt="copy_license"  style="width:200px; height:auto;">
+            </div>
     </section>
     <section>
-        <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります
-            <span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください。有償の場合の各々の<span style="color:red;">価格</span>もご自身でお決めください)</span>
-            有償の場合、販売価格からクレジットカード利用手数料(3.6%)、サーバー利用料(<span style="font-weight:bold;">サイトオープンプロモーションとして2025年3月まで<span style="color:red;">1%</span>。以降変更の可能性有り</span>)と振込手数料を差し引いた金額が支払われます。(以下の画像でお金の流れを説明しています)</p>
-            <a href="../img/pay_flow1.png" data-lightbox="group"><img src="{{asset('img/pay_flow1.png')}}" alt="pay_flow"  style="width:200px; height:auto;" ></a>
-            <a href="../img/pay_flow2.png" data-lightbox="group"><img src="{{asset('img/pay_flow2.png')}}" alt="pay_flow"  style="width:200px; height:auto;" ></a>
-        
-        <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに50円が支払われるシステムとなっております。</p>  
-        <a href="{{asset('img/turtle-orange.png')}}" data-lightbox="group"><img src="{{asset('img/turtle-orange.png')}}" alt="お守りバッジ 亀 黄色" style="width:20%;"></a>
-
-        <a href="{{asset('img/fryer.png')}}" data-lightbox="group"><img src="{{asset('img/fryer.png')}}" alt="お守りバッジ 説明" style="width:20%;"></a>
-
+        <h2>ダウンロード販売について</h2>
+            <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります
+                <span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください。有償の場合の各々の<span style="color:red;">価格</span>もご自身でお決めください)</span>
+                有償の場合、販売価格からクレジットカード利用手数料(3.6%)、サーバー利用料(<span style="font-weight:bold;">サイトオープンプロモーションとして2025年3月まで<span style="color:red;">1%</span>。
+                以降変更の可能性有り</span>)と振込手数料を差し引いた金額が支払われます。(以下の画像でお金の流れを説明しています)</p>
+                <div class="center">
+                    <a href="../img/pay_flow1.png" data-lightbox="group"><img src="{{asset('img/pay_flow1.png')}}" alt="pay_flow"  style="width:200px; height:auto;" ></a>
+                    <a href="../img/pay_flow2.png" data-lightbox="group"><img src="{{asset('img/pay_flow2.png')}}" alt="pay_flow"  style="width:200px; height:auto;" ></a>
+                </div>
+    </section>
+    <section>
+        <h2>当サイトグッズへのデザイン提供について</h2>
+            <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに<span style="font-weight:bold;">50円</span>が支払われるシステムとなっております。</p>
+            <div class="center">
+                <a href="{{asset('img/turtle-orange.png')}}" data-lightbox="group"><img src="{{asset('img/turtle-orange.png')}}" alt="お守りバッジ 亀 黄色" style="width:20%;"></a>
+                <a href="{{asset('img/fryer.png')}}" data-lightbox="group"><img src="{{asset('img/fryer.png')}}" alt="お守りバッジ 説明" style="width:20%;"></a>
+            </div>
     </section>
 
     <section>
@@ -84,20 +93,24 @@
         <p>アート作品を応募する際は、以下の手順に従ってください。</p>
         <ol>
             <li>以下のページからアーティスト登録</li>
-            <a href="{{url('register')}}" target="_blank" rel="noopener noreferrer"><p>アーティスト登録画面</p></a>
+            <a href="{{url('register')}}" target="_blank" rel="noopener noreferrer"><p>障がい者アーティスト登録画面</p></a>
             <li>作品をデジタルデータに変換する(ファイル形式:JPEG,PNG 容量2MBまで)</li>
             <li>作品をサイトにアップロードする</li>
             <!-- フォームのコードや応募手順の詳細を追加 -->
         </ol>
         <div class="form">
             <h4>始め方や登録方法などに不慣れな方には、無料でサポートさせていただきます。ご予約は以下からお願いいたします。</h4>
-            <button type=""><a href="https://docs.google.com/forms/d/e/1FAIpQLSfAzOWgu7ryt8Xeir8W9SlvTacqeCebV6tw2iGSK7qkJxT33A/viewform?usp=sf_link">無料サポート予約する</button>
-        </div>
-        <div class="youtube_box">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8YhNQRpVhxw?si=KGzfYXQfDLL4urd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAzOWgu7ryt8Xeir8W9SlvTacqeCebV6tw2iGSK7qkJxT33A/viewform?usp=sf_link">無料登録サポートを予約する
+            </button>
         </div>
     </section>
-
+    <section>
+        <a href="https://www.youtube.com/embed/8YhNQRpVhxw?si=KGzfYXQfDLL4urd8"><h2>会員登録から作品登録、支払申請までの説明動画</h2></a>
+        <div class="youtube_box">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/8YhNQRpVhxw?si=KGzfYXQfDLL4urd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </section>
     <section>
         <h2>お問い合わせ</h2>
         <p>ご質問やお問い合わせがあれば、以下の連絡先までお気軽にご連絡ください。</p>
