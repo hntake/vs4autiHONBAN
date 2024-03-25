@@ -85,7 +85,7 @@
         <ol>
             <li>以下のページからアーティスト登録</li>
             <a href="{{url('register')}}" target="_blank" rel="noopener noreferrer"><p>アーティスト登録画面</p></a>
-            <li>作品をデジタルデータに変換する(ファイル形式:JPEG,PNG 容量5MBまで)</li>
+            <li>作品をデジタルデータに変換する(ファイル形式:JPEG,PNG 容量2MBまで)</li>
             <li>作品をサイトにアップロードする</li>
             <!-- フォームのコードや応募手順の詳細を追加 -->
         </ol>

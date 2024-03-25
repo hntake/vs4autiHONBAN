@@ -20,6 +20,7 @@ use File;
 use Session;
 use Illuminate\Support\Facades\Response;
 use ZipArchive;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -40,7 +41,7 @@ class DesignController extends Controller
         $user=Auth::user();
         $designs=Design::whereNotNull('name')
         ->orderBy('id', 'desc')->paginate(10);
-        return view('unable',[
+        return view('design/list',[
             'designs'=>$designs,
             'user'=>$user,
         ]);
@@ -48,7 +49,7 @@ class DesignController extends Controller
         $tempCart = Session::get('tempCart', []);
         $designs=Design::whereNotNull('name')
         ->orderBy('id', 'desc')->paginate(10);
-        return view('unable',[
+        return view('design/list',[
             'designs'=>$designs,
             'tempCart'=>$tempCart,
         ]);
@@ -208,16 +209,23 @@ class DesignController extends Controller
     public function posted(Request $request){
         $user=Auth::user();
         $now = Carbon::now();
-        $now_format = $now->format('Y-m-d');
+        $now_format = $now->format('Y-m-d H:i:s');
 
         $validate = $request->validate(
             [
-                'image' => 'required|file|image:jpeg,png,jpg|max:500000',
+                'image' => 'required|file|image:jpeg,png,jpg|max:200000',
                 'genre' => 'required',
+                'price' => 'required|numeric|in:0,50,51',
             ],
             [
-                'image' => '画像を選んでください',
-                'genre' => 'カテゴリを選んでください',
+                'image.required' => '画像を選択してください。',
+                'image.file' => '画像を選択してください。',
+                'image.image' => '画像ファイルを選択してください。',
+                'image.mimes' => '画像はJPEG、PNG、JPG形式である必要があります。',
+                'image.max' => '画像サイズは2MB以下である必要があります。',
+                'genre.required' => 'カテゴリを選択してください。',
+                'price.required' => '価格を入力してください。',
+                'price.in' => '価格は0か50以上である必要があります。',
 
                 ]
         );
@@ -325,7 +333,7 @@ class DesignController extends Controller
     public function upload(Request $request,$new_image){
         $user=Auth::user();
         $now = Carbon::now();
-        $now_format = $now->format('Y-m-d');
+        $now_format = $now->format('Y-m-d H:i:s');
 
         $design=new Design();
         $design->email=$user->email;
@@ -457,7 +465,28 @@ class DesignController extends Controller
     public function design_deleted(Request $request,$id)
 {
     $user=Auth::user();
-    $design=Design::where('id','=',$id)->delete();
+    // デザインを取得
+    $image = Design::find($id);
+
+    // デザインが存在するか確認
+    if ($image) {
+
+        // 画像ファイルのパスを取得
+        $imagePath =  $image->image;
+        $real_imagePath = $image->real_image;
+        $imagePathWith = $image->image_with_artist_name;
+        $real_imagePathWith = $image->real_image_with_name;
+
+        // データベース内のデザインエントリを削除
+        $image->delete();
+
+            Storage::disk('public')->delete($imagePath);
+            Storage::disk('public')->delete($real_imagePath);
+            Storage::disk('public')->delete($imagePathWith);
+            Storage::disk('public')->delete($real_imagePathWith);
+
+    }
+
     $artist=Artist::where('email','=',$user->email)->first();
     //削除したのでデザイン数が減る
     $artist->update([
@@ -790,7 +819,7 @@ public function executeDownload()
     
 
         $designs = $query->paginate(10);
-        return view('unable', compact('designs', 'keyword','user'));
+        return view('design/list', compact('designs', 'keyword','user'));
     }
 
     //アーティスト検索
@@ -828,7 +857,7 @@ public function executeDownload()
     }
 
     $designs = $sorts->paginate(10); // ページネーションを適切な数に調整
-    return view('unable', compact('designs','user','select'));
+    return view('design/list', compact('designs','user','select'));
     }
 
     /*並び替え機能*/
