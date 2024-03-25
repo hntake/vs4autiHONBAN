@@ -4,9 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポート(絵カード)を利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツール（絵カード）をスマホで作れるアプリです。絵カードアプリを利用して、視覚的サポートを体験しましょう。迷子対策のお守りバッジも販売中" >
+    <meta name="description" content="ボランティア団体IT2Uが運営するウェブサイトでは、自閉症や発達障害を持つ個人やその家族、支援者向けに、さまざまな支援サービスや情報を提供しています。
+    当サイトでは、特に聴覚入力よりも視覚的サポートが効果的なと考えられる方々に対して、視覚支援ツールである絵カードを活用したサービスを提供しています。例えば、VS4というスマートフォンアプリは、
+    絵カードを作成して視覚的サポートを提供するツールです。このアプリを利用することで、絵カードを活用したコミュニケーションやスケジュール管理などが可能となります。
+    また、迷子対策のためのお守りバッジも販売しており、安心して外出するためのサポートを提供しています。
+    さらに、障がいのある方が自分の要望をうまく伝えることができるように支援するための無料アプリ「マイリク」も紹介しています。このアプリを活用することで、日常生活におけるコミュニケーションの円滑化や、
+    自己表現のサポートが可能となります。自閉症や発達障害に関する情報や支援サービスを必要とする方々に向けて、私たちのサイトは有益なリソースやツールを提供し、より豊かな生活を送るための支援を行っています。" >
     <meta name="description" content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
-    <meta name="keywords" content="自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール, 絵スケジュール, 迷子">
+    <meta name="keywords" content="自閉症, 発達障害, 知的障害,スマートフォンアプリ,サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール,
+    絵スケジュール, お守りバッジ, ボランティア団体IT2U, 迷子対策,">
 
     <title>{{ config('app.name', 'VS4') }} ボランティア団体IT2U | 自閉症サポート</title>
 
@@ -223,28 +229,28 @@
                                 <li>
                                     <a href="{{ url('create') }}">
                                         <h3 ontouchstart="">
-                                            スケジュール作成</h3>
+                                        絵カード スケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('create_sort') }}">
                                         <h3 ontouchstart="">
-                                            イラストスケジュール作成</h3>
+                                        絵カード イラストスケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('dentist/create') }}">
-                                        <h3 ontouchstart="">歯科スケジュール作成</h3>
+                                        <h3 ontouchstart="">絵カード 歯科スケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('medical/create') }}">
-                                        <h3 ontouchstart="">医療スケジュール作成</h3>
+                                        <h3 ontouchstart="">絵カード 医療スケジュール作成</h3>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('independence/public') }}">
-                                        <h3 ontouchstart="">自立支援ツール一覧</h3>
+                                        <h3 ontouchstart="">絵カード 自立支援ツール一覧</h3>
                                     </a>
                                 </li>
                                 <li>
@@ -353,10 +359,10 @@
                                             <br>
                                             ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
                                             ※詳細は画像をクリックして拡大してみてください
-                                            <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">スケジュール作成ページへ</a></div>
-                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">歯科スケジュール作成ページへ</a></div>
-                                            <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">医療スケジュール作成ページへ</a></div>
-                                            <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">イラストスケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">絵カード スケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">絵カード 歯科スケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">絵カード 医療スケジュール作成ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">絵カード イラストスケジュール作成ページへ</a></div>
                                         </div>
                                 </div>
                         </div>
@@ -372,7 +378,7 @@
                                             <br>
                                             ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
                                             ※詳細は画像をクリックして拡大してみてください
-                                            <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">自立支援スケジュール公開リストへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('independence_public') }}" style="background-color:none; color:#7791DE;">絵カード 自立支援スケジュール公開リストへ</a></div>
                                             <a href="https://www.tiktok.com/@llcovs4/video/7208804310459698434?is_from_webapp=1&sender_device=pc&web_id=7272642022656263681">説明動画</a>
                                         </div>
                                 </div>
@@ -389,7 +395,7 @@
                                             <br>
                                             ※詳細は画像をクリックして拡大してみてください
                                                 <div class="admin_button">
-                                                    <a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">ヘアカットスケジュール</a>
+                                                    <a href="{{ route('cut_schedule') }}" style="background-color:none; color:#7791DE;">絵カード ヘアカットスケジュール</a>
                                                 </div>
                                                     <a href="https://www.tiktok.com/@llcovs4/video/7203248999728418049?is_from_webapp=1&sender_device=pc&web_id=7272642022656263681">説明動画</a>
                                         </div>
@@ -440,8 +446,8 @@
                         </div>
                         <div class="banner">
                             <a target="_blank" href="{{ route('design_list') }}"><img src="img/design_top_icon.png" alt="障がい者アート普及サイト" ></a>
-                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="ヘアカットスケジュール" ></a>
-                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="マイリク" ></a>
+                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="絵カード ヘアカットスケジュール" ></a>
+                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="コミュニケーション障害 マイリク" ></a>
                             <a target="_blank" href=https://itcha50.com/bbs/list><img src="img/bbs_ad2.png" alt="自閉症発達障害向け掲示板" ></a>
                             <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="エイゴメ" ></a>
                         </div> 
@@ -496,10 +502,10 @@
                             </div>
                             <div class="sm-banner">
                                 <a target="_blank" href="{{ route('design_list') }}"><img src="img/design_top_icon.png" alt="障がい者アート普及サイト" ></a>
-                                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="ヘアカットスケジュール" ></a>
-                                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="マイリク" ></a>
+                                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="絵カード ヘアカットスケジュール" ></a>
+                                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="コミュニケーション障害 マイリク" ></a>
                                 <a target="_blank" href=https://itcha50.com/bbs/list><img src="img/bbs_ad2.png" alt="自閉症発達障害向け掲示板" ></a>
-                                <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="エイゴメ" ></a>
+                                <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="英単語学習サイトエイゴメ" ></a>
                             </div> 
                         </div>
                     </div>
