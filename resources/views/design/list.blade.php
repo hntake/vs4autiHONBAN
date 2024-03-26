@@ -9,7 +9,7 @@
     })(window,document,'script','dataLayer','GTM-PFPXC78X');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
-    <title>障がい者アーティスト募集ページ</title>
+    <title>障がい者アーティスト共有サイトトップページ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="障がい者アートをダウンロードて支援！買って支援しよう！ 障がい者アートの魅力を探求するプラットフォーム。障がい者アーティストの感動的な作品やストーリーを通じて、
