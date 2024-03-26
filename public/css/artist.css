@@ -333,6 +333,17 @@ nav button {
 .center{
     text-align: center;
 }
+.invalid-feedback {
+    color: red; /* 赤色 */
+    font-weight: bold; /* 太字 */
+    animation: blink 1s infinite; /* 点滅 */
+}
+
+@keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 0; }
+100% { opacity: 1; }
+}
 @media screen and (max-width: 844px){
     h3{
         font-size: 20px;
