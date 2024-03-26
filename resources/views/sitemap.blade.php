@@ -1,4 +1,6 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"     
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
     
     @foreach ($designs as $design)
     <url>
@@ -7,9 +9,9 @@
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <image:image>
-        <image:loc>{{ url($design->image) }}</image:loc>
-        <image:title>{{ $design->name }}</image:title>
-    </image:image>
+            <image:loc>{{ url($design->image) }}</image:loc>
+            <image:title>{{ $design->name }}</image:title>
+        </image:image>
     </url>
     @endforeach
 
