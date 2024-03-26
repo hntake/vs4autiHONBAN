@@ -2,9 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>自閉症・発達障害専門掲示板 {{$title}}</title>
+    <title>テーマ：{{$title}} 自閉症・発達障害専門掲示板 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta content="出雲のボランティア団体IT2Uによる掲示板サイト。自閉症や、発達障害などの障がいを持つ方、家族に持つ方向けの専門掲示板 育児や暮らしの中の悩みを共有してみませんか？テーマ：{{$title}}" name="description">
+    <meta content="テーマ：{{$title}} 出雲のボランティア団体IT2Uによる掲示板サイト。自閉症や、発達障害などの障がいを持つ方、家族に持つ方向けの専門掲示板
+    育児や暮らしの中の悩みや情報を共有してみませんか？" name="description">
+    <meta name="keywords" content="自閉症, 発達障害, 知的障害,掲示板、情報共有 発達障害支援, 悩み相談 子育て 発達支援 ASD ADHD アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 
+    IT2U">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -52,7 +55,7 @@
         }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Twitterシェアボタン -->
@@ -62,7 +65,7 @@
         <!-- <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw"></a> -->
         <a href="https://twitter.com/share" class="twitter-share-button" data-text="新スレッド：{{$title}}" data-url="{{url('bbs/index/'.$thread)}}">Tweet</a>
     </blockquote>
-     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="wrap">
     
         <main style="max-width:100%;">

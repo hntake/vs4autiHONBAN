@@ -11,8 +11,8 @@
     家族に持つ方向けの専門掲示板 育児や暮らしの中の悩み・情報を共有してみませんか？会員登録なしで利用できます。" name="description">
     <meta name="description" content="自閉症の方やそのご家族向けのサポートコミュニティ。悩みや相談、有益な情報の共有ができる安心の掲示板サイトです">
 
-    <meta name="keywords" content="自閉症, 自閉症スペクトラム, 自閉症サポート, 自閉症相談, 情報交換, 掲示板, サポートコミュニティ, 自閉症の家族">
-
+    <meta name="keywords" content="自閉症, 発達障害, 知的障害,掲示板、情報共有 発達障害支援, 悩み相談 子育て 発達支援 ASD ADHD アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 
+    IT2U">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:image" content="https://itcha50.com/img/bbs_ad2.png">
 
