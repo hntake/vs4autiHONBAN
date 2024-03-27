@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="公式サイト お守りバッジの説明ページ 幼児や認知症を持つ方、そして自閉症などの発達障害を持っているなど、携帯も持てない、電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。" >
-    <meta name="keywords" content="お守りバッジ,見守りバッジ,自閉症, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 行方不明防止, 認知症サポート, 安全サービス">
+    <meta name="description" content="公式サイト お守りバッジの説明ページ 幼児や認知症を持つ方、そして自閉症などの発達障害を持っているなど、携帯も持てない、
+    電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。サイト内にて購入できます" >
+    <meta name="keywords" content="お守りバッジ,見守りバッジ,自閉症, お出かけ, 発達障害, サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 行方不明防止,
+    認知症サポート, 安全サービス, 徘徊老人, 徘徊防止, 介護, 迷子, 探し方">
     <title>お守りバッジとは？迷子対策 </title>
 
     <!-- Fonts -->
@@ -49,6 +51,33 @@
                 slideWidth: 1500
             });
         });
+    </script>
+    <!-- 構造化データのコード -->
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "お守りバッジ",
+    "description": "幼児や自閉症の方のお出かけや、認知症の方の徘徊対策に役立つお守りバッジの公式サイトです。",
+    "provider": {
+        "@type": "Organization",
+        "name": "IT2U"
+    },
+    "offers": {
+        "@type": "Offer",
+        "availability": {
+            "@type": "ItemAvailability",
+            "name": "InStock"
+        }  
+        "price": "500",
+        "priceCurrency": "JPY",
+        "url": "https:itcha50.com/protect//",
+        "seller": {
+            "@type": "Organization",
+            "name": "IT2U"
+        }
+    }
+}
     </script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962" crossorigin="anonymous"></script>
 

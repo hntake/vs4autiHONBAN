@@ -40,20 +40,23 @@
     "name": "障がい者アート作品",
     "description": "障がい者が制作したアート作品のダウンロードサイトです。",
     "provider": {
-    "@type": "Organization",
-    "name": "{{$design->artist_name}}"
-    },
-    "offers": {
-    "@type": "Offer",
-    "availability": "http://schema.org/InStock",
-    "price": "{{ $design->price}}",
-    "priceCurrency": "JPY",
-    "url": "http://itcha50.com/design/download/{{$design->id}}",
-    "seller": {
         "@type": "Organization",
         "name": "{{$design->artist_name}}"
-    }
-    }
+    },
+    "offers": {
+        "@type": "Offer",
+        "availability": {
+            "@type": "ItemAvailability",
+            "name": "InStock"
+        }  
+        "price": "{{ $design->price}}",
+        "priceCurrency": "JPY",
+        "url": "https://itcha50.com/design/download/{{$design->id}}",
+        "seller": {
+            "@type": "Organization",
+            "name": "{{$design->artist_name}}"
+            }
+        }
     }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
