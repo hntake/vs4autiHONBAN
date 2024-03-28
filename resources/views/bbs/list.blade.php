@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta content="出雲のボランティア団体IT2Uによる掲示板コミュニティサイト。自閉症や、発達障害などの障がいを持つ方、
     家族に持つ方向けの専門掲示板 育児や暮らしの中の悩み・情報を共有してみませんか？会員登録なしで利用できます。" name="description">
-    <meta name="description" content="自閉症の方やそのご家族向けのサポートコミュニティ。悩みや相談、有益な情報の共有ができる安心の掲示板サイトです">
 
     <meta name="keywords" content="自閉症, 発達障害, 知的障害,掲示板、情報共有 発達障害支援, 悩み相談 子育て 発達支援 ASD ADHD アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 
     IT2U">

@@ -973,6 +973,9 @@ b{
 .top_box a{
     width:50%;
 }
+.sample{
+    width:50%;
+}
  /*lenovo*/
  @media only screen and (min-width:800px) and (max-width:1200px){
      .catch-copy{
@@ -1069,11 +1072,9 @@ b{
         height:auto;
     }
     .banner{
-        margin-right:50px;
-    }
-    .banner img{
-        width:200%;
-    }
+        display:none;
+   }
+   
     .sm-banner{
         display:flex;
         flex-wrap: wrap;
@@ -1153,6 +1154,9 @@ b{
     }
 }
 @media screen and (max-width: 480px) {
+    .sample{
+        width:100%;
+    }
     .catch-copy{
         top:50px;
     }

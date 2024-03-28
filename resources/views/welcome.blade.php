@@ -350,19 +350,25 @@
                     <div class="top_four">
                             <h1>VS4 自閉症向き視覚支援</h1>
                                 <div class="top_box">
-                                    <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症 絵カード" style="width:90%;"></a>
-                                        <div class="slide-description">
-                                            <b>" 簡単に作成 "</b>
-                                            <h4>オリジナルスケジュール</h4>→ご自分でお持ちの画像を順番にアップロードすれば完成<br>
-                                            <h4>歯科・医療・イラストスケジュール</h4>→サイトに保存されている画像をスケジュール順に番号を入力するだけ！<br>
-                                            <br>
-                                            ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
-                                            ※詳細は画像をクリックして拡大してみてください
-                                            <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">絵カード スケジュール作成ページへ</a></div>
-                                            <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">絵カード 歯科スケジュール作成ページへ</a></div>
-                                            <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">絵カード 医療スケジュール作成ページへ</a></div>
-                                            <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">絵カード イラストスケジュール作成ページへ</a></div>
-                                        </div>
+                                    <div class="sample">
+                                        <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症 絵カード" style="width:80%;"></a>
+                                        <a href="img/sample_schedule1.png" data-lightbox="group"> <img src="img/sample_schedule1.png" alt="自閉症 絵カード" style="width:60%;"></a>
+                                        <a href="img/sample_dentist1.png" data-lightbox="group"> <img src="img/sample_dentist1.png" alt="自閉症 絵カード" style="width:60%;"></a>
+                                        <a href="img/sample_med1.png" data-lightbox="group"> <img src="img/sample_med1.png" alt="自閉症 絵カード" style="width:60%;"></a>
+
+                                    </div>
+                                    <div class="slide-description">
+                                        <b>" 簡単に作成 "</b>
+                                        <h4>オリジナルスケジュール</h4>→ご自分でお持ちの画像を順番にアップロードすれば完成<br>
+                                        <h4>歯科・医療・イラストスケジュール</h4>→サイトに保存されている画像をスケジュール順に番号を入力するだけ！<br>
+                                        <br>
+                                        ※画像は暗号化されて保存されるので、画像が流出することはありません<br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                        <div class="admin_button"><a href="{{ route('create') }}" style="background-color:none; color:#7791DE;">絵カード スケジュール作成ページへ</a></div>
+                                        <div class="admin_button"><a href="{{ route('dentist_create') }}" style="background-color:none; color:#7791DE;">絵カード 歯科スケジュール作成ページへ</a></div>
+                                        <div class="admin_button"><a href="{{ route('medical_create') }}" style="background-color:none; color:#7791DE;">絵カード 医療スケジュール作成ページへ</a></div>
+                                        <div class="admin_button"><a href="{{ route('create_sort') }}" style="background-color:none; color:#7791DE;">絵カード イラストスケジュール作成ページへ</a></div>
+                                    </div>
                                 </div>
                         </div>
                         <a name="hair" class="hair" ></a>
