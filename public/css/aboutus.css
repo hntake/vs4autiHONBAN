@@ -71,6 +71,13 @@ video {
  video.sp {
    display: none !important;
 }
+.twitter{
+    margin-top:24px;
+}
+.twitter img{
+    width:10%;
+    height:auto;
+}
  /*ipad*/
  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     video {
@@ -81,6 +88,10 @@ video {
         -webkit-transform: translate(0%, 0%);
     -moz-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
+    }
+    .twitter img{
+        width:30%;
+        height:auto;
     }
 }
 /*iPhone12レスポンシブ対応*/
@@ -99,7 +110,10 @@ video {
     .aboutus{
         width:80%;
     }
-
+    .twitter img{
+        width:30%;
+        height:auto;
+    }
 }
 @media screen and (max-width: 480px) {
        /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
@@ -112,5 +126,9 @@ video {
     }
     .aboutus{
         width:80%;
+    }
+    .twitter img{
+        width:30%;
+        height:auto;
     }
 }    

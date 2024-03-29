@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="ボランティア団体IT2Uによるサイト。自閉症、知的障害、発達障害を持つ人の中には聴覚入力よりも視覚的サポートを利用することで、より良く理解できる傾向がある人がいます。VS4は視覚支援ツールをスマホで作れます。迷子対策のお守りバッジも販売中" name="description">
-    <meta content="webサービス会社llco そして、ITの力で助けたいボランティア団体IT2Uについて" name="description">
+    <meta content="障がいのある家族を持ったプログラマーによる、ボランティア団体IT2Uについて。お問い合わせはお気軽にどうぞ! Xアカウントも是非フォローしてください!!" name="description">
+    <meta content="IT2U webサービス会社llco 障がいサポート, 自閉症, 発達障害" name="keywords">
 
     <title>IT2U about us</title>
 
@@ -30,7 +30,7 @@
         <div class="video-box overlay">
                 <video class="pc"src="img/nagi_movie.mp4" autoplay loop muted playsinline></video>
                 <video class="sp" src="img/nagi_small.mp4" autoplay loop muted playsinline></video>
-                <img src="img/nagi.png" alt="Placeholder">
+                <!-- <img src="img/nagi.png" alt="Placeholder"> -->
                 </video>
         </div>
         <div class="aboutus">
@@ -47,8 +47,9 @@
                 <p>プログラマーとして他にも英語学習について活動をしています</p>
                 <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://eng50cha.com>英単語強化サイトエイゴメ</a></button>
         </div>
-       
-       
+        <div class="twitter">
+            <a href="https://twitter.com//LLco1118"> <img src="img/x_follow.png" alt="x"></a>
+        </div>
     <div class="top">
         <button class="button" id="card-button"><a style="font-size: 1.0rem;" href="{{ url('/') }}">トップページに<br>戻る</a></button>
     </div>
