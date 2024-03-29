@@ -45,10 +45,7 @@
     },
     "offers": {
         "@type": "Offer",
-        "availability": {
-            "@type": "ItemAvailability",
-            "name": "InStock"
-        }  
+        "availability": "http://schema.org/InStock",
         "price": "{{ $design->price}}",
         "priceCurrency": "JPY",
         "url": "https://itcha50.com/design/download/{{$design->id}}",
