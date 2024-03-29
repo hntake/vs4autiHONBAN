@@ -12,6 +12,8 @@
 
     <meta name="keywords" content="自閉症, 発達障害, 知的障害,掲示板、情報共有 発達障害支援, 悩み相談 子育て 発達支援 ASD ADHD アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 
     IT2U">
+    <meta name="robots" content="index, follow">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:image" content="https://itcha50.com/img/bbs_ad2.png">
 

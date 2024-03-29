@@ -23,13 +23,13 @@
                         @elseif($lost->design==2)
                         <img src="{{asset('img/flower-purple.png')}}" alt="image" >
                         @elseif($lost->design==3)
-                        <img src="{{asset('img/cat-pink.png')}}" alt="image" >
+                        <img src="{{asset('img/can_see.png')}}" alt="image" >
                         @elseif($lost->design==4)
-                        <img src="{{asset('img/dog-blue.png')}}" alt="image" >
+                        <img src="{{asset('img/butterfly.png')}}" alt="image" >
                         @elseif($lost->design==5)
                         <img src="{{asset('img/elephant-red.png')}}" alt="image" >
                         @elseif($lost->design==6)
-                        <img src="{{asset('img/turtle-orange.png')}}" alt="image" >
+                        <img src="{{asset('img/turtle-orange.png')}}" alt="image" > 
                         @elseif($lost->design==7)
                         <img src="{{asset('img/plain-black.png')}}" alt="image" >
                         @else
