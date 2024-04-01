@@ -13,11 +13,11 @@
 VS4auti is a collection of various applications aimed at supporting people with disabilities. The services provided by VS4auti include:
 
 - [Autism Visual Support Service](https://itcha50.com/create).
-<img src="{{asset('img/sample_schedule1.png')}}">
+<img src="https://itcha50.com/img/sample_schedule1.png">
 
 - [Lost Child Prevention: Guardian Badge](https://itcha50.com/lost/home/9f9a9af3-acf0-3afb-ab06-e1e283143e9e).
 - [Autism Communication Tool](https://play.google.com/store/apps/details?id=com.tmp.my_request).
-<img src="{{asset('img/feel_sample.png')}}">
+<img src="https://itcha50.com/img/feel_sample.png">
 
 - [Bulletin Board for Families of People with Disabilities](https://itcha50.com/bbs/list).
 - [Disability Art Sharing Site](https://itcha50.com/design/list).
