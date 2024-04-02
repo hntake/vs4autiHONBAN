@@ -4,8 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="自閉症支援に特化した絵カード作成アプリをご紹介します。このアプリは、自閉症スペクトラム障害（ASD）の方々やそのサポーターにとって、
+    コミュニケーションや日常生活のサポートに役立ちます。簡単な操作で、カスタマイズ可能な絵カードを作成し、様々な場面で利用することができます。感情表現や日常のアクション、
+    必要なアイテムの表示など、多様なカテゴリーが用意されています。また、アプリ内でのカードの組み合わせや編集、保存が容易であり、ユーザーのニーズに合わせたカスタマイズが可能です。
+    ASDの方々が自己表現やコミュニケーションを円滑に行うためのツールとして、ぜひご活用ください。" >
+    <meta name="keywords" content="自閉症, 発達障害, 知的障害,スマートフォンアプリ,サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール,
+    絵スケジュール, 絵カード">
 
-    <title>VS4とは？ 視覚支援ツールVS4 </title>
+    <title>自閉症視覚支援ツール(絵カード)VS4、マイりくについて</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -352,7 +358,7 @@
                     </div>
                     <div class="panel_area">
                         <div id="panel1" class="tab_panel">
-                            <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="create" style="width:30%;"></a>
+                            <a href="img/create.png" data-lightbox="group"> <img src="img/create.png" alt="自閉症 絵カード" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">自分だけの絵スケジュールを作る</div>
                                 <div class="slide-description">
@@ -369,7 +375,7 @@
 
                         </div>
                         <div id="panel2" class="tab_panel">
-                            <a href="img/dentist.png" data-lightbox="group"> <img src="img/dentist.png" alt="dentist" style="width:30%;"></a>
+                            <a href="img/dentist.png" data-lightbox="group"> <img src="img/dentist.png" alt="自閉症 絵カード 歯医者" style="width:30%;"></a>
                             <div class="sright">
                                 <div class="slide-head">定番スケジュール</div>
                                 <div class="slide-description">
@@ -472,7 +478,7 @@
             </div>
             <div class="panel_area">
                 <div id="panel11" class="tab_panel">
-                    <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="feel" style="width:30%;"></a>
+                    <a href="img/feel_sample.png" data-lightbox="group"><img src="img/feel_sample.png" alt="自閉症コミュニケーションツール" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">タップでリクエストを伝える</div>
                         <div class="slide-description">
@@ -484,7 +490,7 @@
                     </div>
                 </div>
                 <div id="panel4" class="tab_panel">
-                    <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="list" style="width:30%;"></a>
+                    <a href="img/list.png" data-lightbox="group"><img src="img/list.png" alt="絵カード保存リスト" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">リスト保存で</div>
                         <div class="slide-description">
@@ -497,7 +503,7 @@
                     </div>
                 </div>
                 <div id="panel5" class="tab_panel">
-                    <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="check" style="width:30%;"></a>
+                    <a href="img/check_sk.png" data-lightbox="group"> <img src="img/check_sk.png" alt="自閉症絵カード チェックマーク" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">チェックマーク表示で</div>
                         <div class="slide-description">
@@ -514,7 +520,7 @@
 
                 </div>
                 <div id="panel6" class="tab_panel">
-                    <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="check" style="width:30%;"></a>
+                    <a href="img/independence2.png" data-lightbox="group"> <img src="img/independence2.png" alt="自閉症 絵カード 自立支援スケジュール" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">画像と音声で</div>
                         <div class="slide-description">
@@ -536,7 +542,7 @@
              
             </div>
                 <div id="panel7" class="tab_panel">
-                    <img src="img/smafo.png" alt="phone" style="width:30%;">
+                    <img src="img/smafo.png" alt="自閉症 スマホアプリ" style="width:30%;">
                     <div class="sright">
                         <div class="slide-head">自分にあった使い方</div>
                         <div class="slide-description">
@@ -580,7 +586,7 @@
             </div>
             <div class="panel_area">
                 <div id="panel8" class="tab_panel">
-                    <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="list" style="width:30%;"></a>
+                    <a href="img/hair.png" data-lightbox="group"><img src="img/hair.png" alt="自閉症 美容室 絵カード" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">視覚タイマー付き</div>
                         <div class="slide-description">
@@ -598,7 +604,7 @@
             </div>
             <div class="panel_area">
                 <div id="panel9" class="tab_panel">
-                    <a href="img/independence2.png" data-lightbox="group"><img src="img/independence2.png" alt="list" style="width:30%;"></a>
+                    <a href="img/independence2.png" data-lightbox="group"><img src="img/independence2.png" alt="自立支援スケジュール一般公開リスト" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">みんなで共有できる</div>
                         <div class="slide-description">
@@ -617,7 +623,7 @@
       
             <div class="panel_area">
                 <div id="panel10" class="tab_panel">
-                    <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="list" style="width:30%;"></a>
+                    <a href="img/list.png" data-lightbox="group"><img src="img/create.png" alt="自閉症 絵カード" style="width:30%;"></a>
                     <div class="sright">
                         <div class="slide-head">登録しなくても</div>
                         <div class="slide-description">
