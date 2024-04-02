@@ -21,6 +21,8 @@ use Session;
 use Illuminate\Support\Facades\Response;
 use ZipArchive;
 use Illuminate\Support\Facades\Storage;
+use App\Helpers\TwitterHelper;
+
 
 
 
@@ -215,7 +217,7 @@ class DesignController extends Controller
             [
                 'image' => 'required|file|image:jpeg,png,jpg|max:200000',
                 'genre' => 'required',
-                'price' => 'required|numeric|in:0,50,51',
+                'price' => 'required|numeric|not_between_custom:1,49',
             ],
             [
                 'image.required' => '画像を選択してください。',
@@ -448,6 +450,10 @@ class DesignController extends Controller
         $total = Download::where('artist_id', $artist->id)->selectRaw('SUM(price) as total_price')->first();
         $cost = round(($total->total_price)*0.046);
         $badges=Badge::where('artist_id','=',$artist->id)->paginate(10);
+
+        // Twitterにツイートする例
+        $twitterHelper = new TwitterHelper();
+        $result = $twitterHelper->tweet("新しい作品が投稿されました！ https://itcha50.com/design/download/{{$design->id}}");
 
         return view('design/my_sheet',[
             'user'=>$user,

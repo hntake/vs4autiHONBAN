@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 use App\Models\Cashier\User;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -36,9 +37,11 @@ class AppServiceProvider extends ServiceProvider
         }
         Paginator::useBootstrap();
 
+        Validator::extend('not_between_custom', function ($attribute, $value, $parameters, $validator) {
+            return $value <= 0 || $value >= 50;
+        });
 
-/*         Cashier::useCustomerModel(User::class);
- */
+
 
     }
 }

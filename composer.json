@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "abraham/twitteroauth": "^7.0",
         "barryvdh/laravel-dompdf": "^2.0",
         "fruitcake/laravel-cors": "^3.0",
         "goldspecdigital/laravel-eloquent-uuid": "^9.0",
