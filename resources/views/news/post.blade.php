@@ -7,6 +7,8 @@
     <meta content="出雲のボランティア団体IT2Uによる障がいサポートサイトからのお知らせはこちらから。自閉症や、発達障害などの障がいを持つ方向けに様々なサービスを提供しています。" name="description">
     <meta name="keywords" content="自閉症, 発達障害, 知的障害,絵カード, 掲示板、障がい者アート, 情報共有 発達障害支援, 悩み相談 子育て 発達支援 ASD ADHD アプリ紹介,
     サービス紹介, 特別支援, 生活の質向上, IT2U">
+    <meta name="robots" content="index, follow">
+
     <title>ニュース ボランティア団体IT2Uからのお知らせです</title>
     <link rel="stylesheet" href="{{asset('../css/news.css')}}">
     <!-- Fonts -->

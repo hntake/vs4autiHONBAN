@@ -10,6 +10,7 @@
     ASDの方々が自己表現やコミュニケーションを円滑に行うためのツールとして、ぜひご活用ください。" >
     <meta name="keywords" content="自閉症, 発達障害, 知的障害,スマートフォンアプリ,サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール,
     絵スケジュール, 絵カード">
+    <meta name="robots" content="index, follow">
 
     <title>自閉症視覚支援ツール(絵カード)VS4、マイりくについて</title>
 
@@ -25,6 +26,7 @@
     <!-- Styles -->
     <!--  <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/feature.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/favicon2.ico') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
@@ -135,7 +137,6 @@
                     </nav>
                 </div>
                 <div class="mobile">
-                       
                             <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%;"></a>
                     <ul>
                         <li class="header_nav_itm">
@@ -152,7 +153,6 @@
                                 </div>
                             </li>
 
-                       
                         @endif
                     </ul>
                 </div>
@@ -212,6 +212,13 @@
                     </div>
                 </div>
             </header>
+            <div class="top">
+                <h1>自閉症・発達障害向けサービス</h1>
+                    <h4>自閉症支援に特化した絵カード作成アプリをご紹介します。このアプリは、自閉症スペクトラム障害（ASD）の方々やそのサポーターにとって、
+                    コミュニケーションや日常生活のサポートに役立ちます。簡単な操作で、カスタマイズ可能な絵カードを作成し、様々な場面で利用することができます。感情表現や日常のアクション、
+                    必要なアイテムの表示など、多様なカテゴリーが用意されています。また、アプリ内でのカードの組み合わせや編集、保存が容易であり、ユーザーのニーズに合わせたカスタマイズが可能です。
+                    ASDの方々が自己表現やコミュニケーションを円滑に行うためのツールとして、ぜひご活用ください。</h4>
+            </div>
             <div class="youtube_box">
                 <div class="youtube_kv">
                     <div class="movie_cap">

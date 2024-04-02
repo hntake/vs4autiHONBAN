@@ -12,8 +12,9 @@
     自己表現のサポートが可能となります。自閉症や発達障害に関する情報や支援サービスを必要とする方々に向けて、私たちのサイトは有益なリソースやツールを提供し、より豊かな生活を送るための支援を行っています。" >
     <meta name="keywords" content="自閉症, 発達障害, 知的障害,スマートフォンアプリ,サポートアプリ, 発達障害支援, アプリ紹介, サービス紹介, 特別支援, 生活の質向上, 視覚支援, コミュニケーションツール,
     絵スケジュール, お守りバッジ, ボランティア団体IT2U, 迷子対策,">
+    <meta name="robots" content="index, follow">
 
-    <title>{{ config('app.name', 'VS4') }} ボランティア団体IT2U | 自閉症サポート</title>
+    <title>IT2U | 自閉症サポート 絵カードアプリ コミュニケーションアプリ</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">

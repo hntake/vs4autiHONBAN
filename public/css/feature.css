@@ -168,12 +168,20 @@ li.title_image{
 .modaal-close:hover:before{
 	background:#666;
 }
-
+.top{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 240px;
+    background-color: #ebe1e1;
+    padding:24px;
+}
 /*使い方*/
 .use{
     margin-left:500px;
     width: 80%;
     margin-bottom:50px;
+    margin-top:40px;
+
 }
 a.use{
     color: #222222;
