@@ -10,6 +10,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\Reported;
+use App\Helpers\TwitterHelper;
+
 
 
 class BbsController extends Controller
@@ -72,6 +74,10 @@ class BbsController extends Controller
         $comment->comment = $request->comment;
         $comment->thread_id=$thread->id;
         $comment->save();
+
+        // Twitterにツイートする例
+        $twitterHelper = new TwitterHelper();
+        $result = $twitterHelper->tweet_thread($thread);
 
         $threads=Thread::orderBy('created_at', 'desc')->paginate(30);
 

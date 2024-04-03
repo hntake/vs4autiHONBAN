@@ -453,7 +453,7 @@ class DesignController extends Controller
 
         // Twitterにツイートする例
         $twitterHelper = new TwitterHelper();
-        $result = $twitterHelper->tweet("新しい作品が投稿されました！ https://itcha50.com/design/download/{{$design->id}}");
+        $result = $twitterHelper->tweet($design);
 
         return view('design/my_sheet',[
             'user'=>$user,
