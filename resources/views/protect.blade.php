@@ -70,7 +70,7 @@
         "availability": {
             "@type": "ItemAvailability",
             "name": "InStock"
-        }  
+        },  
         "price": "500",
         "priceCurrency": "JPY",
         "url": "https:itcha50.com/protect//",

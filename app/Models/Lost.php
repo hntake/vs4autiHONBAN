@@ -19,6 +19,7 @@ class Lost extends Model
      */
     protected $fillable = [
         'name',
+        'name_pronunciation',
         'email',
         'password',
         'uuid',
