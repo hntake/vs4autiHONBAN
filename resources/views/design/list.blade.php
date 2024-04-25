@@ -282,7 +282,7 @@
             }
         });
     </script>
-    <script>
+    <!-- <script>
         function agreeToUseCookies() {
         document.getElementById("popupContainer").style.display = "none";
         }
@@ -298,7 +298,7 @@
     document.getElementById("popupContainer").style.display = "none";
     }
 
-    </script>
+    </script> -->
 
 </body>
 </html>

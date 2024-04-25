@@ -22,8 +22,6 @@
     <link rel="stylesheet" href="{{ asset('css/design.css') }}">
     <link rel="stylesheet" href="{{ asset('css/artist.css') }}">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
-     crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Twitterシェアボタン -->
@@ -72,7 +70,7 @@
         <h2>当サイトグッズへのデザイン提供について</h2>
             <p>また、当サイトで販売されているグッズ(<a href="{{url('protect')}}">お守りバッジ</a>)へのデザイン提供にご参加いただくと、売り上げごとに<span style="font-weight:bold;">50円</span>が支払われるシステムとなっております。</p>
             <div class="center">
-                <a href="{{asset('img/turtle-orange.png')}}" data-lightbox="group"><img src="{{asset('img/turtle-orange.png')}}" alt="お守りバッジ 亀 黄色" style="width:20%;"></a>
+                <a href="{{asset('img/bird-black_elder.png')}}" data-lightbox="group"><img src="{{asset('img/bird-black_elder.png')}}" alt="お守りバッジ 鳥" style="width:20%;"></a>
                 <a href="{{asset('img/fryer.png')}}" data-lightbox="group"><img src="{{asset('img/fryer.png')}}" alt="お守りバッジ 説明" style="width:20%;"></a>
             </div>
     </section>
