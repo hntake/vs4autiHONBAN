@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="障がい者アートの作品を募集しています。当サイトでご自身の作品を共有してみませんか？障がい者アーティストの皆様、ぜひご応募ください。
     作品をダウンロード販売することもできます。障がい者アーティスト登録しませんか？障がい者アーティストの皆様、ぜひご応募ください。">
-    <meta name="keywords" content="障がい者アート, 募集, アートプロジェクト, アートコミュニティ, アート募集, 障がい者アート作品応募 ">
+    <meta name="keywords" content="障がい者アート,アート募集,アートプロジェクト,アートコミュニティ,アート募集,障がい者アート作品応募 ">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
     <meta name="twitter:card" content="summary_large_image">

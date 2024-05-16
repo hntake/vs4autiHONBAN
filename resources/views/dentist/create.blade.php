@@ -61,6 +61,7 @@
 
 
     <h1>新規スケジュール作成</h1>
+    <h3>歯医者が苦手な方向け 来院前に作成して、見通しを立ててストレスを軽減しよう！</h3>
     <div class="register-button">
         <a href="https://youtube.com/embed/pnJWbZraq10" class="header_nav_itm_link">歯科スケジュール作成VS4説明動画を見る</a>
     </div>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="障がいのある家族を持ったプログラマーによる、ボランティア団体IT2Uについて。お問い合わせはお気軽にどうぞ! Xアカウントも是非フォローしてください!!" name="description">
-    <meta content="IT2U webサービス会社llco 障がいサポート, 自閉症, 発達障害" name="keywords">
+    <meta content="IT2U,webサービス会社llco,障がいサポート,自閉症,発達障害" name="keywords">
 
     <title>IT2U about us</title>
 

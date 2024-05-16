@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
+    <meta name="keywords" content="マイリク, 自閉症, 発達障害, 喋れない, ASD, ADHD, コミュニケーションツール, 無料アプリ">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="自閉症や発達障害などの障がいのために自分の要望がうまく伝えることができない人向けの無料アプリ・マイリク" name="description">
     <meta name="robots" content="index, follow">

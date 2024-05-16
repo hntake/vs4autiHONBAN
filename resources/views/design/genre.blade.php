@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{$genre}} イラスト 障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。">
-    <meta name="keywords" content="イラスト、ダウンロード download 障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
+    <meta name="keywords" content="イラストダウンロード,download,障がい者アート,アートプロジェクト,アートコミュニティ,多様性,創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
     <meta name="twitter:card" content="summary_large_image">
@@ -27,7 +27,7 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Twitterシェアボタン -->
+    <!-- シェアボタン -->
 
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
         <!-- <a href="https://t.co/ffKnsVKwG4"></a> -->

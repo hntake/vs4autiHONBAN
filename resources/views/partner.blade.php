@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>パートナープログラム 視覚支援ツールVS4 </title>
+    <title>サポーター募集ページ ボランテイア団体IT2U </title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -66,10 +66,10 @@
                             <li class="header_nav_itm">
                                 <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/vs4auti2.png" style="width:60%; height:auto;"></a>
                             </li>
-                            <li class="header_nav_itm">
+                            <!-- <li class="header_nav_itm">
                                 <a href="#paid" class="header_nav_itm_link">ディストリビュータープログラム</a>
                                 <div class="description1">普及のお願い</div>
-                            </li>
+                            </li> -->
 
                             <li class="header_nav_itm">
                                 <a href="#monitor" class="header_nav_itm_link">サポータープログラム</a>
@@ -85,10 +85,10 @@
                         <li class="header_nav_itm">
                             <a href="{{url('/')}}" class=""><img src="img/vs4auti2.png" style="width:30%; height:auto;"></a>
                         </li>
-                        <li class="header_nav_itm">
+                        <!-- <li class="header_nav_itm">
                             <a href="#paid" class="header_nav_itm_link">ディストリビュータープログラム</a>
                             <div class="description1">普及のお願い</div>
-                        </li>
+                        </li> -->
 
                         <li class="header_nav_itm">
                             <a href="#monitor" class="header_nav_itm_link">サポータ―プログラム</a>
@@ -104,9 +104,9 @@
                         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                         <div id="nav-content">
                             <ul class="header_nav_list">
-                                <li><a href="#paid">
+                                <!-- <li><a href="#paid">
                                         ディストリビュータープログラム
-                                    </a></li>
+                                    </a></li> -->
                                 <li><a href="#monitor">
                                         サポータープログラム
                                     </a>
@@ -162,11 +162,11 @@
                         <img src="img/partner2.png" alt="partner" style="width:100%; height:auto;">
                     </div>
                     <div class="sales_discription">
-                        VS4パートナープログラムは、福祉や医療機関にVS4を普及していただくパートナーを対象とした「ディストリビューターパートナープログラム」と、広告を掲載をしたいパートナーを対象とした『サポートプログラム』の２つのプログラムで構成されます。<br>
+                        VS4パートナープログラムは、福祉や医療機関にVS4を普及していただくパートナーを対象とした「ディストリビューターパートナープログラム」と、広告を掲載をしたいパートナーを対象とした『サポートプログラム』の2つのプログラムで構成されます。<br>
                         VS4がより多くの人たちに活用され、障がいによる支障を一つでも減らせる、そんな未来を作っていきます。
                     </div>
                 </div>
-                <div class="middle-partner">
+                <!-- <div class="middle-partner">
                     <a name="paid">
                         <div class="partner_logo">
                             <div class="p-logo">
@@ -185,7 +185,7 @@
                                 <div class="admin_button"><a href="{{ route('contact.index') }}" style="background-color:none; color:#7791DE;">お問い合わせページへ</a></div>
                             </div>
                         </div>
-                </div>
+                </div> -->
                 <div class="middle-partner">
                     <a name="monitor">
                         <div class="partner_logo">

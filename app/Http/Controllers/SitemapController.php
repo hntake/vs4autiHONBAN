@@ -30,4 +30,5 @@ class SitemapController extends Controller
             'newses' => $news,
             'imagePaths' =>$imagePaths,
         ])->header('Content-Type', 'text/xml');
-    }}
+    }
+}

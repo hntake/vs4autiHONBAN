@@ -1,4 +1,10 @@
 @extends('layouts.app')
+<meta name="description" content="公式サイト お守りバッジの説明ページ 幼児や認知症を持つ方、そして自閉症などの発達障害を持っているなど、携帯も持てない、
+電話番号も伝えれない方向けの迷子対策にお守りバッジをどうでしょう？ヘルプマークとの連携も出来ます。サイト内にて購入できます" >
+<meta name="keywords" content="お守りバッジ,見守りバッジ,自閉症,お出かけ対策,発達障害,サポートアプリ,発達障害支援, アプリ紹介,サービス紹介,行方不明対策,
+認知症サポート,安全サービス,徘徊老人,徘徊対策,介護,迷子,探し方">
+<meta name="robots" content="index, follow">
+
 <title>お守りバッジ購入先一覧</title>
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/list.css') }}"> <!-- products.cssと連携 -->

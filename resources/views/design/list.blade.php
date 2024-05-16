@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="障がい者アートをダウンロードて支援！買って支援しよう！ 障がい者アートの魅力を探求するプラットフォーム。障がい者アーティストの感動的な作品やストーリーを通じて、
     多様性と創造性を称賛します。イラスト ダウンロード 素材 download">
-    <meta name="keywords" content="ダウンロード download 素材 障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
+    <meta name="keywords" content="イラストダウンロード,download,障がい者アート,アートプロジェクト,アートコミュニティ,多様性,創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
     <meta name="twitter:card" content="summary_large_image">

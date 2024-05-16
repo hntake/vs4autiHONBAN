@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="障がい者アートの魅力を探求するプラットフォーム。アーティストの感動的な作品やストーリーを通じて、多様性と創造性を称賛します。">
-    <meta name="keywords" content="障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性">
+    <meta name="keywords" content="障がい者アート,アートプロジェクト,アートコミュニティ,多様性,創造性">
     <meta name="author" content="IT2U">
     <meta name="robots" content="index, follow">
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">

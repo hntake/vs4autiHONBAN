@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{$design->name}}, {{$design->name_en}}のイラストです。障がい者の方によるアート作品です。ダウンロードして、障がい者アート活動を支援しよう！">
-    <meta name="keywords" content="{{$design->name}} ,{{$design->name_en}},イラスト, ダウンロード,素材,download,障がい者アート, アートプロジェクト, アートコミュニティ, 多様性, 創造性,イラスト,
+    <meta name="keywords" content="{{$design->name}} ,{{$design->name_en}},イラスト,ダウンロード,素材,download,障がい者アート,アートプロジェクト,アートコミュニティ,多様性,創造性,イラスト,
     {{$design->Genre1->genre}}, @if($design->genre2==!0),{{$design->Genre2->genre}},
     @endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif">
     <meta name="author" content="IT2U">
@@ -20,7 +20,7 @@
     <meta name="twitter:site" content="@LLco1118">
     <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
-    <meta name="twitter:image" content="https://itcha50.com/img/design_design_top_icon.pn">
+    <meta name="twitter:image" content="https://itcha50.com/img/design_design_top_icon.png?4362984378">
 
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
