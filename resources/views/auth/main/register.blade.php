@@ -404,7 +404,7 @@
                         <form method="POST" action="{{ route('register.main.check') }}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">名前 name ※必須 required</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right"><span style="font-weight:bold;">名前 </span>name (事業者登録の場合は代表者のお名前を入力して下さい) ※必須 required</label>
                                     <div class="col-md-6">
                                         <input
                                             id="name" type="text"
@@ -421,7 +421,7 @@
 
                                 <div class="form-group row">
                                     <label for="name_pronunciation"
-                                        class="col-md-4 col-form-label text-md-right">フリガナ ※必須</label>
+                                        class="col-md-4 col-form-label text-md-right"><span style="font-weight:bold;">フリガナ </span>※必須</label>
 
                                     <div class="col-md-6">
                                         <input id="name_pronunciation" type="text"
@@ -437,7 +437,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="disability"
-                                        class="col-md-4 col-form-label">障がいの種類 ※必須</label>
+                                        class="col-md-4 col-form-label"><span style="font-weight:bold;">障がいの種類 </span>(事業所登録の方は<span style="font-weight:bold;">事業所</span>と入力して下さい) ※必須</label>
 
                                     <div class="col-md-6">
                                         <input id="disability" type="text"
@@ -453,7 +453,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="artist_name"
-                                        class="col-md-4 col-form-label" >アーティスト名 ※必須</label>
+                                        class="col-md-4 col-form-label" ><span style="font-weight:bold;">アーティスト名 </span>(事業所登録の方は事業所名を入力して下さい) ※必須</label>
                                     <p>(<span style="color:red;">著作権表記</span>に使用します。本名を利用される場合は本名を記入して下さい)</p>
                                     <div class="col-md-6">
                                         <input id="artist_name" type="text"

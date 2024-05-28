@@ -44,8 +44,11 @@
 
                 <p>お問い合わせは、下記の窓口までお願い致します。</p>
                 <button class="button" style="margin-top:0px;"><a href="{{ route('contact.index') }}">Contact us</a></button><br>
-                <p>プログラマーとして他にも英語学習について活動をしています</p>
+                <p>他にも英語学習や選挙啓発について活動をしています</p>
                 <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://eng50cha.com>英単語強化サイトエイゴメ</a></button>
+                <br>
+                <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://eng50cha.com/diet/vote>選挙に行こう！ 不祥事議員を避け、清廉な議員を選ぶための情報サイト </a></button>
+
         </div>
         <div class="twitter">
             <a href="https://twitter.com//LLco1118"> <img src="img/x_follow.png" alt="x"></a>

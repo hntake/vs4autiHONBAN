@@ -78,8 +78,9 @@
     <section>
         <h2>募集要項</h2>
         <ol>
-            <li>応募資格：障がいをお持ちの方々</li>
-            <li>アーティストページにてご自身の障がいを<span style="font-weight:bold;">公表する</span></li>
+            <li>応募資格：障がいをお持ちの方々もしくは障がい者就労施設</li>
+            <li>個人の場合:アーティストページにてご自身の障がいを<span style="font-weight:bold;">公表する</span><br>
+            事業所の場合:事業所情報を<span style="font-weight:bold;">公表する</span></li>
             <li>以下の規約に同意していただける方</li>
             <a href="{{url('design/policy')}}" target="_blank" rel="noopener noreferrer"><p>利用規約</p></a>
             <!-- その他の募集要項を追加 -->
