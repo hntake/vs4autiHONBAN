@@ -29,7 +29,7 @@ class TwitterHelper
     //新しいスレッドが作成されたら
     public function tweet_thread($thread)
     {
-        $text = "新しいスレッドが投稿されました！ スレッド名:{$thread->title}  https://itcha50.com/bbs/list/{$thread->id}";
+        $text = "新しいスレッドが投稿されました！ スレッド名:{$thread->title}  https://itcha50.com/bbs/index/{$thread->id}";
         $result = $this->twitter->post('tweets', ['text' => $text]);
         return $result;
     }

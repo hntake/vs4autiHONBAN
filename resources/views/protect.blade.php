@@ -261,7 +261,7 @@
                 </div>
                 <div class="panel_area">
                     <div id="panel1" class="tab_panel">
-                        <a href="img/turtle-orange.png" data-lightbox="group"> <img src="img/turtle-orange.png" alt="お守りバッジ" style="width:30%;"></a>
+                        <a href="img/butterfly.png" data-lightbox="group"> <img src="img/butterfly.png" alt="お守りバッジ" style="width:30%;"></a>
                         <div class="sright">
                             <div class="slide-head">万が一の時の準備</div>
                             <div class="slide-description">
