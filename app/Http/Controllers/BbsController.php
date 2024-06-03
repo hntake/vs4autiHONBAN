@@ -98,7 +98,7 @@ class BbsController extends Controller
     {
         $role = User::where('id', '=', Auth::id())
         ->value('role');
-        $threads=Thread::orderBy('created_at', 'desc')->paginate(30);
+        $threads=Thread::orderBy('updated_at', 'desc')->paginate(30);
 
         return view('bbs/list',[
             'threads'=>$threads,
