@@ -56,6 +56,13 @@ button.c-button{
     color:#fff;
     padding:5px;
   }
+  .support{
+    background-color: honeydew;
+    margin:16px auto;
+  }
+  input{
+    margin:8px auto;
+  }
   @media screen and (min-width: 768px){
     button.c-button{
       padding: 0.5em 2em;

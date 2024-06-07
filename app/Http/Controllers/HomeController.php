@@ -443,16 +443,26 @@ class HomeController extends Controller
     {
         $user=Auth::user();
         if($user->type==0){
-        $users = User::find($id);
-        $users->email = $request->input('email');
-        $users->gender = $request->input('gender');
-        $users->image_id = $request->input('image_id');
-        $users->save();
+        $user = User::find($id);
+        $user->email = $request->input('email');
+        $user->gender = $request->input('gender');
+        $user->image_id = $request->input('image_id');
+        $user->save();
+        $type=$user->type;
+        return view('my_page',[
+            'user'=>$user,
+            'type'=>$type
+        ]);
         }
         elseif($user->type==2){
-        $users = User::find($id);
-        $users->email = $request->input('email');
-        $users->save();
+        $user = User::find($id);
+        $user->email = $request->input('email');
+        $user->save();
+        $type=$user->type;
+        return view('my_page',[
+            'user'=>$user,
+            'type'=>$type
+        ]);
         }
         elseif($user->type==1){
         $lost=Lost::where('uuid','=',$user->uuid)->first();
@@ -487,6 +497,11 @@ class HomeController extends Controller
         $uuid=$lost->uuid;
         $user = User::where('uuid',$uuid)->first();
         $user->email = $request->input('email');
+        $user->support = $request->input('support');
+        $user->weak = $request->input('weak');
+        $user->relax = $request->input('relax');
+        $user->can = $request->input('can');
+        $user->cannot = $request->input('cannot');
         $user->save();
         $type=$user->type;
          // もし空欄の場合はエラーメッセージを表示
@@ -502,6 +517,61 @@ class HomeController extends Controller
             'type'=>$type
         ]);
         }
+        elseif($user->type==3){
+            $lost=Lost::where('uuid','=',$user->uuid)->first();
+            $lost->email = $request->input('email');
+            $lost->name = $request->input('name');
+            $lost->name_pronunciation = $request->input('name_pronunciation');
+            $lost->tel1 = $request->input('tel1');
+            $lost->tel2 = $request->input('tel2');
+            $lost->address = $request->input('address');
+            $lost->mon1 = $request->input('mon1');
+            $lost->mon2 = $request->input('mon2');
+            $lost->mon3 = $request->input('mon3');
+            $lost->tue1 = $request->input('tue1');
+            $lost->tue2 = $request->input('tue2');
+            $lost->tue3 = $request->input('tue3');
+            $lost->wed1 = $request->input('wed1');
+            $lost->wed2 = $request->input('wed2');
+            $lost->wed3 = $request->input('wed3');
+            $lost->thu1 = $request->input('thu1');
+            $lost->thu2 = $request->input('thu2');
+            $lost->thu3 = $request->input('thu3');
+            $lost->fri1 = $request->input('fri1');
+            $lost->fri2 = $request->input('fri2');
+            $lost->fri3 = $request->input('fri3');
+            $lost->sat1 = $request->input('sat1');
+            $lost->sat2 = $request->input('sat2');
+            $lost->sat3 = $request->input('sat3');
+            $lost->sun1 = $request->input('sun1');
+            $lost->sun2 = $request->input('sun2');
+            $lost->sun3 = $request->input('sun3');
+            $lost->save();
+            $uuid=$lost->uuid;
+            $user = User::where('uuid',$uuid)->first();
+            $user->email = $request->input('email');
+            $user->gender = $request->input('gender');
+            $user->image_id = $request->input('image_id');
+            $user->support = $request->input('support');
+            $user->weak = $request->input('weak');
+            $user->relax = $request->input('relax');
+            $user->can = $request->input('can');
+            $user->cannot = $request->input('cannot');
+            $user->save();
+            $type=$user->type;
+             // もし空欄の場合はエラーメッセージを表示
+            if (empty($request->input('name')) || empty($request->input('tel1'))) {
+                return back()->withErrors([
+                    'name' => '名前は必須です',
+                    'tel1' => '連絡先①は必須です'
+                ])->withInput();
+            }
+            return view('my_page',[
+                'user'=>$user,
+                'lost'=>$lost,
+                'type'=>$type
+            ]);
+            }
         else{
         $artist=Artist::where('email','=',$user->email)->first();
         $artist->email = $request->input('email');

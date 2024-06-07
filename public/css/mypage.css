@@ -5,3 +5,21 @@
     border: 1px solid lightslategray;
     padding:16px;
 }
+.support{
+    background-color: rgb(235, 212, 195);
+    margin:8px auto;
+    width:80%;
+    padding:8px;
+}
+label{
+    font-weight: bold;
+    padding:8px;
+}
+tr{
+    border: 1px solid black;
+}
+.content{
+    margin:0 auto;
+    padding:8px;
+    text-align: left;
+}

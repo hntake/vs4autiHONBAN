@@ -26,9 +26,6 @@
                     <tr>
                         <th >メールアドレス</th>
                         <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
-                        <!-- パスワード変更は別で -->
-                  <!--       <th >パスワード</th>
-                        <td><input type="text" name="password" value="{{ $user->password}}" class="form-control"></td> -->
                     </tr>
                     @if($user->type==0 )
                     <tr>
@@ -73,6 +70,7 @@
                     <h4>更新ボタンを押さないと変更されません</h4>
                 </div>
                     @elseif($user->type==1)
+                 
                     <tr>
                         <th >名前</th>
                         <td><input type="text" name="name" value="{{ $lost->name}}" class="form-control"></td>
@@ -101,6 +99,32 @@
                     </tr>
 
                 </table>
+                <div class="support">
+                        <h3>サポートブック</h3>
+                        <tr>
+                            <th >苦手な事</th>
+                            <td><input type="text" name="weak" value="{{ $user->weak}}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th >安心できる事</th>
+                            <td><input type="text" name="relax" value="{{ $user->relax}}" class="form-control"></td>
+                        </tr>    <tr>
+                            <th >できる事</th>
+                            <td><input type="text" name="can" value="{{ $user->can}}" class="form-control"></td>
+                        </tr>    <tr>
+                            <th >できない事</th>
+                            <td><input type="text" name="cannot" value="{{ $user->cannot}}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            @if($user->support == 0)
+                            <input type="radio" name="support" value="0" checked>隠す
+                            <input type="radio" name="support"  value="1">表示する
+                            @else
+                            <input type="radio" name="support" value="0" >隠す
+                            <input type="radio" name="support"  value="1"checked>表示する
+                            @endif
+                        </tr>
+                    </div>
                 <div class="horizon">
                     <div class="box1">
                         @if($lost->mon1==0)
@@ -267,7 +291,7 @@
                         <input type="radio" name="fri3"  value="1"checked>連絡先②
                         @endif
                     </div>
-                      <div class="box1">
+                    <div class="box1">
                         @if($lost->sat1==0)
                         土曜日 朝6～12時
                         <input type="radio" name="sat1" value="0" checked>連絡先①
@@ -277,7 +301,7 @@
                         <input type="radio" name="sat1" value="0" >連絡先①
                         <input type="radio" name="sat1"  value="1"checked>連絡先②
                         @endif
-                      </div>
+                    </div>
                     <div class="box2">
                         @if($lost->sat2==0)
                         土曜日 昼12~19時
@@ -418,6 +442,7 @@
                         </td>
                     </tr>
                     </thead>
+                    
                     <tr>
                     <th >名前</th>
                         <td><input type="text" name="name" value="{{ $lost->name}}" class="form-control"></td>
@@ -442,6 +467,32 @@
                     </tr>
 
                 </table>
+                <div class="support">
+                        <h3>サポートブック</h3>
+                        <tr>
+                            <th >苦手な事</th>
+                            <td><input type="text" name="weak" value="{{ $user->weak}}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th >安心できる事</th>
+                            <td><input type="text" name="relax" value="{{ $user->relax}}" class="form-control"></td>
+                        </tr>    <tr>
+                            <th >できる事</th>
+                            <td><input type="text" name="can" value="{{ $user->can}}" class="form-control"></td>
+                        </tr>    <tr>
+                            <th >できない事</th>
+                            <td><input type="text" name="cannot" value="{{ $user->cannot}}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            @if($user->support == 0)
+                            <input type="radio" name="support" value="0" checked>隠す
+                            <input type="radio" name="support"  value="1">表示する
+                            @else
+                            <input type="radio" name="support" value="0" >隠す
+                            <input type="radio" name="support"  value="1"checked>表示する
+                            @endif
+                        </tr>
+                    </div>
                 <div class="horizon">
                     <div class="box1">
                         @if($lost->mon1==0)

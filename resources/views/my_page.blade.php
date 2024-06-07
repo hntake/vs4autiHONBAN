@@ -18,13 +18,78 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">登録情報</div>
                 @if($lost->mode==0)
                 <div class="pro_button"><a href="{{ route('suspend') }}">サービスを一時停止する（個人情報対策）</a></div>
                 <div class="pro_button"><a href="{{ route('stop') }}">紛失等の為にサービスを停止する</a></div>
                 @else
                 <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
                 @endif
+        </div>
+        <div class="col-md-16">
+                @if($user->support ==1)
+                <div class="card-header">サポート情報</div>
+
+                <div class="support" style="">
+                @if($user->weak != null)
+                    <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                        <tr>
+                            <td>
+                                <label>苦手な事</label>
+                            </td>
+                            <td>
+                                <div class="content">
+                                    {{$user->weak}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                @endif
+                @if($user->relax != null)
+                    <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                        <tr>
+                            <td>
+                                <label>安心する事</label>
+                            </td>
+                            <td>
+                                <div class="content">
+                                    {{$user->relax}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                @endif
+                @if($user->can != null)
+                    <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                        <tr>
+                            <td>
+                                <label>できる事</label>
+                            </td>
+                            <td>
+                                <div class="content">
+                                    {{$user->can}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                @endif
+                @if($user->cannot != null)
+                    <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                        <tr>
+                            <td>
+                                <label>できない事</label>
+                            </td>
+                            <td>
+                                <div class="content">
+                                    {{$user->cannot}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                @endif
+            </div>
+            @endif
+                <div class="card-header">登録情報</div>
+
                 <div class="card-body">
                     <div class="form-group row">
 
@@ -56,6 +121,7 @@
                                 <input type="hidden" name="image_id" value="{{$user->image_id}}">
                             </div>
                     </div>
+
                     <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                             <div class="col-md-6">
@@ -409,7 +475,76 @@
                 @else
                 <div class="pro_button"><a href="{{ route('again') }}">サービスを再開する</a></div>
                 @endif
+                @if($user->support ==1)
+                <div class="support" style="">
+                    @if($user->weak != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>苦手な事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$user->weak}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+                    @if($user->relax != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>安心する事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$user->relax}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+                    @if($user->can != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>できる事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$user->can}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+                    @if($user->cannot != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>できない事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$user->cannot}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+            </div>
+            @endif
                     <div class="card-body">
+                            <div class="form-group row">
+
+                            <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
+
+                            <div class="col-md-6">
+                                <span class="">{{$user->email}}</span>
+                                <input type="hidden" name="email" value="{{$user->email}}">
+                            </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                                 <div class="col-md-6">

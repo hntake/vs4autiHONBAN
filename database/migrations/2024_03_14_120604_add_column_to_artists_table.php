@@ -28,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('artists', function (Blueprint $table) {
             $table->dropColumn('bank_type');
-            $table->dropColumn('account_name');        });
+            $table->dropColumn('account_name');
+        });
     }
 };

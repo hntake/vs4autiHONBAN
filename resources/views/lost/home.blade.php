@@ -31,6 +31,44 @@
                             <i class="fas fa-phone"></i>警察専用</a>
                         </button>
                     </form>
+                    @if($user->support == 1)
+                    <div class="support">
+                        <ul>
+                            @if($user->weak ==!null)
+                            <li>
+                                <div class="nav">
+                                    <h3>苦手なこと</h3>
+                                    {{$user->weak}}
+                                </div>
+                            </li>
+                            @endif
+                            @if($user->relax ==!null)
+                            <li>
+                                <div class="nav">
+                                    <h3>安心できること</h3>
+                                    {{$user->relax}}
+                                </div>
+                            </li>
+                            @endif
+                            @if($user->can ==!null)
+                            <li>
+                                <div class="nav">
+                                    <h3>できること</h3>
+                                    {{$user->can}}
+                                </div>
+                            </li>
+                            @endif
+                            @if($user->cannot ==!null)
+                            <li>
+                                <div class="nav">
+                                    <h3>できないこと</h3>
+                                    {{$user->cannot}}
+                                </div>
+                            </li>
+                            @endif
+                        </ul>
+                    </div>
+                    @endif
                     <div class="it2u">
                         <h6>
                             ボランティア団体 IT2U
