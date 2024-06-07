@@ -31,43 +31,66 @@
                             <i class="fas fa-phone"></i>警察専用</a>
                         </button>
                     </form>
-                    @if($user->support == 1)
-                    <div class="support">
-                        <ul>
-                            @if($user->weak ==!null)
-                            <li>
-                                <div class="nav">
-                                    <h3>苦手なこと</h3>
-                                    {{$user->weak}}
-                                </div>
-                            </li>
-                            @endif
-                            @if($user->relax ==!null)
-                            <li>
-                                <div class="nav">
-                                    <h3>安心できること</h3>
-                                    {{$user->relax}}
-                                </div>
-                            </li>
-                            @endif
-                            @if($user->can ==!null)
-                            <li>
-                                <div class="nav">
-                                    <h3>できること</h3>
-                                    {{$user->can}}
-                                </div>
-                            </li>
-                            @endif
-                            @if($user->cannot ==!null)
-                            <li>
-                                <div class="nav">
-                                    <h3>できないこと</h3>
-                                    {{$user->cannot}}
-                                </div>
-                            </li>
-                            @endif
-                        </ul>
-                    </div>
+                    @if($support->support == 1)
+                    <h3>サポート情報</h3>
+                    <div class="support" style="">
+                    @if($support->weak != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>苦手な事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$support->weak}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+                    @if($support->relax != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>安心する事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$support->relax}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+                    @if($support->can != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>できる事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$support->can}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+                    @if($support->cannot != null)
+                        <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                            <tr>
+                                <td>
+                                    <label>できない事</label>
+                                </td>
+                                <td>
+                                    <div class="content">
+                                        {{$support->cannot}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    @endif
+            </div>
                     @endif
                     <div class="it2u">
                         <h6>

@@ -59,9 +59,14 @@ button.c-button{
   .support{
     background-color: honeydew;
     margin:16px auto;
+    padding:8px;
   }
   input{
     margin:8px auto;
+  }
+  td{
+    padding:8px;
+    font-weight: bold;
   }
   @media screen and (min-width: 768px){
     button.c-button{

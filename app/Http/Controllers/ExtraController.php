@@ -113,9 +113,11 @@ class ExtraController extends Controller
             }
             if($user->mode==0){
 
+            $support =User::where('email','=',$user->email)->first();
             return view('lost/home', [
                 'user' => $user,
                 'to_call' => $to_call,
+                'support'=>$support,
             ]);
         }
         elseif($user->mode==2){
