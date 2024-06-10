@@ -958,7 +958,7 @@
                 </div>
                 <div class="site-info">
                     <div class="widget">
-                        <span class="copu-right-text">© All rights reserved by llco</span>
+                        <span class="copu-right-text">© All rights reserved by IT2U</span>
                     </div>
                 </div>
             </div>

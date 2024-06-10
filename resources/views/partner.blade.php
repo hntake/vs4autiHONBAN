@@ -269,7 +269,7 @@
                 <div class="site-info">
                     <div class="widget">
                         <div class="copy-right">
-                            <span class="copy-right-text">© All rights reserved by llco</span>
+                            <span class="copy-right-text">© All rights reserved by IT2U</span>
                         </div>
                     </div>
                 </div>

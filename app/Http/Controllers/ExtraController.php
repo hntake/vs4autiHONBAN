@@ -127,10 +127,14 @@ class ExtraController extends Controller
             ]);
         }
         else{
+            $support =User::where('email','=',$user->email)->first();
+
             return view('suspend', [
                 'user' => $user,
                 'to_call' => $to_call,
-            ]);        }
+                'support'=>$support,
+            ]);
+        }
     }
     /*お守りで電話ボタンクリック*/
     public function to_call(Request $request, $id, $to_call)
@@ -370,9 +374,13 @@ public function suspend_index(Request $request, $id)
         } else {
             $to_call = $user->sun3;
         }
+
+        $support =User::where('email','=',$user->email)->first();
+
         return view('suspend', [
             'user' => $user,
             'to_call' => $to_call,
+            'support'=>$support,
         ]);
 }
 }

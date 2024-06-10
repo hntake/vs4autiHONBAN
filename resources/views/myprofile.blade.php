@@ -4,7 +4,7 @@
 <body style="background-image: url(../img/grad.jpg); position: relative;">
     <div class="aboutus">
         <div style="margin-bottom:50px;">
-            <h2>llco代表：竹内貴代のプロフィール</h2>
+            <h2>IT2U代表：竹内貴代のプロフィール</h2>
 
             <p>静岡県出身</P>
             <p>国立北海道帯広畜産大学を卒業後、静岡県内の進学塾で講師として勤務</p>
@@ -20,7 +20,7 @@
         <div>
             <p>お問い合わせは、下記の窓口までお願い致します。</p>
             <button class="button" style="margin-top:0px;"><a href="{{ route('contact.index') }}">Contact us</a></button><br>
-            <p>llco他サービスはこちらから</p>
+            <p>他サービスはこちらから</p>
             <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://eng50cha.com>英単語強化サイトエーゴメ</a></button>
         </div>
     </div>

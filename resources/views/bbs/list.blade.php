@@ -16,6 +16,8 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:image" content="https://itcha50.com/img/bbs_ad2.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
 
     <link rel="shortcut icon" href="{{ asset('/favicon_bbs.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
@@ -45,6 +47,21 @@
                         </form>
                 </div>
             </div>
+                <!-- 掲示板の使い方セクションを追加 -->
+        <button class="accordion">掲示板の使い方 <i class="fa-solid fa-hand-point-left"></i></i> click!</button>
+            <div class="panel">
+                <h2>掲示板の使い方</h2>
+                <p>この掲示板は、自閉症や発達障害を持つ方、そのご家族のための情報交換や悩み相談の場です。以下のガイドラインに従ってご利用ください。</p>
+                <ul>
+                    <li><strong>新規スレッド作成：</strong> トップページの「新規スレッドを作成する」ボタンをクリックし、タイトルと内容を記入してください。スレッドは誰でも閲覧できます。</li>
+                    <li><strong>コメント投稿：</strong> 各スレッドページで、自由にコメントを投稿できます。適切な表現を心がけ、他のユーザーへの配慮を忘れないようにしましょう。</li>
+                    <li><strong>検索機能：</strong> トップページの検索ボックスにキーワードを入力することで、関連するスレッドを簡単に見つけることができます。</li>
+                    <li><strong>並び替え：</strong> スレッド一覧は、投稿日時やコメント数などで並び替えることができます。お好みの並び順を選んでください。</li>
+                    <li><strong>違反報告：</strong> 不適切な書き込みを見つけた場合は、「違反報告する」リンクをクリックして報告してください。管理人が確認し、適切な対応を行います。</li>
+                    <li><strong>削除依頼：</strong> 自分のスレッドやコメントを削除したい場合は、管理人に削除依頼を送信してください。管理人が対応します。</li>
+                </ul>
+                <p>皆様が安心して利用できる掲示板を目指しております。ご協力よろしくお願いいたします。</p>
+            </div>
                 <div class="list">
                     <div class="sort">
                         <form action="{{ route('bbs_sort') }}" method="GET">
@@ -58,7 +75,6 @@
                                     <div class="form-group">
                                         <div class="button">
                                             <input type="submit" value="並び替え">
-                                            <i class="fa fa-plus"></i>
                                         </input>
                                     </div>
                                 </div>
@@ -107,7 +123,7 @@
                     <div class="site-info">
                         <div class="widget">
                             <div class="copy-right">
-                                <span class="copy-right-text">© All rights reserved by llco</span>
+                                <span class="copy-right-text">© All rights reserved by IT2U</span>
                             </div>
                         </div>
                     </div>
@@ -137,5 +153,22 @@
                 <a target="_blank" href=https://eng50cha.com><img src="../img/banner.png" alt="banner" style="width:50%;"></a>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

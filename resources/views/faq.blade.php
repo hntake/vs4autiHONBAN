@@ -161,7 +161,7 @@
         </li>
     </ul>
     <footer>
-        <p>© All rights reserved by llco</p>
+        <p>© All rights reserved by IT2U</p>
         <div class="contact">
             <h3>
                 お問い合わせ・ご質問はこちら迄

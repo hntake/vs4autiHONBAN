@@ -158,7 +158,7 @@
     </div>
     <!-- footer -->
     <footer>
-        <p>© All rights reserved by llco</p>
+        <p>© All rights reserved by IT2U</p>
         <div class="left">
             <div class="policy">
                 <button class="button"><a href="{{ url('policy') }}">プライバシーポリシー</a></button>

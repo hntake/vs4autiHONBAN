@@ -19,7 +19,7 @@
                     <div class="thank">
                         <img src="{{asset('img/lost_ad.jpg')}}">
                     </div>
-                    <p>
+                    <p style="text-align:start;">
                         ご協力ありがとうございます。<br>
                         <br>
                         現在支援者は機能を停止しており、支援者へ直接電話をつなぐことが出来ません。<br>
@@ -36,6 +36,67 @@
                             <i class="fas fa-phone"></i>警察専用</a>
                         </button>
                     </form>
+                    @if($support->support == 1)
+                    <h3>サポート情報</h3>
+                    <div class="support" style="">
+                        @if($support->weak != null)
+                            <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                                <tr>
+                                    <td>
+                                        <label>苦手な事</label>
+                                    </td>
+                                    <td>
+                                        <div class="content">
+                                            {{$support->weak}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        @endif
+                        @if($support->relax != null)
+                            <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                                <tr>
+                                    <td>
+                                        <label>安心する事</label>
+                                    </td>
+                                    <td>
+                                        <div class="content">
+                                            {{$support->relax}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        @endif
+                        @if($support->can != null)
+                            <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                                <tr>
+                                    <td>
+                                        <label>できる事</label>
+                                    </td>
+                                    <td>
+                                        <div class="content">
+                                            {{$support->can}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        @endif
+                        @if($support->cannot != null)
+                            <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
+                                <tr>
+                                    <td>
+                                        <label>できない事</label>
+                                    </td>
+                                    <td>
+                                        <div class="content">
+                                            {{$support->cannot}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        @endif
+                    </div>
+                    @endif
                     <div class="it2u">
                         <h6>
                             ボランティア団体 IT2U
