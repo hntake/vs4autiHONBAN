@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\Purchased;
+
 
 
 
@@ -661,6 +663,8 @@ public function choice(Request $request)
     $lost->design = $request->input('design');
     $lost->save();
 
+    
+
     return view('design_confirm',[
         'lost' => $lost,
         'design'=>$design,
@@ -674,6 +678,10 @@ public function design_send(Request $request)
 {
     $user=Auth::user();
     $lost=Lost::where('email','=',$user->email)->first();
+
+    $data = ['email' => $lost->email];
+    \Mail::to('info@itcha50.com')->send(new Purchased($data));
+
     return view('design_registerd',[
         'lost' => $lost,
     ]);
@@ -740,6 +748,10 @@ public function design_original_send(Request $request)
 {
     $user=Auth::user();
     $lost=Lost::where('email','=',$user->email)->first();
+
+    $data = ['email' => $lost->email];
+    \Mail::to('info@itcha50.com')->send(new Purchased($data));
+    
     return view('design_registerd',[
         'lost' => $lost,
     ]);

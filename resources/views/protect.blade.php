@@ -360,7 +360,7 @@
                                 </div>
                             </div>
                             <div id="panel5" class="tab_panel">
-                                <a href="img/dog-blue.png" data-lightbox="group"> <img src="img/dog-blue.png" alt="お守りバッジ" style="width:30%;"></a>
+                                <a href="img/can_see.png" data-lightbox="group"> <img src="img/can_see.png" alt="お守りバッジ" style="width:30%;"></a>
                                 <div class="sright">
                                     <div class="slide-head">ご自分のアカウントで</div>
                                     <div class="slide-description">
