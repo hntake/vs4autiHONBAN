@@ -22,14 +22,6 @@
     <input type="radio" name="design" value="4">
     <img src="img/butterfly.png" alt="Choice 4">
   </label>
-  <!-- <label>
-    <input type="radio" name="design" value="5">
-    <img src="img/elephant-red.png" alt="Choice 5">
-  </label>
-  <label>
-    <input type="radio" name="design" value="6">
-    <img src="img/turtle-orange.png" alt="Choice 6">
-  </label> -->
   <label>
     <input type="radio" name="design" value="7" >
     <img src="img/plain-black.png" alt="Choice 7" >

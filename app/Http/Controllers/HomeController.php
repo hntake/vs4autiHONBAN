@@ -19,6 +19,7 @@ use App\Models\Payment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\Purchased;
+use App\Mail\Thanks;
 
 
 
@@ -680,7 +681,29 @@ public function design_send(Request $request)
     $lost=Lost::where('email','=',$user->email)->first();
 
     $data = ['email' => $lost->email];
+    
+    if($lost->design == 1){
+        $design = 'オオハシ(鳥)';
+        $price = '500';
+    }elseif($lost->design == 2){
+        $design = 'ひまわり';
+        $price = '500';
+    }elseif($lost->design == 3){
+        $design = '見えないもの';
+        $price = '500';
+    }elseif($lost->design == 4){
+        $design = 'ちょうちょ';
+        $price = '500';
+    }
+    elseif($lost->design == 5){
+        $design = 'イラストなし';
+        $price = '500';
+    }else{
+    $design = 'オリジナル画像';
+    $price = '800';
+    }
     \Mail::to('info@itcha50.com')->send(new Purchased($data));
+    \Mail::to($user['email'])->send(new Thanks($design,$price));
 
     return view('design_registerd',[
         'lost' => $lost,
@@ -750,8 +773,29 @@ public function design_original_send(Request $request)
     $lost=Lost::where('email','=',$user->email)->first();
 
     $data = ['email' => $lost->email];
+    if($lost->design == 1){
+        $design = 'オオハシ(鳥)';
+        $price = '500';
+    }elseif($lost->design == 2){
+        $design = 'ひまわり';
+        $price = '500';
+    }elseif($lost->design == 3){
+        $design = '見えないもの';
+        $price = '500';
+    }elseif($lost->design == 4){
+        $design = 'ちょうちょ';
+        $price = '500';
+    }
+    elseif($lost->design == 5){
+        $design = 'イラストなし';
+        $price = '500';
+    }else{
+    $design = 'オリジナル画像';
+    $price = '800';
+    }
     \Mail::to('info@itcha50.com')->send(new Purchased($data));
-    
+    \Mail::to($user['email'])->send(new Thanks($design,$price));
+
     return view('design_registerd',[
         'lost' => $lost,
     ]);
