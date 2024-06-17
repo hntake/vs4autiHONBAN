@@ -976,20 +976,30 @@ b{
 .sample{
     width:50%;
 }
- /*lenovo*/
- @media only screen and (min-width:800px) and (max-width:1200px){
-     .catch-copy{
-         top:30px;
-         left:50px;
-     }
-     .title{
-         width:50%;
-     }
-     .hero__lead{
-         width: 85%;
-         top: 200px;
-     }
-     .vs4nest{
+.dropdown {
+    display: none;
+    list-style-type: none;
+    padding: 8px;
+    background-color: #a9b8c7;
+}
+.dropdown-container h3 {
+    cursor: pointer;
+    margin: 0;
+}
+/*lenovo*/
+@media only screen and (min-width:800px) and (max-width:1200px){
+    .catch-copy{
+        top:30px;
+        left:50px;
+    }
+    .title{
+        width:50%;
+    }
+    .hero__lead{
+        width: 85%;
+        top: 200px;
+    }
+    .vs4nest{
         display:block;
     }
     .slide-description {
@@ -1000,8 +1010,8 @@ b{
     .top_box{
         display:flex;
     }
- }
- /*ipad*/
+}
+/*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .slide-description {
         width: inherit;
@@ -1014,22 +1024,22 @@ b{
     }
     /* kv */
     .kv{
-      min-width: 960px;
+    min-width: 960px;
     }
 
     .kv .main-copy{
-      font-size: 60px;
+    font-size: 60px;
     }
 
     .kv .sub-copy{
-      font-size: 30px;
+    font-size: 30px;
     }
     .header_nav_list{
         flex-wrap:wrap;
     }
     /* video */
     .video{
-      min-width: 960px;
+    min-width: 960px;
     }
     .catch-copy{
         top:80px;
@@ -1049,7 +1059,7 @@ b{
     .elementor-image{
         right: 0;
     }
-      .elementor-image img{
+    .elementor-image img{
         width:200px;
     }
     .vs4nest{
@@ -1073,8 +1083,7 @@ b{
     }
     .banner{
         display:none;
-   }
-   
+    }
     .sm-banner{
         display:flex;
         flex-wrap: wrap;
@@ -1087,15 +1096,15 @@ b{
         padding: 0;
     }
 
-  }
+    }
 /*iPhone12レスポンシブ対応*/
 @media only screen
-  and (min-device-width: 390px)
-  and (max-device-width: 844px)
-  and (-webkit-min-device-pixel-ratio: 3) {
+    and (min-device-width: 390px)
+    and (max-device-width: 844px)
+    and (-webkit-min-device-pixel-ratio: 3) {
 
     .banner{
-         display:none;
+        display:none;
     }
     .sm-banner{
         display:flex;

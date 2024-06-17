@@ -47,7 +47,7 @@
     <div class="wrap">
         <div class="container">
             <header id="header" class="header is-open">
-
+<!-- 
                 <div class="tiktok">
                     <h5 style="margin:0;">
                         Follow us
@@ -60,7 +60,7 @@
                             <img src="img/tiktok.png" alt="TikTok" width="40" height="auto">
                         </a>
                     </div>
-                </div>
+                </div> -->
                 <div class="badge">
                     <a href="{{url('/protect')}}"><img src="img/protect_pop.webp"></a>
                 </div>
@@ -226,28 +226,31 @@
                                         </a>
                                         <div class="description1">ヘアカットスケジュールへ移動する</div>
                                 </li>
-                                <li>
-                                    <a href="{{ url('create') }}">
-                                        <h3 ontouchstart="">
-                                        絵カード スケジュール作成</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('create_sort') }}">
-                                        <h3 ontouchstart="">
-                                        絵カード イラストスケジュール作成</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('dentist/create') }}">
-                                        <h3 ontouchstart="">絵カード 歯科スケジュール作成</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('medical/create') }}">
-                                        <h3 ontouchstart="">絵カード 医療スケジュール作成</h3>
-                                    </a>
-                                </li>
+                                <div class="dropdown-container">
+                                    <h3 ontouchstart="" onclick="toggleDropdown()">VS4作成メニュー</h3>
+                                    <ul class="dropdown" id="dropdownMenu">
+                                        <li>
+                                            <a href="{{ url('create') }}">
+                                                <h3 ontouchstart="">絵カード スケジュール作成</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('create_sort') }}">
+                                                <h3 ontouchstart="">絵カード イラストスケジュール作成</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('dentist/create') }}">
+                                                <h3 ontouchstart="">絵カード 歯科スケジュール作成</h3>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('medical/create') }}">
+                                                <h3 ontouchstart="">絵カード 医療スケジュール作成</h3>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <li>
                                     <a href="{{ url('independence/public') }}">
                                         <h3 ontouchstart="">絵カード 自立支援ツール一覧</h3>
@@ -268,7 +271,7 @@
                                 <li>
                                     <a href="{{ url('feel/choice') }}">
                                         <h3 ontouchstart="">
-                                        <img src="{{ asset('img/feel.png') }}" alt="自閉症 マイリク" style="width:30%;"></h3>
+                                        <img src="{{ asset('img/feel.png') }}" alt="自閉症 マイリク" style="width:30%;">マイリク</h3>
                                     </a>
                                 </li>
                                 <li>
@@ -458,11 +461,6 @@
                             <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="エイゴメ" ></a>
                         </div> 
                     </div>
-                    <!--     <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://youtube.com/embed/7HUQzYWZe7M" class="video-open"><img src="img/movie_button.png"></a>
-                        </div>
-                    </div> -->
                 </div>
 
                 <div class="vs4">
@@ -577,6 +575,16 @@
 
             <a href="#" class="gotop">トップへ</a>
         </footer>
+        <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "block";
+            } else {
+                dropdown.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
