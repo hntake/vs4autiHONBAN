@@ -42,10 +42,10 @@
                         @if($support->weak != null)
                             <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
                                 <tr>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <label>苦手な事</label>
                                     </td>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <div class="content">
                                             {{$support->weak}}
                                         </div>
@@ -56,10 +56,10 @@
                         @if($support->relax != null)
                             <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
                                 <tr>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <label>安心する事</label>
                                     </td>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <div class="content">
                                             {{$support->relax}}
                                         </div>
@@ -70,10 +70,10 @@
                         @if($support->can != null)
                             <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
                                 <tr>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <label>できる事</label>
                                     </td>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <div class="content">
                                             {{$support->can}}
                                         </div>
@@ -84,10 +84,10 @@
                         @if($support->cannot != null)
                             <table style="border: 1px solid black; width: 100%; margin-bottom: 5px;">
                                 <tr>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <label>できない事</label>
                                     </td>
-                                    <td>
+                                    <td style="font-weight:normal;">
                                         <div class="content">
                                             {{$support->cannot}}
                                         </div>
