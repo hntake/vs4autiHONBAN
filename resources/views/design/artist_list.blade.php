@@ -34,7 +34,7 @@
         <h1>障がい者アーティスト一覧</h1>
         <td><a href="{{route('design_list')}}">障がい者アートトップページへ</a></td>
     </header>
-    <div>
+    <div class="search">
             <form action="{{ route('artist_search') }}" method="GET">
                 <input type="text" name="keyword" >
                 <input type="submit" value="検索">

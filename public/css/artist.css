@@ -367,7 +367,7 @@ nav button {
         .card-header tr, td {
             border-style: none;
             width:100px;
-            height:100px;
+            /* height:100px; */
             margin:16px;
             padding:0px;
         }
@@ -409,7 +409,7 @@ nav button {
             overflow-wrap:  break-word;
         }
         h2{
-            text-align: left;
+            /* text-align: left; */
             padding:16px 24px;
         }
         .dl_web{
@@ -457,7 +457,7 @@ nav button {
             width:100%;
         }
         .search{
-            margin-bottom:8px;
+            margin:8px auto;
         }
         .my_image{
             margin: 0 auto;
