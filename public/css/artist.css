@@ -410,7 +410,7 @@ nav button {
         }
         h2{
             text-align: left;
-            padding:0 24px;
+            padding:16px 24px;
         }
         .dl_web{
             display: none;
@@ -452,5 +452,14 @@ nav button {
             border: none;
             width:100px;
             height:100px;
+        }
+        .artist-body{
+            width:100%;
+        }
+        .search{
+            margin-bottom:8px;
+        }
+        .my_image{
+            margin: 0 auto;
         }
 }
