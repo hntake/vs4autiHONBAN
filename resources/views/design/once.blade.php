@@ -42,8 +42,12 @@
             @endphp
             <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
             <td>デザイン名：{{ $downloadDetails['designName'] }}  </td>
+
             @endforeach
+
         </table>
+        <div class="list_button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
+
         <label for="email">メールアドレス(領収書を送付いたします)</label>
         <input type="text" class="form-control" id="email" name="email" required>
 
