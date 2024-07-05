@@ -73,14 +73,17 @@
                 @csrf
                     <h1>作品詳細<br>{{$design->name}}</h1>
                         <div class="card-body" >
-                            @if($design->license==0)
+                            @if($design->original==1)
                             <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
                             @else
-                            <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
-                            <p>こちらの作品はコピーライセンス(©アーティスト名)を右下に表記した作品のみのダウンロードとなります。</p>
+                                @if($design->license==0)
+                                <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                                @else
+                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                                <p>こちらの作品はコピーライセンス(©アーティスト名)を右下に表記した作品のみのダウンロードとなります。</p>
+                                @endif
+                                <p>IT2Uのマークはダウンロード時には消えます。</p>
                             @endif
-                            <p>IT2Uのマークはダウンロード時には消えます。</p>
-
                         </div>
                             <table class="horizontal-table">
                                 <thead style="flex: 1;">
@@ -116,7 +119,9 @@
                                 </tr>
                             </table>
             </div>
+                    <!-- 一回ダウンロード -->
                     <div class="permission">
+                    @if($design->original==0)
                     <div class="">
                         <p>こちらの作品をダウンロードしますか？</p>
                         <button type="button"onclick="history.back()">
@@ -129,8 +134,58 @@
                             <button type="submit" id="download-button" disabled>
                                 <i class="fa fa-plus"></i> ダウンロードする
                             </button>
+                        </form>
                     </div>
+                    @elseif($design->original==2)
+                    <div class="">
+                        <p>こちらの作品をダウンロードしますか？</p>
+                        <button type="button"onclick="history.back()">
+                                キャンセルする
+                            </button>
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="agreement-checkbox" onchange="toggleDownloadButton()">
+                            </div>
+                            <button type="submit" id="download-button" disabled>
+                                <i class="fa fa-plus"></i> ダウンロードする
+                            </button>
+                        </form>
+                    </div>
+                    <div class="">
+                        <p>こちらの作品の現物を購入しますか？</p>
+                        <button type="button"onclick="history.back()">
+                                キャンセルする
+                            </button>
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="accept-checkbox" onchange="toggleAddressButton()">
+                            </div>
+                            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+                                <button type="submit" id="address-button" disabled>
+                                お届け先情報を入力する
+                                </button>
+                            </form>
+                    </div>
+                    @else
+                    </form>
+                    <div class="">
+                        <p>こちらの作品の現物を購入しますか？</p>
+                        <button type="button"onclick="history.back()">
+                                キャンセルする
+                            </button>
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="accept-checkbox" onchange="toggleAddressButton()">
+                            </div>
+                            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+                                <button type="submit" id="address-button" disabled>
+                                お届け先情報を入力する
+                                </button>
+                            </form>
+                    </div>
+                    @endif
                 </form>
+                <!-- cartに入れる -->
                 <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
                 @csrf
                 @if($design->price>0)
@@ -143,6 +198,7 @@
                 </button>
                 @endif
                 </form>
+                <!-- 非ログインユーザー -->
                 @else
                 @if($design->price>0)
                 <form method="GET" action="{{ route('design_once',['id'=> $design->id]) }}">
@@ -150,16 +206,20 @@
                 <form method="GET" action="{{ route('design_download_free',['id'=> $design->id]) }}">
                 @endif
                     @csrf
-                    <h2>作品詳細</h2>
-                            @if($design->license==0)
+                    <h1>作品詳細<br>{{$design->name}}</h1>
+                        <div class="card-body" >
+                            @if($design->original==1)
                             <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
                             @else
-                            <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
-                            <p>こちらの作品はコピーライセンス(©アーティスト名)を右下に表記した作品のみのダウンロードとなります。</p>
+                                @if($design->license==0)
+                                <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                                @else
+                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                                <p>こちらの作品はコピーライセンス(©アーティスト名)を右下に表記した作品のみのダウンロードとなります。</p>
+                                @endif
+                                <p>※IT2Uのマークはダウンロード時には消えます。</p>
                             @endif
-                            <p>※IT2Uのマークはダウンロード時には消えます。</p>
-
-                    </div>
+                        </div>
                     <table class="horizontal-table">
                                 <thead style="flex: 1;">
                                     <th>アーティスト名</th>
@@ -192,10 +252,12 @@
                                             @endif
                                     </td>
                                 </tr>
-                            </table>
+                    </table>
+            </div>
                     <div class="permission">
+                    @if($design->original==0)
                         <p>登録せずにダウンロードしますか？</p>
-                        <button type="button"onclick="history.back()">
+                            <button type="button"onclick="history.back()">
                                 キャンセルする
                             </button>
                             <div class="consent">
@@ -206,25 +268,76 @@
                                 <i class="fa fa-plus"></i> ダウンロードする
                             </button>
                         </form>
-                        <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
-                        @csrf
-                        @if($design->price>0)
-                        <div class="consent">
-                            <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
-                            <input type="checkbox" id="okay-checkbox" onchange="toggleCartButton()">
-                        </div>
-                        <button type="submit"id="cart-button" disabled>
-                            <i class="fa fa-plus"></i> カートに入れる
-                        </button>
                     </div>
-                @endif
+                    @elseif($design->original==2)
+                        <p>登録せずに,ダウンロードしますか？</p>
+                            <button type="button"onclick="history.back()">
+                                キャンセルする
+                            </button>
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="agreement-checkbox" onchange="toggleDownloadButton()">
+                            </div>
+                            <button type="submit" id="download-button" disabled>
+                                <i class="fa fa-plus"></i> ダウンロードする
+                            </button>
+                    </div>
                 </form>
                     <div class="permission">
-                        <p>ログインしてダウンロードしますか？</p>
+                        <p>登録せずに,こちらの作品の現物を購入しますか？</p>
+                            <button type="button"onclick="history.back()">
+                                キャンセルする
+                            </button>
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="accept-checkbox" onchange="toggleAddressButton()">
+                            </div>
+                            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+                                <button type="submit" id="address-button" disabled>
+                                お届け先情報を入力する
+                                </button>
+                            </form>
+                    </div>
+                    @else
+                </form>
+                    <div class="permission">
+                        <p>登録せずに,こちらの作品の現物を購入しますか？</p>
+                            <button type="button"onclick="history.back()">
+                                キャンセルする
+                            </button>
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="accept-checkbox" onchange="toggleAddressButton()">
+                            </div>
+                            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+                                <button type="submit" id="address-button" disabled>
+                                お届け先情報を入力
+                                </button>
+                            </form>
+                    </div>
+                    @endif
+                    <div class="permission">
+                        <form method="POST" action="{{ route('design_cart',['id'=> $design->id]) }}">
+                            @csrf
+                            @if($design->price>0)
+                            <div class="consent">
+                                <p><a href="{{ url('design/policy') }}" >利用規約</a>に同意して</p>
+                                <input type="checkbox" id="okay-checkbox" onchange="toggleCartButton()">
+                            </div>
+                            <button type="submit"id="cart-button" disabled>
+                                <i class="fa fa-plus"></i> カートに入れる
+                            </button>
+                        </form>
+                        @endif
+                    </div>
+                    <div class="permission">
+                        <p>ログインしてから購入しますか？</p>
+                        <p>(基本情報の入力の必要がなくなります)</p>
                         <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
                     </div>
                     <div class="permission">
-                        <p>バイヤー登録してダウンロードしますか？</p>
+                        <p>バイヤー登録してから購入しますか？</p>
+                        <p>(基本情報の入力の必要がなくなります)</p>
                         <a href="{{ route('register') }}" class="header_nav_itm_link" target="_blank" >登録する</a>
                     </div>
                     @endauth
@@ -285,10 +398,10 @@
     }, 1000);
     });
     function closePopup(event) {
-  // ボタンクリックのイベント伝播を阻止
-  event.stopPropagation();
-  // ポップアップを非表示にする
-  document.getElementById("popupContainer").style.display = "none";
+    // ボタンクリックのイベント伝播を阻止
+    event.stopPropagation();
+    // ポップアップを非表示にする
+    document.getElementById("popupContainer").style.display = "none";
 }
 
 </script>
@@ -302,7 +415,7 @@
                     downloadButton.disabled = false;
                 } else {
                     downloadButton.disabled = true;
-                }
+                } 
             }
         </script>
         <script>
@@ -314,6 +427,18 @@
                     cartButton.disabled = false;
                 } else {
                     cartButton.disabled = true;
+                }
+            }
+        </script>
+        <script>
+            function toggleAddressButton() {
+                var acceptCheckbox = document.getElementById("accept-checkbox");
+                var addressButton = document.getElementById("address-button");
+
+                if (acceptCheckbox.checked) {
+                    addressButton.disabled = false;
+                } else {
+                    addressButton.disabled = true;
                 }
             }
         </script>

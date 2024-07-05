@@ -35,7 +35,9 @@
     <header>
         <img src="{{asset('img/design_banner.png')}}" alt="障がい者アート募集" >
         <h1>障がい者アート募集</h1>
-        <p>障がいを抱える方々のアート作品を募集しています。ご応募お待ちしています！</p>
+        <p>障がいを抱える方々のアート作品を募集しています。あなたの創造力と才能を、私たちと共有しませんか？作品はデジタル形式でのダウンロード販売から、
+            実際のアート作品として現物の販売まで、さまざまな方法でお客様に提供することが可能です。自分の作品が多くの人に喜ばれ、支持される喜びをぜひ体験してください。</p>
+        <p>たくさんのご応募を心よりお待ちしております！</p>
 
     </header>
     <nav>
@@ -57,14 +59,21 @@
     </section>
     <section>
         <h2>ダウンロード販売について</h2>
-            <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります
-                <span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください。有償の場合の各々の<span style="color:red;">価格</span>もご自身でお決めください)</span>
-                有償の場合、販売価格からクレジットカード利用手数料(3.6%)、サーバー利用料(<span style="font-weight:bold;">サイトオープンプロモーションとして2025年3月まで<span style="color:red;">1%</span>。
-                以降変更の可能性有り</span>)と振込手数料を差し引いた金額が支払われます。(以下の画像でお金の流れを説明しています)</p>
+            <p>登録された作品は、当ダウンロードサイトで有償または無料でダウンロードされることとなります。</p>
+            <p><span style="font-weight:bold;">(有償・無料の選択はご自身でお決めください。有償の場合の各々の<span style="color:red;">価格</span>もご自身でお決めください)</span></p>
+            <p>有償の場合、販売価格からクレジットカード利用手数料(3.6%)、サーバー利用料(<span style="font-weight:bold;">サイトオープンプロモーションとして2025年3月まで<span style="color:red;">1%</span>。
+                以降変更の可能性有り</span>)と振込手数料を差し引いた金額が支払われます。</p>
+                <p>(以下の画像でお金の流れを説明しています)</p>
                 <div class="center">
                     <a href="../img/pay_flow1.png" data-lightbox="group"><img src="{{asset('img/pay_flow1.png')}}" alt="pay_flow"  style="width:200px; height:auto;" ></a>
                     <a href="../img/pay_flow2.png" data-lightbox="group"><img src="{{asset('img/pay_flow2.png')}}" alt="pay_flow"  style="width:200px; height:auto;" ></a>
                 </div>
+    </section>
+    <section>
+        <h2>現物販売について</h2>
+            <p>現物の販売をご希望される場合、梱包および配送は全てデザイナー様にお願い申し上げます。そのため、販売価格にはこれらの費用を含めた金額を設定していただきますようお願い致します。</p>
+            <a href="{{url('design/packing')}}"><h3>梱包・発送について詳しく見る</h3></a>
+
     </section>
     <section>
         <h2>当サイトグッズへのデザイン提供について</h2>

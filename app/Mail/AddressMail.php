@@ -7,16 +7,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Attachment;
 
-
-
-class DownloadMail extends Mailable
+class AddressMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     protected $pdf;
+
     /**
      * Create a new message instance.
      *
@@ -44,15 +43,15 @@ class DownloadMail extends Mailable
 
         return  $this
         ->from('info@itcha50.com')
-        ->subject('ダウンドードが完了しました')
-        ->view('emails.download')
+        ->subject('ご購入ありがとうございます')
+        ->view('emails.address')
         ->with([
             'total' => $this->total,
             'email' => $this->email,
             ])
             // 一時的なファイルを添付
         ->attach($tempFilePath, [
-            'as' => 'design.pdf',
+            'as' => 'design.pdf_address',
             'mime' => 'application/pdf',
         ]);
     }
@@ -64,7 +63,7 @@ class DownloadMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Download 完了',
+            subject: 'ご購入ありがとうございました',
         );
     }
 
@@ -76,10 +75,17 @@ class DownloadMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.download',
+            view: 'emails.address',
         );
     }
 
-
-
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array
+     */
+    public function attachments()
+    {
+        return [];
+    }
 }

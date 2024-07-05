@@ -1,5 +1,7 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
+@section('content')
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
@@ -8,7 +10,6 @@
 <title>支払い申込画面(リピーター)</title>
 
 
-@section('content')
 <header id="header">
     <div class="wrapper">
         <div class="back">
@@ -26,6 +27,32 @@
     </script>
 </header>
 @if(isset($downloads)&& count($downloads) > 0)
+    <!-- 現物販売の作品の場合は先に住所入力-->
+    @if ($originals->has(1))
+        @if(isset($buyer))
+        <div class="address">
+        <h1>配達情報</h1>
+            <label for="name">名前:</label>
+            <input type="text" id="name" name="name" value="{{ $buyer->name}}" required>
+
+            <label for="address">住所:</label>
+            <input type="text" id="address" name="address" value="{{ $buyer->address}}" required>
+
+            <label for="postalCode">郵便番号:</label>
+            <input type="text" id="postal" name="postal" value="{{ $buyer->postal}}" required>
+
+            <label for="phone">電話番号:</label>
+            <input type="tel" id="tel" name="tel" value="{{ $buyer->tel}}" required>
+    </div>
+        @else
+            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+            <button type="submit" id="address-button" disabled>
+            お届け先情報を入力
+            </button>
+        </form>
+        @endif
+        <!-- ダウンロードのみの場合 -->
+    @else
 <div class="card_container py-3">
     {{-- フォーム部分 --}}
     <form action="{{route('post_cart')}}" method="post" id="payment-form">
@@ -48,6 +75,8 @@
                     <td><div class="list_button"><a href="{{ route('delete_cart',['id'=> $download->id]) }}">削除</a></div></td>
                 </tr>
                 @endforeach
+                <div class="list_button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
+
             </tbody>  
         </table>   
                 <label for="price">合計金額  {{$total}}円</label>
@@ -76,6 +105,7 @@
         <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
         何かご不明点がありましたら、お気軽にお問い合わせください。</p>
     </form>
+    @endif
     <div class="try">
         <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
     </div>

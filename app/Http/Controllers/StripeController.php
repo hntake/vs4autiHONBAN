@@ -12,10 +12,14 @@ use App\Models\Subscription;
 use App\Models\Design;
 use App\Models\Download;
 use App\Models\Artist;
+use App\Models\Buyer;
 use Carbon\Carbon;
 use App\Mail\RegisterMail;
 use App\Mail\DownloadMail;
 use App\Mail\DownloadUnMail;
+use App\Mail\AddressMail;
+use App\Mail\AddressUnMail;
+use App\Mail\ShipMail;
 use Doctrine\Inflector\Rules\Substitution;
 use Illuminate\Support\Facades\Mail;
 use Stripe\PaymentIntent;
@@ -27,7 +31,7 @@ use Stripe\PaymentMethod;
 
 class StripeController extends Controller
 {
-     /**
+    /**
      * success response method.
      *
      * @return \Illuminate\Http\Response
@@ -179,10 +183,9 @@ public function design_cart(Request $request, $id)
             'user_id' => 0,
             'price' => $design->price,
             'designName' => $design->name,
-            // Add other design information as needed
+            'original' => $design->original,
         ];
         Session::put('tempCart', $tempCart);
-
     }
     return redirect('design/list');
 
@@ -191,10 +194,15 @@ public function design_cart(Request $request, $id)
 public function index_cart()
 {
     $user = Auth::user();
+    $buyer = Buyer::where('email','=', $user->email)->first();
+
     $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',0)->orderBy('created_at', 'desc')->get();
+     // 現物があるか確認
+    $designIds = $downloads->pluck('design_id')->toArray();
+    $originals = Design::whereIn('id', $designIds)->pluck('original', 'id');
+
     $total = Download::where('user_id', $user->id)->where('payment_status','=',0)->sum('price');
     $setupIntent = $user->createSetupIntent();
-
     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         if ($user->stripe_id) {
         // ユーザーに関連するCustomerオブジェクトを取得
@@ -216,7 +224,9 @@ public function index_cart()
         return view('design/cart', [
             'intent' => $setupIntent ?? null,
             'downloads'=>$downloads,
+            'originals'=>$originals,
             'total'=>$total,
+            'buyer'=>$buyer,
             'paymentMethod'=>$paymentMethod,
             'filteredPaymentMethods'=>$filteredPaymentMethods,
         ]);
@@ -224,6 +234,7 @@ public function index_cart()
             return view('design/cart_new', [
                 'intent' => $setupIntent ?? null,
                 'downloads'=>$downloads,
+                'originals'=>$originals,
                 'total'=>$total,
                 'paymentMethod'=>null,
             ]);
@@ -234,16 +245,17 @@ public function index_cart()
 public function index_cart_un()
 {
     $tempCart = Session::get('tempCart', []);
-
-    $designs = []; // デザイン情報を格納する配列
+    $downloads = []; // デザイン情報を格納する配列
     $total= 0; // 合計金額を格納する変数
+    //現物かダウンロードの判別のため、まずは
+    $address=false;
 
     foreach($tempCart as $downloadId => $downloadDetails){
         $downloads[] = [
             'design_id' => $downloadDetails['design_id'],
             'price' => $downloadDetails['price'],
             'designName' => $downloadDetails['designName'],
-            // 他のデザイン情報も必要に応じて追加
+            'original' => $downloadDetails['original'],
         ];
         // 合計金額を計算
     $total += $downloadDetails['price'];
@@ -254,10 +266,11 @@ public function index_cart_un()
     $setupIntent = SetupIntent::create([
         'payment_method_types' => ['card'], // クレジットカードのみを受け付ける場合
     ]);
-    
 return view('design/cart_un', [
     'total'=>$total,
     'tempCart'=>$tempCart,
+    'downloads' => $downloads,
+    'address' => $address,
     'clientSecret' => $setupIntent->client_secret,
 ]);
 }
@@ -268,11 +281,14 @@ public function delete_cart($id)
     $user = Auth::user();
     $download=Download::find($id)->delete();
 
-    $user = Auth::user();
+    $buyer = Buyer::where('email','=', $user->email)->first();
     $downloads=Download::where('user_id','=',$user->id)->orderBy('created_at', 'desc')->where('download_status','=',0)->get();
     $total = Download::where('user_id', $user->id)->sum('price');
     $setupIntent = $user->createSetupIntent();
 
+    // 現物があるか確認
+    $designIds = $downloads->pluck('design_id')->toArray();
+    $originals = Design::whereIn('id', $designIds)->pluck('original', 'id');
 
     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         if ($user->stripe_id) {
@@ -285,14 +301,18 @@ public function delete_cart($id)
         return view('design/cart', [
             'intent' => $setupIntent ?? null,
             'downloads'=>$downloads,
+            'originals'=>$originals,
             'total'=>$total,
+            'buyer'=>$buyer,            
             'paymentMethod'=>$paymentMethod,
         ]);
         }else{
             return view('design/cart', [
                 'intent' => $setupIntent ?? null,
                 'downloads'=>$downloads,
+                'originals'=>$originals,
                 'total'=>$total,
+                'buyer'=>$buyer,
                 'paymentMethod'=>null,
             ]);
         }
@@ -300,6 +320,16 @@ public function delete_cart($id)
 }
 //カートを空にする
 public function empty_cart(){
+    //ユーザーしか削除作業ができない
+    $user = Auth::user();
+    $download=Download::where('email','=',$user->email)->where('download_status','=','0')->delete();
+
+    // リダイレクトなど適切な応答を返す
+    return redirect()->route('index_cart')->with('success', 'カートが空になりました');
+
+}
+//カートを空にする(非ユーザー)
+public function empty_cart_un(){
     $tempCart = session('tempCart', []);
     // カートを空にする処理
     session()->forget('tempCart');
@@ -313,6 +343,7 @@ public function empty_cart(){
 public function post_cart(Request $request)
 {
     $user = Auth::user();
+    $buyer = Buyer::where('email','=',$user->email)->first();
         $total = Download::where('user_id', $user->id)->where('payment_status','=','0')->sum('price');
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         
@@ -372,14 +403,84 @@ public function post_cart(Request $request)
                 $download->payment_status = 1;
                 $download->name = $request->name;
                 $download->save();
+                $design =Design::where('id','=',$download->design_id)->first();
+                if ($design) {
+                    // デザインを配列に追加
+                    $designs[] = $design;
+                }
+                 //ダウンロード購入があったら$to_downloadsに入れる
+                $to_download = Design::where('id','=',$download->design_id)->where('original','=','0')->first();
+                    if ($to_download){
+                    $to_downloads[]=$to_download;
+                    }
             }
         //支払が今行われたものでダウンロードがまだ起きていないもの
             $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
-            //pdf作成
-            $pdf = \PDF::loadView('design.pdf', compact('total','downloads'));
-            $email = $user->email;
-            \Mail::to($user['email'])->send(new DownloadMail($user,$total, $pdf,$email));
+        // 追加されたデザインの中で original が 1 または 0 であるものをチェック
+            $hasOriginalOne = false;
+            $hasOriginalZero = false;
 
+            foreach ($designs as $design) {
+                if ($design->original == 1) {
+                    $hasOriginalOne = true;
+                }
+                if ($design->original == 0) {
+                    $hasOriginalZero = true;
+                }
+            }
+           // 分岐処理（mix)
+            if ($hasOriginalOne && $hasOriginalZero) {
+                //現物販売のもののdownload_statusを更新する
+                foreach($designs as $design){
+                    $original=$design->original;
+                    if ($original == 1) { // $download が null でない場合のみ実行
+                        $download->update([
+                            'download_status'=>10,
+                        ]);
+                }
+            }
+                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
+                // 一回での支払い完了メール送信
+                $email = $user->email;
+                \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
+                $date = Carbon::today()->addWeek();
+                foreach($designs as $design){
+                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                }
+                return view('design/receipt_mix',[
+                    'user'=>$user,
+                    'email'=>$email,
+                ]);
+                //現物のみ
+            } elseif ($hasOriginalOne) {
+                foreach($downloads as $download){
+                    $download->update([
+                        'download_status'=>10,
+                    ]);
+                }
+                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
+                // 一回での支払い完了メール送信
+                $email = $user->email;
+                \Mail::to($email)->send(new AddressMail($user,$email,$total,$pdf));
+                $date = Carbon::today()->addWeek();
+                foreach($designs as $design){
+                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                }
+                return view('design/receipt_address',[
+                    'user'=>$user,
+                    'email'=>$email,
+                ]);
+            // DLのみ
+            } elseif ($hasOriginalZero) {
+                //pdf作成
+                $pdf = \PDF::loadView('design.pdf', compact('total','downloads'));
+                $email = $user->email;
+                \Mail::to($user['email'])->send(new DownloadMail($user,$total, $pdf,$email));  
+                return view('design/receipt',[
+                    'user'=>$user,
+                    'email'=>$email,
+                ]);
+                }
             //カートを空にする
 
 
@@ -544,7 +645,7 @@ public function add_payment_once(Request $request)
         ]);
 }
 //非ユーザーの場合のカートからの支払い
-public function post_cart_un(Request $request,$id){
+public function post_cart_un(Request $request,$id,$address){
     $total=$id;
     // stripe.confirmCardSetup を呼び出す
     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -589,26 +690,94 @@ public function post_cart_un(Request $request,$id){
             $download->designName=$downloadDetails['designName'];
             $download->email=$request->email;
             $download->name = $request->name;
-            $download->save();    
+            $download->save();   
+             // デザインを取得する
+            $design = Design::where('id', $downloadDetails['design_id'])->first();
+            if ($design) {
+                // デザインを配列に追加
+                $designs[] = $design;
             }
-
-        
+            //ダウンロード購入があったら$to_downloadsに入れる
+            $to_download = Design::where('id', $downloadDetails['design_id'])->where('original','=','0')->first();
+            if ($to_download){
+                $to_downloads[]=$to_download;
+            }
+        }
         //支払が今行われたものでダウンロードがまだ起きていないもの
             $downloads=Download::where('email','=',$request->email)->where('payment_status','=','1')->where('download_status','=','0') ->get();
-            //pdf作成
-            $pdf = \PDF::loadView('design.pdf', compact('total','downloads'));
+            //ダウンロードのみ
+            if($address==false){
+                //pdf作成
+                $pdf = \PDF::loadView('design.pdf', compact('total','downloads'));
+                // 一回での支払い完了メール送信
+                $email = $request['email'];
+                \Mail::to($email)->send(new DownloadUnMail($email,$total,$pdf));
+            //ダウンロードと現物のミックス
+            }elseif ($address == true && isset($to_downloads)) {
+            //現物販売のもののdownload_statusを更新する
+            foreach($tempCart as $downloadId => $downloadDetails){
+                $original=$downloadDetails['original'];
+                if ($original == 1) { // $download が null でない場合のみ実行
+                    $download->update([
+                        'download_status'=>10,
+                    ]);
+                }
+            }
+            $buyer = (object) [
+                'email' =>$request->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
+            $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
             // 一回での支払い完了メール送信
             $email = $request['email'];
-            \Mail::to($email)->send(new DownloadUnMail($email,$total,$pdf));
-
+            \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
+            $date = Carbon::today()->addWeek();
+            foreach($designs as $design){
+                \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+            }
+            // 現物のみ
+            }else{
+                foreach($downloads as $download){
+                    $download->update([
+                        'download_status'=>10,
+                    ]);
+                }
+                $buyer = (object) [
+                    'email' =>$request->email,
+                    'name' => $request->name,
+                    'postal' => $request->postal,
+                    'tel' => $request->tel,
+                    'address' => $request->address,
+                ];
+                    $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
+                // 一回での支払い完了メール送信
+                $email = $request['email'];
+                \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
+                $date = Carbon::today()->addWeek();
+                foreach($designs as $design){
+                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                }
+            }
             //カートを空にする
             $tempCart = session('tempCart', []);
             // カートを空にする処理
             session()->forget('tempCart');
-
+            if($address==false){
             return view('design/receipt',[
                 'email'=>$email,
             ]);
+            }elseif ($address == true && isset($to_downloads)) {
+                return view('design/receipt_mix',[
+                    'email'=>$email,
+                ]);
+            }else{
+                return view('design/receipt_address',[
+                    'email'=>$email,
+                ]);
+            }
         } else {
             // 支払いが失敗した場合の処理
             return redirect()->route('payment.failed');
@@ -705,6 +874,99 @@ public function post_cart_un(Request $request,$id){
         }
         
     }
+//一回での支払いポスト(ユーザー/現物購入)
+public function design_stripePost_address(Request $request,$id)
+{
+    $design=Design::where('id','=',$id)->first();
+    // ログインユーザーを$buyerとする
+    $user = Auth::user();
+    $buyer =Buyer::where('email','=',$user->email)->first();
+     // 顧客がStripeの顧客IDを持っている場合、デフォルトの支払い方法を取得する
+if ($user->stripe_id) {
+    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+    // ユーザーのデフォルトの支払い方法を取得
+    $paymentMethods = PaymentMethod::all([
+        'customer' => $user->stripe_id,
+        'type' => 'card',
+        'limit' => 1, // デフォルトの支払い方法は1つだけ取得する
+    ]);
+        // デフォルトの支払い方法がある場合、その支払い方法を使用する
+        if (!empty($paymentMethods->data)) {
+            $defaultPaymentMethod = $paymentMethods->data[0];
+            $attachedPaymentMethod = $defaultPaymentMethod->id;
+            // 支払いインテントを作成
+            $paymentIntent = PaymentIntent::create([
+                'amount' => $design->price, // 
+                'currency' => 'JPY',
+                'customer' => $user->stripe_id, // 顧客のIDを指定する
+                'payment_method' => $attachedPaymentMethod,
+                'confirmation_method' => 'manual',
+                'confirm' => true,
+            ]);
+
+        } else {
+            // デフォルトの支払い方法が見つからない場合、エラー処理を行うか、適切な処理を行う
+            return back()->with('error', 'デフォルトの支払い方法が見つかりませんでした。');
+        }
+        } else {
+    // またStripe顧客でなければ、新規顧客にする
+    $stripeCustomer = $user->createOrGetStripeCustomer();
+    // フォーム送信の情報から$paymentMethodを作成する
+    $paymentMethod = $request->input('stripePaymentMethod');
+    //PaymentMethod を顧客にアタッチする
+    $attachedPaymentMethod = $user->updateDefaultPaymentMethod($paymentMethod);
+
+    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+    // 支払いインテントを作成
+    $paymentIntent = PaymentIntent::create([
+        'amount' => $design->price, // 
+        'currency' => 'JPY',
+        'customer' => $stripeCustomer->id, // 顧客のIDを指定する
+        'payment_method' => $attachedPaymentMethod->id,
+        'confirmation_method' => 'manual',
+        'confirm' => true,
+    ]);
+}
+    // ここで支払いが成功したかどうかを確認するロジックを実装
+    if ($paymentIntent->status === 'succeeded') {
+        // 支払いが成功した場合の処理
+        $download=new Download();
+        $download->artist_id=$design->artist_id;
+        $download->design_id=$design->id;
+        $download->user_id=$user->id;
+        $download->price=$design->price;
+        $download->designName=$design->name;
+        $download->name=$request->name;
+        $download->payment_status=1;
+        $download->email=$user->email;
+         // 現物購入と示す
+        $download->download_status = 10;
+        $download->save();
+        
+        $total=$download->price;
+
+        //pdf作成
+        $pdf = \PDF::loadView('design.pdf', compact('total','download'));
+        // 一回での支払い完了メール送信
+        $email = $user->email;
+        \Mail::to($user['email'])->send(new AddressMail($user, $total, $pdf, $email));
+        $date = Carbon::today()->addWeek();
+        \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+
+
+        // 処理後に'ルート設定'にページ移行
+        return view('design/receipt_address',[
+            'email'=>$email,
+        ]);
+        // return redirect()->route('design_receipt', $design)->withHeaders($response->headers->all());
+    } else {
+        // 支払いが失敗した場合の処理
+        return redirect()->route('payment.failed');
+    }
+    
+}
 
     //非ユーザーの一回の支払いポスト
     public function design_oncePost (Request $request,$id){
@@ -785,6 +1047,88 @@ public function post_cart_un(Request $request,$id){
     }
     }
 
+        //非ユーザーの一回の支払いポスト(現物販売)
+        public function design_oncePost_address (Request $request,$id){
+            $design=Design::where('id','=',$id)->first();
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+            // フォーム送信の情報から PaymentMethod を作成
+            $paymentMethod = $request->input('stripePaymentMethod');
+            // 非ユーザーの場合、Stripe 顧客情報を新規に作成
+            $stripeCustomer = \Stripe\Customer::create([
+                'email' => $request->input('email'), // 仮の例。必要な情報に応じて変更してください。
+                // 他の必要な情報を追加
+            ]);
+            // PaymentMethod を顧客にアタッチする
+            $attachedPaymentMethod = \Stripe\PaymentMethod::retrieve($paymentMethod);
+            $attachedPaymentMethod->attach(['customer' => $stripeCustomer->id]);
+    
+            // PaymentIntent を作成
+            $paymentIntent = \Stripe\PaymentIntent::create([
+                'amount' => $design->price,
+                'currency' => 'JPY',
+                'customer' => $stripeCustomer->id,
+                'payment_method' => $attachedPaymentMethod->id,
+                'confirmation_method' => 'manual',
+                'confirm' => true,
+            ]);
+    
+              // PaymentIntent から client_secret を取得
+            $clientSecret = $paymentIntent->client_secret;
+    
+             // ここで支払いが成功したかどうかを確認するロジックを実装
+            if ($paymentIntent->status === 'succeeded') {
+                // 支払いが成功した場合の処理
+                $tempCart = Session::get('tempCart', []);
+                //Downloadに新規保存
+                foreach ($tempCart as $downloadId => $downloadDetails) {
+                $download=new Download();
+                $download->artist_id=$downloadDetails['artist_id'];
+                $download->design_id=$downloadDetails['design_id'];
+                $download->user_id=0;
+                $download->price=$downloadDetails['price'];
+                $download->payment_status=1;
+                $download->designName=$downloadDetails['designName'];
+                $download->email=$request->email;
+                $download->name = $request->name;
+                // 現物購入と示す
+                $download->download_status = 10;
+                $download->save();
+                }
+    
+            //pdf作成
+            $total=$design->price;
+               // $userが存在しない場合の処理
+                $buyer = (object) [
+                'email' =>$request->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
+            $pdf = \PDF::loadView('design.pdf2', compact('total','download','buyer'));
+            // 一回での支払い完了メール送信
+            $email = $request['email'];
+            \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
+            $date = Carbon::today()->addWeek();
+            \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+
+            //カートを空にする
+            $tempCart = session('tempCart', []);
+            // カートを空にする処理
+            session()->forget('tempCart');
+    
+            return view('design/receipt_address',[
+                'email'=>$email,
+            ]);
+            
+        }
+        else {
+        // 支払いが失敗した場合の処理
+        return redirect()->route('payment.failed');
+        }
+        }
+
     public function design_receipt($design){
 
         $user = Auth::user();
@@ -809,7 +1153,6 @@ public function post_cart_un(Request $request,$id){
         $user->newSubscription('basic_plan', $plan)
         ->trialDays(30)
         ->create($paymentMethod);
-        //サブスク申し込み完了メール送信
         $email = $request['email'];
 
         Mail::send(new RegisterMail($email));
@@ -858,4 +1201,5 @@ public function post_cart_un(Request $request,$id){
 
         return redirect('account');
     }
+
 }

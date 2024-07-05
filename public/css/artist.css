@@ -74,6 +74,7 @@ table, th, td, tr {
 
 .free-icon {
     position: absolute; /* 絶対位置指定 */
+    display: flex;
 }
 .free-icon img{
     width:100px;

@@ -860,48 +860,48 @@
             <!--     バイヤー -->
             @elseif($type==8)
             <div class="card-body">
-            <button class="button"><a href="{{ url('/design/list') }}">障がいアートトップページに戻る</a></button>
-                <div class="">
-                    <p>購入履歴</p>
-                    @foreach($downloads as $download)
-                    <div class="card-body" style="text-align:start;">
-                        <th >作品名</th>
-                            <tr>
-                                <td>{{ $download->name}}</td>
-                            </tr>
-                        <th >金額</th>
-                            <tr>
-                                <td>{{ $download->price}}</td>
-                            </tr>
-                
-                        <div class="">
-                                <img src="{{ asset('storage/' . $download->Design->image) }}" alt="image" >
-                            </div>
-                        </div>
-                        <div class="">
-                            @if($download->download_status==0)
-                            未ダウンロード
-                            <form method="POST" action="{{ route('design_downloaded_each',['id'=> $download->id]) }}">
-                                <button type="submit">
-                                    <i class="fa fa-plus"></i> ダウンロードする
-                                </button>
-                            </form>
-                            @else
-                            ダウンロード済
-                            @if($download->created_at >= now()->subMonths(3))
-                            <form method="POST" action="{{ route('design_downloaded_each',['id'=> $download->id]) }}">
-                                <button type="submit">
-                                    <i class="fa fa-plus"></i> ダウンロードする
-                                </button>
-                            </form>
-                            @endif
-                            @endif
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>    
+    <button class="button">
+        <a href="{{ url('/design/list') }}">障がいアートトップページに戻る</a>
+    </button>
+    <div>
+        <p>購入履歴</p>
+        @foreach($downloads as $download)
+        <div class="card-body" style="display: flex; justify-content: space-between;">
+            <p>作品名</p>
+            <p style="font-weight:bold;">{{ $download->name}}</p>
+            <p>金額</p>
+            <p style="font-weight:bold;">{{ $download->price}}円</p>
+            <div>
+                <img src="{{ asset('storage/' . $download->Design->image) }}" alt="image">
             </div>
+            <div>
+                @if($download->download_status == 0)
+                    未ダウンロード
+                    <form method="POST" action="{{ route('design_downloaded_each',['id'=> $download->id]) }}">
+                        @csrf
+                        <button type="submit">
+                            <i class="fa fa-plus"></i> ダウンロードする
+                        </button>
+                    </form>
+                @else
+                    ダウンロード済or現物購入
+                    @php
+                        $isValid = $download->created_at >= now()->subMonths(3) && $download->download_status < 10;
+                    @endphp
+                    @if($isValid)
+                    <form method="POST" action="{{ route('design_downloaded_each_mine',['id'=> $download->id]) }}">
+                        @csrf
+                        <button type="submit">
+                            <i class="fa fa-plus"></i> ダウンロードする
+                        </button>
+                    </form>
+                    @endif
+                @endif
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
             @else
             <div class="admin_button"style="margin-bottom:10px;"><a href="{{ route('feel_choice') }}" style="background-color:none; color:#7791DE;"><img src="{{ asset('img/feel.png') }}" alt="feel"></a></div>
             @endif

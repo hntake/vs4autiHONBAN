@@ -101,6 +101,13 @@ Route::get('/lost/ask', function () {
 Route::get('/design/policy', function () {
     return view('design/policy');
 });
+Route::get('/design/return', function () {
+    return view('design/return');
+});
+Route::get('/design/packing', function () {
+    return view('design/packing');
+});
+
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 
 Route::get('/hair/schedule', [App\Http\Controllers\ScheduleController::class, 'cut_schedule'])->name('cut_schedule');
@@ -549,6 +556,8 @@ Route::post('design/execute', [App\Http\Controllers\DesignController::class, 'ex
 //画像個々ダウンロードページ
 Route::get('design/download_each/{id}', [App\Http\Controllers\DesignController::class, 'to_download_each'])->name('design_download_each');
 Route::post('design/download_each/{id}', [App\Http\Controllers\DesignController::class, 'download_each'])->name('design_downloaded_each');
+//購入後の再ダウンロード
+Route::post('my_page/{id}', [App\Http\Controllers\DesignController::class, 'download_each_mine'])->name('design_downloaded_each_mine');
 //カートに入れる
 Route::post('design/to_cart/{id}', [App\Http\Controllers\StripeController::class, 'design_cart'])->name('design_cart');
 //カートページ
@@ -562,12 +571,13 @@ Route::get('design/add_payment_once', [App\Http\Controllers\StripeController::cl
 Route::post('design/add_payment_once', [App\Http\Controllers\StripeController::class, 'add_payment_once'])->name('post_add_payment_once');
 //非ユーザーのカートでの支払い
 Route::get('design/cart_un', [App\Http\Controllers\StripeController::class, 'index_cart_un'])->name('index_cart_un');
-Route::post('design/cart_un/{id}', [App\Http\Controllers\StripeController::class, 'post_cart_un'])->name('post_cart_un');
+Route::post('design/cart_un/{id}/address/{address}', [App\Http\Controllers\StripeController::class, 'post_cart_un'])->name('post_cart_un');
 //カート内の削除
 Route::get('design/cart_delete/{id}', [App\Http\Controllers\StripeController::class, 'delete_cart'])->name('delete_cart');
 //カートを空にする
 Route::get('design/empty', [App\Http\Controllers\StripeController::class, 'empty_cart'])->name('empty_cart');
-
+//カートを空にする(カート)
+Route::get('design/empty_un', [App\Http\Controllers\StripeController::class, 'empty_cart_un'])->name('empty_car_un');
 //購入画面
 Route::get('design/stripe/{id}', [App\Http\Controllers\StripeController::class, 'design_stripe'])->name('design_stripe');
 //支払いボタン(ログインユーザー)
@@ -598,6 +608,26 @@ Route::get('design/register', [App\Http\Controllers\DesignController::class, 're
 Route::post('design/register', [App\Http\Controllers\DesignController::class, 'registered'])->name('registered');
 //ダウンロードページからのログイン
 Route::get('design/login/{id}', [App\Http\Controllers\Auth\LoginController::class, 'log'])->name('buyer_login');
+
+//配送情報登録画面へ
+Route::get('/design/address/{id}', [App\Http\Controllers\DesignController::class, 'buyer_address'])->name('buyer_address');
+//配送情報登録画面へ(カートから)
+Route::get('/design/address_cart/{id}', [App\Http\Controllers\DesignController::class, 'buyer_address_cart'])->name('buyer_address_cart');
+//配送情報確認画面へ
+Route::post('/design/address/{id}', [App\Http\Controllers\DesignController::class, 'buyer_post'])->name('buyer_post');
+//配送情報確認画面へ(カートから)
+Route::post('/design/address_cart/{id}', [App\Http\Controllers\DesignController::class, 'buyer_post_cart'])->name('buyer_post_cart');
+//配送情報登録
+Route::post('/design/address_confirm/{id}', [App\Http\Controllers\DesignController::class, 'address_post'])->name('address_post');
+//配送情報登録(カートから)
+Route::post('/design/address_cart_confirm/{id}', [App\Http\Controllers\DesignController::class, 'address_post_cart'])->name('address_post_cart');
+//購入画面
+Route::get('design/stripe_address/{id}', [App\Http\Controllers\StripeController::class, 'design_stripe_address'])->name('design_stripe_address');
+//支払いボタン(ログインユーザー)
+Route::post('design/stripe_address/{id}', [App\Http\Controllers\StripeController::class, 'design_stripePost_address'])->name('design_stripe_address.post');
+//支払いボタン(非ユーザー)
+Route::get('design/once_address/{id}', [App\Http\Controllers\StripeController::class, 'design_once_address'])->name('design_once_address');
+Route::post('design/once_address/{id}', [App\Http\Controllers\StripeController::class, 'design_oncePost_address'])->name('design_once_address.post');
 
 //アーティストページ内並び替え
 Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');

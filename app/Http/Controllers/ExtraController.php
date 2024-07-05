@@ -219,14 +219,14 @@ class ExtraController extends Controller
 
         return redirect('my_page');
     }
-  /*shopリスト表示画面*/
-  public function shop_list(Request $request)
-  {
+    /*shopリスト表示画面*/
+    public function shop_list(Request $request)
+    {
         $shops=Shop::orderBy('area', 'desc')->get();
         return view('shop_list',compact('shops'));
-  }
+    }
 //警察
-  public function verify_index($id,$to_call)
+    public function verify_index($id,$to_call)
 {
     return view('lost/verify', [
         'id' => $id,
@@ -242,26 +242,26 @@ public function verify(Request $request,$id, $to_call)
     if($password==32419110){
  // 正しいパスコードの場合、次の操作に進む処理を実行
 
- $user = Lost::where('id', '=', $id)->first();
- if ($to_call == 0) {
-     $tel = $user->tel1;
- } else {
-     $tel = $user->tel2;
- }
+    $user = Lost::where('id', '=', $id)->first();
+    if ($to_call == 0) {
+            $tel = $user->tel1;
+    } else {
+        $tel = $user->tel2;
+    }
 
- $call = new Call;
- $call->name = $user->name;
- $call->tel1 = $tel;
- $call->ip = $request->ip();
- $call->save();
+    $call = new Call;
+    $call->name = $user->name;
+    $call->tel1 = $tel;
+    $call->ip = $request->ip();
+    $call->save();
 
- \Mail::to($user['email'])->send(new CallMail($user, $call));
+    \Mail::to($user['email'])->send(new CallMail($user, $call));
 
- return redirect("tel:{{$tel}}");
+    return redirect("tel:{{$tel}}");
 }
- else{
+    else{
     return view('lost/police');
- }
+}
 }
 //停止画面表示
 public function stop_index(Request $request, $id)

@@ -215,7 +215,18 @@
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
+                                <p>¥0</p>
                                 <img src="{{ asset('img/free.png') }}" alt="image" >
+                            </div>
+                            @else
+                            <div class="free-icon">
+                                <p>¥{{ $design->price}}</p>
+                                @if($design->original==1)
+                                <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
+                                @elseif($design->original==2)
+                                <img src="{{ asset('img/original_art.png') }}" alt="image" >
+                                @else
+                                @endif
                             </div>
                             @endif
                             </a>
@@ -227,7 +238,18 @@
                             </div>
                             @if($design->price==0)
                             <div class="free-icon">
+                                <p>¥0</p>
                                 <img src="{{ asset('img/free.png') }}" alt="image" >
+                            </div>
+                            @else
+                            <div class="free-icon">
+                                <p>¥{{ $design->price}}</p>
+                                @if($design->original==1)
+                                <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
+                                @elseif($design->original==2)
+                                <img src="{{ asset('img/original_art.png') }}" alt="image" >
+                                @else
+                                @endif
                             </div>
                             @endif
                             </a>

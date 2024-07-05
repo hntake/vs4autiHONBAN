@@ -88,27 +88,27 @@ body{
 
 }
 
- span{
-     font: bold;
-     color:#fa755a;
- }
- input {
-    margin-bottom: 20px;
+span{
+    font: bold;
+    color:#fa755a;
+}
+input {
+  margin-bottom: 20px;
 
- }
- .card_container{
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    margin-top: 50px;
-    border: solid 2px lightgray;
-    background-color: floralwhite;
-    padding: 0 20%;
- }
- #card-button{
-    margin-top:20Px;
- }
- /*==================================================
+}
+.card_container{
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  margin-top: 50px;
+  border: solid 2px lightgray;
+  background-color: floralwhite;
+  padding: 0 20%;
+}
+#card-button{
+  margin-top:20Px;
+}
+/*==================================================
 アコーディオンのためのcss
 ===================================*/
 section{
@@ -204,6 +204,25 @@ input{
 }
 .choice{
   display: flex;
+}
+.address{
+  width:80%;
+  margin:0 auto;
+}
+table{
+  border: solid 1px darkgray;
+  width: 100%;
+}
+thead{
+  background-color: rgb(206, 198, 198);
+}
+td{
+  text-align: started; /* 横方向の中央寄せ */
+  vertical-align: middle; /* 縦方向の中央寄せ */
+  /* height: 50px;  */
+}
+.list_button{
+  text-align: center;
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){

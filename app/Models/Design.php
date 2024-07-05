@@ -13,7 +13,7 @@ class Design extends Model
     protected $fillable = [
 
         'email','image','name'.'price','downloaded','genre1','genre2' ,'genre3','name_en','artist_name','artist_id','real_image',
-        'image_with_artist_name','license','protect','real_image_with_name'    
+        'image_with_artist_name','license','protect','real_image_with_name','original'    
     ];
     public function Genre1() {
         return $this->hasOne(Genre::class, 'id','genre1');

@@ -38,10 +38,7 @@ class LoginController extends Controller
 
     public function redirectTo() {
         $user=Auth::user();
-
-        if ($user->type==8) {
-            $this->redirectTo = '/design/my_page';
-        }elseif ($user->type == 10) {
+        if  ($user->type == 10) {
          // ログイン後に $design->id を取得する
             $this->redirectTo = '/design/my_sheet';
         } else {

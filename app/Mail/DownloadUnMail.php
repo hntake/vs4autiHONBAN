@@ -25,7 +25,7 @@ class DownloadUnMail extends Mailable
         $this->pdf = $pdf;
     }
 
-      /**
+    /**
      * Get the message content definition.
      *
      * @return \Illuminate\Mail\Mailables\Content

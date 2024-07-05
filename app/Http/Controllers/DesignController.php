@@ -10,6 +10,7 @@ use App\Models\Design;
 use App\Models\Download;
 use App\Models\Badge;
 use App\Models\Genre;
+use App\Models\Buyer;
 use App\Mail\Pay;
 use App\Mail\Unpaid;
 use App\Mail\Protect;
@@ -22,6 +23,11 @@ use Illuminate\Support\Facades\Response;
 use ZipArchive;
 use Illuminate\Support\Facades\Storage;
 use App\Helpers\TwitterHelper;
+use Stripe\SetupIntent;
+use Stripe\PaymentIntent;
+use Laravel\Cashier\Cashier;
+use Stripe\Customer;
+use Stripe\PaymentMethod;
 
 
 
@@ -592,26 +598,26 @@ class DesignController extends Controller
                 if ($design) {
                     $designs->push($design);
                 }
-            }
-                return view('design/to_download',[
-                'downloads'=>$downloads,
-                'designs'=>$designs,
-                'user'=>$user,
-                'email'=>$id,
-            ]);
-            }else{
-                $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
-                $designs = collect(); // 空のコレクションを作成
-
-                foreach ($downloads as $download) {
-                    // $download から design_id を取得し、それを使用して Design モデルを取得
-                    $design = Design::find($download->design_id);
-                    
-                    // Design モデルが存在する場合はコレクションに追加
-                    if ($design) {
-                        $designs->push($design);
-                    }
                 }
+                    return view('design/to_download',[
+                    'downloads'=>$downloads,
+                    'designs'=>$designs,
+                    'user'=>$user,
+                    'email'=>$id,
+                ]);
+                }else{
+                    $downloads=Download::where('email','=',$id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
+                    $designs = collect(); // 空のコレクションを作成
+
+                    foreach ($downloads as $download) {
+                        // $download から design_id を取得し、それを使用して Design モデルを取得
+                        $design = Design::find($download->design_id);
+                        
+                        // Design モデルが存在する場合はコレクションに追加
+                        if ($design) {
+                            $designs->push($design);
+                        }
+                    }
             return view('design/to_download',[
                 'downloads'=>$downloads,
                 'designs'=>$designs,
@@ -746,7 +752,7 @@ class DesignController extends Controller
 public function executeDownload()
 {
     $tempZipFilePath = session('tempZipFilePath');
-   if (isset($tempZipFilePath) && file_exists($tempZipFilePath)) {
+    if (isset($tempZipFilePath) && file_exists($tempZipFilePath)) {
         return response()->download($tempZipFilePath)->deleteFileAfterSend();
     }
 
@@ -758,23 +764,45 @@ public function executeDownload()
     // {
 
     //         $download=Download::where('id','=',$id)->first();
-    //         return view('design/to_download_each',[
+    //             return view('design/to_download_each',[
     //             'downloads'=>$downloads,
-    //         ]);
+    //             ]);
     // }
     //個々ダウンロードポスト
     public function download_each($id)
     {
         
         $download=Download::where('id','=',$id)->first();
+        //status=0つまり、初めてのダウンロードの場合のみ行う
+        if( $download->download_status == 0){
+            //download_statusの変更0->1
+            $download->download_status = 1;
+            $download->save();  
+        }
+         //ダウンロードが始まる
+        $downloadFilePaths = [];
+
+            $design=Design::where('id','=',$download->design_id)->first();
+        
+        if($design->license==0){
+            $filePath = storage_path("app/public/{$design->real_image}");
+            }else{
+            $filePath = storage_path("app/public/{$design->real_image_with_name}");
+            }
+            return response()->download($filePath);
+
+
+    }
+
+    //購入済みの再度個々ダウンロードポスト
+    public function download_each_mine($id)
+    {
+        $download=Download::where('id','=',$id)->first();
 
         //ダウンロードが始まる
         $downloadFilePaths = [];
 
             $design=Design::where('id','=',$download->design_id)->first();
-            //designのdownloadedに加算
-            $design->downloaded += 1;
-            $design->save();
             if($design->license==0){
             $filePath = storage_path("app/public/{$design->real_image}");
             }else{
@@ -782,20 +810,6 @@ public function executeDownload()
             }
             return response()->download($filePath);
 
-            //status=0つまり、初めてのダウンロードの場合のみ行う
-            if( $download->download_status = 0){
-            //download_statusの変更0->1
-            $download->download_status = 1;
-            $download->save();
-
-            //artistのunpaidに加算
-            $artist = Artist::find($download->artist_id);
-            $artist->increment('unpaid', $download->price); 
-            //unpaidが2000円超えたらメール送信
-            if($artist->unpaid >= 2000){
-                \Mail::to($artist['email'])->send(new Unpaid($artist));
-            }
-            }      
 
         return redirect('design/to_download')->with('success','ダウンロード完了しました');
     }
@@ -919,4 +933,319 @@ public function executeDownload()
 
         return view('design/badge');
     }
-}
+
+    //住所入力画面へ
+    public function buyer_address(Request $request,$id){
+
+        $user=Auth::user();
+        $buyer=null;
+        if($user){
+            $buyer=Buyer::where('email','=',$user->email)->first();
+        }
+        $design= Design::where('id','=', $id)->first();
+
+        return view('design/address',compact('user','design','buyer'));
+    }
+
+    //住所入力画面へ(カートから)
+    public function buyer_address_cart(Request $request,$id){
+
+        // totalを渡す
+        $total=$id;
+        $tempCart = Session::get('tempCart', []);
+
+        $user=Auth::user();
+        $buyer=null;
+        if($user){
+            $buyer=Buyer::where('email','=',$user->email)->first();
+        }
+
+        return view('design/address_cart',compact('user','buyer','tempCart','total'));
+    }
+
+      //バイヤー住所登録→確認画面へ
+    public function buyer_post(Request $request,$id){
+
+        $user=Auth::user();
+        if($user){
+            $buyer = (object) [
+                'email' =>$user->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
+        } else {
+            // $userが存在しない場合の処理
+            $buyer = (object) [
+                'email' =>$request->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
+        }
+        $design= Design::where('id','=', $id)->first();
+
+            // $buyerオブジェクトをセッションに保存
+            $request->session()->put('buyer', $buyer);
+
+        return view('design/address_confirm',compact('user','design','buyer'));
+    }
+
+
+      //バイヤー住所登録→確認画面へ(カートから)
+    public function buyer_post_cart(Request $request,$id){
+
+        // totalを渡す
+        $total=$id;
+
+        $tempCart = Session::get('tempCart', []);
+
+        $user=Auth::user();
+        if($user){
+            $buyer = (object) [
+                'email' =>$user->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
+        } else {
+            // $userが存在しない場合の処理
+            $buyer = (object) [
+                'email' =>$request->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
+        }
+
+            // $buyerオブジェクトをセッションに保存
+            $request->session()->put('buyer', $buyer);
+
+        return view('design/address_confirm_cart',compact('user','buyer','tempCart','total'));
+    }
+
+          //バイヤー住所登録確認
+        public function address_post(Request $request,$id){
+            $design= Design::where('id','=', $id)->first();
+            $user=Auth::user();
+
+            if($user){
+                $buyer=Buyer::where('id','=',$user->email)->first();
+                //登録されてない場合
+                if (!$buyer) {
+                    $buyer=new Buyer();
+                    $buyer->email=$user->email;
+                    $buyer->name= $request->name;
+                    $buyer->postal= $request->postal;
+                    $buyer->tel= $request->tel;
+                    $buyer->address= $request->address;
+                    $buyer->save();
+                }else{
+                    $buyer->update([
+                        'name'=>$request->name,
+                        'address'=>$request->address,
+                        'tel'=>$request->tel,
+                        'postal'=>$request->postal,
+                    ]);
+                }
+
+                $setupIntent = $user->createSetupIntent();
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                if ($user->stripe_id) {
+                // ユーザーに関連するCustomerオブジェクトを取得
+                $customer = Customer::retrieve($user->stripe_id);
+                $defaultPaymentMethodId = $customer->invoice_settings['default_payment_method'];
+            
+                // デフォルトの支払い情報を取得
+                $paymentMethod = \Stripe\PaymentMethod::retrieve($defaultPaymentMethodId);
+                //他の支払い情報を取得
+                $paymentMethods = \Stripe\PaymentMethod::all([
+                    'customer' => $customer, // カスタマーIDを指定することで、そのカスタマーに関連付けられた支払い方法を取得します
+                    'type' => 'card', // 取得したい支払い方法のタイプを指定します。例えば、'card'はクレジットカードを表します
+                ]);
+                // $paymentMethodを除外する
+                $filteredPaymentMethods = array_filter($paymentMethods->data, function ($method) use ($defaultPaymentMethodId) {
+                    return $method->id !== $defaultPaymentMethodId;
+                });
+
+                return view('design/stripe_address', [
+                    'intent' => $setupIntent ?? null,
+                    'design'=>$design,
+                    'paymentMethod'=>$paymentMethod,
+                    'filteredPaymentMethods'=>$filteredPaymentMethods,
+                    'buyer'=>$buyer,
+                ]);                
+            } else {
+                // ログインしていない場合もセットアップインテントを作成
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                $setupIntent = \Stripe\SetupIntent::create();
+            return view('design/stripe_new', [
+                'intent' => $setupIntent,
+                'design'=>$design,
+            ]);
+                }
+
+            } else {
+                $cartItemId = 'design_' . $design->id;
+                $tempCart = Session::get('tempCart', []);
+                    $tempCart[$cartItemId] = [
+                        'design_id' => $design->id,
+                        'artist_id' => $design->artist_id,
+                        'user_id' => 0,
+                        'price' => $design->price,
+                        'designName' => $design->name,
+                        // Add other design information as needed
+                    ];
+                    Session::put('tempCart', $tempCart);
+            
+                $designs = []; // デザイン情報を格納する配列
+            
+                foreach($tempCart as $downloadId => $downloadDetails){
+                    $downloads[] = [
+                        'design_id' => $downloadDetails['design_id'],
+                        'price' => $downloadDetails['price'],
+                        'designName' => $downloadDetails['designName'],
+                        // 他のデザイン情報も必要に応じて追加
+                    ];
+                    // 合計金額を計算
+                }
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            
+                // Stripeセットアップインテントの作成
+                $setupIntent = SetupIntent::create([
+                    'payment_method_types' => ['card'], // クレジットカードのみを受け付ける場合
+                ]);;    
+
+                // $userが存在しない場合の処理
+                $buyer = (object) [
+                    'email' =>$request->email,
+                    'name' => $request->name,
+                    'postal' => $request->postal,
+                    'tel' => $request->tel,
+                    'address' => $request->address,
+                ];
+                return view('design/once_address', [
+                    'intent' => $setupIntent,
+                    'design'=>$design,
+                    'tempCart'=>$tempCart,
+                    'buyer'=>$buyer,
+                ]);
+            }
+    
+        }
+
+        //バイヤー住所登録確認(カートから)
+        public function address_post_cart(Request $request,$id){
+
+            $tempCart = Session::get('tempCart', []);
+            $designs = []; // デザイン情報を格納する配列
+            // totalを渡す
+            $total=$id;
+            //住所入力確認済み
+            $address=true;
+            $user=Auth::user();
+
+            if($user){
+                $buyer=Buyer::where('id','=',$user->email)->first();
+                //登録されてない場合
+                if (!$buyer) {
+                    $buyer=new Buyer();
+                    $buyer->email=$user->email;
+                    $buyer->name= $request->name;
+                    $buyer->postal= $request->postal;
+                    $buyer->tel= $request->tel;
+                    $buyer->address= $request->address;
+                    $buyer->save();
+                }else{
+                    $buyer->update([
+                        'name'=>$request->name,
+                        'address'=>$request->address,
+                        'tel'=>$request->tel,
+                        'postal'=>$request->postal,
+                    ]);
+                }
+
+                $setupIntent = $user->createSetupIntent();
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                if ($user->stripe_id) {
+                // ユーザーに関連するCustomerオブジェクトを取得
+                $customer = Customer::retrieve($user->stripe_id);
+                $defaultPaymentMethodId = $customer->invoice_settings['default_payment_method'];
+            
+                // デフォルトの支払い情報を取得
+                $paymentMethod = \Stripe\PaymentMethod::retrieve($defaultPaymentMethodId);
+                //他の支払い情報を取得
+                $paymentMethods = \Stripe\PaymentMethod::all([
+                    'customer' => $customer, // カスタマーIDを指定することで、そのカスタマーに関連付けられた支払い方法を取得します
+                    'type' => 'card', // 取得したい支払い方法のタイプを指定します。例えば、'card'はクレジットカードを表します
+                ]);
+                // $paymentMethodを除外する
+                $filteredPaymentMethods = array_filter($paymentMethods->data, function ($method) use ($defaultPaymentMethodId) {
+                    return $method->id !== $defaultPaymentMethodId;
+                });
+
+                return view('design/cart', [
+                    'intent' => $setupIntent ?? null,
+                    'design'=>$design,
+                    'paymentMethod'=>$paymentMethod,
+                    'filteredPaymentMethods'=>$filteredPaymentMethods,
+                    'buyer'=>$buyer,
+                    'address'=>$address,
+                ]);                
+            } else {
+                // ログインしていない場合もセットアップインテントを作成
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                $setupIntent = \Stripe\SetupIntent::create();
+            return view('design/stripe_new', [
+                'intent' => $setupIntent,
+                'design'=>$design,
+            ]);
+                }
+
+            } else {
+                    Session::put('tempCart', $tempCart);
+            
+                $designs = []; // デザイン情報を格納する配列
+            
+                foreach($tempCart as $downloadId => $downloadDetails){
+                    $downloads[] = [
+                        'design_id' => $downloadDetails['design_id'],
+                        'price' => $downloadDetails['price'],
+                        'designName' => $downloadDetails['designName'],
+                        'original' => $downloadDetails['original'],
+
+                    ];
+                    // 合計金額を計算
+                }
+                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            
+                // Stripeセットアップインテントの作成
+                $setupIntent = SetupIntent::create([
+                    'payment_method_types' => ['card'], // クレジットカードのみを受け付ける場合
+                ]);;    
+
+                // $userが存在しない場合の処理
+                $buyer = (object) [
+                    'email' =>$request->email,
+                    'name' => $request->name,
+                    'postal' => $request->postal,
+                    'tel' => $request->tel,
+                    'address' => $request->address,
+                ];
+                return view('design/cart_un', [
+                    'intent' => $setupIntent,
+                    'downloads' => $downloads,
+                    'tempCart'=>$tempCart,
+                    'buyer'=>$buyer,
+                    'address'=>$address,
+                    'total' => $total,
+                    'clientSecret' => $setupIntent->client_secret,
+                ]);
+            }
+    
+        }
+    }

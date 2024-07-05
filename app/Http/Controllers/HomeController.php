@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\Purchased;
 use App\Mail\Thanks;
+use App\Models\Custom;
 
 
 
@@ -584,6 +585,10 @@ class HomeController extends Controller
         $artist->artist_name = $request->input('artist_name');
         $artist->address = $request->input('address');
         $artist->save();
+        $updatedCount=Design::where('artist_id','=',$artist->id)->update([
+            'email'=>$artist->email,
+        ]);
+
         $designs=Design::where('email','=',$artist->email)->orderBy('created_at', 'asc')->paginate(30);
 
         return view('design/my_sheet',[
@@ -595,7 +600,6 @@ class HomeController extends Controller
 
         }
     }
-  
             /**
      * 選択したユーザーのパスワード変更画面へ
      *
@@ -651,7 +655,6 @@ class HomeController extends Controller
             ->with('status','パスワードの変更が終了しました');
         }
 }
-     
 /*デザイン選択送信
 * @param Request $request
 * @return Response
@@ -660,7 +663,7 @@ public function choice(Request $request)
 {
     $user=Auth::user();
     $lost=Lost::where('email','=',$user->email)->first();
-    $design=Design::where('email','=',$user->email)->first();
+    $design=Custom::where('email','=',$user->email)->first();
     $lost->design = $request->input('design');
     $lost->save();
 
@@ -726,13 +729,8 @@ public function design_original(Request $request)
     $path = $request->file('image')->store('public');
     $user=Auth::user();
     $lost=Lost::where('email','=',$user->email)->first();
-    $design=new Design();
+    $design=new Custom();
     $design->email=$user->email;
-    $design->name=0;
-    $design->artist_id=0;
-    $design->real_image=0;
-    $design->image_with_artist_name=0;
-
     $design->image = str_replace('public/', '', $path);
     $design->save();
 
@@ -747,7 +745,7 @@ public function design_original(Request $request)
 */
 public function design_delete_index($id)
 {
-    $design=Design::where('id','=',$id)->first();
+    $design=Custom::where('id','=',$id)->first();
     return view('design/delete',[
         'design'=>$design,
     ]);
@@ -759,7 +757,7 @@ public function design_delete_index($id)
 public function design_delete(Request $request)
 {
     $user=Auth::user();
-    $design=Design::where('email','=',$user->email)->delete();
+    $design=Custom::where('email','=',$user->email)->delete();
 
     return view('design_original');
 }
@@ -860,7 +858,7 @@ public function design_list(Request $request)
 {
 $user=Auth::user();
 if($user->role==1){
-    $designs=Design::orderBy('id', 'desc')->paginate(10);
+    $designs=Custom::orderBy('id', 'desc')->paginate(10);
     return view('design_list',compact('designs'));
 }
 }
@@ -887,10 +885,10 @@ public function store(Request $request)
 
     return redirect('store');
 
-  }
-  /*登録削除ページへ*/
-  public function delete_index(Request $request)
-  {
+    }
+    /*登録削除ページへ*/
+    public function delete_index(Request $request)
+    {
     $user=Auth::user();
 
     return view('delete',[
@@ -906,13 +904,13 @@ public function delete(Request $request)
     foreach ($schedules as $schedule) {
         $schedule->delete();
     }
-   
+
     Lost::where('email',$user->email)->delete();
     Artist::where('email',$user->email)->delete();
-    Design::where('email',$user->email)->delete();
+    Custom::where('email',$user->email)->delete();
 
     User::where('id', $user->id)->delete();
     return redirect('/');
 
-  }
+    }
 }
