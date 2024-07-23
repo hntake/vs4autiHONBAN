@@ -23,8 +23,8 @@
     <img src="img/butterfly.png" alt="Choice 4">
   </label>
   <label>
-    <input type="radio" name="design" value="7" >
-    <img src="img/plain-black.png" alt="Choice 7" >
+    <input type="radio" name="design" value="5" >
+    <img src="img/plain-black.png" alt="Choice 5" >
   </label>
   
   <div class="button">
