@@ -866,7 +866,7 @@
     <div>
         <p>購入履歴</p>
         @foreach($downloads as $download)
-        <div class="card-body" style="display: flex; justify-content: space-between;">
+        <div class="card-body" style="display: flex; justify-content: space-between; background-color:lightyellow;margin:8px auto; border:1px solid yellow;">
             <p>作品名</p>
             <p style="font-weight:bold;">{{ $download->name}}</p>
             <p>金額</p>

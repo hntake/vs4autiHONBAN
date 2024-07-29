@@ -76,7 +76,7 @@
         </div>
     </section>
     <nav>
-        <button><a href="{{ url('design/post') }}">作品アップロード画面へ</a></button>
+        <button><a href="{{ url('design/post_select') }}">作品アップロード画面へ</a></button>
         <button><a href="{{ route('edit_user',['id'=> $user->id]) }}">登録情報編集画面へ</a></button>
         <button><a href="{{ route('edit_image') }}">プロフィール画像編集画面へ</a></button>
         <button><a href="{{ route('password') }}">パスワード変更画面へ</a></button>
@@ -92,9 +92,9 @@
                     <table >
                         <tr>
                         @if($design->license==0)
-                        <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
+                        <td><a href="{{route('design_select',['id'=>$design->id])}}" ><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></a></td>
                         @else
-                        <td><img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" ></td>
+                        <td><a href="{{route('design_select',['id'=>$design->id])}}" ><img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="image" ></a></td>
                         @endif
                         </tr>
                     </table>

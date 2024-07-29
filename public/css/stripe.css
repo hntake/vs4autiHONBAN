@@ -221,8 +221,29 @@ td{
   vertical-align: middle; /* 縦方向の中央寄せ */
   /* height: 50px;  */
 }
-.list_button{
+.list-button{
   text-align: center;
+  width:30%;
+  margin:8px auto;
+}
+.image{
+  margin:0 32px;
+}
+.flex{
+  display: flex;
+}
+.each_image{
+  display:flex;
+  width:70%;
+  padding:32px;
+  background-color: rgb(230, 226, 226);
+  border:#cfd7df 1px solid;
+  margin:8px auto;
+}
+#address-button{
+  text-align: center;
+  width:30%;
+  margin:8px 40%;
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){
@@ -241,5 +262,7 @@ td{
         width:90%;
 
     }
-
+.flex{
+  display: flex;
+}
 }

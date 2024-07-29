@@ -107,6 +107,9 @@ Route::get('/design/return', function () {
 Route::get('/design/packing', function () {
     return view('design/packing');
 });
+Route::get('/design/post_select', function () {
+    return view('design/post_select');
+});
 
 Route::get('/',  [App\Http\Controllers\FormController::class, 'welcome'])->name('welcome');
 
@@ -536,18 +539,27 @@ Route::post('design/edit_image', [App\Http\Controllers\DesignController::class, 
 Route::get('design/image_confirm', [App\Http\Controllers\DesignController::class, 'image_confirm'])->name('image_confirm');
 Route::post('design/image_confirm/{id}', [App\Http\Controllers\DesignController::class, 'image_send'])->name('image_send');
 
-//画像ポストページ
+//DL画像ポストページ
 Route::get('design/post', [App\Http\Controllers\DesignController::class, 'post'])->name('design_post');
 Route::post('design/post', [App\Http\Controllers\DesignController::class, 'posted'])->name('design_posted');
-//画像確認〜アップロード
+//現物画像ポストページ
+Route::get('design/post_ad', [App\Http\Controllers\DesignController::class, 'post_ad'])->name('design_post_ad');
+Route::post('design/post_ad', [App\Http\Controllers\DesignController::class, 'posted_ad'])->name('design_posted_ad');
+//画像確認〜アップロード(DL)
 Route::get('design/confirm', [App\Http\Controllers\DesignController::class, 'confirm'])->name('design_confirm');
 Route::post('design/confirm/{id}', [App\Http\Controllers\DesignController::class, 'upload'])->name('design_upload');
+//画像確認〜アップロード(現物販売)
+Route::get('design/confirm_ad', [App\Http\Controllers\DesignController::class, 'confirm_ad'])->name('design_confirm_ad');
+Route::post('design/confirm_ad/{id}', [App\Http\Controllers\DesignController::class, 'upload_ad'])->name('design_upload_ad');
 
 Route::get('design/download/{id}', [App\Http\Controllers\DesignController::class, 'select_download'])->name('design_select');
 
 //画像ダウンロード準備ページ
 Route::get('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'to_download'])->name('design_download');
 Route::post('design/to_download/{id}', [App\Http\Controllers\DesignController::class, 'download'])->name('design_downloaded');
+//画像ダウンロード準備ページ(mix)
+Route::get('design/to_download_mix/{id}', [App\Http\Controllers\DesignController::class, 'to_download_mix'])->name('design_download_mix');
+Route::post('design/to_download_mix/{id}', [App\Http\Controllers\DesignController::class, 'download_mix'])->name('design_downloaded_mix');
 //無料画像ダウンロード準備ページ
 Route::get('design/to_download_free/{id}', [App\Http\Controllers\DesignController::class, 'to_download_free'])->name('design_download_free');
 
@@ -577,7 +589,7 @@ Route::get('design/cart_delete/{id}', [App\Http\Controllers\StripeController::cl
 //カートを空にする
 Route::get('design/empty', [App\Http\Controllers\StripeController::class, 'empty_cart'])->name('empty_cart');
 //カートを空にする(カート)
-Route::get('design/empty_un', [App\Http\Controllers\StripeController::class, 'empty_cart_un'])->name('empty_car_un');
+Route::get('design/empty_un', [App\Http\Controllers\StripeController::class, 'empty_cart_un'])->name('empty_cart_un');
 //購入画面
 Route::get('design/stripe/{id}', [App\Http\Controllers\StripeController::class, 'design_stripe'])->name('design_stripe');
 //支払いボタン(ログインユーザー)
@@ -591,7 +603,7 @@ Route::get('design/receipt/{user}', [App\Http\Controllers\StripeController::clas
 Route::get('design/my_sheet', [App\Http\Controllers\DesignController::class, 'my_sheet'])->name('design_my_sheet');
 Route::patch('design/my_sheet', [App\Http\Controllers\DesignController::class, 'edit'])->name('design_edit');
 //画像削除
-Route::get('design/delete/{id}', [App\Http\Controllers\HomeController::class, 'design_delete_index'])->name('design_delete_index');
+Route::get('design/delete/{id}', [App\Http\Controllers\DesignController::class, 'design_delete_index'])->name('design_delete_index');
 Route::post('design/delete/{id}', [App\Http\Controllers\DesignController::class, 'design_deleted'])->name('design_deleted');
 
 //アーティストページ

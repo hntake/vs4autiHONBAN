@@ -428,24 +428,30 @@ public function post_cart(Request $request)
                     $hasOriginalZero = true;
                 }
             }
-           // 分岐処理（mix)
+           // 分岐処理（現物とDL)
             if ($hasOriginalOne && $hasOriginalZero) {
                 //現物販売のもののdownload_statusを更新する
+            
+                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads'));
                 foreach($designs as $design){
-                    $original=$design->original;
-                    if ($original == 1) { // $download が null でない場合のみ実行
+                    if ($design->original == 1) { // $download が null でない場合のみ実行
+                        $download=Download::where('user_id','=',$user->id)->where('payment_status','=','1')->where('download_status','=','0') ->first();
                         $download->update([
                             'download_status'=>10,
                         ]);
+                        //表示を販売済みに変更する
+                        $design->update([
+                            'original'=>3,
+                        ]);
                 }
             }
-                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
-                // 一回での支払い完了メール送信
                 $email = $user->email;
                 \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
                 $date = Carbon::today()->addWeek();
                 foreach($designs as $design){
+                    if($design->original==3){
                     \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                    }
                 }
                 return view('design/receipt_mix',[
                     'user'=>$user,
@@ -453,19 +459,24 @@ public function post_cart(Request $request)
                 ]);
                 //現物のみ
             } elseif ($hasOriginalOne) {
-                foreach($downloads as $download){
+                //領収書作成→メール送信
+                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads'));
+                    foreach($downloads as $download){
                     $download->update([
                         'download_status'=>10,
                     ]);
                 }
-                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
-                // 一回での支払い完了メール送信
                 $email = $user->email;
-                \Mail::to($email)->send(new AddressMail($user,$email,$total,$pdf));
+                \Mail::to($email)->send(new AddressMail($user, $total, $pdf, $email)); // 引数の順番を確認
                 $date = Carbon::today()->addWeek();
                 foreach($designs as $design){
                     \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
-                }
+                //表示を販売済みに変更する
+                $design->update([
+                    'original'=>3,
+                ]);
+            }
+
                 return view('design/receipt_address',[
                     'user'=>$user,
                     'email'=>$email,
@@ -715,14 +726,20 @@ public function post_cart_un(Request $request,$id,$address){
             //ダウンロードと現物のミックス
             }elseif ($address == true && isset($to_downloads)) {
             //現物販売のもののdownload_statusを更新する
-            foreach($tempCart as $downloadId => $downloadDetails){
-                $original=$downloadDetails['original'];
+            foreach($downloads as $download){
+            // デザインを取得する
+                $design = Design::where('id', $download['design_id'])->first();
+                $original=$design['original'];
                 if ($original == 1) { // $download が null でない場合のみ実行
                     $download->update([
                         'download_status'=>10,
                     ]);
+                        //表示を販売済みに変更する
+                    $design->update([
+                        'original'=>3,
+                    ]);
+                    }
                 }
-            }
             $buyer = (object) [
                 'email' =>$request->email,
                 'name' => $request->name,
@@ -736,7 +753,9 @@ public function post_cart_un(Request $request,$id,$address){
             \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
             $date = Carbon::today()->addWeek();
             foreach($designs as $design){
-                \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                if($design->original==1){
+                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                }
             }
             // 現物のみ
             }else{
@@ -758,8 +777,13 @@ public function post_cart_un(Request $request,$id,$address){
                 \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
                 $date = Carbon::today()->addWeek();
                 foreach($designs as $design){
-                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
-                }
+                \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                  //表示を販売済みに変更する
+                $design->update([
+                    'original'=>3,
+                ]);
+            }
+
             }
             //カートを空にする
             $tempCart = session('tempCart', []);
@@ -947,15 +971,18 @@ if ($user->stripe_id) {
         
         $total=$download->price;
 
-        //pdf作成
+        //pdf作成→メール送信
         $pdf = \PDF::loadView('design.pdf', compact('total','download'));
         // 一回での支払い完了メール送信
         $email = $user->email;
         \Mail::to($user['email'])->send(new AddressMail($user, $total, $pdf, $email));
         $date = Carbon::today()->addWeek();
         \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
-
-
+        
+        //表示を販売済みに変更する
+        $design->update([
+            'original'=>3,
+        ]);
         // 処理後に'ルート設定'にページ移行
         return view('design/receipt_address',[
             'email'=>$email,
@@ -1113,6 +1140,11 @@ if ($user->stripe_id) {
             $date = Carbon::today()->addWeek();
             \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
 
+        
+            //表示を販売済みに変更する
+            $design->update([
+                'original'=>3,
+            ]);
             //カートを空にする
             $tempCart = session('tempCart', []);
             // カートを空にする処理

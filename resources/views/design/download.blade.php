@@ -20,7 +20,7 @@
     <meta name="twitter:site" content="@LLco1118">
     <meta name="twitter:title" content="ITの力で障がいのある人をサポートしたい!IT2Uのアカウントです">
     <meta name="twitter:description" content="障がい者アートの魅力を広めるプラットフォーム。">
-    <meta name="twitter:image" content="https://itcha50.com/img/design_design_top_icon.png?4362984378">
+    <meta name="twitter:image" content="https://itcha50.com/img/design_design_top_icon.png">
 
     <link rel="shortcut icon" href="{{ asset('/racoon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
@@ -71,10 +71,19 @@
                 <form method="GET" action="{{ route('design_download_free',['id'=> $design->id]) }}">
                 @endif
                 @csrf
-                    <h1>作品詳細<br>{{$design->name}}</h1>
+                <h1 style="text-align:center;">作品詳細<br>{{$design->name}}</h1>
                         <div class="card-body" >
                             @if($design->original==1)
                             <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @if(isset($design->image1))
+                            <img src="{{ asset('storage/' . $design->image1) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @endif
+                            @if(isset($design->image2))
+                            <img src="{{ asset('storage/' . $design->image2) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @endif
+                            @if(isset($design->image3))
+                            <img src="{{ asset('storage/' . $design->image3) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @endif
                             @else
                                 @if($design->license==0)
                                 <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
@@ -99,11 +108,30 @@
                                     <td>{{ $design->name}}</td>
                                 </tr>
                                 <thead style="flex: 1;">
-                                    <th>金額(税込)(税込)</th>
+                                    <th>金額(税込)@if($design->original==1)(送料込み)@endif</th>
                                 </thead>
                                 <tr style="display: flex;">
                                     <td>¥{{ $design->price}}</td>
                                 </tr>
+                                @if(isset($design->width) || isset($design->height) || isset($design->depth) || isset($design->weight))
+                                <thead style="flex: 1;">
+                                    <th>詳細情報</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    @if(isset($design->width))
+                                    <td>幅:{{ $design->width}}</td>
+                                    @endif
+                                    @if(isset($design->height))
+                                    <td>高さ:{{ $design->height}}</td>
+                                    @endif
+                                    @if(isset($design->depth))
+                                    <td>奥行き:{{ $design->depth}}</td>
+                                    @endif
+                                    @if(isset($design->weight))
+                                    <td>重さ:{{ $design->weight}}</td>
+                                    @endif
+                                </tr>
+                                @endif
                                 <thead style="flex: 1;">
                                     <th>カテゴリ</th>
                                 </thead>
@@ -162,7 +190,7 @@
                             </div>
                             <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
                                 <button type="submit" id="address-button" disabled>
-                                お届け先情報を入力する
+                                お届け先情報を入力して購入する
                                 </button>
                             </form>
                     </div>
@@ -179,7 +207,7 @@
                             </div>
                             <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
                                 <button type="submit" id="address-button" disabled>
-                                お届け先情報を入力する
+                                お届け先情報を入力して購入する
                                 </button>
                             </form>
                     </div>
@@ -206,10 +234,19 @@
                 <form method="GET" action="{{ route('design_download_free',['id'=> $design->id]) }}">
                 @endif
                     @csrf
-                    <h1>作品詳細<br>{{$design->name}}</h1>
+                    <h1 style="text-align:center;">作品詳細<br>{{$design->name}}</h1>
                         <div class="card-body" >
                             @if($design->original==1)
                             <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @if(isset($design->image1))
+                            <img src="{{ asset('storage/' . $design->image1) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @endif
+                            @if(isset($design->image2))
+                            <img src="{{ asset('storage/' . $design->image2) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @endif
+                            @if(isset($design->image3))
+                            <img src="{{ asset('storage/' . $design->image3) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
+                            @endif
                             @else
                                 @if($design->license==0)
                                 <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}} {{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" >
@@ -239,6 +276,25 @@
                                 <tr style="display: flex;">
                                     <td>¥{{ $design->price}}</td>
                                 </tr>
+                                @if(isset($design->width) || isset($design->height) || isset($design->depth) || isset($design->weight))
+                                <thead style="flex: 1;">
+                                    <th>詳細情報</th>
+                                </thead>
+                                <tr style="display: flex;">
+                                    @if(isset($design->width))
+                                    <td>幅:{{ $design->width}}</td>
+                                    @endif
+                                    @if(isset($design->height))
+                                    <td>高さ:{{ $design->height}}</td>
+                                    @endif
+                                    @if(isset($design->depth))
+                                    <td>奥行き:{{ $design->depth}}</td>
+                                    @endif
+                                    @if(isset($design->weight))
+                                    <td>重さ:{{ $design->weight}}</td>
+                                    @endif
+                                </tr>
+                                @endif
                                 <thead style="flex: 1;">
                                     <th>カテゴリ</th>
                                 </thead>
@@ -294,7 +350,7 @@
                             </div>
                             <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
                                 <button type="submit" id="address-button" disabled>
-                                お届け先情報を入力する
+                                お届け先情報を入力して購入する
                                 </button>
                             </form>
                     </div>
@@ -311,7 +367,7 @@
                             </div>
                             <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
                                 <button type="submit" id="address-button" disabled>
-                                お届け先情報を入力
+                                お届け先情報を入力して購入する
                                 </button>
                             </form>
                     </div>

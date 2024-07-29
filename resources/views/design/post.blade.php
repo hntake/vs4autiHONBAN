@@ -26,11 +26,11 @@
     </header>
 
     <section class="profile">
-    <form method="POST" action="{{ route('design_post') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('design_posted') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
         <div class="card-body">
         <div class="card">
-                <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; width:fit-content;">
+                <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; width:fit-content; border-radius:10%">
                     <div class="r-box">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('作品名 ※必須') }}</label>
 
@@ -46,8 +46,8 @@
                     </div>
                     <div class="r-box">
                             <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('金額 ※必須 半角数字') }}</label>
-                            <h4 style="color:red;">無料提供の場合は0を入力、販売したい場合の最低金額は50円からとなります。</h4>
                             <div>
+                                <span class="input-group-text">¥</span>
                                 <input id="price" type="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
 
                                 @error('price')
@@ -57,6 +57,9 @@
                                 @enderror
                             </div>
                     </div>  
+                    <div class="attention">
+                        <h5 style="color:red;">無料提供の場合は0を入力、販売したい場合の最低金額は50円からとなります。</h5>
+                    </div>
                     <div class="r-box">
                             <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('カテゴリ ※必須・複数可・最大三個まで') }}</label>
                                 <br>

@@ -12,11 +12,10 @@
 </head>
 <body>
     <p class="text-center mt-5"> 決済が完了しました！</p>
-    <p>登録メールに領収書が送付されました。</p>
+    <p class="text-center mt-5">登録メールに領収書が送付されました。</p>
     <div class="lets_start">
-        <p>
+        <a href="{{ url('/design/list') }}">障がいアートトップページに戻る</a>
             <br>
-        </p>
     </div>
 </body>
 </html>

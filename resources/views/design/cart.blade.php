@@ -72,10 +72,10 @@
                     <td><img src="{{ asset('storage/' . $download->Design->image) }}" alt="image" ></td>
                     <td>{{ $download->designName }}</td>
                     <td>{{ $download->Design->price }}</td>
-                    <td><div class="list_button"><a href="{{ route('delete_cart',['id'=> $download->id]) }}">削除</a></div></td>
+                    <td><div class="list-button"><a href="{{ route('delete_cart',['id'=> $download->id]) }}">削除</a></div></td>
                 </tr>
                 @endforeach
-                <div class="list_button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
+                <div class="list-button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
 
             </tbody>  
         </table>   
@@ -112,7 +112,7 @@
 </div>
 
     @else
-    <div>
+    <div style="text-align:center;">
         カートは空です
     </div>
     @endif

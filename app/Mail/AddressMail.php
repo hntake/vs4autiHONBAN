@@ -15,7 +15,8 @@ class AddressMail extends Mailable
     use Queueable, SerializesModels;
 
     protected $pdf;
-
+    protected $total;
+    protected $email;
     /**
      * Create a new message instance.
      *

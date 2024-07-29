@@ -225,6 +225,8 @@
                                 <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
                                 @elseif($design->original==2)
                                 <img src="{{ asset('img/original_art.png') }}" alt="image" >
+                                @elseif($design->original==3)
+                                <img src="{{ asset('img/sold.png') }}" alt="image" >
                                 @else
                                 @endif
                             </div>
@@ -248,6 +250,8 @@
                                 <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
                                 @elseif($design->original==2)
                                 <img src="{{ asset('img/original_art.png') }}" alt="image" >
+                                @elseif($design->original==3)
+                                <img src="{{ asset('img/sold.png') }}" alt="image" >
                                 @else
                                 @endif
                             </div>

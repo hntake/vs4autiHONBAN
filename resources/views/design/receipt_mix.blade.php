@@ -11,13 +11,15 @@
 
 </head>
 <body>
-<form method="GET" action="{{ route('design_download',['id'=> $email]) }}">
+<form method="GET" action="{{ route('design_download_mix',['id'=> $email]) }}">
 @csrf
     <p class="text-center mt-5"> 決済が完了しました！</p>
-    <p>登録メールに領収書が送付されました。</p>
-    <button type="submit_button" name="action" value="submit">
-            画像をダウンロードする
-    </button>
+    <p class="text-center mt-5">登録メールに領収書が送付されました。</p>
+    <div class="text-center mt-5">
+        <button type="submit_button" name="action" value="submit">
+                画像をダウンロードする
+        </button>
+    </div>
 </form>
     <div class="lets_start">
         <p>

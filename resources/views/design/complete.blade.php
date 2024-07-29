@@ -33,7 +33,9 @@
 
     <form id="downloadForm" action="{{ route('executeDownload') }}" method="post">
         @csrf
-        <button  id="card-button" type="submit" onclick="showPopupMessage()">ダウンロード実行</button>
+        <div class="text-center mt-5">
+            <button  id="card-button" type="submit" onclick="showPopupMessage()" >ダウンロード実行</button>
+        </div>
     </form>
   
     @else

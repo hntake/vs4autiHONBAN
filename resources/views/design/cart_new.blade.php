@@ -30,7 +30,7 @@
                     <th>操作</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="image">
                 @foreach($downloads as $download)
                 <tr>
                     <td><img src="{{ asset('storage/' . $download->Design->image) }}" alt="image" ></td>
@@ -61,7 +61,7 @@
 </div>
 
     @else
-    <div>
+    <div style="text-align:center;">
         カートは空です
     </div>
     @endif

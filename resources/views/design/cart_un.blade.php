@@ -1,5 +1,7 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
+@section('content')
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
@@ -8,7 +10,6 @@
 <title>支払い申込画面 </title>
 
 
-@section('content')
 
 <header id="header">
     <div class="wrapper">
@@ -63,17 +64,20 @@
             <input type="tel" id="tel" name="tel" value="{{ $buyer->tel}}" required>
     </div>
     <div class="card_container py-3">
+    <div class="image">
+
         @foreach($tempCart as $downloadId => $downloadDetails)
-        <tr>
+        <div class="each_image">
         @php
             $design = \App\Models\Design::find($downloadDetails['design_id']);
         @endphp
         <td><img src="{{ asset('storage/' . $design->image) }}" alt="image"></td> 
         <td>{{ $downloadDetails['designName'] }}</td>
         <td>{{ $downloadDetails['price'] }}円</td>
-        </tr>
+        </div>
         @endforeach
-        <div class="list_button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
+    </div>
+        <div class="list-button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
         <label for="email">メールアドレス</label>
         <input type="text" class="form-control" id="email" name="email" value="{{ $buyer->email}}"required>
 
@@ -100,21 +104,23 @@
     </div>
     <!-- 住所入力が必要 -->
     @elseif(isset($hasOriginal) && $address==false)
+    <div class="image">
     @foreach($tempCart as $downloadId => $downloadDetails)
-        <tr>
         @php
             $design = \App\Models\Design::find($downloadDetails['design_id']);
         @endphp
-        <td><img src="{{ asset('storage/' . $design->image) }}" alt="image"></td> 
-        <td>{{ $downloadDetails['designName'] }}</td>
-        <td>{{ $downloadDetails['price'] }}円</td>
-        </tr>
+        <div class="each_image">
+            <td><img src="{{ asset('storage/' . $design->image) }}" alt="image"></td> 
+            <td>{{ $downloadDetails['designName'] }}</td>
+            <td>{{ $downloadDetails['price'] }}円</td>
+        </div>
         @endforeach
-        <div class="list_button"><a href="{{ route('empty_cart_un') }}">カートを空にする</a></div>
+    </div>
+        <div class="list-button"><a href="{{ route('empty_cart_un') }}">カートを空にする</a></div>
 
     <form method="GET" action="{{ route('buyer_address_cart',['id'=> $total]) }}">
         <button type="submit" id="address-button">
-        お届け先情報を入力
+        お届け先情報を入力して購入する
         </button>
     </form>
     <!-- ダウンロードのみの場合 -->
@@ -126,16 +132,16 @@
 
         <div class="address" hidden>{{$address}}</div>
         @foreach($tempCart as $downloadId => $downloadDetails)
-        <tr>
+        <div class="each_image">
         @php
             $design = \App\Models\Design::find($downloadDetails['design_id']);
         @endphp
         <td><img src="{{ asset('storage/' . $design->image) }}" alt="image"></td> 
         <td>{{ $downloadDetails['designName'] }}</td>
         <td>{{ $downloadDetails['price'] }}円</td>
-        </tr>
+        </div>
         @endforeach
-        <div class="list_button"><a href="{{ route('empty_cart_un') }}">カートを空にする</a></div>
+        <div class="list-button"><a href="{{ route('empty_cart_un') }}">カートを空にする</a></div>
         <label for="email">メールアドレス</label>
         <input type="text" class="form-control" id="email" name="email" required>
 
@@ -165,7 +171,7 @@
         <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
     </div>
 @else
-<div>
+<div style="text-align:center;">
     カートは空です
 </div>
 @endif
