@@ -62,6 +62,7 @@
                         <button type="button" id="addImageButton">
                             画像やサイズを追加する
                         </button>
+                        <h6>クリックするとページ下に追加欄が開きます</h6>
                         <button type="submit" name="action" value="submit">
                             追加しない
                         </button>

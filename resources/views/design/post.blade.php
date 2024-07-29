@@ -30,7 +30,7 @@
                 {{ csrf_field() }}
         <div class="card-body">
         <div class="card">
-                <div class="card-header" style="display:flex; flex-direction: column; border:solid 1px gray; width:fit-content; border-radius:10%">
+                <div class="card-header" style="display:flex; flex-direction: column;  width:fit-content; border-radius:10%">
                     <div class="r-box">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('作品名 ※必須') }}</label>
 
