@@ -13,7 +13,7 @@
 
   }
   #header .back{
-
+    margin:0 auto;
   }
 body{
     background-color:aliceblue;
@@ -244,6 +244,17 @@ td{
   text-align: center;
   width:30%;
   margin:8px 40%;
+}
+.btn-primary{
+  margin:8px auto;
+}
+.explain{
+  margin-bottom:16px;
+  border:solid #fa755a;
+  padding:16px;
+}
+#bank-info{
+  padding:24px;
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){

@@ -36,9 +36,7 @@
                                     </tr>
                         
                                     <div class="">
-                                    @foreach($designs as $design)
                                             <img src="{{ asset('storage/' . $design->real_image) }}" alt="image" >
-                                    @endforeach
                                     </div>
                                     
                             </div>

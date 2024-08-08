@@ -53,20 +53,24 @@
                   @foreach($downloads as $key => $download)
                   @if($key === 0) <!-- 最初の要素のみ表示 -->
                     <p>発行日：{{$download->updated_at->format('Y-m-d')}} </p>
+                    @if($download->name !==null)
                     <p>お名前:{{$download->name}}様</p>
+                    @endif
                   @endif
                     <p>作品名{{$key + 1}}:{{$download->designName}} </p>
                     <p>アーティスト名:{{$download->Design->artist_name}}</p>
                   @endforeach
                 @else
                       <p>発行日：{{$download->updated_at->format('Y-m-d')}} </p>
-                      <p>{{$download->name}} 様</p>
+                      @if($download->name !==null)
+                      <p>お名前:{{$download->name}}様</p>
+                      @endif 
                       <p>作品名:{{$download->designName}} </p>
                       <p>アーティスト名:{{$download->Design->artist_name}}</p>
                 @endif
                       <p>領収金額(税込) ￥{{$total}}-</p>
                 </div>
-                <p>障がい者アートデザインダウンロード費用として<br>上記の金額を収いたしました。</p>
+                <p>障がい者アート購入費用として<br>上記の金額を収いたしました。</p>
             <div class="company">
               IT2U 障がい者アート共有サイト
               <br>

@@ -37,9 +37,7 @@
                                     </tr>
                         
                                     <div class="">
-                                    @foreach($designs as $design)
-                                            <img src="{{ asset('storage/' . $design->real_image) }}" alt="image" >
-                                    @endforeach
+                                            <img src="{{ asset('storage/' . $download->Design->real_image) }}" alt="image" >
                                     </div>
                                     
                             </div>

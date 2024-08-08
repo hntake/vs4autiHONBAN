@@ -23,40 +23,102 @@
                 this.innerHTML = '処理中...';
 
             });
-        });
+            document.getElementById('bank-button').addEventListener('click', function() {
+                    document.getElementById('credit-card-form').style.display = 'none';
+                    document.getElementById('bank-info').style.display = 'block';
+                });
+
+                document.getElementById('credit-button').addEventListener('click', function() {
+                    document.getElementById('credit-card-form').style.display = 'block';
+                    document.getElementById('bank-info').style.display = 'none';
+                });
+            });
     </script>
 </header>
 @if(isset($downloads)&& count($downloads) > 0)
     <!-- 現物販売の作品の場合は先に住所入力-->
-    @if ($originals->has(1))
+    @if ($originals->contains(1))
         @if(isset($buyer))
         <div class="address">
         <h1>配達情報</h1>
-            <label for="name">名前:</label>
-            <input type="text" id="name" name="name" value="{{ $buyer->name}}" required>
+            <div class="form-group">
+                <label for="name">名前:</label>
+                <input type="text" id="name" name="name" value="{{ $buyer->name}}" required>
+            </div>
 
-            <label for="address">住所:</label>
-            <input type="text" id="address" name="address" value="{{ $buyer->address}}" required>
+            <div class="form-group">
+                <label for="address">住所:</label>
+                <input type="text" id="address" name="address" value="{{ $buyer->address}}" required>
+            </div>
 
-            <label for="postalCode">郵便番号:</label>
-            <input type="text" id="postal" name="postal" value="{{ $buyer->postal}}" required>
+            <div class="form-group">
+                <label for="postal">郵便番号:</label>
+                <input type="text" id="postal" name="postal" value="{{ $buyer->postal}}" required>
+            </div>
 
-            <label for="phone">電話番号:</label>
-            <input type="tel" id="tel" name="tel" value="{{ $buyer->tel}}" required>
-    </div>
+            <div class="form-group">
+                <label for="tel">電話番号:</label>
+                <input type="tel" id="tel" name="tel" value="{{ $buyer->tel}}" required>
+            </div>
+        </div>
         @else
-            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+            <form method="GET" action="{{ route('buyer_address_cart',['id'=> $total]) }}">
             <button type="submit" id="address-button" disabled>
             お届け先情報を入力
             </button>
         </form>
         @endif
         <!-- ダウンロードのみの場合 -->
-    @else
+    @endif
 <div class="card_container py-3">
     {{-- フォーム部分 --}}
     <form action="{{route('post_cart')}}" method="post" id="payment-form">
         @csrf
+        <div id="credit-card-form" style="display:none;">
+                <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
+                <input type="text" class="form-control" id="card-holder-name" name="name" required>
+                <div class="choice">
+                    <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
+                    <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+                </div>
+                @if(isset($filteredPaymentMethods))
+                @foreach($filteredPaymentMethods as $paymentMethod)
+                <div class="choice">
+                    <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
+                    <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+                </div>
+                @endforeach
+                @endif
+                    <div class="add"> 
+                        <button class="btn btn-primary"><a href="{{ route('add_payment') }}">別の支払いを追加</a></button>
+                    </div>
+
+                <div class="pay-button">
+                    <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
+                </div>
+                <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
+                お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
+
+                <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
+                何かご不明点がありましたら、お気軽にお問い合わせください。</p>
+    </form>
+    </div>
+    <div id="bank-info" style="display:none;">
+        <form action="{{route('bank_submit',['id'=> $total])}}" method="post" id="payment-form">
+            @csrf
+
+                <p>振込口座名 llco 竹内 貴代</p>
+                <p>銀行名 楽天銀行</p>
+                <p>支店名 ポルカ</p>
+                <p>口座種類 普通</p>
+                <p>口座番号 5014182</p>
+                <p>（恐れ入りますが振込手数料はお客様の負担でお願いいたします）</p>
+                <p>振込金額{{$total}}円</p>
+            <button type="submit" name="action" style="background-color:antiquewhite; border:1.6px orange solid; padding:8px;color:red;">
+                購入するため、振込情報を送信する
+            </button>
+            </form>
+    </div>
         <table>
             <thead>
                 <tr>
@@ -75,42 +137,16 @@
                     <td><div class="list-button"><a href="{{ route('delete_cart',['id'=> $download->id]) }}">削除</a></div></td>
                 </tr>
                 @endforeach
-                <div class="list-button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
-
             </tbody>  
         </table>   
                 <label for="price">合計金額  {{$total}}円</label>
-                <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
-                <input type="text" class="form-control" id="card-holder-name" name="name" required>
-                <div class="choice">
-                    <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
-                    <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
+                <div class="list-button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
+                <div class="try">
+                    <button class="btn btn-primary" id="bank-button">銀行振込を選択</button>
+                    <button class="btn btn-primary" id="credit-button">クレジットカードを選択</button>
+                    <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
                 </div>
-                @if(isset($filteredPaymentMethods))
-                @foreach($filteredPaymentMethods as $paymentMethod)
-                <div class="choice">
-                    <input type="radio" name="paymentMethod" value="{{ $paymentMethod->id }}" style="width:50px;">
-                    <label class="form-group MyCardElement " value="{{ $paymentMethod->id }}">登録済みの支払い方法{{ $paymentMethod->card->brand }} **** **** **** {{ $paymentMethod->card->last4 }}</label>
-                </div>
-        @endforeach
-        @endif
-                    <div class="add"> 
-                        <button class="btn btn-primary"><a href="{{ route('add_payment') }}">別の支払いを追加</a></button>
-                    </div>
-
-        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
-        <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
-        お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
-
-        <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
-        何かご不明点がありましたら、お気軽にお問い合わせください。</p>
-    </form>
-    @endif
-    <div class="try">
-        <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
-    </div>
-</div>
-
+    
     @else
     <div style="text-align:center;">
         カートは空です

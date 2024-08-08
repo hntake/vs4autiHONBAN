@@ -40,6 +40,7 @@
 </header>
 <div class="card_container py-3">
     {{-- フォーム部分 --}}
+        @csrf
         <td><img src="{{ asset('storage/' . $design->image) }}" alt="image" ></td>
         <td>作品名:{{ $design->name }}</td><br>
         <div class="list_button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
@@ -49,9 +50,7 @@
             <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
         </div>
         <div id="credit-card-form" style="display:none;">
-            <form action="{{route('design_stripe.post',['id'=> $design->id])}}" method="post" id="payment-form">
-            @csrf
-
+            <form action="{{route('design_stripe_address.post',['id'=> $design->id])}}" method="post" id="payment-form">
                 <label for="exampleInputEmail1">カード名義人(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
                 <input type="text" class="form-control" id="card-holder-name" name="name" required>
                 @error('name')
@@ -95,7 +94,26 @@
             </button>
             </form>
         </div>
-</div>        
+</div> 
+<div class="address">
+    <h1>配達情報</h1>
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name" value="{{ $buyer->name}}" required>
+
+        <label for="address">住所:</label>
+        <input type="text" id="address" name="address" value="{{ $buyer->address}}" required>
+
+        <label for="postalCode">郵便番号:</label>
+        <input type="text" id="postal" name="postal" value="{{ $buyer->postal}}" required>
+
+        <label for="phone">電話番号:</label>
+        <input type="tel" id="tel" name="tel" value="{{ $buyer->tel}}" required>
+            <form method="GET" action="{{ route('buyer_address',['id'=> $design->id]) }}">
+                <button type="submit" id="download-button" disabled>
+                    <a href="{{url('design/address')}}">お届け先情報を修正する</a>
+                </button>
+            </form>
+</div>       
 <script>
     // HTMLの読み込み完了後に実行するようにする
     window.onload = my_init;

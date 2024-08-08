@@ -11,6 +11,7 @@ use App\Models\Download;
 use App\Models\Badge;
 use App\Models\Genre;
 use App\Models\Buyer;
+use App\Models\Ship;
 use App\Mail\Pay;
 use App\Mail\Unpaid;
 use App\Mail\Protect;
@@ -1304,6 +1305,15 @@ public function executeDownload()
         $buyer=null;
         if($user){
             $buyer=Buyer::where('email','=',$user->email)->first();
+        }else{
+              // $userが存在しない場合の処理
+            $buyer = (object) [
+                'email' =>$request->email,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'tel' => $request->tel,
+                'address' => $request->address,
+            ];
         }
 
         return view('design/address_cart',compact('user','buyer','tempCart','total'));
@@ -1425,14 +1435,17 @@ public function executeDownload()
                     'filteredPaymentMethods'=>$filteredPaymentMethods,
                     'buyer'=>$buyer,
                 ]);                
-            } else {
-                // ログインしていない場合もセットアップインテントを作成
-                \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-                $setupIntent = \Stripe\SetupIntent::create();
-            return view('design/stripe_new', [
-                'intent' => $setupIntent,
-                'design'=>$design,
-            ]);
+                } else {
+                    // ログインしていない場合もセットアップインテントを作成
+                    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                    $setupIntent = \Stripe\SetupIntent::create();
+                    return view('design/stripe_address', [
+                        'intent' => $setupIntent,
+                        'design'=>$design,
+                        'buyer'=>$buyer,
+                        'paymentMethod'=>null,
+
+                    ]);
                 }
 
             } else {
@@ -1533,10 +1546,10 @@ public function executeDownload()
                 $filteredPaymentMethods = array_filter($paymentMethods->data, function ($method) use ($defaultPaymentMethodId) {
                     return $method->id !== $defaultPaymentMethodId;
                 });
-
+                $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',0)->orderBy('created_at', 'desc')->get();
                 return view('design/cart', [
                     'intent' => $setupIntent ?? null,
-                    'design'=>$design,
+                    'downloads' => $downloads,
                     'paymentMethod'=>$paymentMethod,
                     'filteredPaymentMethods'=>$filteredPaymentMethods,
                     'buyer'=>$buyer,
@@ -1546,9 +1559,19 @@ public function executeDownload()
                 // ログインしていない場合もセットアップインテントを作成
                 \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
                 $setupIntent = \Stripe\SetupIntent::create();
-            return view('design/stripe_new', [
-                'intent' => $setupIntent,
-                'design'=>$design,
+                $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',0)->orderBy('created_at', 'desc')->get();
+                $designIds = $downloads->pluck('design_id')->toArray();
+                $originals = Design::whereIn('id', $designIds)->pluck('original', 'id');
+                $total = Download::where('user_id', $user->id)->where('payment_status','=',0)->sum('price');
+                $setupIntent = $user->createSetupIntent();
+            return view('design/cart_new', [
+                'intent' => $setupIntent ?? null,
+                'downloads'=>$downloads,
+                'originals'=>$originals,
+                'total'=>$total,
+                'paymentMethod'=>null,
+                'buyer'=>$buyer,
+
             ]);
                 }
 
@@ -1593,5 +1616,70 @@ public function executeDownload()
                 ]);
             }
     
+        }
+
+        //発送状況確認シート表示
+        public function ship(Request $request)
+        {
+            $ships=Ship::orderBy('id', 'desc')->paginate(10);
+
+            // ユーザーが認証されているかどうかを確認
+            $user = auth()->user();
+            if ($user && $user->role != 0) {
+                return view('design/ship',[
+                    'ships'=>$ships,
+                ]);
+            } else {
+                // 認証されていない場合やアクセス権がない場合の処理
+                return redirect('/')->with('error', 'アクセス権がありません');
+            }
+        }
+        //振込確認
+        public function ship_paid(Request $request,$id)
+        {
+            $ships=Ship::orderBy('id', 'desc')->paginate(10);
+
+            $ship=Ship::where('id','=',$id)->first();
+            $ship->update([
+                'paid' =>  1,
+            ]);
+            $download=Download::where('email','=',$ship->order_email)->where('payment_status','=',0)->first();
+                $design=Design::where('id','=',$ship->design_id)->first();
+                if($design->original=3){
+                    $download->update([
+                        'download_status'=> 10,
+                    ]);
+                    $date = Carbon::today()->addWeek();
+                    $buyer = (object) [
+                        'email' =>$ship->email,
+                        'name' => $ship->name,
+                        'postal' => $ship->postal,
+                        'tel' => $ship->tel,
+                        'address' => $ship->address,
+                    ];
+                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+    
+                }
+                    $download->update([
+                        'payment_status'=> 1,
+                    ]);
+    
+
+                return view('design/ship',[
+                    'ships'=>$ships,
+                ]);
+        }
+         //発送確認
+        public function ship_shipped(Request $request,$id)
+        {
+            $ships=Ship::orderBy('id', 'desc')->paginate(10);
+
+            $ship=Ship::where('id','=',$id)->first();
+            $email=$ship->order_email;
+            $design_id=$ship->design_id;
+            $design=Design::where('id','=',$design_id)->value('name');
+            $buyer=$ship->name;
+            \Mail::to($email)->send(new ShippedMail($design,$buyer));
+
         }
     }

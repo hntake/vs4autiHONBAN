@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DownloadUnMail extends Mailable
+class BankCartMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,40 +18,35 @@ class DownloadUnMail extends Mailable
      *
      * @return void
      */
-    public function __construct($email,$total, $pdf)
+    public function __construct($email,$total,$designs,$date)
     {
-        $this->total = $total;
         $this->email = $email;
-        $this->pdf = $pdf;
-    }
+        $this->total = $total;
+        $this->designs = $designs;
+        $this->date = $date;
 
-    /**
+    }
+/**
      * Get the message content definition.
      *
      * @return \Illuminate\Mail\Mailables\Content
      */
     public function build()
     {
-        $pdfContent = $this->pdf->output();
-    // 一時的なファイルを作成
-    $tempFilePath = tempnam(sys_get_temp_dir(), 'pdf_');
-    file_put_contents($tempFilePath, $pdfContent);
+    
 
         return  $this
         ->from('info@itcha50.com')
-        ->subject('ダウンドードが完了しました')
-        ->view('emails.download_un')
+        ->subject('銀行振込選択の方へ')
+        ->view('emails.bank_cart')
         ->with([
             'total' => $this->total,
             'email' => $this->email,
-            ])
-            // 一時的なファイルを添付
-        ->attach($tempFilePath, [
-            'as' => 'design.pdf',
-            'mime' => 'application/pdf',
-        ]);
-    }    
+            'designs' => $this->designs,
+            'date' => $this->date,
 
+        ]);
+    }
     /**
      * Get the message envelope.
      *
@@ -60,7 +55,7 @@ class DownloadUnMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Download  完了',
+            subject: '障がい者アート 振込のお願い',
         );
     }
 
@@ -72,8 +67,17 @@ class DownloadUnMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.download_un',
+            view: 'emails.bank_cart',
         );
     }
 
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array
+     */
+    public function attachments()
+    {
+        return [];
+    }
 }

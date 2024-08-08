@@ -605,6 +605,12 @@ Route::patch('design/my_sheet', [App\Http\Controllers\DesignController::class, '
 //画像削除
 Route::get('design/delete/{id}', [App\Http\Controllers\DesignController::class, 'design_delete_index'])->name('design_delete_index');
 Route::post('design/delete/{id}', [App\Http\Controllers\DesignController::class, 'design_deleted'])->name('design_deleted');
+//銀行振込払い選択(ユーザーがカートから)
+Route::get('design/bank/{id}', [App\Http\Controllers\StripeController::class, 'bank'])->name('bank');
+Route::post('design/bank/{id}', [App\Http\Controllers\StripeController::class, 'bank_submit'])->name('bank_submit');
+//銀行振込払い選択(非ユーザーもしくは一回払い)
+Route::get('design/bank_un/{id}', [App\Http\Controllers\StripeController::class, 'bank_un'])->name('bank_un');
+Route::post('design/bank_un/{id}', [App\Http\Controllers\StripeController::class, 'bank_submit_un'])->name('bank_submit_un');
 
 //アーティストページ
 Route::get('design/artist/{id}', [App\Http\Controllers\DesignController::class, 'artist'])->name('design_artist');
@@ -633,13 +639,17 @@ Route::post('/design/address_cart/{id}', [App\Http\Controllers\DesignController:
 Route::post('/design/address_confirm/{id}', [App\Http\Controllers\DesignController::class, 'address_post'])->name('address_post');
 //配送情報登録(カートから)
 Route::post('/design/address_cart_confirm/{id}', [App\Http\Controllers\DesignController::class, 'address_post_cart'])->name('address_post_cart');
-//購入画面
+//購入画面(現物)
 Route::get('design/stripe_address/{id}', [App\Http\Controllers\StripeController::class, 'design_stripe_address'])->name('design_stripe_address');
 //支払いボタン(ログインユーザー)
 Route::post('design/stripe_address/{id}', [App\Http\Controllers\StripeController::class, 'design_stripePost_address'])->name('design_stripe_address.post');
 //支払いボタン(非ユーザー)
 Route::get('design/once_address/{id}', [App\Http\Controllers\StripeController::class, 'design_once_address'])->name('design_once_address');
 Route::post('design/once_address/{id}', [App\Http\Controllers\StripeController::class, 'design_oncePost_address'])->name('design_once_address.post');
+//発送状況確認表
+Route::get('design/ship', [App\Http\Controllers\DesignController::class, 'ship'])->name('design_ship_view');
+Route::post('design/ship_paid/{id}', [App\Http\Controllers\DesignController::class, 'ship_paid'])->name('ship_paid');
+Route::post('design/ship_shipped/{id}', [App\Http\Controllers\DesignController::class, 'ship_shipped'])->name('ship_shipped');
 
 //アーティストページ内並び替え
 Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');

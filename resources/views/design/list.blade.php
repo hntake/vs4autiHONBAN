@@ -204,61 +204,76 @@
                     <p>お探しの条件に該当する素材は見つかりませんでした。</p>
                     @else
                     <table>
-                        <tr>
                         @foreach ($designs as $design)
-
+                        <tr>
                         @if($design->license==0)
-                        <td><a href="{{route('design_select',['id'=>$design->id])}}" >
-                            <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
+                            @if($design->original==3)
+                            <td>
+                                <div class="free-mark">
+                                    <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
+                                </div>
+                                <div class="free-icon">
+                                    <img src="{{ asset('img/sold.png') }}" alt="image" >
+                                </div>
+                            </td>
+                            @else
+                            <td><a href="{{route('design_select',['id'=>$design->id])}}" >
+                                <div class="free-mark">
+                                    <img src="{{ asset('storage/' . $design->image) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
 
-                            </div>
-                            @if($design->price==0)
-                            <div class="free-icon">
-                                <p>¥0</p>
-                                <img src="{{ asset('img/free.png') }}" alt="image" >
-                            </div>
-                            @else
-                            <div class="free-icon">
-                                <p>¥{{ $design->price}}</p>
-                                @if($design->original==1)
-                                <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
-                                @elseif($design->original==2)
-                                <img src="{{ asset('img/original_art.png') }}" alt="image" >
-                                @elseif($design->original==3)
-                                <img src="{{ asset('img/sold.png') }}" alt="image" >
+                                </div>
+                                @if($design->price==0)
+                                <div class="free-icon">
+                                    <p>¥0</p>
+                                    <img src="{{ asset('img/free.png') }}" alt="image" >
+                                </div>
                                 @else
+                                <div class="free-icon">
+                                    <p>¥{{ $design->price}}</p>
+                                    @if($design->original==1)
+                                    <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
+                                    @elseif($design->original==2)
+                                    <img src="{{ asset('img/original_art.png') }}" alt="image" >
+                                    @endif
+                                </div>
                                 @endif
-                            </div>
+                                </a>
+                            </td>
                             @endif
-                            </a>
-                        </td>
                         @else
-                        <td><a href="{{route('design_select',['id'=>$design->id])}}" >
-                            <div class="free-mark">
-                                <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
-                            </div>
-                            @if($design->price==0)
-                            <div class="free-icon">
-                                <p>¥0</p>
-                                <img src="{{ asset('img/free.png') }}" alt="image" >
-                            </div>
+                            @if($design->original==3)
+                            <td>
+                                <div class="free-mark">
+                                    <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
+                                </div>
+                                <div class="free-icon">
+                                    <img src="{{ asset('img/sold.png') }}" alt="image" >
+                                </div>
+                            </td>
                             @else
-                            <div class="free-icon">
-                                <p>¥{{ $design->price}}</p>
-                                @if($design->original==1)
-                                <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
-                                @elseif($design->original==2)
-                                <img src="{{ asset('img/original_art.png') }}" alt="image" >
-                                @elseif($design->original==3)
-                                <img src="{{ asset('img/sold.png') }}" alt="image" >
+                            <td><a href="{{route('design_select',['id'=>$design->id])}}" >
+                                <div class="free-mark">
+                                    <img src="{{ asset('storage/' . $design->image_with_artist_name) }}" alt="{{$design->name}}{{$design->Genre1->genre}} @if($design->genre2==!0),{{$design->Genre2->genre}}@endif @if($design->genre3==!0),{{$design->Genre3->genre}}@endif" onclick="openPopup()">
+                                </div>
+                                @if($design->price==0)
+                                <div class="free-icon">
+                                    <p>¥0</p>
+                                    <img src="{{ asset('img/free.png') }}" alt="image" >
+                                </div>
                                 @else
+                                <div class="free-icon">
+                                    <p>¥{{ $design->price}}</p>
+                                    @if($design->original==1)
+                                    <img src="{{ asset('img/original_art_only.png') }}" alt="image" >
+                                    @elseif($design->original==2)
+                                    <img src="{{ asset('img/original_art.png') }}" alt="image" >
+                                    @endif
+                                </div>
                                 @endif
-                            </div>
+                                </a>
+                            </td>
                             @endif
-                            </a>
-                        </td>
-                        @endif
+                            @endif
                         </tr>
                         @endforeach
                     </table>

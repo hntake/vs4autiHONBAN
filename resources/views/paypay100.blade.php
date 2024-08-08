@@ -1,7 +1,7 @@
 {{-- ヘッダー部分の設定 --}}
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/stripe.css') }}"> <!-- schedule.cssと連携 -->
-<title>支払い案内画面 VS4視覚支援ツール”</title>
+<title>支払い案内画面 V</title>
 
 
 @section('content')

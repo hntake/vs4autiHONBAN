@@ -61,15 +61,17 @@ body {
                 <p>アーティスト名:{{$download->Design->artist_name}}</p>
                 @endforeach
             @else
+                @foreach($downloads as $key => $download)
                     <p>発行日：{{$download->updated_at->format('Y-m-d')}} </p>
-                        @if($download->name !==null)
-                        <p>お名前:{{$download->name}}様</p>
-                        @endif                    
+                    @if($download->name !==null)
+                    <p>お名前:{{$download->name}}様</p>
+                    @endif
                     <p>{{$buyer->postal}} </p>
                     <p>{{$buyer->address}} </p>
                     <br>
                     <p>作品名:{{$download->designName}} </p>
                     <p>アーティスト名:{{$download->Design->artist_name}}</p>
+                @endforeach
             @endif
                     <p>領収金額(税込) ￥{{$total}}-</p>
             </div>

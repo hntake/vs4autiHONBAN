@@ -875,7 +875,7 @@
                 <img src="{{ asset('storage/' . $download->Design->image) }}" alt="image">
             </div>
             <div>
-                @if($download->download_status == 0)
+                @if($download->download_status == 0 && $download->payment_status == 1)
                     未ダウンロード
                     <form method="POST" action="{{ route('design_downloaded_each',['id'=> $download->id]) }}">
                         @csrf
@@ -883,6 +883,8 @@
                             <i class="fa fa-plus"></i> ダウンロードする
                         </button>
                     </form>
+                @elseIf($download->download_status == 0 && $download->payment_status == 3)
+                    振込後ダウンロードできます
                 @else
                     ダウンロード済or現物購入
                     @php
