@@ -29,7 +29,7 @@ use Stripe\PaymentIntent;
 use Laravel\Cashier\Cashier;
 use Stripe\Customer;
 use Stripe\PaymentMethod;
-
+use Illuminate\Support\Str;
 
 
 
@@ -505,8 +505,17 @@ class DesignController extends Controller
         // コピー先のディレクトリ
         $copyDirectory = storage_path('app/public/');
 
-        // 加工された新しい名前の画像ファイル
-        $processedImageName = "{$design->name}_{$now_format}_with_processed."  . pathinfo($new_image, PATHINFO_EXTENSION);
+
+       // 乱数やUUIDを生成してファイル名に追加
+        $randomString = Str::random(10); // 10文字の乱数文字列を生成
+        // 乱数を含む新しいreal_imageのファイル名
+        $randomRealImageName = $randomString . '_' . $new_image;
+
+        // real_image_with_name にも乱数を追加したファイル名を作成
+        $processedRealImageWithArtistName = $randomString . "_{$design->artist_name}." . pathinfo($new_image, PATHINFO_EXTENSION);
+        // 加工された新しい名前の画像ファイル (乱数はつけない)
+        $processedImageName = "{$design->name}_{$now_format}_with_processed." . pathinfo($new_image, PATHINFO_EXTENSION);
+
 
         // 画像を読み込み
         $image = Image::make($originalImagePath);
@@ -521,10 +530,12 @@ class DesignController extends Controller
          // 加工後の画像を保存
         $processedImagePath = $copyDirectory . $processedImageName;
         $image->save($processedImagePath);
-        $real_image->save($originalImagePath);
+
+        // 乱数を含むreal_imageを保存
+        $real_image->save($copyDirectory . $randomRealImageName);
 
         // デザインに元の画像と加工後の画像のパスを保存
-        $design->real_image = $new_image; // 元の画像のパス
+        $design->real_image = $randomRealImageName; // 乱数を含むreal_image
         $design->image = $processedImageName; // 加工後の画像のパス
 
         $fontPath = storage_path('fonts/NotoSansJP-Thin.ttf');
@@ -552,6 +563,12 @@ class DesignController extends Controller
         $font->align('right');
         $font->valign('bottom');
     });
+        // アーティスト名を含む水印を追加した画像を保存
+        $processedImageWithArtistName =  '_with_artist_name_' . $processedImageName;
+        $imageWithArtistName->save($copyDirectory . $processedImageWithArtistName);
+
+        // アーティスト名を含むオリジナル画像も乱数付きで保存
+        $processedRealImageWithArtistName = $randomString . "_" . "{$design->artist_name}." . pathinfo($new_image, PATHINFO_EXTENSION);
         // original画像にテキストを追加する
         $realImageWithArtistName = $real_image->text('©' . $design->artist_name, $textX, $textY, function($font) use ($fontPath) {
             $font->file($fontPath); // フォントのパスを指定
@@ -560,13 +577,10 @@ class DesignController extends Controller
             $font->align('right');
             $font->valign('bottom');
         });
-        // アーティスト名を含む水印を追加した画像を保存
-        $processedImageWithArtistName =  '_with_artist_name_' . $processedImageName;
-        $imageWithArtistName->save($copyDirectory . $processedImageWithArtistName);
+        $realImageWithArtistName->save($copyDirectory . $processedRealImageWithArtistName);
 
         // アーティスト名を含むオリジナル画像を保存
-        $processedRealImageWithArtistName =  "{$design->artist_name}." . $new_image;
-        $realImageWithArtistName->save($copyDirectory . $processedRealImageWithArtistName);
+        // $processedRealImageWithArtistName =  "{$design->artist_name}." . $new_image;
 
         // デザインにアーティスト名を含む水印を追加した画像のパスを保存
         $design->image_with_artist_name = $processedImageWithArtistName;
