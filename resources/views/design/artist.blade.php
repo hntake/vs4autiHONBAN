@@ -44,13 +44,13 @@
         <div class="artist-body">
             <table>
                 <tr style="display: flex;">
+                    @if($artist->type != '事業所')
                     <thead style="flex: 1;">
                         <th>アーティスト名</th>
                     </thead>
                     <tr style="display: flex;">
                         <td style="flex: 1;"><a href="{{url('design/artist', $artist->id)}}"><h2>{{$artist->artist_name}}</h2></a></td>
                     </tr>
-                    @if($artist->type != '事業所')
                     <thead style="flex: 1;">
                         <th>障がいタイプ</th>
                     </thead>
@@ -58,6 +58,12 @@
                         <td style="flex: 1;">{{$artist->type}}</td>
                     </tr>
                     @else
+                    <thead style="flex: 1;">
+                        <th>事業所名</th>
+                    </thead>
+                    <tr style="display: flex;">
+                        <td style="flex: 1;"><a href="{{url('design/artist', $artist->id)}}"><h2>{{$artist->artist_name}}</h2></a></td>
+                    </tr>
                     <tr style="display: flex;">
                         <td style="flex: 1;"><a href="{{ $artist->url }}" target="_blank">事業所のホームページはこちらをクリック</a></td>
                     </tr>
