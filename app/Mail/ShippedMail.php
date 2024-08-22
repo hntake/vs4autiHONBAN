@@ -45,6 +45,10 @@ class ShippedMail extends Mailable
     {
         return new Content(
             view: 'emails.shipped',
+            with: [
+                'buyer' => $this->buyer,
+                'design' => $this->design,
+            ],
         );
     }
 

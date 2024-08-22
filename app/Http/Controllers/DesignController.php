@@ -16,6 +16,7 @@ use App\Mail\Pay;
 use App\Mail\Unpaid;
 use App\Mail\Protect;
 use App\Mail\DownloadMail;
+use App\Mail\ShippedMail;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 use File;
@@ -1672,6 +1673,10 @@ public function executeDownload()
                         'address' => $ship->address,
                     ];
                     \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                    $ship->update([
+                        'paid' =>  1,
+                        'due_date'=> $date,//発送期限を表示させる
+                    ]);
     
                 }
                     $download->update([
@@ -1689,11 +1694,43 @@ public function executeDownload()
             $ships=Ship::orderBy('id', 'desc')->paginate(10);
 
             $ship=Ship::where('id','=',$id)->first();
+            $ship->carrier=$request->carrier;
+            $ship->number=$request->number;
+            $ship->save();
             $email=$ship->order_email;
             $design_id=$ship->design_id;
             $design=Design::where('id','=',$design_id)->value('name');
             $buyer=$ship->name;
             \Mail::to($email)->send(new ShippedMail($design,$buyer));
+            $ship->update([
+                'shipped' =>  1,
+            ]);
+            return view('design/ship',[
+                'ships'=>$ships,
+            ]);
 
         }
+
+            //到着確認
+            public function ship_arrive(Request $request,$id)
+            {
+            $ships=Ship::orderBy('id', 'desc')->paginate(10);
+
+            $ship=Ship::where('id','=',$id)->first();
+            $ship->update([
+                'arrive' =>  1,
+            ]);
+            $design_id=$ship->design_id;
+            $design=Design::where('id','=',$design_id)->first();
+            $artist_id=Design::where('id','=',$design_id)->value('artist_id');
+            $artist=Artist::where('id','=',$artist_id)->first();
+            $artist->increment('unpaid', round($design->price * 0.954));
+                //unpaidが2000円超えたらメール送信
+            if($artist->unpaid >= 2000){
+                \Mail::to($artist['email'])->send(new Unpaid($artist));
+            }
+            return view('design/ship',[
+                'ships'=>$ships,
+            ]);
+            }
     }

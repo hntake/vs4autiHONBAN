@@ -650,6 +650,7 @@ Route::post('design/once_address/{id}', [App\Http\Controllers\StripeController::
 Route::get('design/ship', [App\Http\Controllers\DesignController::class, 'ship'])->name('design_ship_view');
 Route::post('design/ship_paid/{id}', [App\Http\Controllers\DesignController::class, 'ship_paid'])->name('ship_paid');
 Route::post('design/ship_shipped/{id}', [App\Http\Controllers\DesignController::class, 'ship_shipped'])->name('ship_shipped');
+Route::post('design/ship_arrive/{id}', [App\Http\Controllers\DesignController::class, 'ship_arrive'])->name('ship_arrive');
 
 //アーティストページ内並び替え
 Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');

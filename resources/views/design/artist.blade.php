@@ -50,12 +50,18 @@
                     <tr style="display: flex;">
                         <td style="flex: 1;"><a href="{{url('design/artist', $artist->id)}}"><h2>{{$artist->artist_name}}</h2></a></td>
                     </tr>
+                    @if($artist->type != '事業所')
                     <thead style="flex: 1;">
                         <th>障がいタイプ</th>
                     </thead>
                     <tr style="display: flex;">
                         <td style="flex: 1;">{{$artist->type}}</td>
                     </tr>
+                    @else
+                    <tr style="display: flex;">
+                        <td style="flex: 1;"><a href="{{ $artist->url }}" target="_blank">事業所のホームページはこちらをクリック</a></td>
+                    </tr>
+                    @endif
                     <thead style="flex: 1;">
                         <th>作品数</th>
                     </thead>
