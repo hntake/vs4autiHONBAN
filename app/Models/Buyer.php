@@ -11,6 +11,6 @@ class Buyer extends Model
 
     protected $fillable = [
 
-        'email','name' ,'postal','address','phone',
+        'email','name' ,'postal','address','phone','balance'
     ];
 }

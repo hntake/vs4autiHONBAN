@@ -23,7 +23,8 @@ use App\Mail\AddressUnMail;
 use App\Mail\ShipMail;
 use App\Mail\BankMail;
 use App\Mail\ReceiptMail;
-
+use App\Mail\PrepaidMail;
+use App\Mail\PrepaidCardMail;
 use App\Mail\BankCartMail;
 use Doctrine\Inflector\Rules\Substitution;
 use Illuminate\Support\Facades\Mail;
@@ -69,17 +70,6 @@ class StripeController extends Controller
     $user = Auth::user();
 
     if ($user) {
-        // ログインしている場合
-    //Downloadに新規保存は支払い後にするので削除
-    // $download=new Download();
-    // $download->artist_id=$design->artist_id;
-    // $download->design_id=$design->id;
-    // $download->user_id=$user->id;
-    // $download->price=$design->price;
-    // $download->payment_status=1;
-    // $download->designName=$design->name;
-    // $download->email=$user->email;
-    // $download->save();    
 
     $setupIntent = $user->createSetupIntent();
     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -922,6 +912,7 @@ public function post_cart_un(Request $request,$id,$address){
                 // デフォルトの支払い方法が見つからない場合、エラー処理を行うか、適切な処理を行う
                 return back()->with('error', 'デフォルトの支払い方法が見つかりませんでした。');
             }
+            //新規ユーザー
             } else {
         // またStripe顧客でなければ、新規顧客にする
         $stripeCustomer = $user->createOrGetStripeCustomer();
@@ -1680,10 +1671,182 @@ if ($user->stripe_id) {
                 $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',10)->orderBy('created_at', 'desc')->get();
             }
         }
-
+        //入金確認後のメールに添付する領収書を受け取っておく
         $pdf = \PDF::loadView('design.pdf_later', compact('total','downloads','buyer'));
         \Mail::to('info@itcha50.com')->send(new ReceiptMail($pdf));
 
         return view('design/bank_complete');
     }
+
+    //プリペイド購入ページを表示
+    public function prepaid(Request $request){
+        $user = Auth::user();
+        if($user){
+            $buyer=Buyer::where('email','=',$user->email)->first();
+            return view('design/prepaid',[ 
+                'buyer'=>$buyer,
+                ]);
+        }else{
+
+        session()->flash('flash_message', 'まずは無料登録をしてください。');
+        return view('auth.register');
+        }
+
+    }
+    //銀行振込選択ポスト
+    public function prepaid_bank(Request $request){
+
+        $user = Auth::user();
+        $buyer=Buyer::where('email','=',$user->email)->first();
+        $email=$user->email;
+        $total=$request->amount;
+        $date = Carbon::today()->addWeek();
+        //振込情報・金額をメール
+        \Mail::to($email)->send(new PrepaidMail($email,$total,$date));
+
+        return view('design/bank_prepaid');
+
+    }
+    //クレジットカード選択後カード情報入力ページ表示
+    public function prepaid_purchase_card(Request $request){
+        $user = Auth::user();
+
+        $setupIntent = $user->createSetupIntent();
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        if ($user->stripe_id) {
+        // ユーザーに関連するCustomerオブジェクトを取得
+        $customer = Customer::retrieve($user->stripe_id);
+        $defaultPaymentMethodId = $customer->invoice_settings['default_payment_method'];
+    
+        // デフォルトの支払い情報を取得
+        $paymentMethod = \Stripe\PaymentMethod::retrieve($defaultPaymentMethodId);
+        //他の支払い情報を取得
+        $paymentMethods = \Stripe\PaymentMethod::all([
+            'customer' => $customer, // カスタマーIDを指定することで、そのカスタマーに関連付けられた支払い方法を取得します
+            'type' => 'card', // 取得したい支払い方法のタイプを指定します。例えば、'card'はクレジットカードを表します
+        ]);
+        // $paymentMethodを除外する
+        $filteredPaymentMethods = array_filter($paymentMethods->data, function ($method) use ($defaultPaymentMethodId) {
+            return $method->id !== $defaultPaymentMethodId;
+        });
+        
+        return view('design/prepaid_card', [
+            'intent' => $setupIntent ?? null,
+            'paymentMethod'=>$paymentMethod,
+            'filteredPaymentMethods'=>$filteredPaymentMethods,
+        ]);
+        } else {
+            // ログインしていない場合もセットアップインテントを作成
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $setupIntent = \Stripe\SetupIntent::create();
+        return view('design/prepaid_card_new', [
+            'intent' => $setupIntent,
+        ]);
+            }
+        }
+
+    //新規ユーザー支払いポスト
+    public function prepaid_new_purchase(Request $request){
+
+        $user = Auth::user();
+        $total=$request->amount;
+
+        //支払いプロセス
+        // Stripe顧客ではないので、新規顧客にする
+        $stripeCustomer = $user->createOrGetStripeCustomer();
+        // フォーム送信の情報から$paymentMethodを作成する
+        $paymentMethod = $request->input('stripePaymentMethod');
+        //PaymentMethod を顧客にアタッチする
+        $attachedPaymentMethod = $user->updateDefaultPaymentMethod($paymentMethod);
+
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        // 支払いインテントを作成
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $total, // 
+            'currency' => 'JPY',
+            'customer' => $stripeCustomer->id, // 顧客のIDを指定する
+            'payment_method' => $attachedPaymentMethod->id,
+            'confirmation_method' => 'manual',
+            'confirm' => true,
+        ]);
+        // ここで支払いが成功したかどうかを確認するロジックを実装
+        if ($paymentIntent->status === 'succeeded') {
+            
+            // 一回での支払い完了メール送信
+            $email = $user->email;
+            \Mail::to($user['email'])->send(new PrepaidCardMail($email,$total)
+        );
+            $buyer=Buyer::where('email','=',$user->email)->first();
+            //プリペイド残高追加
+            $buyer->update([
+                'balance' => (int)$buyer->balance + (int)$request->amount,
+            ]);
+            $downloads=Download::where('user_id','=',$user->id)->orderBy('created_at','asc')->get();
+            $type=$user->type;
+
+            return view('my_page',compact('type','downloads','user','buyer'));
+    
+            // return redirect()->route('design_receipt', $design)->withHeaders($response->headers->all());
+        } else {
+            // 支払いが失敗した場合の処理
+            return redirect()->route('payment.failed');
+        }
+
+    }
+    //リピーター支払いポスト
+    public function prepaid_repeat_purchase(Request $request){
+
+        $user = Auth::user();
+        $total=$request->amount;
+
+        //支払いプロセス
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        // ユーザーのデフォルトの支払い方法を取得
+        $paymentMethods = PaymentMethod::all([
+            'customer' => $user->stripe_id,
+            'type' => 'card',
+            'limit' => 1, // デフォルトの支払い方法は1つだけ取得する
+        ]);
+            // デフォルトの支払い方法がある場合、その支払い方法を使用する
+            if (!empty($paymentMethods->data)) {
+                $defaultPaymentMethod = $paymentMethods->data[0];
+                $attachedPaymentMethod = $defaultPaymentMethod->id;
+                // 支払いインテントを作成
+                $paymentIntent = PaymentIntent::create([
+                    'amount' => $total, // 
+                    'currency' => 'JPY',
+                    'customer' => $user->stripe_id, // 顧客のIDを指定する
+                    'payment_method' => $attachedPaymentMethod,
+                    'confirmation_method' => 'manual',
+                    'confirm' => true,
+                ]);
+    
+                // ここで支払いが成功したかどうかを確認するロジックを実装
+        if ($paymentIntent->status === 'succeeded') {
+            
+            // 一回での支払い完了メール送信
+            $email = $user->email;
+            \Mail::to($user['email'])->send(new PrepaidCardMail($email,$total)
+        );
+
+        $buyer=Buyer::where('email','=',$user->email)->first();
+        //プリペイド残高追加
+        $buyer->update([
+            'balance' => (int)$buyer->balance + (int)$request->amount,
+        ]);
+        $downloads=Download::where('user_id','=',$user->id)->orderBy('created_at','asc')->get();
+        $type=$user->type;
+
+        return view('my_page',compact('type','downloads','user','buyer'));
+            } else {
+                // デフォルトの支払い方法が見つからない場合、エラー処理を行うか、適切な処理を行う
+                return back()->with('error', 'デフォルトの支払い方法が見つかりませんでした。');
+            }
+
+        
+
+    }
+}
 }

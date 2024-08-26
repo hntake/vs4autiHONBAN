@@ -11,6 +11,7 @@ use App\Models\Design;
 use App\Models\Download;
 use App\Models\Shop;
 use App\Models\Feel;
+use App\Models\Buyer;
 use App\Models\Picture;
 use App\Models\Independence;
 use App\Models\Artist;
@@ -161,7 +162,9 @@ class HomeController extends Controller
             $user=Auth::user();
             $type=$user->type;
             $downloads=Download::where('user_id','=',$user->id)->orderBy('created_at','asc')->get();
-            return view('my_page',compact('type','downloads','user'));
+            $buyer=Buyer::where('email','=',$user->email)->first();
+
+            return view('my_page',compact('type','downloads','user','buyer'));
         //マイりく
         }else{
             $new_status=1;
@@ -408,7 +411,9 @@ class HomeController extends Controller
             }
             elseif($type==8){
                 $downloads=Download::where('email','=',$user->email)->get();
-                return view('my_page',compact('user','type','downloads'));
+                $buyer=Buyer::where('email','=',$user->email)->first();
+
+                return view('my_page',compact('user','type','downloads','buyer'));
 
             }    
             else{

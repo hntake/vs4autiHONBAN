@@ -651,6 +651,17 @@ Route::get('design/ship', [App\Http\Controllers\DesignController::class, 'ship']
 Route::post('design/ship_paid/{id}', [App\Http\Controllers\DesignController::class, 'ship_paid'])->name('ship_paid');
 Route::post('design/ship_shipped/{id}', [App\Http\Controllers\DesignController::class, 'ship_shipped'])->name('ship_shipped');
 Route::post('design/ship_arrive/{id}', [App\Http\Controllers\DesignController::class, 'ship_arrive'])->name('ship_arrive');
+//プリペイド購入支払い選択ページ
+Route::get('design/prepaid', [App\Http\Controllers\StripeController::class, 'prepaid'])->name('prepaid');
+//プリペイドクレカ選択
+Route::get('design/prepaid_purchase', [App\Http\Controllers\StripeController::class, 'prepaid'])->name('prepaid_purchase');
+Route::get('design/prepaid_purchase_card', [App\Http\Controllers\StripeController::class, 'prepaid_purchase_card'])->name('prepaid_purchase_card');
+Route::get('design/prepaid_new', [App\Http\Controllers\StripeController::class, 'prepaid_new'])->name('prepaid_new');
+Route::post('design/prepaid_new', [App\Http\Controllers\StripeController::class, 'prepaid_new_purchase'])->name('prepaid_new_purchase');
+Route::get('design/prepaid_repeat', [App\Http\Controllers\StripeController::class, 'prepaid_repeat'])->name('prepaid_repeat');
+Route::post('design/prepaid_repeat', [App\Http\Controllers\StripeController::class, 'prepaid_repeat_purchase'])->name('prepaid_repeat_purchase');
+Route::post('design/prepaid', [App\Http\Controllers\StripeController::class, 'prepaid_bank'])->name('prepaid_bank');
+
 
 //アーティストページ内並び替え
 Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');
