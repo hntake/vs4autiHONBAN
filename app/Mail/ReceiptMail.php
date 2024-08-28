@@ -12,6 +12,8 @@ use Illuminate\Queue\SerializesModels;
 class ReceiptMail extends Mailable
 {
     use Queueable, SerializesModels;
+    
+    protected $pdfContent;
 
     /**
      * Create a new message instance.
