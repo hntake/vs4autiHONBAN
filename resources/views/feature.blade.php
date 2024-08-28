@@ -782,7 +782,7 @@
                     </div>
                     <div class="bottom-inner">
                         <div class="bottom-left">
-                            <a href="{{route('create')}}" target="_blanlk" class="bottom_button">
+                            <a href="{{route('create')}}" target="_blank" class="bottom_button">
                                 <span class="elementor-button">スケジュールを作る</span>
                             </a>
                         </div>

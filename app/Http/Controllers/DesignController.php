@@ -942,19 +942,6 @@ public function design_delete_index($id)
         $download->save();
         $artist=Artist::where('id','=',$download->artist_id)->value('artist_name');
 
-        //エラー確認のため（始め）確認できたら削除->隠しておく
-        // $total=0;
-        //      //pdf作成
-        //     $pdf = \PDF::loadView('design.pdf', compact('total','download'));
-        //      // 一回での支払い完了メール送信
-        //     $email = $user->email;
-        //     \Mail::to($user['email'])->send(new DownloadMail($user, $total, $pdf, $email)
-        // );
-        // return view('design/receipt',[
-        //     'email'=>$email,
-        // ]);
-
-        //エラー確認の為(終わり）
 
         return view('design/download_each',[
             'download'=>$download,
