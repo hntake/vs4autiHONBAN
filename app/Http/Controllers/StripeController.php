@@ -68,7 +68,7 @@ class StripeController extends Controller
     $design=Design::where('id','=',$id)->first();
 
     $user = Auth::user();
-
+    $buyer=Buyer::where('email','=',$user->email)->first();
     if ($user) {
 
     $setupIntent = $user->createSetupIntent();
@@ -95,6 +95,7 @@ class StripeController extends Controller
         'design'=>$design,
         'paymentMethod'=>$paymentMethod,
         'filteredPaymentMethods'=>$filteredPaymentMethods,
+        'buyer'=>$buyer,
     ]);
     } else {
         // ログインしていない場合もセットアップインテントを作成
@@ -103,6 +104,7 @@ class StripeController extends Controller
     return view('design/stripe_new', [
         'intent' => $setupIntent,
         'design'=>$design,
+        'buyer'=>$buyer,
     ]);
         }
     }
@@ -230,6 +232,7 @@ public function index_cart()
                 'originals'=>$originals,
                 'total'=>$total,
                 'paymentMethod'=>null,
+                'buyer'=>$buyer,
             ]);
         }
 
@@ -646,6 +649,7 @@ public function add_payment(Request $request)
 public function add_payment_once(Request $request)
 {
     $user = Auth::user();
+    $buyer=Buyer::where('email','=',$user->email)->first();
     $download=Download::where('user_id','=',$user->id)->where('payment_status','=',1)->first();
     $design=Design::where('id','=',$download->design_id)->first();
     $setupIntent = $user->createSetupIntent();
@@ -698,6 +702,7 @@ public function add_payment_once(Request $request)
             'design'=>$design,
             'paymentMethod'=>$paymentMethod,
             'filteredPaymentMethods'=>$filteredPaymentMethods,
+            'buyer'=>$buyer,
         ]);
 }
 //非ユーザーの場合のカートからの支払い
@@ -1661,14 +1666,14 @@ if ($user->stripe_id) {
         ];
 
         if ($pends->isEmpty()) {
-            $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',3)->orderBy('created_at', 'desc')->get();
+            $downloads=Download::where('email','=',$buyer->email)->where('payment_status','=',3)->orderBy('created_at', 'desc')->get();
         }else{
             if ($hasStatus3 && !$hasStatus6) {
-                $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',6)->orderBy('created_at', 'desc')->get();
+                $downloads=Download::where('email','=',$buyer->email)->where('payment_status','=',6)->orderBy('created_at', 'desc')->get();
             } elseif ($hasStatus6 && !$hasStatus3) {
-                $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',3)->orderBy('created_at', 'desc')->get();
+                $downloads=Download::where('email','=',$buyer->email)->where('payment_status','=',3)->orderBy('created_at', 'desc')->get();
             }else{
-                $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',10)->orderBy('created_at', 'desc')->get();
+                $downloads=Download::where('email','=',$buyer->email)->where('payment_status','=',10)->orderBy('created_at', 'desc')->get();
             }
         }
         //入金確認後のメールに添付する領収書を受け取っておく
@@ -1844,9 +1849,248 @@ if ($user->stripe_id) {
                 // デフォルトの支払い方法が見つからない場合、エラー処理を行うか、適切な処理を行う
                 return back()->with('error', 'デフォルトの支払い方法が見つかりませんでした。');
             }
-
-        
-
     }
 }
-}
+    //プリペイド残高利用(一回購入)
+    public function prepaid_submit(Request $request,$id){
+        $design=Design::where('id','=',$id)->first();
+        // ログインユーザーを$buyerとする
+        $user = Auth::user();
+        $buyer=Buyer::where('email','=',$user->email)->first();
+        $total=$design->price;
+        //残高から金額を差し引く
+        $buyer->update([
+            'balance' => (int)$buyer->balance - (int)$total,
+        ]);
+        //DLか現物かの分岐
+        $original=$design->original;
+        if($original==0){
+            $download=new Download();
+            $download->artist_id=$design->artist_id;
+            $download->design_id=$design->id;
+            $download->user_id=$user->id;
+            $download->price=$design->price;
+            $download->designName=$design->name;
+            $download->name=$request->name;
+            $download->payment_status=1;
+            $download->email=$user->email;
+            $download->save();
+            $total=$download->price;
+            //pdf作成
+            $pdf = \PDF::loadView('design.pdf', compact('total','download'));
+            // 一回での支払い完了メール送信
+            $email = $user->email;
+            \Mail::to($user['email'])->send(new DownloadMail($user, $total, $pdf, $email));
+          // 処理後に'ルート設定'にページ移行
+            return view('design/receipt',[
+            'email'=>$email,
+        ]);
+        }else{
+            $download=new Download();
+            $download->artist_id=$design->artist_id;
+            $download->design_id=$design->id;
+            $download->user_id=$user->id;
+            $download->price=$design->price;
+            $download->designName=$design->name;
+            $download->name=$request->name;
+            $download->payment_status=1;
+            $download->email=$user->email;
+             // 現物購入と示す
+            $download->download_status = 10;
+            $download->save();
+
+            $total=$download->price;
+
+            //pdf作成→メール送信
+            $pdf = \PDF::loadView('design.pdf2', compact('total','download','buyer'));
+            // 一回での支払い完了メール送信
+            $email = $user->email;
+            \Mail::to($user['email'])->send(new AddressMail($user, $total, $pdf, $email));
+            $date = Carbon::today()->addWeek();
+            \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+            $ship=new Ship();
+            $ship->design_id=$design->id;
+            $ship->postal=$buyer->postal;
+            $ship->address=$buyer->address;
+            $ship->name=$buyer->name;
+            $ship->tel=$buyer->tel;
+            $ship->order_email=$buyer->email;
+            $ship->order=true;
+            $ship->ship=true;
+            $ship->paid=true;
+            $ship->due_date=$date;
+            $ship->save();
+            //表示を販売済みに変更する
+            $design->update([
+                'original'=>3,
+            ]);
+            // 処理後に'ルート設定'にページ移行
+            return view('design/receipt_address',[
+                'email'=>$email,
+            ]);
+
+        }
+    }
+    //プリペイド残高利用
+    public function prepaid_submit_cart(Request $request,$id){
+
+        $user = Auth::user();
+        $buyer=Buyer::where('email','=',$user->email)->first();
+        $total=$id;
+        //残高から金額を差し引く
+        $buyer->update([
+            'balance' => (int)$buyer->balance - (int)$total,
+        ]);
+        // 支払いが成功した場合の処理
+        $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=','0')->get();
+        foreach($downloads as $download){
+            //payment_statusの変更0->1
+            $download->payment_status = 1;
+            $download->name = $request->name;
+            $download->save();
+            $design =Design::where('id','=',$download->design_id)->first();
+            if ($design) {
+                // デザインを配列に追加
+                $designs[] = $design;
+            }
+            //ダウンロード購入があったら$to_downloadsに入れる
+            $to_download = Design::where('id','=',$download->design_id)->where('original','=','0')->first();
+                if ($to_download){
+                $to_downloads[]=$to_download;
+                }
+        }
+        //支払が今行われたものでダウンロードがまだ起きていないもの
+            $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=','1')->where('download_status','=','0') ->get();
+        // 追加されたデザインの中で original が 1 または 0 であるものをチェック
+            $hasOriginalOne = false;
+            $hasOriginalZero = false;
+
+            foreach ($designs as $design) {
+                if ($design->original == 1) {
+                    $hasOriginalOne = true;
+                }
+                if ($design->original == 0) {
+                    $hasOriginalZero = true;
+                }
+            }
+        // 分岐処理（現物とDL)
+            if ($hasOriginalOne && $hasOriginalZero) {
+                //現物販売のもののdownload_statusを更新する
+            
+            $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
+            //現物なら
+            foreach($downloads as $download){
+                $design =Design::where('id','=',$download->design_id)->first();
+                if ($design->original == 1) { 
+                    $download->update([
+                        'download_status'=>10,
+                    ]);
+                }
+            }
+            $email = $user->email;
+            \Mail::to($email)->send(new AddressUnMail($email,$total,$pdf));
+            $date = Carbon::today()->addWeek();
+            foreach($designs as $design){
+                if($design->original==1){
+                \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                $ship=new Ship();
+                $ship->design_id=$design->id;
+                $ship->postal=$buyer->postal;
+                $ship->address=$buyer->address;
+                $ship->name=$buyer->name;
+                $ship->tel=$buyer->tel;
+                $ship->order_email=$buyer->email;
+                $ship->order=true;
+                $ship->ship=true;
+                $ship->paid=true;
+                $ship->due_date=$date;
+                $ship->save();
+                //表示を販売済みに変更する
+                $design->update([
+                    'original'=>3,
+                ]);
+
+                    }
+                }
+                return view('design/receipt_mix',[
+                    'user'=>$user,
+                    'email'=>$email,
+                ]);
+                //現物のみ
+            } elseif ($hasOriginalOne) {
+                //領収書作成→メール送信
+                $pdf = \PDF::loadView('design.pdf2', compact('total','downloads','buyer'));
+                foreach($downloads as $download){
+                    $download->update([
+                        'download_status'=>10,
+                    ]);
+                }
+                $email = $user->email;
+                \Mail::to($email)->send(new AddressMail($user, $total, $pdf, $email)); // 引数の順番を確認
+                $date = Carbon::today()->addWeek();
+                foreach($designs as $design){
+                    \Mail::to($design->email)->send(new ShipMail($design,$buyer,$date));
+                    $ship=new Ship();
+                    $ship->design_id=$design->id;
+                    $ship->postal=$buyer->postal;
+                    $ship->address=$buyer->address;
+                    $ship->name=$buyer->name;
+                    $ship->tel=$buyer->tel;
+                    $ship->order_email=$buyer->email;
+                    $ship->order=true;
+                    $ship->paid=true;
+                    $ship->ship=true;
+                    $ship->due_date=$date;
+                    $ship->save();
+                //表示を販売済みに変更する
+                $design->update([
+                    'original'=>3,
+                ]);
+            }
+
+                return view('design/receipt_address',[
+                    'user'=>$user,
+                    'email'=>$email,
+                ]);
+            // DLのみ
+            } elseif ($hasOriginalZero) {
+                //pdf作成
+                $pdf = \PDF::loadView('design.pdf', compact('total','downloads'));
+                $email = $user->email;
+                \Mail::to($user['email'])->send(new DownloadMail($user,$total, $pdf,$email));  
+                return view('design/receipt',[
+                    'user'=>$user,
+                    'email'=>$email,
+                ]);
+                }
+            //カートを空にする
+
+
+            return view('design/receipt',[
+                'user'=>$user,
+                'email'=>$email,
+            ]);
+        }
+    //プリペイド登録作業
+    public function prepaid_add(Request $request){
+        $user = Auth::user();
+        $buyer=Buyer::where('email','=',$user->email)->first();
+        $total=$id;
+        //登録を確認
+        $code=$request->code;
+        $prepaid=Prepaid::where('code','=',$code)->first();
+        if (!$prepaid) {
+            // レコードが見つからなかった場合の処理
+            // 例: エラーメッセージを返す
+            return response()->json(['error' => '認証コードを確認して下さい。'], 404);
+        }else{
+            $buyer->update([
+                'balance' => (int)$buyer->balance + (int)$prepaid->price,
+            ]);
+
+            return view('design/prepaid_add',compact('user','buyer'));
+
+        }
+    }
+
+    }
