@@ -22,15 +22,6 @@
                 this.innerHTML = '処理中...';
 
             });
-            document.getElementById('bank-button').addEventListener('click', function() {
-                    document.getElementById('credit-card-form').style.display = 'none';
-                    document.getElementById('bank-info').style.display = 'block';
-                });
-
-                document.getElementById('credit-button').addEventListener('click', function() {
-                    document.getElementById('credit-card-form').style.display = 'block';
-                    document.getElementById('bank-info').style.display = 'none';
-                });
             });
     </script>
 </header>
@@ -60,7 +51,6 @@
                     <input type="tel" id="tel" name="tel" value="{{ $buyer->tel}}" required>
                 </div>
         </div>
-     
         @else
             <form method="GET" action="{{ route('buyer_address_cart',['id'=> $total]) }}">
             <button type="submit" id="address-button" >
@@ -72,45 +62,80 @@
 <div class="try">
             <button class="btn btn-primary" id="bank-button">銀行振込を選択</button>
             <button class="btn btn-primary" id="credit-button">クレジットカードを選択</button>
+            <button class="btn btn-primary" id="prepaid-button">プリペイド残高を使う</button>
+            <button class="btn btn-primary" id="prepaid-add">プリペイドを登録する</button>
+            <h5>プリペイドを登録した方はページを更新して下さい。残高が更新されます。</h5>
             <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
 </div>
+<div id="prepaid-purchase-form" >
+    <h4>あなたの残高:{{$buyer->balance}}円</h4>
+    <a href="{{ route('prepaid') }}" target="_blank">プリペイド購入ページへ移動（新しいウインドウで開きます）</a>
+</div>
 <div class="card_container py-3">
-    {{-- フォーム部分 --}}
-    <form action="{{route('post_cart')}}" method="post" id="payment-form">
-        @csrf
-        <div id="credit-card-form" style="display:none;">
-
-            <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
-            <input type="text" class="form-control" id="card-holder-name" name="name" required>
-            <label for="exampleInputPassword1"></label>
-            <div class="form-group MyCardElement " id="card-element"></div>
-            <div id="card-errors" role="alert" style='color:red'></div>
-            <div class="pay-button">
-                <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
-            </div>
-            <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
-            お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
-
-            <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
-            何かご不明点がありましたら、お気軽にお問い合わせください。</p>
-            </form>
-        </div>
-        <div id="bank-info" style="display:none;">
-            <form action="{{route('bank_submit',['id'=> $total])}}" method="post" id="payment-form">
+    <div id="credit-card-form" style="display:none;">
+        <form action="{{route('post_cart')}}" method="post" id="payment-form">
             @csrf
+                <label for="exampleInputEmail1">お名前(クレジットカード上と同じ<span>ローマ字表記</span>でお願いします。)</label>
+                <input type="text" class="form-control" id="card-holder-name" name="name" required>
+                <label for="exampleInputPassword1"></label>
+                <div class="form-group MyCardElement " id="card-element"></div>
+                <div id="card-errors" role="alert" style='color:red'></div>
+                <div class="pay-button">
+                    <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">購入する</button>
+                </div>
+                <p>当サイトでは、支払いにStripeを使用しています。Stripeは世界的に信頼される決済プラットフォームで、高度なセキュリティ対策が施されています。
+                お客様の個人情報やクレジットカード情報は、最先端の暗号化技術によって保護されています。</p>
 
-                <p>振込口座名 llco 竹内 貴代</p>
-                <p>銀行名 楽天銀行</p>
-                <p>支店名 ポルカ</p>
-                <p>口座種類 普通</p>
-                <p>口座番号 5014182</p>
-                <p>（恐れ入りますが振込手数料はお客様の負担でお願いいたします）</p>
-                <p>振込金額{{$total}}円</p>
+                <p>安心してお買い物をお楽しみください。Stripeを通じた支払いは、迅速かつ安全に処理され、お客様のプライバシーを最大限に守ります。
+                何かご不明点がありましたら、お気軽にお問い合わせください。</p>
+        </form>
+    </div>
+    <div id="bank-info" style="display:none;">
+        <form action="{{route('bank_submit',['id'=> $total])}}" method="post" id="payment-form">
+        @csrf
+
+            <p>振込口座名 llco 竹内 貴代</p>
+            <p>銀行名 楽天銀行</p>
+            <p>支店名 ポルカ</p>
+            <p>口座種類 普通</p>
+            <p>口座番号 5014182</p>
+            <p>（恐れ入りますが振込手数料はお客様の負担でお願いいたします）</p>
+            <p>振込金額{{$total}}円</p>
+        <button type="submit" name="action" style="background-color:antiquewhite; border:1.6px orange solid; padding:8px;color:red;">
+            購入するため、振込情報を送信する
+        </button>
+        </form>
+    </div>
+    <div id="prepaid-use-form" style="display:none;">
+        <h4>あなたの残高:{{$buyer->balance}}円</h4>
+            <form action="{{route('prepaid_submit_cart',['id'=> $total])}}" method="post" id="payment-form">
+            @csrf
+            @if($total <= $buyer->balance)
             <button type="submit" name="action" style="background-color:antiquewhite; border:1.6px orange solid; padding:8px;color:red;">
-                購入するため、振込情報を送信する
+            プリペイド残高で支払う
             </button>
+            @else
+            残高不足です。<a href="{{ route('prepaid') }}" target="_blank">プリペイド購入ページへ移動（新しいウインドウで開きます）</a>
+            @endif
             </form>
-        </div>
+    </div>
+    <div id="prepaid-add-form" style="display:none;">
+        <h4>あなたの残高:{{$buyer->balance}}円</h4>
+        <form action="{{route('prepaid_add')}}" method="post" id="payment-form">
+        @csrf
+            <label for="code">プリペイド認証コード</label>
+                <input type="text" class="form-control" id="code" name="code" required>
+                @error('code')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            <button type="submit" name="action" style="background-color:antiquewhite; border:1.6px orange solid; padding:8px;color:red;">
+            プリペイドを登録する
+            </button>
+            <h5>プリペイドを登録した方はページを更新して下さい。残高が更新されます。</h5>
+        </form>
+    </div>
         <table>
             <thead>
                 <tr>
@@ -217,6 +242,29 @@
         form.submit();
     }
 </script>
+<script>
+    function showSection(selectedId) {
+        const sections = ['credit-card-form', 'bank-info', 'prepaid-use-form', 'prepaid-purchase-form', 'prepaid-add-form'];
+        sections.forEach(function(id) {
+            document.getElementById(id).style.display = id === selectedId ? 'block' : 'none';
+        });
+    }
 
+    document.getElementById('bank-button').addEventListener('click', function() {
+        showSection('bank-info');
+    });
+
+    document.getElementById('credit-button').addEventListener('click', function() {
+        showSection('credit-card-form');
+    });
+
+    document.getElementById('prepaid-button').addEventListener('click', function() {
+        showSection('prepaid-use-form');
+    });
+
+    document.getElementById('prepaid-add').addEventListener('click', function() {
+        showSection('prepaid-add-form');
+    });
+</script>
 
 

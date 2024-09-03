@@ -864,12 +864,16 @@
         <a href="{{ url('/design/list') }}">障がいアートトップページに戻る</a>
     </button>
     <div>
+        <h3>プリペイド残高:{{$buyer->balance}}円</h3>
+        <a href="{{ route('prepaid')}}">プリペイド購入ページへ</a>
+        <a href="{{ route('index_cart') }}">マイカート</a>
         <p>購入履歴</p>
         @foreach($downloads as $download)
         <div class="card-body" style="display: flex; justify-content: space-between; background-color:lightyellow;margin:8px auto; border:1px solid yellow;">
-            <p>作品名</p>
+            <p style="font-weight:bold;">{{ $download->created_at->format('Y年m月d日') }}</p>            
+            <p class="hide-on-mobile">作品名</p>
             <p style="font-weight:bold;">{{ $download->name}}</p>
-            <p>金額</p>
+            <p class="hide-on-mobile">金額</p>
             <p style="font-weight:bold;">{{ $download->price}}円</p>
             <div>
                 <img src="{{ asset('storage/' . $download->Design->image) }}" alt="image">

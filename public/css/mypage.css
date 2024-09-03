@@ -23,3 +23,8 @@ tr{
     padding:8px;
     text-align: left;
 }
+@media (max-width: 767px) { /* スマホ表示の幅を設定 */
+    .hide-on-mobile {
+        display: none;
+    }
+}

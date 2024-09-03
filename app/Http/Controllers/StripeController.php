@@ -14,6 +14,7 @@ use App\Models\Download;
 use App\Models\Artist;
 use App\Models\Buyer;
 use App\Models\Ship;
+use App\Models\Prepaid;
 use Carbon\Carbon;
 use App\Mail\RegisterMail;
 use App\Mail\DownloadMail;
@@ -33,6 +34,7 @@ use Illuminate\Support\Facades\Response;
 use Laravel\Cashier\Cashier;
 use Stripe\Customer;
 use Stripe\PaymentMethod;
+use Illuminate\Support\Str;
 
 
 class StripeController extends Controller
@@ -305,7 +307,7 @@ public function delete_cart($id)
 
     $buyer = Buyer::where('email','=', $user->email)->first();
     $downloads=Download::where('user_id','=',$user->id)->where('payment_status','=',0)->orderBy('created_at', 'desc')->get();
-    $total = Download::where('user_id', $user->id)->sum('price');
+    $total = Download::where('user_id', $user->id)->where('payment_status','=',0)->sum('price');
     $setupIntent = $user->createSetupIntent();
 
     // 現物があるか確認
@@ -1575,7 +1577,7 @@ if ($user->stripe_id) {
                     }
                 $download->designName=$design->name;
                 $download->email=$user->email;
-                $download->name = $buyer->name;
+                $download->name = $buyer ? $buyer->name : null;
                 $download->save(); 
                 //現物販売ならshipテーブルを作る
                 if($design->original==1){
@@ -2071,23 +2073,63 @@ if ($user->stripe_id) {
                 'email'=>$email,
             ]);
         }
+    //プリペイド生成ページ表示（アドミンのみ）
+    public function prepaid_create_view(Request $request){
+        $user = Auth::user();
+        if($user->role==1){
+            return view('design/prepaid_create',compact('user'));
+            }
+    }
+    //プリペイド生成ポスト（アドミンのみ）
+    public function prepaid_create(Request $request){
+        $user = Auth::user();
+        if($user->role==1){
+            $prices = $request->input('price');
+
+        // 各金額に対してUUIDとプリペイドエントリを生成
+        $prepaidCodes = [];
+        foreach ($prices as $price) {
+            $uuid = Str::uuid()->toString();
+            $prepaid=new Prepaid;
+            $prepaid->price=$price;
+            $prepaid->uuid=$uuid;
+            $prepaid->save();
+            }
+            $codes=Prepaid::orderBy('created_at', 'desc')->get();
+
+            return view('design/prepaid_list',compact('user','codes'));
+        }
+    }
+    //プリペイドカード一覧表表示
+    public function prepaid_list(Request $request){
+        $user = Auth::user();
+        if($user->role==1){
+            $codes=Prepaid::orderBy('created_at', 'desc')->get();
+            return view('design/prepaid_list',compact('codes'));
+        }
+    }
     //プリペイド登録作業
     public function prepaid_add(Request $request){
         $user = Auth::user();
         $buyer=Buyer::where('email','=',$user->email)->first();
-        $total=$id;
         //登録を確認
         $code=$request->code;
-        $prepaid=Prepaid::where('code','=',$code)->first();
+        $prepaid=Prepaid::where('uuid','=',$code)->first();
         if (!$prepaid) {
             // レコードが見つからなかった場合の処理
             // 例: エラーメッセージを返す
-            return response()->json(['error' => '認証コードを確認して下さい。'], 404);
+            return response()->make('コードを確認して下さい。', 404)
+            ->header('Content-Type', 'text/plain; charset=UTF-8');        
+        }elseif($prepaid->valid==1){
+            return response()->make('利用済みです', 404)
+            ->header('Content-Type', 'text/plain; charset=UTF-8');           
         }else{
             $buyer->update([
                 'balance' => (int)$buyer->balance + (int)$prepaid->price,
             ]);
-
+            $prepaid->update([
+                'valid'=>'1',
+            ]);
             return view('design/prepaid_add',compact('user','buyer'));
 
         }

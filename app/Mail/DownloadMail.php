@@ -55,6 +55,12 @@ class DownloadMail extends Mailable
             'as' => 'design.pdf',
             'mime' => 'application/pdf',
         ]);
+        // メール送信後に一時ファイルを削除
+    register_shutdown_function(function () use ($tempFilePath) {
+        unlink($tempFilePath);
+    });
+
+    return $email;
     }
     /**
      * Get the message envelope.

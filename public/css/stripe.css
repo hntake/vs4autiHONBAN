@@ -256,6 +256,10 @@ td{
 #bank-info{
   padding:24px;
 }
+#prepaid-purchase-form{
+  padding:24px;
+  background-color: #a2c5ef;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     .MyCardElement{

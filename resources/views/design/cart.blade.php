@@ -23,15 +23,6 @@
                 this.innerHTML = '処理中...';
 
             });
-            document.getElementById('bank-button').addEventListener('click', function() {
-                    document.getElementById('credit-card-form').style.display = 'none';
-                    document.getElementById('bank-info').style.display = 'block';
-                });
-
-                document.getElementById('credit-button').addEventListener('click', function() {
-                    document.getElementById('credit-card-form').style.display = 'block';
-                    document.getElementById('bank-info').style.display = 'none';
-                });
             });
     </script>
 </header>
@@ -70,6 +61,18 @@
         @endif
         <!-- ダウンロードのみの場合 -->
     @endif
+    <div id="prepaid-purchase-form" >
+        <h4>あなたの残高:{{$buyer->balance}}円</h4>
+        <a href="{{ route('prepaid') }}" target="_blank">プリペイド購入ページへ移動（新しいウインドウで開きます）</a>
+    </div>
+    <div class="try">
+        <button class="btn btn-primary" id="bank-button">銀行振込を選択</button>
+        <button class="btn btn-primary" id="credit-button">クレジットカードを選択</button>
+        <button class="btn btn-primary" id="prepaid-button">プリペイド残高を使う</button>
+        <button class="btn btn-primary" id="prepaid-add">プリペイドを登録する</button>
+        <h5>プリペイドを登録した方はページを更新して下さい。残高が更新されます。</h5>
+        <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
+    </div>
 <div class="card_container py-3">
     {{-- フォーム部分 --}}
     <form action="{{route('post_cart')}}" method="post" id="payment-form">
@@ -119,6 +122,36 @@
             </button>
             </form>
     </div>
+    <div id="prepaid-use-form" style="display:none;">
+        <h4>あなたの残高:{{$buyer->balance}}円</h4>
+            <form action="{{route('prepaid_submit_cart',['id'=> $total])}}" method="post" id="payment-form">
+            @csrf
+            @if($total <= $buyer->balance)
+            <button type="submit" name="action" style="background-color:antiquewhite; border:1.6px orange solid; padding:8px;color:red;">
+            プリペイド残高で支払う
+            </button>
+            @else
+            残高不足です。<a href="{{ route('prepaid') }}" target="_blank">プリペイド購入ページへ移動（新しいウインドウで開きます）</a>
+            @endif
+            </form>
+    </div>
+    <div id="prepaid-add-form" style="display:none;">
+        <h4>あなたの残高:{{$buyer->balance}}円</h4>
+        <form action="{{route('prepaid_add')}}" method="post" id="payment-form">
+        @csrf
+            <label for="code">プリペイド認証コード</label>
+                <input type="text" class="form-control" id="code" name="code" required>
+                @error('code')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            <button type="submit" name="action" style="background-color:antiquewhite; border:1.6px orange solid; padding:8px;color:red;">
+            プリペイドを登録する
+            </button>
+            <h5>プリペイドを登録した方はページを更新して下さい。残高が更新されます。</h5>
+        </form>
+    </div>
         <table>
             <thead>
                 <tr>
@@ -141,11 +174,6 @@
         </table>   
                 <label for="price">合計金額  {{$total}}円</label>
                 <div class="list-button"><a href="{{ route('empty_cart') }}">カートを空にする</a></div>
-                <div class="try">
-                    <button class="btn btn-primary" id="bank-button">銀行振込を選択</button>
-                    <button class="btn btn-primary" id="credit-button">クレジットカードを選択</button>
-                    <button class="btn btn-primary" id="cancel-button"><a href="{{ url('design/list') }}">キャンセルする</a></button>
-                </div>
     
     @else
     <div style="text-align:center;">
@@ -255,6 +283,29 @@ stripePaymentHandler(setupIntent, paymentMethod);
                 }
     }//init
 </script>
+<script>
+    function showSection(selectedId) {
+        const sections = ['credit-card-form', 'bank-info', 'prepaid-use-form', 'prepaid-purchase-form', 'prepaid-add-form'];
+        sections.forEach(function(id) {
+            document.getElementById(id).style.display = id === selectedId ? 'block' : 'none';
+        });
+    }
 
+    document.getElementById('bank-button').addEventListener('click', function() {
+        showSection('bank-info');
+    });
+
+    document.getElementById('credit-button').addEventListener('click', function() {
+        showSection('credit-card-form');
+    });
+
+    document.getElementById('prepaid-button').addEventListener('click', function() {
+        showSection('prepaid-use-form');
+    });
+
+    document.getElementById('prepaid-add').addEventListener('click', function() {
+        showSection('prepaid-add-form');
+    });
+</script>
 
 

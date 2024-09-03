@@ -1257,7 +1257,7 @@ public function executeDownload()
     //バッジ売り上げ報告ページへ
     public function badge(){
         $user=Auth::user();
-        if($user->role==10){
+        if($user->role==1){
             return view('design/badge');
         }
     }
@@ -1392,7 +1392,8 @@ public function executeDownload()
             $user=Auth::user();
 
             if($user){
-                $buyer=Buyer::where('id','=',$user->email)->first();
+                $buyer=Buyer::where('email','=',$user->email)->first();
+
                 //登録されてない場合
                 if (!$buyer) {
                     $buyer=new Buyer();
@@ -1410,7 +1411,6 @@ public function executeDownload()
                         'postal'=>$request->postal,
                     ]);
                 }
-
                 $setupIntent = $user->createSetupIntent();
                 \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
                 if ($user->stripe_id) {
@@ -1511,7 +1511,7 @@ public function executeDownload()
             $user=Auth::user();
 
             if($user){
-                $buyer=Buyer::where('id','=',$user->email)->first();
+                $buyer=Buyer::where('email','=',$user->email)->first();
                 //登録されてない場合
                 if (!$buyer) {
                     $buyer=new Buyer();

@@ -39,7 +39,9 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 
-
+Route::get('/info', function () {
+    return view('info');
+});
 Route::get('/policy', function () {
     return view('policy');
 });
@@ -661,7 +663,21 @@ Route::post('design/prepaid_new', [App\Http\Controllers\StripeController::class,
 Route::get('design/prepaid_repeat', [App\Http\Controllers\StripeController::class, 'prepaid_repeat'])->name('prepaid_repeat');
 Route::post('design/prepaid_repeat', [App\Http\Controllers\StripeController::class, 'prepaid_repeat_purchase'])->name('prepaid_repeat_purchase');
 Route::post('design/prepaid', [App\Http\Controllers\StripeController::class, 'prepaid_bank'])->name('prepaid_bank');
-
+//支払いページでのプリペイド関連
+Route::post('design/prepaid_submit/{id}', [App\Http\Controllers\StripeController::class, 'prepaid_submit'])->name('prepaid_submit');
+Route::post('design/prepaid_submit_cart/{id}', [App\Http\Controllers\StripeController::class, 'prepaid_submit_cart'])->name('prepaid_submit_cart');
+//プリペイド登録後表示画面
+Route::get('design/prepaid_add',  function () {
+    return view('design/complete');
+});
+//プリペイド登録ポスト
+Route::post('design/prepaid_add', [App\Http\Controllers\StripeController::class, 'prepaid_add'])->name('prepaid_add');
+//プリペイド登録ポスト
+Route::get('design/prepaid_create', [App\Http\Controllers\StripeController::class, 'prepaid_create_view'])->name('prepaid_create_view');
+//プリペイド登録ポスト
+Route::post('design/prepaid_create', [App\Http\Controllers\StripeController::class, 'prepaid_create'])->name('prepaid_create');
+//プリペイドカード一覧表示
+Route::get('design/prepaid_list', [App\Http\Controllers\StripeController::class, 'prepaid_list'])->name('prepaid_list');
 
 //アーティストページ内並び替え
 Route::get('artist/sort/{id}', [App\Http\Controllers\DesignController::class, 'sort'])->name('design_sort');
