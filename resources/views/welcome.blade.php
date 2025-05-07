@@ -456,7 +456,7 @@
                         <div class="banner">
                             <a target="_blank" href="{{ route('design_list') }}"><img src="img/design_top_icon.png" alt="障がい者アート普及サイト" ></a>
                             <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="絵カード ヘアカットスケジュール" ></a>
-                            <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="コミュニケーション障害 マイリク" ></a>
+                            <!-- <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="コミュニケーション障害 マイリク" ></a> -->
                             <a target="_blank" href=https://itcha50.com/bbs/list><img src="img/bbs_ad2.png" alt="自閉症発達障害向け掲示板" ></a>
                             <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="エイゴメ" ></a>
                         </div> 
@@ -507,7 +507,7 @@
                             <div class="sm-banner">
                                 <a target="_blank" href="{{ route('design_list') }}"><img src="img/design_top_icon.png" alt="障がい者アート普及サイト" ></a>
                                 <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.hair_cut><img src="img/hair_banner.png" alt="絵カード ヘアカットスケジュール" ></a>
-                                <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="コミュニケーション障害 マイリク" ></a>
+                                <!-- <a target="_blank" href=https://play.google.com/store/apps/details?id=com.llco.my_request><img src="img/request_banner.png" alt="コミュニケーション障害 マイリク" ></a> -->
                                 <a target="_blank" href=https://itcha50.com/bbs/list><img src="img/bbs_ad2.png" alt="自閉症発達障害向け掲示板" ></a>
                                 <a target="_blank" href=https://eng50cha.com><img src="img/banner.png" alt="英単語学習サイトエイゴメ" ></a>
                             </div> 
