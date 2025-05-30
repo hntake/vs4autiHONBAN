@@ -3,14 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
-    <script src="according.js"></script>
+    <title>FAQ "VS4視覚支援ツール”</title>
 </head>
-<title>FAQ "VS4視覚支援ツール”</title>
 
 <body>
     <h1 style="margin: 30px 0; text-align: center;">FAQ</h1>
@@ -19,10 +16,10 @@
         <ul>
             <li><a href="#index1">登録について</a></li>
             <li><a href="#index2">ログインについて</a></li>
-            <li><a href="#index2">お守りバッジについて</a></li>
-            <li><a href="#index3">スケジュールについて</a></li>
-            <li><a href="#index4">アカウント情報</a></li>
-            <li><a href="#index5">支払いについて</a></li>
+            <li><a href="#index3">お守りバッジについて</a></li>
+            <li><a href="#index4">スケジュールについて</a></li>
+            <li><a href="#index5">アカウント情報</a></li>
+            <li><a href="#index6">支払いについて</a></li>
         </ul>
     </div>
     <h2><a id="index1">登録について</a></h2>
@@ -63,7 +60,7 @@
                 </div>
             </section>
         </li>
-        <h2><a id="index2">お守りバッジについて</a></h2>
+        <h2><a id="index3">お守りバッジについて</a></h2>
         <li>
             <section>
                 <h2 class="title">Q.登録情報を変更したい</h2>
@@ -100,7 +97,7 @@
                 </div>
             </section>
         </li>
-        <h2><a id="index3">スケジュールについて</a></h2>
+        <h2><a id="index4">スケジュールについて</a></h2>
         <li>
             <section>
                 <h2 class="title">Q.自分の作ったスケジュールはどこにある？</h2>
@@ -117,7 +114,7 @@
                 </div>
             </section>
         </li>
-        <h2><a id="index4">アカウント情報</a></h2>
+        <h2><a id="index5">アカウント情報</a></h2>
         <li>
             <section>
                 <h2 class="title">Q.自分の情報を一部残して、他は削除したい</h2>
@@ -148,7 +145,7 @@
                 </div>
             </section>
         </li>
-        <h2><a id="index5">支払いについて</a></h2>
+        <h2><a id="index6">支払いについて</a></h2>
         <li>
             <section>
                 <h2 class="title">Q.支払い情報を見たい</h2>
@@ -182,6 +179,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-2-1/js/9-2-1.js"></script>
-    <script src="according.js"></script>
     <a href="#" class="gotop">トップへ</a>
+    <script src="{{ asset('js/according.js') }}"></script>
 </body>
